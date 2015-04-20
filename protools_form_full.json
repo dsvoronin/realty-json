@@ -11,14 +11,14 @@
     "type": "FIAS_REGION",
     "required": true,
     "visible": true,
-    "map": "region"
+    "alias": "region"
   },
   {
     "title": "Тип объявления",
+    "alias": "isSell",
     "type": "LIST",
     "data": {
       "singleOf": {
-        "param": "isSell",
         "source": [
           {
             "title": "Продажа",
@@ -39,122 +39,122 @@
   {
     "title": "Тип недвижимости",
     "type": "GROUPED_LIST",
-    "map": "objectType",
+    "alias": "objectType",
     "data": {
       "singleOf": {
         "param": "objectType",
-        "value": "objectType.value"
+        "value": "objectType.value",
+        "source": [
+          {
+            "title": "Квартира",
+            "value": "flat",
+            "group": {
+              "title": "Жилая",
+              "value": "living"
+            }
+          },
+          {
+            "title": "Комната",
+            "value": "room",
+            "group": {
+              "title": "Жилая",
+              "value": "living"
+            }
+          },
+          {
+            "title": "Дом",
+            "value": "house",
+            "group": {
+              "title": "Жилая",
+              "value": "suburban"
+            }
+          },
+          {
+            "title": "Коттедж",
+            "value": "cottage",
+            "group": {
+              "title": "Загородная",
+              "value": "suburban"
+            }
+          },
+          {
+            "title": "Таунхаус",
+            "value": "townhouse",
+            "group": {
+              "title": "Загородная",
+              "value": "suburban"
+            }
+          },
+          {
+            "title": "Дача",
+            "value": "summerHouse",
+            "group": {
+              "title": "Загородная",
+              "value": "suburban"
+            }
+          },
+          {
+            "title": "Участок",
+            "value": "land",
+            "group": {
+              "title": "Загородная",
+              "value": "land"
+            },
+            "visible-condition": {
+              "isSell.value": true
+            }
+          },
+          {
+            "title": "Магазин",
+            "value": "shop",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Отель",
+            "value": "hotel",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Офис",
+            "value": "office",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Производство",
+            "value": "manufacture",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Склад",
+            "value": "warehouse",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Свободного назначения",
+            "value": "free",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          }
+        ],
       }
     },
-    "values": [
-      {
-        "title": "Квартира",
-        "value": "flat",
-        "group": {
-          "title": "Жилая",
-          "value": "living"
-        }
-      },
-      {
-        "title": "Комната",
-        "value": "room",
-        "group": {
-          "title": "Жилая",
-          "value": "living"
-        }
-      },
-      {
-        "title": "Дом",
-        "value": "house",
-        "group": {
-          "title": "Жилая",
-          "value": "suburban"
-        }
-      },
-      {
-        "title": "Коттедж",
-        "value": "cottage",
-        "group": {
-          "title": "Загородная",
-          "value": "suburban"
-        }
-      },
-      {
-        "title": "Таунхаус",
-        "value": "townhouse",
-        "group": {
-          "title": "Загородная",
-          "value": "suburban"
-        }
-      },
-      {
-        "title": "Дача",
-        "value": "summerHouse",
-        "group": {
-          "title": "Загородная",
-          "value": "suburban"
-        }
-      },
-      {
-        "title": "Участок",
-        "value": "land",
-        "group": {
-          "title": "Загородная",
-          "value": "land"
-        },
-        "visible-condition": {
-          "isSell.value": true
-        }
-      },
-      {
-        "title": "Магазин",
-        "value": "shop",
-        "group": {
-          "title": "Коммерческая",
-          "value": "commercial"
-        }
-      },
-      {
-        "title": "Отель",
-        "value": "hotel",
-        "group": {
-          "title": "Коммерческая",
-          "value": "commercial"
-        }
-      },
-      {
-        "title": "Офис",
-        "value": "office",
-        "group": {
-          "title": "Коммерческая",
-          "value": "commercial"
-        }
-      },
-      {
-        "title": "Производство",
-        "value": "manufacture",
-        "group": {
-          "title": "Коммерческая",
-          "value": "commercial"
-        }
-      },
-      {
-        "title": "Склад",
-        "value": "warehouse",
-        "group": {
-          "title": "Коммерческая",
-          "value": "commercial"
-        }
-      },
-      {
-        "title": "Свободного назначения",
-        "value": "free",
-        "group": {
-          "title": "Коммерческая",
-          "value": "commercial"
-        }
-      }
-    ],
     "value": "flat"
   },
   {
@@ -166,13 +166,14 @@
         "value": "city.id"
       }
     },
-    "map": "city",
+    "alias": "city",
     "type": "FIAS_CITY",
     "required": true,
     "visible": true
   },
   {
     "title": "Метро",
+    "alias": "metro",
     "data": {
       "singleOf": {
         "param": "metroId",
@@ -199,6 +200,7 @@
   },
   {
     "title": "Район",
+    "alias" : "district",
     "data": {
       "singleOf": {
         "param": "districtId",
@@ -228,6 +230,7 @@
   },
   {
     "title": "Направление",
+    "alias":"direction",
     "data": {
       "singleOf": {
         "param": "directionId",
@@ -269,10 +272,11 @@
     "required-condition": {
       "isNew.value": false
     },
-    "map": "street"
+    "alias": "street"
   },
   {
     "title": "Дом",
+    "alias":"building",
     "data": {
       "singleOf": {
         "param": "buildingId",
@@ -288,6 +292,7 @@
   },
   {
     "title": "Дом",
+    "type": "CUSTOM_HOUSE",
     "required": true,
     "visible": true,
     "visible-condition": {
@@ -309,6 +314,7 @@
   {
     "title": "Цена",
     "type": "PRICE",
+    "alias":"pricing",
     "data": {
       "price": {
         "param": "price"
@@ -335,11 +341,12 @@
       }
     },
     "required": true,
-    "vis  ible": true
+    "visible": true
   },
   {
     "title": "Тип сделки",
     "type": "LIST",
+    "alias":"dealType",
     "data": {
       "singleOf": {
         "param": "isFreeDeal",
@@ -373,6 +380,7 @@
   },
   {
     "title": "Тип аренды",
+    "alias":"pricePeriod",
     "type": "LIST",
     "data": {
       "singleOf": {
@@ -453,6 +461,7 @@
   },
   {
     "title": "Расстояние до города, км.",
+    "param":"distanceToCity",
     "type": "decimal",
     "visible-condition": {
       "objectType.value": {
@@ -468,6 +477,7 @@
   },
   {
     "title": "Тип участка",
+    "alias":"landType",
     "type": "LIST",
     "data": {
       "singleOf": {
@@ -495,6 +505,7 @@
   },
   {
     "title": "Материал стен",
+    "alias":"buildingMaterial",
     "type": "LIST",
     "data": {
       "singleOf": {
@@ -590,6 +601,7 @@
   {
     "title": "Тип",
     "type": "LIST",
+    "alias":"isNew",
     "data": {
       "singleOf": {
         "param": "isNew",
@@ -620,6 +632,7 @@
   },
   {
     "title": "Этап строительства",
+    "alias":"isReady",
     "type": "LIST",
     "data": {
       "singleOf": {
@@ -650,7 +663,12 @@
   },
   {
     "title": "Срок сдачи (год)",
-    "param": "readyDateYear",
+    "alias": "readyDateYear",
+    "data":{
+      "singleOf": {
+        "param": "readyDateYear"
+      }
+    },
     "type": "year",
     "required": true,
     "visible-condition": {
@@ -666,7 +684,12 @@
   },
   {
     "title": "Срок сдачи (квартал)",
-    "param": "readyDateQuarter",
+    "alias": "readyDateQuarter",
+    "data":{
+      "singleOf": {
+        "param": "readyDateQuarter"
+      }
+    },
     "type": "quarter",
     "required": true,
     "visible-condition": {
@@ -682,6 +705,7 @@
   },
   {
     "title": "Класс здания",
+    "alias":"buildingClass",
     "type": "LIST",
     "data": {
       "singleOf": {
@@ -718,7 +742,12 @@
   },
   {
     "title": "Этаж",
-    "param": "objectFloor",
+    "alias": "objectFloor",
+    "data":{
+      "singleOf": {
+        "param": "objectFloor"
+      }
+    },
     "type": "number",
     "required-condition": {
       "objectType.group.value": "living"
@@ -736,7 +765,12 @@
   },
   {
     "title": "Этажность",
-    "param": "floorsTotal",
+    "alias": "floorsTotal",
+    "data":{
+      "singleOf": {
+        "param": "floorsTotal"
+      }
+    },
     "type": "number",
     "required-condition": {
       "objectType.group.value": {
@@ -771,7 +805,12 @@
   },
   {
     "title": "Число собственников",
-    "param": "ownersTotal",
+    "alias": "ownersTotal",
+    "data":{
+      "singleOf": {
+        "param": "ownersTotal"
+      }
+    },
     "type": "number",
     "required": true,
     "visible-condition": {
@@ -791,6 +830,7 @@
   {
     "title": "Комнат",
     "type": "LIST",
+    "alias":"roomsTotal",
     "data": {
       "singleOf": {
         "param": "roomsTotal",
@@ -846,7 +886,12 @@
   },
   {
     "title": "Комнат",
-    "param": "roomsTotal",
+    "alias": "roomsTotal",
+    "data":{
+      "singleOf": {
+        "param": "roomsTotal"
+      }
+    },
     "type": "integer",
     "required": false,
     "visible-condition": {
@@ -855,6 +900,7 @@
   },
   {
     "title": "Комнат в аренду",
+    "alias":"roomsTotal",
     "type": "LIST",
     "data": {
       "singleOf": {
@@ -948,6 +994,7 @@
   {
     "title": "Комнат на продажу",
     "type": "LIST",
+    "alias":"roomsTotal",
     "data": {
       "singleOf": {
         "param": "roomsTotal",
@@ -1040,8 +1087,9 @@
   {
     "title": "Свободная планировка",
     "type": "BOOLEAN",
+    "alias":"isOpenPlan",
     "data": {
-      "bool": {
+      "singleOf": {
         "param": "isOpenPlan",
         "default": false,
         "required": true
@@ -1065,7 +1113,12 @@
   },
   {
     "title": "Площадь жилая",
-    "param": "livingSpace",
+    "alias": "livingSpace",
+    "data":{
+      "singleOf": {
+        "param": "livingSpace"
+      }
+    },
     "type": "decimal",
     "required": true,
     "visible-condition": {
@@ -1079,7 +1132,12 @@
   },
   {
     "title": "Площадь кухни",
-    "param": "kitchenSpace",
+    "alias": "kitchenSpace",
+    "data":{
+    "singleOf": {
+      "param": "kitchenSpace"
+     }
+  },
     "type": "decimal",
     "required": true,
     "visible-condition": {
@@ -1093,7 +1151,12 @@
   },
   {
     "title": "Площадь общая",
-    "param": "totalSpace",
+    "alias": "totalSpace",
+    "data":{
+    "singleOf": {
+      "param": "totalSpace"
+     }
+  },
     "type": "decimal",
     "required": true,
     "visible-condition": {
@@ -1108,7 +1171,12 @@
   },
   {
     "title": "Площадь на продажу",
-    "param": "offeredSpace",
+    "alias": "offeredSpace",
+    "data":{
+    "singleOf": {
+      "param": "offeredSpace"
+     }
+  },
     "type": "decimal",
     "required": true,
     "visible-condition": {
@@ -1124,7 +1192,12 @@
   },
   {
     "title": "Площадь в аренду",
-    "param": "offeredSpace",
+    "alias": "offeredSpace",
+    "data":{
+    "singleOf": {
+      "param": "offeredSpace"
+     }
+    },
     "type": "decimal",
     "required": true,
     "visible-condition": {
@@ -1141,12 +1214,13 @@
   {
     "title": "Площадь участка",
     "type": "decimalUnits",
-    "param": {
+    "alias":"landSpace",
+    "data": {
       "amount": {
-        "param": "landSpace"
+        "param": "spaceAmount"
       },
       "unit": {
-        "param": "landSpaceUnit",
+        "param": "spaceUnit",
         "source": [
           {
             "title": "соток",
@@ -1175,22 +1249,33 @@
   },
   {
     "title": "Фотографии",
-    "param": "photos",
+    "alias": "photos",
+    "data":{
+      "singleOf": {
+        "param": "photos"
+       }
+    },
     "type": "images",
     "required": true,
     "visible": true
   },
   {
     "title": "Планировка",
-    "param": "planningImages",
+    "alias": "planningImages",
+    "data":{
+      "singleOf": {
+        "param": "planningImages"
+       }
+    },
     "type": "images",
     "required": true,
     "visible": true
   },
   {
     "title": "Описание",
+    "alias":"description",
     "data": {
-      "input": {
+      "singleOf": {
         "param": "description"
       }
     },
