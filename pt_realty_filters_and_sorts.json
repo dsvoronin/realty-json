@@ -3,6 +3,7 @@
       {
          "title":"Тип объявления",
          "type":"LIST",
+         "alias":"isSell",
          "data":{
             "singleOf":{
                "param":"isSell",
@@ -18,13 +19,13 @@
                ]
             }
          },
-         "alias":"isSell",
          "value":true,
          "visible-condition":true
       },
       {
          "title":"Тип объекта",
          "type":"GROUPPEDLIST",
+         "alias":"objectType",
          "data":{
             "singleOf":{
                "param":"objectType",
@@ -145,7 +146,20 @@
       {
          "title":"Локация",
          "type":"LOCATION",
+         "alias":"location",
          "data":{
+            "city":{
+               "param":"cityId",
+               "value":"city.id"
+            },
+            "district":{
+               "param":"districtId",
+               "value":"district.id"
+            },
+            "metro":{
+               "param":"metroId",
+               "value":"metro.id"
+            },
             "api":"/rest/realtyOffer/getFilters/"
          },
          "visible-condition":true
@@ -153,6 +167,7 @@
       {
          "title":"Цена",
          "type":"PRICE_RANGE",
+         "alias":"priceRange",
          "data":{
             "min":{
                "param":"price.min"
@@ -186,6 +201,7 @@
       {
          "title":"Комнат",
          "type":"LIST",
+         "alias":"roomsTotal",
          "data":{
             "singleOf":{
                "param":"roomsTotal",
@@ -254,6 +270,7 @@
       {
          "title":"Комнат в аренду",
          "type":"LIST",
+         "alias":"roomsOffered",
          "data":{
             "singleOf":{
                "param":"roomsOffered",
@@ -302,6 +319,7 @@
       {
          "title":"Участок, сотки",
          "type":"SPACE_RANGE",
+         "alias":"landSpaceRange",
          "data":{
             "from":{
                "param":"landSpace.min"
@@ -330,6 +348,7 @@
       {
          "title":"Тип участка",
          "type":"LIST",
+         "alias":"landType",
          "data":{
             "singleOf":{
                "param":"landType",
@@ -357,11 +376,13 @@
    "sortings":[
       {
          "title":"Дата создания",
-         "sortField":"createdAt"
+         "sortField":"createdAt",
+         "visible-condition":true
       },
       {
          "title":"Цена",
-         "sortField":"price"
+         "sortField":"price",
+         "visible-condition":true
       },
       {
          "title":"Комнат",
@@ -393,7 +414,8 @@
       },
       {
          "title":"Площадь",
-         "sortField":"totalSpace"
+         "sortField":"totalSpace",
+         "visible-condition":true
       },
       {
          "title":"Этаж",
