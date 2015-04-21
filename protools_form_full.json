@@ -10,7 +10,7 @@
     },
     "type": "FIAS_REGION",
     "required": true,
-    "visible": true,
+    "visible-condition": true,
     "alias": "region"
   },
   {
@@ -177,7 +177,7 @@
     "alias": "city",
     "type": "FIAS_CITY",
     "required": true,
-    "visible": true
+    "visible-condition": true
   },
   {
     "title": "Метро",
@@ -276,7 +276,7 @@
       }
     },
     "type": "FIAS_STREET",
-    "visible": true,
+    "visible-condition": true,
     "required-condition": {
       "isNew.value": false
     },
@@ -292,7 +292,7 @@
       }
     },
     "type": "FIAS_HOUSE",
-    "visible": true,
+    "visible-condition": true,
     "required-condition": {
       "isNew.value": false
     },
@@ -302,7 +302,6 @@
     "title": "Дом",
     "type": "CUSTOM_HOUSE",
     "required": true,
-    "visible": true,
     "visible-condition": {
       "isNew.value": true
     },
@@ -349,7 +348,7 @@
       }
     },
     "required": true,
-    "visible": true
+    "visible-condition": true
   },
   {
     "title": "Тип сделки",
@@ -604,7 +603,7 @@
         "required": true
       }
     },
-    "visible": true
+    "visible-condition": true
   },
   {
     "title": "Тип",
@@ -1265,7 +1264,7 @@
     },
     "type": "images",
     "required": true,
-    "visible": true
+    "visible-condition": true
   },
   {
     "title": "Планировка",
@@ -1277,7 +1276,7 @@
     },
     "type": "images",
     "required": true,
-    "visible": true
+    "visible-condition": true
   },
   {
     "title": "Описание",
@@ -1289,6 +1288,6 @@
     },
     "type": "STRING",
     "required": true,
-    "visible": true
+    "visible-condition": true
   }
 ]
