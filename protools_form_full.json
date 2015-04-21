@@ -156,7 +156,14 @@
         ],
       }
     },
-    "value": "flat"
+    "value": {
+            "title": "Квартира",
+            "value": "flat",
+            "group": {
+              "title": "Жилая",
+              "value": "living"
+            }
+          }
   },
   {
     "title": "Город",
