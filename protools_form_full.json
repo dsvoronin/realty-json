@@ -635,7 +635,8 @@
           "objectType.group.value": "living"
         }
       ]
-    }
+    },
+    "value" : false
   },
   {
     "title": "Этап строительства",
