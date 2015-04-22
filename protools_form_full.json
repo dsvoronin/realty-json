@@ -153,7 +153,7 @@
               "value": "commercial"
             }
           }
-        ],
+        ]
       }
     },
     "value": {
@@ -185,7 +185,7 @@
     "data": {
       "singleOf": {
         "param": "metroId",
-        "api": "fias/metro?cityId=${city.id}"
+        "api": "fias/metro?cityId=${city.id}&type=city"
       }
     },
     "type": "FIAS_METRO",
