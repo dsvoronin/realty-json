@@ -10,7 +10,7 @@
     },
     "type": "FIAS_REGION",
     "required": true,
-    "visible": true,
+    "visible-condition": true,
     "alias": "region"
   },
   {
@@ -30,7 +30,8 @@
           }
         ]
       }
-    }
+    },
+    "value": true
   },
   {
     "title": "Адрес и стоимость",
@@ -155,7 +156,14 @@
         ],
       }
     },
-    "value": "flat"
+    "value": {
+            "title": "Квартира",
+            "value": "flat",
+            "group": {
+              "title": "Жилая",
+              "value": "living"
+            }
+          }
   },
   {
     "title": "Город",
@@ -169,7 +177,7 @@
     "alias": "city",
     "type": "FIAS_CITY",
     "required": true,
-    "visible": true
+    "visible-condition": true
   },
   {
     "title": "Метро",
@@ -268,7 +276,7 @@
       }
     },
     "type": "FIAS_STREET",
-    "visible": true,
+    "visible-condition": true,
     "required-condition": {
       "isNew.value": false
     },
@@ -284,7 +292,7 @@
       }
     },
     "type": "FIAS_HOUSE",
-    "visible": true,
+    "visible-condition": true,
     "required-condition": {
       "isNew.value": false
     },
@@ -294,7 +302,6 @@
     "title": "Дом",
     "type": "CUSTOM_HOUSE",
     "required": true,
-    "visible": true,
     "visible-condition": {
       "isNew.value": true
     },
@@ -341,7 +348,7 @@
       }
     },
     "required": true,
-    "visible": true
+    "visible-condition": true
   },
   {
     "title": "Тип сделки",
@@ -596,7 +603,7 @@
         "required": true
       }
     },
-    "visible": true
+    "visible-condition": true
   },
   {
     "title": "Тип",
@@ -628,7 +635,8 @@
           "objectType.group.value": "living"
         }
       ]
-    }
+    },
+    "value" : false
   },
   {
     "title": "Этап строительства",
@@ -659,7 +667,8 @@
           "objectType.group.value": "living"
         }
       ]
-    }
+    },
+    "value": true
   },
   {
     "title": "Срок сдачи (год)",
@@ -1262,7 +1271,7 @@
     },
     "type": "images",
     "required": true,
-    "visible": true
+    "visible-condition": true
   },
   {
     "title": "Планировка",
@@ -1274,7 +1283,7 @@
     },
     "type": "images",
     "required": true,
-    "visible": true
+    "visible-condition": true
   },
   {
     "title": "Описание",
@@ -1286,6 +1295,6 @@
     },
     "type": "STRING",
     "required": true,
-    "visible": true
+    "visible-condition": true
   }
 ]
