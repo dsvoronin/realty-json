@@ -1,1300 +1,1300 @@
 [
-    {
-        "title": "Регион",
-        "data": {
-            "singleOf": {
-                "param": "regionId",
-                "api": "fias/region",
-                "value": "region.id"
-            }
-        },
-        "type": "FIAS_REGION",
-        "required": true,
-        "visible-condition": true,
-        "alias": "region"
+  {
+    "title": "Регион",
+    "data": {
+      "singleOf": {
+        "param": "regionId",
+        "api": "fias/region",
+        "value": "region.id"
+      }
     },
-    {
-        "title": "Тип объявления",
-        "alias": "isSell",
-        "type": "LIST",
-        "data": {
-            "singleOf": {
-                "source": [
-                    {
-                        "title": "Продажа",
-                        "value": true
-                    },
-                    {
-                        "title": "Аренда",
-                        "value": false
-                    }
-                ]
-            }
-        },
-        "value": true
+    "type": "FIAS_REGION",
+    "required": true,
+    "visible-condition": true,
+    "alias": "region"
+  },
+  {
+    "title": "Тип объявления",
+    "alias": "isSell",
+    "type": "LIST",
+    "data": {
+      "singleOf": {
+        "source": [
+          {
+            "title": "Продажа",
+            "value": true
+          },
+          {
+            "title": "Аренда",
+            "value": false
+          }
+        ]
+      }
     },
-    {
-        "title": "Адрес и стоимость",
-        "type": "HEADER"
-    },
-    {
-        "title": "Тип недвижимости",
-        "type": "GROUPED_LIST",
-        "alias": "objectType",
-        "data": {
-            "singleOf": {
-                "param": "objectType",
-                "value": "objectType.value",
-                "source": [
-                    {
-                        "title": "Квартира",
-                        "value": "flat",
-                        "group": {
-                            "title": "Жилая",
-                            "value": "living"
-                        }
-                    },
-                    {
-                        "title": "Комната",
-                        "value": "room",
-                        "group": {
-                            "title": "Жилая",
-                            "value": "living"
-                        }
-                    },
-                    {
-                        "title": "Дом",
-                        "value": "house",
-                        "group": {
-                            "title": "Жилая",
-                            "value": "living"
-                        }
-                    },
-                    {
-                        "title": "Коттедж",
-                        "value": "cottage",
-                        "group": {
-                            "title": "Загородная",
-                            "value": "suburban"
-                        }
-                    },
-                    {
-                        "title": "Таунхаус",
-                        "value": "townhouse",
-                        "group": {
-                            "title": "Загородная",
-                            "value": "suburban"
-                        }
-                    },
-                    {
-                        "title": "Дача",
-                        "value": "summerHouse",
-                        "group": {
-                            "title": "Загородная",
-                            "value": "suburban"
-                        }
-                    },
-                    {
-                        "title": "Участок",
-                        "value": "land",
-                        "group": {
-                            "title": "Загородная",
-                            "value": "land"
-                        },
-                        "visible-condition": {
-                            "isSell.value": true
-                        }
-                    },
-                    {
-                        "title": "Магазин",
-                        "value": "shop",
-                        "group": {
-                            "title": "Коммерческая",
-                            "value": "commercial"
-                        }
-                    },
-                    {
-                        "title": "Отель",
-                        "value": "hotel",
-                        "group": {
-                            "title": "Коммерческая",
-                            "value": "commercial"
-                        }
-                    },
-                    {
-                        "title": "Офис",
-                        "value": "office",
-                        "group": {
-                            "title": "Коммерческая",
-                            "value": "commercial"
-                        }
-                    },
-                    {
-                        "title": "Производство",
-                        "value": "manufacture",
-                        "group": {
-                            "title": "Коммерческая",
-                            "value": "commercial"
-                        }
-                    },
-                    {
-                        "title": "Склад",
-                        "value": "warehouse",
-                        "group": {
-                            "title": "Коммерческая",
-                            "value": "commercial"
-                        }
-                    },
-                    {
-                        "title": "Свободного назначения",
-                        "value": "free",
-                        "group": {
-                            "title": "Коммерческая",
-                            "value": "commercial"
-                        }
-                    }
-                ]
-            }
-        },
-        "value": {
+    "value": true
+  },
+  {
+    "title": "Адрес и стоимость",
+    "type": "HEADER"
+  },
+  {
+    "title": "Тип недвижимости",
+    "type": "GROUPED_LIST",
+    "alias": "objectType",
+    "data": {
+      "singleOf": {
+        "param": "objectType",
+        "value": "objectType.value",
+        "source": [
+          {
             "title": "Квартира",
             "value": "flat",
             "group": {
-                "title": "Жилая",
-                "value": "living"
+              "title": "Жилая",
+              "value": "living"
             }
-        }
-    },
-    {
-        "title": "Город",
-        "data": {
-            "singleOf": {
-                "param": "cityId",
-                "api": "fias/city?regionId=${region.id}",
-                "value": "city.id"
+          },
+          {
+            "title": "Комната",
+            "value": "room",
+            "group": {
+              "title": "Жилая",
+              "value": "living"
             }
-        },
-        "alias": "city",
-        "type": "FIAS_CITY",
-        "required": true,
-        "visible-condition": true
-    },
-    {
-        "title": "Метро",
-        "alias": "metro",
-        "data": {
-            "singleOf": {
-                "param": "metroId",
-                "api": "fias/metro?cityId=${city.id}"
+          },
+          {
+            "title": "Дом",
+            "value": "house",
+            "group": {
+              "title": "Жилая",
+              "value": "living"
             }
-        },
-        "type": "FIAS_METRO",
-        "required": true,
-        "visible-condition": {
-            "$and": [
-                {
-                    "city.hasMetro": true
-                },
-                {
-                    "objectType.group.value": {
-                        "$in": [
-                            "living",
-                            "commercial"
-                        ]
-                    }
-                }
-            ]
-        }
-    },
-    {
-        "title": "Район",
-        "alias": "district",
-        "data": {
-            "singleOf": {
-                "param": "districtId",
-                "api": "fias/district?cityId=${city.id}"
+          },
+          {
+            "title": "Коттедж",
+            "value": "cottage",
+            "group": {
+              "title": "Загородная",
+              "value": "suburban"
             }
-        },
-        "type": "FIAS_DISTRICT",
-        "required": true,
-        "visible-condition": {
-            "$and": [
-                {
-                    "city.hasMetro": false
-                },
-                {
-                    "city.hasDistrict": true
-                },
-                {
-                    "objectType.group.value": {
-                        "$in": [
-                            "living",
-                            "commercial"
-                        ]
-                    }
-                }
-            ]
-        }
-    },
-    {
-        "title": "Направление",
-        "alias": "direction",
-        "data": {
-            "singleOf": {
-                "param": "directionId",
-                "api": "fias/direction?cityId=${city.id}"
+          },
+          {
+            "title": "Таунхаус",
+            "value": "townhouse",
+            "group": {
+              "title": "Загородная",
+              "value": "suburban"
             }
-        },
-        "type": "FIAS_DIRECTION",
-        "required": true,
-        "visible-condition": {
-            "$and": [
-                {
-                    "city.hasDirection": true
-                },
-                {
-                    "objectType.value": {
-                        "$in": [
-                            "cottage",
-                            "townhouse",
-                            "cottage",
-                            "summerHouse",
-                            "land"
-                        ]
-                    }
-                }
-            ]
-        }
-    },
-    {
-        "title": "Улица",
-        "data": {
-            "singleOf": {
-                "param": "streetId",
-                "api": "address?parent=${city.id}&type=street",
-                "value": "street.id"
+          },
+          {
+            "title": "Дача",
+            "value": "summerHouse",
+            "group": {
+              "title": "Загородная",
+              "value": "suburban"
             }
-        },
-        "type": "FIAS_STREET",
-        "visible-condition": true,
-        "required-condition": {
-            "isNew.value": false
-        },
-        "alias": "street"
-    },
-    {
-        "title": "Дом",
-        "alias": "building",
-        "data": {
-            "singleOf": {
-                "param": "buildingId",
-                "api": "fias/house?parent=${city.id}"
-            }
-        },
-        "type": "FIAS_HOUSE",
-        "visible-condition": true,
-        "required-condition": {
-            "isNew.value": false
-        },
-        "comment": "Идентификатор дома из ФИАС"
-    },
-    {
-        "title": "Дом",
-        "type": "CUSTOM_HOUSE",
-        "required": true,
-        "visible-condition": {
-            "isNew.value": true
-        },
-        "comment": "Адрес дома, введенный вручную",
-        "param": {
-            "address": {
-                "param": "buildingLabel"
+          },
+          {
+            "title": "Участок",
+            "value": "land",
+            "group": {
+              "title": "Загородная",
+              "value": "land"
             },
-            "latitude": {
-                "param": "latitude"
-            },
-            "longitude": {
-                "param": "longitude"
+            "visible-condition": {
+              "isSell.value": true
             }
-        }
+          },
+          {
+            "title": "Магазин",
+            "value": "shop",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Отель",
+            "value": "hotel",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Офис",
+            "value": "office",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Производство",
+            "value": "manufacture",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Склад",
+            "value": "warehouse",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Свободного назначения",
+            "value": "free",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          }
+        ]
+      }
     },
-    {
-        "title": "Цена",
-        "type": "PRICE",
-        "alias": "pricing",
-        "data": {
-            "price": {
-                "param": "price"
-            },
-            "currency": {
-                "param": "priceCurrency",
-                "source": [
-                    {
-                        "symbol": "₽",
-                        "title": "Рубли",
-                        "value": "rub"
-                    },
-                    {
-                        "symbol": "$",
-                        "title": "Доллары США",
-                        "value": "usd"
-                    },
-                    {
-                        "symbol": "€",
-                        "title": "Евро",
-                        "value": "eur"
-                    }
-                ]
+    "value": {
+            "title": "Квартира",
+            "value": "flat",
+            "group": {
+              "title": "Жилая",
+              "value": "living"
             }
-        },
-        "required": true,
-        "visible-condition": true
+          }
+  },
+  {
+    "title": "Город",
+    "data": {
+      "singleOf": {
+        "param": "cityId",
+        "api": "fias/city?regionId=${region.id}",
+        "value": "city.id"
+      }
     },
-    {
-        "title": "Тип сделки",
-        "type": "LIST",
-        "alias": "dealType",
-        "data": {
-            "singleOf": {
-                "param": "isFreeDeal",
-                "source": [
-                    {
-                        "title": "Свободная",
-                        "value": true
-                    },
-                    {
-                        "title": "Альтернативная",
-                        "value": false
-                    }
-                ],
-                "required": false,
-                "default": null
-            }
+    "alias": "city",
+    "type": "FIAS_CITY",
+    "required": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Метро",
+    "alias": "metro",
+    "data": {
+      "singleOf": {
+        "param": "metroId",
+        "api": "fias/metro?cityId=${city.id}&type=city"
+      }
+    },
+    "type": "FIAS_METRO",
+    "required": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "city.hasMetro": true
         },
-        "visible-condition": {
-            "$and": [
-                {
-                    "isNew.value": false
-                },
-                {
-                    "isSell.value": true
-                },
-                {
-                    "objectType.value": "flat"
-                }
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "commercial"
             ]
+          }
         }
-    },
-    {
-        "title": "Тип аренды",
-        "alias": "pricePeriod",
-        "type": "LIST",
-        "data": {
-            "singleOf": {
-                "param": "pricePeriod",
-                "source": [
-                    {
-                        "title": "Годовая",
-                        "value": "yearly",
-                        "visible-condition": {
-                            "objectType.group.value": "commercial"
-                        }
-                    },
-                    {
-                        "title": "Помесячная",
-                        "value": "monthly"
-                    },
-                    {
-                        "title": "Посуточная",
-                        "value": "daily",
-                        "visible-condition": {
-                            "objectType.value": {
-                                "$in": [
-                                    "flat",
-                                    "room"
-                                ]
-                            }
-                        }
-                    }
-                ],
-                "required": true,
-                "default": null
-            }
-        },
-        "visible-condition": {
-            "$and": [
-                {
-                    "isSell.value": false
-                },
-                {
-                    "objectType.group.value": {
-                        "$in": [
-                            "living",
-                            "commercial",
-                            "suburban"
-                        ]
-                    }
-                }
-            ]
-        }
-    },
-    {
-        "title": "Дом",
-        "type": "HEADER",
-        "visible-condition": {
-            "objectType.group.value": "living"
-        }
-    },
-    {
-        "title": "Дом и участок",
-        "type": "HEADER",
-        "visible-condition": {
-            "objectType.group.value": "suburban"
-        }
-    },
-    {
-        "title": "Участок",
-        "type": "HEADER",
-        "visible-condition": {
-            "objectType.group.value": "land"
-        }
-    },
-    {
-        "title": "Здание",
-        "type": "HEADER",
-        "visible-condition": {
-            "objectType.group.value": "commercial"
-        }
-    },
-    {
-        "title": "Расстояние до города, км.",
-        "param": "distanceToCity",
-        "type": "decimal",
-        "visible-condition": {
-            "objectType.value": {
-                "$in": [
-                    "cottage",
-                    "townhouse",
-                    "cottage",
-                    "summerHouse",
-                    "land"
-                ]
-            }
-        }
-    },
-    {
-        "title": "Тип участка",
-        "alias": "landType",
-        "type": "LIST",
-        "data": {
-            "singleOf": {
-                "param": "landType",
-                "source": [
-                    {
-                        "title": "ИЖС",
-                        "value": "ijs"
-                    },
-                    {
-                        "title": "СНТ",
-                        "value": "snt"
-                    },
-                    {
-                        "title": "Промназначение",
-                        "value": "promzone"
-                    }
-                ],
-                "required": true
-            }
-        },
-        "visible-condition": {
-            "objectType.value": "land"
-        }
-    },
-    {
-        "title": "Материал стен",
-        "alias": "buildingMaterial",
-        "type": "LIST",
-        "data": {
-            "singleOf": {
-                "param": "buildingMaterial",
-                "source": [
-                    {
-                        "title": "Блочный",
-                        "value": "block",
-                        "visible-condition": {
-                            "objectType.group.value": "living"
-                        }
-                    },
-                    {
-                        "title": "Деревянный",
-                        "value": "wood",
-                        "visible-condition": {
-                            "objectType.group.value": "living"
-                        }
-                    },
-                    {
-                        "title": "Кирпич",
-                        "value": "brick"
-                    },
-                    {
-                        "title": "Монолитный",
-                        "value": "monolith",
-                        "visible-condition": {
-                            "objectType.group.value": "living"
-                        }
-                    },
-                    {
-                        "title": "Панельный",
-                        "value": "panel",
-                        "visible-condition": {
-                            "objectType.group.value": "living"
-                        }
-                    },
-                    {
-                        "title": "Брус",
-                        "value": "squaredBeam",
-                        "visible-condition": {
-                            "objectType.group.value": "suburban"
-                        }
-                    },
-                    {
-                        "title": "Бревно",
-                        "value": "log",
-                        "visible-condition": {
-                            "objectType.group.value": "suburban"
-                        }
-                    },
-                    {
-                        "title": "Металл",
-                        "value": "metal",
-                        "visible-condition": {
-                            "objectType.group.value": "suburban"
-                        }
-                    },
-                    {
-                        "title": "Пеноблоки",
-                        "value": "foamConcreteBlock",
-                        "visible-condition": {
-                            "objectType.group.value": "suburban"
-                        }
-                    },
-                    {
-                        "title": "Сэндвич-панели",
-                        "value": "sandwich",
-                        "visible-condition": {
-                            "objectType.group.value": "suburban"
-                        }
-                    },
-                    {
-                        "title": "Ж.б. Панели",
-                        "value": "reinforcedConcretePanel",
-                        "visible-condition": {
-                            "objectType.group.value": "suburban"
-                        }
-                    },
-                    {
-                        "title": "Экспериментальные материалы",
-                        "value": "experimentalMaterial",
-                        "visible-condition": {
-                            "objectType.group.value": "suburban"
-                        }
-                    }
-                ],
-                "required": true
-            }
-        },
-        "visible-condition": true
-    },
-    {
-        "title": "Тип",
-        "type": "LIST",
-        "alias": "isNew",
-        "data": {
-            "singleOf": {
-                "param": "isNew",
-                "required": true,
-                "default": false,
-                "source": [
-                    {
-                        "title": "Новостройка",
-                        "value": true
-                    },
-                    {
-                        "title": "Вторичка",
-                        "value": false
-                    }
-                ]
-            }
-        },
-        "visible-condition": {
-            "$and": [
-                {
-                    "isSell.value": true
-                },
-                {
-                    "objectType.group.value": "living"
-                }
-            ]
-        },
-        "value": false
-    },
-    {
-        "title": "Этап строительства",
-        "alias": "isReady",
-        "type": "LIST",
-        "data": {
-            "singleOf": {
-                "param": "isReady",
-                "source": [
-                    {
-                        "title": "Дом сдан",
-                        "value": true
-                    },
-                    {
-                        "title": "Дом не сдан",
-                        "value": false
-                    }
-                ],
-                "required": true
-            }
-        },
-        "visible-condition": {
-            "$and": [
-                {
-                    "isNew.value": true
-                },
-                {
-                    "objectType.group.value": "living"
-                }
-            ]
-        },
-        "value": true
-    },
-    {
-        "title": "Срок сдачи (год)",
-        "alias": "readyDateYear",
-        "data": {
-            "singleOf": {
-                "param": "readyDateYear"
-            }
-        },
-        "type": "year",
-        "required": true,
-        "visible-condition": {
-            "$and": [
-                {
-                    "isReady.value": false
-                },
-                {
-                    "objectType.group.value": "living"
-                }
-            ]
-        }
-    },
-    {
-        "title": "Срок сдачи (квартал)",
-        "alias": "readyDateQuarter",
-        "data": {
-            "singleOf": {
-                "param": "readyDateQuarter"
-            }
-        },
-        "type": "quarter",
-        "required": true,
-        "visible-condition": {
-            "$and": [
-                {
-                    "isReady.value": false
-                },
-                {
-                    "objectType.group.value": "living"
-                }
-            ]
-        }
-    },
-    {
-        "title": "Класс здания",
-        "alias": "buildingClass",
-        "type": "LIST",
-        "data": {
-            "singleOf": {
-                "param": "buildingClass",
-                "source": [
-                    {
-                        "title": "A",
-                        "value": "A"
-                    },
-                    {
-                        "title": "B",
-                        "value": "B"
-                    },
-                    {
-                        "title": "C",
-                        "value": "C"
-                    },
-                    {
-                        "title": "D",
-                        "value": "D"
-                    }
-                ],
-                "required": true
-            }
-        },
-        "visible-condition": {
-            "objectType.value": {
-                "$in": [
-                    "office",
-                    "warehouse"
-                ]
-            }
-        }
-    },
-    {
-        "title": "Этаж",
-        "alias": "objectFloor",
-        "data": {
-            "singleOf": {
-                "param": "objectFloor"
-            }
-        },
-        "type": "number",
-        "required-condition": {
-            "objectType.group.value": "living"
-        },
-        "visible-condition": {
-            "$or": [
-                {
-                    "objectType.group.value": "living"
-                },
-                {
-                    "objectType.value": "office"
-                }
-            ]
-        }
-    },
-    {
-        "title": "Этажность",
-        "alias": "floorsTotal",
-        "data": {
-            "singleOf": {
-                "param": "floorsTotal"
-            }
-        },
-        "type": "number",
-        "required-condition": {
-            "objectType.group.value": {
-                "$in": [
-                    "living",
-                    "suburban"
-                ]
-            }
-        },
-        "visible-condition": {
-            "$or": [
-                {
-                    "objectType.group.value": {
-                        "$in": [
-                            "living",
-                            "suburban"
-                        ]
-                    }
-                },
-                {
-                    "objectType.value": "office"
-                }
-            ]
-        }
-    },
-    {
-        "title": "Квартира",
-        "type": "HEADER",
-        "visible-condition": {
-            "objectType.group.value": "living"
-        }
-    },
-    {
-        "title": "Число собственников",
-        "alias": "ownersTotal",
-        "data": {
-            "singleOf": {
-                "param": "ownersTotal"
-            }
-        },
-        "type": "number",
-        "required": true,
-        "visible-condition": {
-            "$and": [
-                {
-                    "isSell.value": true
-                },
-                {
-                    "isNew.value": false
-                },
-                {
-                    "objectType.group.value": "living"
-                }
-            ]
-        }
-    },
-    {
-        "title": "Комнат",
-        "type": "LIST",
-        "alias": "roomsTotal",
-        "data": {
-            "singleOf": {
-                "param": "roomsTotal",
-                "source": [
-                    {
-                        "title": "1",
-                        "value": "1"
-                    },
-                    {
-                        "title": "2",
-                        "value": "2"
-                    },
-                    {
-                        "title": "3",
-                        "value": "3"
-                    },
-                    {
-                        "title": "4",
-                        "value": "4"
-                    },
-                    {
-                        "title": "5",
-                        "value": "5"
-                    },
-                    {
-                        "title": "6",
-                        "value": "6",
-                        "visible-condition": {
-                            "objectType.group.value": "suburban"
-                        }
-                    },
-                    {
-                        "title": "6+",
-                        "value": "6+"
-                    },
-                    {
-                        "title": "Студия",
-                        "value": "studio",
-                        "visible-condition": {
-                            "$not": {
-                                "objectType.value": "room"
-                            }
-                        }
-                    }
-                ],
-                "required": true,
-                "default": "1"
-            }
-        },
-        "visible-condition": {
-            "objectType.group.value": {
-                "$in": [
-                    "living",
-                    "suburban"
-                ]
-            }
-        }
-    },
-    {
-        "title": "Комнат",
-        "alias": "roomsTotal",
-        "data": {
-            "singleOf": {
-                "param": "roomsTotal"
-            }
-        },
-        "type": "integer",
-        "required": false,
-        "visible-condition": {
-            "objectType.value": "office"
-        }
-    },
-    {
-        "title": "Комнат в аренду",
-        "alias": "roomsTotal",
-        "type": "LIST",
-        "data": {
-            "singleOf": {
-                "param": "roomsTotal",
-                "source": [
-                    {
-                        "title": "1",
-                        "value": "1"
-                    },
-                    {
-                        "title": "2",
-                        "value": "2",
-                        "visible-condition": {
-                            "roomsTotal.value": {
-                                "$in": [
-                                    "2",
-                                    "3",
-                                    "4",
-                                    "5",
-                                    "6+"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "title": "3",
-                        "value": "3",
-                        "visible-condition": {
-                            "roomsTotal.value": {
-                                "$in": [
-                                    "3",
-                                    "4",
-                                    "5",
-                                    "6+"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "title": "4",
-                        "value": "4",
-                        "visible-condition": {
-                            "roomsTotal.value": {
-                                "$in": [
-                                    "4",
-                                    "5",
-                                    "6+"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "title": "5",
-                        "value": "5",
-                        "visible-condition": {
-                            "roomsTotal.value": {
-                                "$in": [
-                                    "5",
-                                    "6+"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "title": "6",
-                        "value": "6",
-                        "visible-condition": {
-                            "roomsTotal.value": "6+"
-                        }
-                    },
-                    {
-                        "title": "Студия",
-                        "value": "studio"
-                    }
-                ],
-                "value": "1",
-                "required": true
-            }
-        },
-        "visible-condition": {
-            "$and": [
-                {
-                    "isSell.value": false
-                },
-                {
-                    "objectType.value": "room"
-                }
-            ]
-        }
-    },
-    {
-        "title": "Комнат на продажу",
-        "type": "LIST",
-        "alias": "roomsTotal",
-        "data": {
-            "singleOf": {
-                "param": "roomsTotal",
-                "source": [
-                    {
-                        "title": "1",
-                        "value": "1"
-                    },
-                    {
-                        "title": "2",
-                        "value": "2",
-                        "visible-condition": {
-                            "roomsTotal.value": {
-                                "$in": [
-                                    "2",
-                                    "3",
-                                    "4",
-                                    "5",
-                                    "6+"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "title": "3",
-                        "value": "3",
-                        "visible-condition": {
-                            "roomsTotal.value": {
-                                "$in": [
-                                    "3",
-                                    "4",
-                                    "5",
-                                    "6+"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "title": "4",
-                        "value": "4",
-                        "visible-condition": {
-                            "roomsTotal.value": {
-                                "$in": [
-                                    "4",
-                                    "5",
-                                    "6+"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "title": "5",
-                        "value": "5",
-                        "visible-condition": {
-                            "roomsTotal.value": {
-                                "$in": [
-                                    "5",
-                                    "6+"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "title": "6",
-                        "value": "6",
-                        "visible-condition": {
-                            "roomsTotal.value": "6+"
-                        }
-                    },
-                    {
-                        "title": "Студия",
-                        "value": "studio"
-                    }
-                ],
-                "default": "1",
-                "required": true
-            }
-        },
-        "visible-condition": {
-            "$and": [
-                {
-                    "isSell.value": true
-                },
-                {
-                    "objectType.value": "room"
-                }
-            ]
-        }
-    },
-    {
-        "title": "Свободная планировка",
-        "type": "BOOLEAN",
-        "alias": "isOpenPlan",
-        "data": {
-            "singleOf": {
-                "param": "isOpenPlan",
-                "default": false,
-                "required": true
-            }
-        },
-        "visible-condition": {
-            "$or": [
-                {
-                    "objectType.group.value": {
-                        "$in": [
-                            "living",
-                            "suburban"
-                        ]
-                    }
-                },
-                {
-                    "objectType.value": "office"
-                }
-            ]
-        }
-    },
-    {
-        "title": "Площадь жилая",
-        "alias": "livingSpace",
-        "data": {
-            "singleOf": {
-                "param": "livingSpace"
-            }
-        },
-        "type": "decimal",
-        "required": true,
-        "visible-condition": {
-            "objectType.group.value": {
-                "$in": [
-                    "living",
-                    "suburban"
-                ]
-            }
-        }
-    },
-    {
-        "title": "Площадь кухни",
-        "alias": "kitchenSpace",
-        "data": {
-            "singleOf": {
-                "param": "kitchenSpace"
-            }
-        },
-        "type": "decimal",
-        "required": true,
-        "visible-condition": {
-            "objectType.group.value": {
-                "$in": [
-                    "living",
-                    "suburban"
-                ]
-            }
-        }
-    },
-    {
-        "title": "Площадь общая",
-        "alias": "totalSpace",
-        "data": {
-            "singleOf": {
-                "param": "totalSpace"
-            }
-        },
-        "type": "decimal",
-        "required": true,
-        "visible-condition": {
-            "objectType.group.value": {
-                "$in": [
-                    "living",
-                    "commercial",
-                    "suburban"
-                ]
-            }
-        }
-    },
-    {
-        "title": "Площадь на продажу",
-        "alias": "offeredSpace",
-        "data": {
-            "singleOf": {
-                "param": "offeredSpace"
-            }
-        },
-        "type": "decimal",
-        "required": true,
-        "visible-condition": {
-            "$and": [
-                {
-                    "isSell.value": true
-                },
-                {
-                    "objectType.value": "room"
-                }
-            ]
-        }
-    },
-    {
-        "title": "Площадь в аренду",
-        "alias": "offeredSpace",
-        "data": {
-            "singleOf": {
-                "param": "offeredSpace"
-            }
-        },
-        "type": "decimal",
-        "required": true,
-        "visible-condition": {
-            "$and": [
-                {
-                    "isSell.value": false
-                },
-                {
-                    "objectType.value": "room"
-                }
-            ]
-        }
-    },
-    {
-        "title": "Площадь участка",
-        "type": "decimalUnits",
-        "alias": "landSpace",
-        "data": {
-            "amount": {
-                "param": "spaceAmount"
-            },
-            "unit": {
-                "param": "spaceUnit",
-                "source": [
-                    {
-                        "title": "соток",
-                        "value": "are"
-                    },
-                    {
-                        "title": "гектар",
-                        "value": "hectare"
-                    }
-                ]
-            }
-        },
-        "required": true,
-        "visible-condition": {
-            "objectType.group.value": {
-                "$in": [
-                    "suburban",
-                    "land"
-                ]
-            }
-        }
-    },
-    {
-        "title": "Фотографии, описание, контакты",
-        "type": "HEADER"
-    },
-    {
-        "title": "Фотографии",
-        "alias": "photos",
-        "data": {
-            "singleOf": {
-                "param": "photos"
-            }
-        },
-        "type": "images",
-        "required": true,
-        "visible-condition": true
-    },
-    {
-        "title": "Планировка",
-        "alias": "planningImages",
-        "data": {
-            "singleOf": {
-                "param": "planningImages"
-            }
-        },
-        "type": "images",
-        "required": true,
-        "visible-condition": true
-    },
-    {
-        "title": "Описание",
-        "alias": "description",
-        "data": {
-            "singleOf": {
-                "param": "description"
-            }
-        },
-        "type": "STRING",
-        "required": true,
-        "visible-condition": true
+      ]
     }
+  },
+  {
+    "title": "Район",
+    "alias" : "district",
+    "data": {
+      "singleOf": {
+        "param": "districtId",
+        "api": "fias/district?cityId=${city.id}"
+      }
+    },
+    "type": "FIAS_DISTRICT",
+    "required": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "city.hasMetro": false
+        },
+        {
+          "city.hasDistrict": true
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "commercial"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "title": "Направление",
+    "alias":"direction",
+    "data": {
+      "singleOf": {
+        "param": "directionId",
+        "api": "fias/direction?cityId=${city.id}"
+      }
+    },
+    "type": "FIAS_DIRECTION",
+    "required": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "city.hasDirection": true
+        },
+        {
+          "objectType.value": {
+            "$in": [
+              "cottage",
+              "townhouse",
+              "cottage",
+              "summerHouse",
+              "land"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "title": "Улица",
+    "data": {
+      "singleOf": {
+        "param": "streetId",
+        "api": "address?parent=${city.id}&type=street",
+        "value": "street.id"
+      }
+    },
+    "type": "FIAS_STREET",
+    "visible-condition": true,
+    "required-condition": {
+      "isNew.value": false
+    },
+    "alias": "street"
+  },
+  {
+    "title": "Дом",
+    "alias":"building",
+    "data": {
+      "singleOf": {
+        "param": "buildingId",
+        "api": "fias/house?parent=${city.id}"
+      }
+    },
+    "type": "FIAS_HOUSE",
+    "visible-condition": true,
+    "required-condition": {
+      "isNew.value": false
+    },
+    "comment": "Идентификатор дома из ФИАС"
+  },
+  {
+    "title": "Дом",
+    "type": "CUSTOM_HOUSE",
+    "required": true,
+    "visible-condition": {
+      "isNew.value": true
+    },
+    "comment": "Адрес дома, введенный вручную",
+    "param": {
+      "address": {
+        "param": "buildingLabel"
+      },
+      "latitude": {
+        "param": "latitude"
+      },
+      "longitude": {
+        "param": "longitude"
+      }
+    }
+  },
+  {
+    "title": "Цена",
+    "type": "PRICE",
+    "alias":"pricing",
+    "data": {
+      "price": {
+        "param": "price"
+      },
+      "currency": {
+        "param": "priceCurrency",
+        "source": [
+          {
+            "symbol": "₽",
+            "title": "Рубли",
+            "value": "rub"
+          },
+          {
+            "symbol": "$",
+            "title": "Доллары США",
+            "value": "usd"
+          },
+          {
+            "symbol": "€",
+            "title": "Евро",
+            "value": "eur"
+          }
+        ]
+      }
+    },
+    "required": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Тип сделки",
+    "type": "LIST",
+    "alias":"dealType",
+    "data": {
+      "singleOf": {
+        "param": "isFreeDeal",
+        "source": [
+          {
+            "title": "Свободная",
+            "value": true
+          },
+          {
+            "title": "Альтернативная",
+            "value": false
+          }
+        ],
+        "required": false,
+        "default": null
+      }
+    },
+    "visible-condition": {
+      "$and": [
+        {
+          "isNew.value": false
+        },
+        {
+          "isSell.value": true
+        },
+        {
+          "objectType.value": "flat"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Тип аренды",
+    "alias":"pricePeriod",
+    "type": "LIST",
+    "data": {
+      "singleOf": {
+        "param": "pricePeriod",
+        "source": [
+          {
+            "title": "Годовая",
+            "value": "yearly",
+            "visible-condition": {
+              "objectType.group.value": "commercial"
+            }
+          },
+          {
+            "title": "Помесячная",
+            "value": "monthly"
+          },
+          {
+            "title": "Посуточная",
+            "value": "daily",
+            "visible-condition": {
+              "objectType.value": {
+                "$in": [
+                  "flat",
+                  "room"
+                ]
+              }
+            }
+          }
+        ],
+        "required": true,
+        "default": null
+      }
+    },
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "commercial",
+              "suburban"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "title": "Дом",
+    "type": "HEADER",
+    "visible-condition": {
+      "objectType.group.value": "living"
+    }
+  },
+  {
+    "title": "Дом и участок",
+    "type": "HEADER",
+    "visible-condition": {
+      "objectType.group.value": "suburban"
+    }
+  },
+  {
+    "title": "Участок",
+    "type": "HEADER",
+    "visible-condition": {
+      "objectType.group.value": "land"
+    }
+  },
+  {
+    "title": "Здание",
+    "type": "HEADER",
+    "visible-condition": {
+      "objectType.group.value": "commercial"
+    }
+  },
+  {
+    "title": "Расстояние до города, км.",
+    "param":"distanceToCity",
+    "type": "decimal",
+    "visible-condition": {
+      "objectType.value": {
+        "$in": [
+          "cottage",
+          "townhouse",
+          "cottage",
+          "summerHouse",
+          "land"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Тип участка",
+    "alias":"landType",
+    "type": "LIST",
+    "data": {
+      "singleOf": {
+        "param": "landType",
+        "source": [
+          {
+            "title": "ИЖС",
+            "value": "ijs"
+          },
+          {
+            "title": "СНТ",
+            "value": "snt"
+          },
+          {
+            "title": "Промназначение",
+            "value": "promzone"
+          }
+        ],
+        "required": true
+      }
+    },
+    "visible-condition": {
+      "objectType.value": "land"
+    }
+  },
+  {
+    "title": "Материал стен",
+    "alias":"buildingMaterial",
+    "type": "LIST",
+    "data": {
+      "singleOf": {
+        "param": "buildingMaterial",
+        "source": [
+          {
+            "title": "Блочный",
+            "value": "block",
+            "visible-condition": {
+              "objectType.group.value": "living"
+            }
+          },
+          {
+            "title": "Деревянный",
+            "value": "wood",
+            "visible-condition": {
+              "objectType.group.value": "living"
+            }
+          },
+          {
+            "title": "Кирпич",
+            "value": "brick"
+          },
+          {
+            "title": "Монолитный",
+            "value": "monolith",
+            "visible-condition": {
+              "objectType.group.value": "living"
+            }
+          },
+          {
+            "title": "Панельный",
+            "value": "panel",
+            "visible-condition": {
+              "objectType.group.value": "living"
+            }
+          },
+          {
+            "title": "Брус",
+            "value": "squaredBeam",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "Бревно",
+            "value": "log",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "Металл",
+            "value": "metal",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "Пеноблоки",
+            "value": "foamConcreteBlock",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "Сэндвич-панели",
+            "value": "sandwich",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "Ж.б. Панели",
+            "value": "reinforcedConcretePanel",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "Экспериментальные материалы",
+            "value": "experimentalMaterial",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          }
+        ],
+        "required": true
+      }
+    },
+    "visible-condition": true
+  },
+  {
+    "title": "Тип",
+    "type": "LIST",
+    "alias":"isNew",
+    "data": {
+      "singleOf": {
+        "param": "isNew",
+        "required": true,
+        "default": false,
+        "source": [
+          {
+            "title": "Новостройка",
+            "value": true
+          },
+          {
+            "title": "Вторичка",
+            "value": false
+          }
+        ]
+      }
+    },
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": true
+        },
+        {
+          "objectType.group.value": "living"
+        }
+      ]
+    },
+    "value" : false
+  },
+  {
+    "title": "Этап строительства",
+    "alias":"isReady",
+    "type": "LIST",
+    "data": {
+      "singleOf": {
+        "param": "isReady",
+        "source": [
+          {
+            "title": "Дом сдан",
+            "value": true
+          },
+          {
+            "title": "Дом не сдан",
+            "value": false
+          }
+        ],
+        "required": true
+      }
+    },
+    "visible-condition": {
+      "$and": [
+        {
+          "isNew.value": true
+        },
+        {
+          "objectType.group.value": "living"
+        }
+      ]
+    },
+    "value": true
+  },
+  {
+    "title": "Срок сдачи (год)",
+    "alias": "readyDateYear",
+    "data":{
+      "singleOf": {
+        "param": "readyDateYear"
+      }
+    },
+    "type": "year",
+    "required": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isReady.value": false
+        },
+        {
+          "objectType.group.value": "living"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Срок сдачи (квартал)",
+    "alias": "readyDateQuarter",
+    "data":{
+      "singleOf": {
+        "param": "readyDateQuarter"
+      }
+    },
+    "type": "quarter",
+    "required": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isReady.value": false
+        },
+        {
+          "objectType.group.value": "living"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Класс здания",
+    "alias":"buildingClass",
+    "type": "LIST",
+    "data": {
+      "singleOf": {
+        "param": "buildingClass",
+        "source": [
+          {
+            "title": "A",
+            "value": "A"
+          },
+          {
+            "title": "B",
+            "value": "B"
+          },
+          {
+            "title": "C",
+            "value": "C"
+          },
+          {
+            "title": "D",
+            "value": "D"
+          }
+        ],
+        "required": true
+      }
+    },
+    "visible-condition": {
+      "objectType.value": {
+        "$in": [
+          "office",
+          "warehouse"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Этаж",
+    "alias": "objectFloor",
+    "data":{
+      "singleOf": {
+        "param": "objectFloor"
+      }
+    },
+    "type": "number",
+    "required-condition": {
+      "objectType.group.value": "living"
+    },
+    "visible-condition": {
+      "$or": [
+        {
+          "objectType.group.value": "living"
+        },
+        {
+          "objectType.value": "office"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Этажность",
+    "alias": "floorsTotal",
+    "data":{
+      "singleOf": {
+        "param": "floorsTotal"
+      }
+    },
+    "type": "number",
+    "required-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "living",
+          "suburban"
+        ]
+      }
+    },
+    "visible-condition": {
+      "$or": [
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "objectType.value": "office"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Квартира",
+    "type": "HEADER",
+    "visible-condition": {
+      "objectType.group.value": "living"
+    }
+  },
+  {
+    "title": "Число собственников",
+    "alias": "ownersTotal",
+    "data":{
+      "singleOf": {
+        "param": "ownersTotal"
+      }
+    },
+    "type": "number",
+    "required": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": true
+        },
+        {
+          "isNew.value": false
+        },
+        {
+          "objectType.group.value": "living"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Комнат",
+    "type": "LIST",
+    "alias":"roomsTotal",
+    "data": {
+      "singleOf": {
+        "param": "roomsTotal",
+        "source": [
+          {
+            "title": "1",
+            "value": "1"
+          },
+          {
+            "title": "2",
+            "value": "2"
+          },
+          {
+            "title": "3",
+            "value": "3"
+          },
+          {
+            "title": "4",
+            "value": "4"
+          },
+          {
+            "title": "5",
+            "value": "5"
+          },
+          {
+            "title": "6",
+            "value": "6",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "6+",
+            "value": "6+"
+          },
+          {
+            "title": "Студия",
+            "value": "studio",
+            "visible-condition": {
+              "$not":{
+                "objectType.value":"room"
+              }
+            }
+          }
+        ],
+        "required": true,
+        "default": "1"
+      }
+    },
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "living",
+          "suburban"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Комнат",
+    "alias": "roomsTotal",
+    "data":{
+      "singleOf": {
+        "param": "roomsTotal"
+      }
+    },
+    "type": "integer",
+    "required": false,
+    "visible-condition": {
+      "objectType.value": "office"
+    }
+  },
+  {
+    "title": "Комнат в аренду",
+    "alias":"roomsTotal",
+    "type": "LIST",
+    "data": {
+      "singleOf": {
+        "param": "roomsTotal",
+        "source": [
+          {
+            "title": "1",
+            "value": "1"
+          },
+          {
+            "title": "2",
+            "value": "2",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "3",
+            "value": "3",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "3",
+                  "4",
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "4",
+            "value": "4",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "4",
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "5",
+            "value": "5",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "6",
+            "value": "6",
+            "visible-condition": {
+              "roomsTotal.value": "6+"
+            }
+          },
+          {
+            "title": "Студия",
+            "value": "studio"
+          }
+        ],
+        "value": "1",
+        "required": true
+      }
+    },
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.value": "room"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Комнат на продажу",
+    "type": "LIST",
+    "alias":"roomsTotal",
+    "data": {
+      "singleOf": {
+        "param": "roomsTotal",
+        "source": [
+          {
+            "title": "1",
+            "value": "1"
+          },
+          {
+            "title": "2",
+            "value": "2",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "3",
+            "value": "3",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "3",
+                  "4",
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "4",
+            "value": "4",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "4",
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "5",
+            "value": "5",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "6",
+            "value": "6",
+            "visible-condition": {
+              "roomsTotal.value": "6+"
+            }
+          },
+          {
+            "title": "Студия",
+            "value": "studio"
+          }
+        ],
+        "default": "1",
+        "required": true
+      }
+    },
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": true
+        },
+        {
+          "objectType.value": "room"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Свободная планировка",
+    "type": "BOOLEAN",
+    "alias":"isOpenPlan",
+    "data": {
+      "singleOf": {
+        "param": "isOpenPlan",
+        "default": false,
+        "required": true
+      }
+    },
+    "visible-condition": {
+      "$or": [
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "objectType.value": "office"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Площадь жилая",
+    "alias": "livingSpace",
+    "data":{
+      "singleOf": {
+        "param": "livingSpace"
+      }
+    },
+    "type": "decimal",
+    "required": true,
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "living",
+          "suburban"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Площадь кухни",
+    "alias": "kitchenSpace",
+    "data":{
+    "singleOf": {
+      "param": "kitchenSpace"
+     }
+  },
+    "type": "decimal",
+    "required": true,
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "living",
+          "suburban"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Площадь общая",
+    "alias": "totalSpace",
+    "data":{
+    "singleOf": {
+      "param": "totalSpace"
+     }
+  },
+    "type": "decimal",
+    "required": true,
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "living",
+          "commercial",
+          "suburban"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Площадь на продажу",
+    "alias": "offeredSpace",
+    "data":{
+    "singleOf": {
+      "param": "offeredSpace"
+     }
+  },
+    "type": "decimal",
+    "required": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": true
+        },
+        {
+          "objectType.value": "room"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Площадь в аренду",
+    "alias": "offeredSpace",
+    "data":{
+    "singleOf": {
+      "param": "offeredSpace"
+     }
+    },
+    "type": "decimal",
+    "required": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.value": "room"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Площадь участка",
+    "type": "decimalUnits",
+    "alias":"landSpace",
+    "data": {
+      "amount": {
+        "param": "spaceAmount"
+      },
+      "unit": {
+        "param": "spaceUnit",
+        "source": [
+          {
+            "title": "соток",
+            "value": "are"
+          },
+          {
+            "title": "гектар",
+            "value": "hectare"
+          }
+        ]
+      }
+    },
+    "required": true,
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "suburban",
+          "land"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Фотографии, описание, контакты",
+    "type": "HEADER"
+  },
+  {
+    "title": "Фотографии",
+    "alias": "photos",
+    "data":{
+      "singleOf": {
+        "param": "photos"
+       }
+    },
+    "type": "images",
+    "required": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Планировка",
+    "alias": "planningImages",
+    "data":{
+      "singleOf": {
+        "param": "planningImages"
+       }
+    },
+    "type": "images",
+    "required": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Описание",
+    "alias":"description",
+    "data": {
+      "singleOf": {
+        "param": "description"
+      }
+    },
+    "type": "STRING",
+    "required": true,
+    "visible-condition": true
+  }
 ]
