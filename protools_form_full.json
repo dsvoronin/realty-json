@@ -271,7 +271,7 @@
     "data": {
       "singleOf": {
         "param": "streetId",
-        "api": "address?parent=${city.id}&type=street",
+        "api": "fias/address?parent=${city.id}&type=street",
         "value": "street.id"
       }
     },
