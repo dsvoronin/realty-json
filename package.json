@@ -1,0 +1,17 @@
+{
+  "name": "json-schema-validator",
+  "version": "0.0.1",
+  "description": "CI validation scripts",
+  "repository": "https://bitbucket.org/ashs555/realty_json",
+  "scripts": {
+    "validate": "node validate.js"
+  },
+  "engines": {
+    "node": "0.11.x",
+    "npm": "2.x.x"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "is-my-json-valid": "2.10.1"
+  }
+}
