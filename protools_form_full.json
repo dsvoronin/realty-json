@@ -288,7 +288,7 @@
     "data": {
       "singleOf": {
         "param": "buildingId",
-        "api": "fias/house?parent=${city.id}"
+        "api": "fias/house?parent=${street.id}"
       }
     },
     "type": "FIAS_HOUSE",
