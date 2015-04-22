@@ -170,7 +170,7 @@
     "data": {
       "singleOf": {
         "param": "cityId",
-        "api": "fias/city?regionId=${region.id}",
+        "api": "fias/city?regionId=${region.id}&type=city",
         "value": "city.id"
       }
     },
@@ -185,7 +185,7 @@
     "data": {
       "singleOf": {
         "param": "metroId",
-        "api": "fias/metro?cityId=${city.id}&type=city"
+        "api": "fias/metro?cityId=${city.id}"
       }
     },
     "type": "FIAS_METRO",
