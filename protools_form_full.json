@@ -4,7 +4,7 @@
     "data": {
       "singleOf": {
         "param": "regionId",
-        "api": "rest/fias/region",
+        "api": "fias/region",
         "value": "region.id"
       }
     },
@@ -67,7 +67,7 @@
             "value": "house",
             "group": {
               "title": "Жилая",
-              "value": "suburban"
+              "value": "living"
             }
           },
           {
@@ -170,7 +170,7 @@
     "data": {
       "singleOf": {
         "param": "cityId",
-        "api": "rest/fias/city?regionId=${region.id}",
+        "api": "fias/city?regionId=${region.id}",
         "value": "city.id"
       }
     },
@@ -185,7 +185,7 @@
     "data": {
       "singleOf": {
         "param": "metroId",
-        "api": "rest/fias/metro?cityId=${city.id}"
+        "api": "fias/metro?cityId=${city.id}"
       }
     },
     "type": "FIAS_METRO",
@@ -212,7 +212,7 @@
     "data": {
       "singleOf": {
         "param": "districtId",
-        "api": "rest/fias/district?cityId=${city.id}"
+        "api": "fias/district?cityId=${city.id}"
       }
     },
     "type": "FIAS_DISTRICT",
@@ -242,7 +242,7 @@
     "data": {
       "singleOf": {
         "param": "directionId",
-        "api": "rest/fias/direction?cityId=${city.id}"
+        "api": "fias/direction?cityId=${city.id}"
       }
     },
     "type": "FIAS_DIRECTION",
@@ -271,7 +271,7 @@
     "data": {
       "singleOf": {
         "param": "streetId",
-        "api": "rest/fias/address?parent=${city.id}&type=street",
+        "api": "address?parent=${city.id}&type=street",
         "value": "street.id"
       }
     },
@@ -288,7 +288,7 @@
     "data": {
       "singleOf": {
         "param": "buildingId",
-        "api": "rest/fias/house?parent=${city.id}"
+        "api": "fias/house?parent=${city.id}"
       }
     },
     "type": "FIAS_HOUSE",
