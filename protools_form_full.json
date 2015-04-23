@@ -292,7 +292,9 @@
       }
     },
     "type": "FIAS_HOUSE",
-    "visible-condition": true,
+    "visible-condition": {
+      "isNew.value": false
+    },
     "required-condition": {
       "isNew.value": false
     },
