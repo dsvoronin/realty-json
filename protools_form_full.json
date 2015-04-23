@@ -350,7 +350,12 @@
       }
     },
     "required": true,
-    "visible-condition": true
+    "visible-condition": true,
+    "value":{
+            "symbol": "₽",
+            "title": "Рубли",
+            "value": "rub"
+          }
   },
   {
     "title": "Тип сделки",
@@ -1132,7 +1137,8 @@
           "objectType.value": "office"
         }
       ]
-    }
+    },
+    "value":false
   },
   {
     "title": "Площадь жилая",
