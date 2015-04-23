@@ -886,7 +886,12 @@
           },
           {
             "title": "Студия",
-            "value": "studio"
+            "value": "studio",
+            "visible-condition": {
+              "$not":{
+                "objectType.value":"room"
+              }
+            }
           }
         ],
         "required": true,
