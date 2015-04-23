@@ -385,7 +385,11 @@
           "objectType.value": "flat"
         }
       ]
-    }
+    },
+    "value": {
+            "title": "Свободная",
+            "value": true
+          }
   },
   {
     "title": "Тип аренды",
@@ -638,7 +642,10 @@
         }
       ]
     },
-    "value" : false
+    "value" : {
+            "title": "Вторичка",
+            "value": false
+          }
   },
   {
     "title": "Этап строительства",
