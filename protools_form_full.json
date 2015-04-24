@@ -480,8 +480,13 @@
   },
   {
     "title": "Расстояние до города, км.",
-    "param": "distanceToCity",
     "type": "decimal",
+    "data": {
+      "input": {
+        "param": "distanceToCity"
+      }
+    },
+    "alias": "cityDistance",
     "visible-condition": {
       "objectType.value": {
         "$in": [

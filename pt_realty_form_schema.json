@@ -89,8 +89,8 @@
     },
     "singleParamData": {
       "type": "object",
-      "properties": {
-        "singleOf": {
+      "patternProperties": {
+        ".*": {
           "$ref": "#/definitions/paramElement"
         }
       },
