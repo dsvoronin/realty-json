@@ -1,261 +1,271 @@
 {
-   "$schema": "http://json-schema.org/draft-04/schema#",
-   "type":"array",
-   "items":{
-      "$ref":"#/definitions/element"
-   },
-   "definitions":{
-      "element":{
-         "oneOf":[
-            {
-               "$ref":"#/definitions/headerElement"
-            },
-            {
-               "$ref":"#/definitions/formElement"
-            }
-         ]
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/element"
+  },
+  "definitions": {
+    "element": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/headerElement"
+        },
+        {
+          "$ref": "#/definitions/formElement"
+        }
+      ]
+    },
+    "headerElement": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "HEADER"
+          ]
+        },
+        "visible-condition": {
+          "$ref": "#/definitions/someCondition"
+        }
       },
-      "headerElement":{
-         "type":"object",
-         "properties":{
-            "title":{
-               "type":"string"
-            },
-            "type":{
-               "type":"string",
-               "enum":[
-                  "HEADER"
-               ]
-            },
-            "visible-condition":{
-               "$ref":"#/definitions/someCondition"
-            }
-         },
-         "additionalProperties":false,
-         "required":[
-            "title",
-            "type"
-         ]
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "type"
+      ]
+    },
+    "formElement": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/paramData"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "required-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "visible-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "value": {
+          "$ref": "#/definitions/paramValue"
+        }
       },
-      "formElement":{
-         "type":"object",
-         "properties":{
-            "title":{
-               "type":"string"
-            },
-            "type":{
-               "type":"string"
-            },
-            "data":{
-               "$ref":"#/definitions/paramData"
-            },
-            "alias":{
-               "type":"string"
-            },
-            "required-condition":{
-               "$ref":"#/definitions/someCondition"
-            },
-            "visible-condition":{
-               "$ref":"#/definitions/someCondition"
-            },
-            "value": {
-              "$ref":"#/definitions/scalar" 
-            }
-         },
-         "required":[
-            "title",
-            "type",
-            "alias"
-         ]
+      "required": [
+        "title",
+        "type",
+        "alias"
+      ]
+    },
+    "paramData": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/singleParamData"
+        },
+        {
+          "$ref": "#/definitions/multiParamData"
+        }
+      ]
+    },
+    "multiParamData": {
+      "type": "object",
+      "patternProperties": {
+        "^((?!singleOf).)*$": {
+          "$ref": "#/definitions/paramElement"
+        }
       },
-      "paramData":{
-         "oneOf":[
-            {
-               "$ref":"#/definitions/singleParamData"
-            },
-            {
-               "$ref":"#/definitions/multiParamData"
-            }
-         ]
+      "minProperties": 2
+    },
+    "singleParamData": {
+      "type": "object",
+      "properties": {
+        "singleOf": {
+          "$ref": "#/definitions/paramElement"
+        }
       },
-      "multiParamData":{
-         "type":"object",
-         "patternProperties":{
-            "^((?!singleOf).)*$":{
-               "$ref":"#/definitions/paramElement"
-            }
-         },
-         "minProperties":2
+      "minProperties": 1,
+      "maxProperties": 1,
+      "additionalProperties": false
+    },
+    "paramElement": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/paramElementAPI"
+        },
+        {
+          "$ref": "#/definitions/paramElementSource"
+        }
+      ]
+    },
+    "paramElementAPI": {
+      "type": "object",
+      "properties": {
+        "param": {
+          "type": "string"
+        },
+        "api": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "singleParamData":{
-         "type":"object",
-         "properties":{
-            "singleOf":{
-               "$ref":"#/definitions/paramElement"
-            }
-         },
-         "minProperties":1,
-         "maxProperties":1,
-         "additionalProperties":false
+      "required": [
+        "param"
+      ],
+      "additionalProperties": false
+    },
+    "paramElementSource": {
+      "type": "object",
+      "properties": {
+        "param": {
+          "type": "string"
+        },
+        "source": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/sourceElement"
+          }
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "paramElement":{
-         "anyOf":[
-            {
-               "$ref":"#/definitions/paramElementAPI"
-            },
-            {
-               "$ref":"#/definitions/paramElementSource"
-            }
-         ]
+      "required": [
+        "param"
+      ],
+      "additionalProperties": false
+    },
+    "paramValue": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/scalar"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "sourceElement": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/scalar"
+        },
+        "visible-condition": {
+          "$ref": "#/definitions/someCondition"
+        }
       },
-      "paramElementAPI":{
-         "type":"object",
-         "properties":{
-            "param":{
-               "type":"string"
-            },
-            "api":{
-               "type":"string"
-            },
-            "value":{
-               "type":"string"
-            }
-         },
-         "required":[
-            "param"
-         ],
-         "additionalProperties":false
+      "required": [
+        "title",
+        "value"
+      ],
+      "additionalProperties": true
+    },
+    "someCondition": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/complexCondition"
+        },
+        {
+          "$ref": "#/definitions/simpleCondition"
+        },
+        {
+          "$ref": "#/definitions/inCondition"
+        },
+        {
+          "$ref": "#/definitions/explicitCondition"
+        }
+      ]
+    },
+    "explicitCondition": {
+      "type": "boolean"
+    },
+    "complexCondition": {
+      "type": "object",
+      "properties": {
+        "$and": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/someCondition"
+          },
+          "minItems": 1
+        },
+        "$or": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/someCondition"
+          },
+          "minItems": 1
+        },
+        "$not": {
+          "$ref": "#/definitions/someCondition"
+        }
       },
-      "paramElementSource":{
-         "type":"object",
-         "properties":{
-            "param":{
-               "type":"string"
-            },
-            "source":{
-               "type":"array",
-               "items":{
-                  "$ref":"#/definitions/sourceElement"
-               }
-            },
-            "value":{
-               "type":"string"
+      "additionalProperties": false,
+      "maxProperties": 1,
+      "minProperties": 1
+    },
+    "inCondition": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "properties": {
+            "$in": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/scalar"
+              }
             }
-         },
-         "required":[
-            "param"
-         ],
-         "additionalProperties":false
+          },
+          "additionalProperties": false
+        }
       },
-      "sourceElement":{
-         "type":"object",
-         "properties":{
-            "title":{
-               "type":"string"
-            },
-            "value":{
-               "$ref":"#/definitions/scalar"
-            },
-            "visible-condition":{
-               "$ref":"#/definitions/someCondition"
-            }
-         },
-         "required":[
-            "title",
-            "value"
-         ],
-         "additionalProperties":true
-      },
-      "someCondition":{
-         "oneOf":[
-            {
-               "$ref":"#/definitions/complexCondition"
-            },
-            {
-               "$ref":"#/definitions/simpleCondition"
-            },
-            {
-               "$ref":"#/definitions/inCondition"
-            },
-            {
-               "$ref":"#/definitions/explicitCondition"
-            }
-         ]
-      },
-      "explicitCondition":{
-         "type":"boolean"
-      },
-      "complexCondition":{
-         "type":"object",
-         "properties":{
-            "$and":{
-               "type":"array",
-               "items":{
-                  "$ref":"#/definitions/someCondition"
-               },
-               "minItems":1
-            },
-            "$or":{
-               "type":"array",
-               "items":{
-                  "$ref":"#/definitions/someCondition"
-               },
-               "minItems":1
-            },
-            "$not":{
-               "$ref":"#/definitions/someCondition"
-            }
-         },
-         "additionalProperties":false,
-         "maxProperties":1,
-         "minProperties":1
-      },
-      "inCondition":{
-         "type":"object",
-         "minProperties":1,
-         "maxProperties":1,
-         "patternProperties":{
-            ".*":{
-               "type":"object",
-               "properties":{
-                  "$in":{
-                     "type":"array",
-                     "items":{
-                        "$ref":"#/definitions/scalar"
-                     }
-                  }
-               },
-               "additionalProperties":false
-            }
-         },
-         "additionalProperties":false
-      },
-      "simpleCondition":{
-         "type":"object",
-         "minProperties":1,
-         "maxProperties":1,
-         "additionalProperties":false,
-         "patternProperties":{
-            ".*":{
-               "$ref":"#/definitions/scalar"
-            }
-         }
-      },
-      "scalar":{
-         "anyOf":[
-            {
-               "type":"boolean"
-            },
-            {
-               "type":"string"
-            },
-            {
-               "type":"number"
-            },
-            {
-               "type":"null"
-            }
-         ]
+      "additionalProperties": false
+    },
+    "simpleCondition": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "additionalProperties": false,
+      "patternProperties": {
+        ".*": {
+          "$ref": "#/definitions/scalar"
+        }
       }
-   }
+    },
+    "scalar": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
 }
