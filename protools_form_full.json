@@ -734,7 +734,6 @@
   },
   {
     "title": "Класс здания",
-    "alias": "buildingClass",
     "type": "LIST",
     "data": {
       "singleOf": {
@@ -756,10 +755,11 @@
             "title": "D",
             "value": "D"
           }
-        ],
-        "required": true
+        ]
       }
     },
+    "alias": "buildingClass",
+    "required-condition": true,
     "visible-condition": {
       "objectType.value": {
         "$in": [
