@@ -858,6 +858,7 @@
   },
   {
     "title": "Комнат",
+    "alias": "roomsTotal",
     "type": "LIST",
     "data": {
       "singleOf": {
@@ -907,7 +908,6 @@
       }
     },
     "value": "1",
-    "alias": "roomsTotal",
     "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
@@ -934,7 +934,7 @@
   },
   {
     "title": "Комнат в аренду",
-    "alias": "roomsTotal",
+    "alias": "roomsRent",
     "type": "LIST",
     "data": {
       "singleOf": {
@@ -1009,11 +1009,11 @@
             "title": "Студия",
             "value": "studio"
           }
-        ],
-        "value": "1",
-        "required": true
+        ]
       }
     },
+    "value": "1",
+    "required-condition": true,
     "visible-condition": {
       "$and": [
         {
@@ -1028,7 +1028,7 @@
   {
     "title": "Комнат на продажу",
     "type": "LIST",
-    "alias": "roomsTotal",
+    "alias": "roomsSell",
     "data": {
       "singleOf": {
         "param": "roomsTotal",
@@ -1102,11 +1102,11 @@
             "title": "Студия",
             "value": "studio"
           }
-        ],
-        "default": "1",
-        "required": true
+        ]
       }
     },
+    "value": "1",
+    "required-condition": true,
     "visible-condition": {
       "$and": [
         {
