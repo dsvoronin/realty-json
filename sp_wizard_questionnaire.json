@@ -1,0 +1,147 @@
+[
+  {
+    "title": "Какое у вас образование?",
+    "visible-condition": true,
+    "required-condition":true,
+    "param":"education",
+    "type":"SELECT",
+    "values": [
+      {
+        "title": "среднее",
+        "value_code": "middle",
+        "value": "среднее"
+      },
+      {
+        "title": "высшее",
+        "value_code": "high",
+        "value": "высшее"
+      },
+      {
+        "title": "другое",
+        "placeholder": "Укажите, какое",
+        "custom": true
+      }
+    ]
+  },
+  {
+    "title": "Какое направление у вашего образования?",
+    "param":"education_type",
+    "visible-condition": {"education.value_code":"high"},
+    "required-condition":true,
+    "type":"SELECT",
+    "values": [
+      {
+        "title": "экономическое",
+        "value_code": "economics",
+        "value": "экономическое"
+      },
+      {
+        "title": "юридическое",
+        "value_code": "law",
+        "value": "юридическое"
+      },
+      {
+        "title": "медицинское",
+        "value_code": "medical",
+        "value": "медицинское"
+      },
+      {
+        "title": "техническое",
+        "value_code": "tech",
+        "value": "техническое"
+      },
+      {
+        "title": "другое",
+        "placeholder": "Укажите, какое",
+        "custom": true
+      }
+    ]
+  },
+  {
+    "visible-condition": {"education.value_code":"high"},
+    "title": "Укажите ВУЗ, если хотите.",
+    "required-condition":false,
+    "type":"TEXT",
+    "param":"education_college"
+  },
+  {
+    "param":"qualities",
+    "visible-condition":true,
+    "required-condition":true,
+    "title": "Ваши главные качества (не более 3х)",
+    "type":"MULTI_SELECT",
+    "max_values": 3,
+    "values": [
+      {
+        "title": "исполнительность",
+        "value_code": "diligence",
+        "value": "исполнительность"
+      },
+      {
+        "title": "честность",
+        "value_code": "honesty",
+        "value": "честность"
+      },
+      {
+        "title": "вежливость",
+        "value_code": "politeness",
+        "value": "вежливость"
+      },
+      {
+        "title": "пунктуальность",
+        "value_code": "nicety",
+        "value": "пунктуальность"
+      },
+      {
+        "title": "оперативность",
+        "value_code": "efficiency",
+        "value": "оперативность"
+      },
+      {
+        "title": "сила",
+        "value_code": "strength",
+        "value": "сила"
+      },
+      {
+        "title": "опыт",
+        "value_code": "experience",
+        "value": "опыт"
+      }
+    ]
+  },
+  {
+    "param":"free_time",
+    "visible-condition":true,
+    "required-condition":true,
+    "title": "Чем занимаетесь в свободное время? (1-2 основных занятия)",
+    "type": "MULTI_SELECT",
+    "max_values": 2,
+    "values": [
+      {
+        "title": "cпортом",
+        "value_code": "sport",
+        "value": "заниматься спортом"
+      },
+      {
+        "title": "читаю",
+        "value_code": "reading",
+        "value": "почитать книжку"
+      },
+      {
+        "title": "общаюсь с друзьями",
+        "value_code": "friends",
+        "value": "пообщаться с друзьями"
+      },
+      {
+        "title": "хожу в театр",
+        "value_code": "theatre",
+        "value": "сходить в театр"
+      },
+      {
+        "title": "хожу в кино",
+        "value_code": "cinema",
+        "value": "сходить в кино"
+      }
+    ]
+  }
+]

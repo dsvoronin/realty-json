@@ -201,6 +201,7 @@
         {
             "title": "Комнат",
             "type": "LIST",
+            "multiselection": true,
             "alias": "roomsTotal",
             "data": {
                 "singleOf": {
