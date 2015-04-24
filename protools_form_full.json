@@ -522,14 +522,13 @@
       }
     },
     "alias": "landType",
-    "requried-condition": true,
+    "required-condition": true,
     "visible-condition": {
       "objectType.value": "land"
     }
   },
   {
     "title": "Материал стен",
-    "alias": "buildingMaterial",
     "type": "LIST",
     "data": {
       "singleOf": {
@@ -616,10 +615,11 @@
               "objectType.group.value": "suburban"
             }
           }
-        ],
-        "required": true
+        ]
       }
     },
+    "alias": "buildingMaterial",
+    "required-condition": true,
     "visible-condition": true
   },
   {
