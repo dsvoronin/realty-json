@@ -859,7 +859,6 @@
   {
     "title": "Комнат",
     "type": "LIST",
-    "alias": "roomsTotal",
     "data": {
       "singleOf": {
         "param": "roomsTotal",
@@ -904,11 +903,12 @@
               }
             }
           }
-        ],
-        "required": true,
-        "default": "1"
+        ]
       }
     },
+    "value": "1",
+    "alias": "roomsTotal",
+    "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
         "$in": [
