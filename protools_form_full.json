@@ -9,7 +9,7 @@
       }
     },
     "type": "FIAS_REGION",
-    "required": true,
+    "required-condition": true,
     "visible-condition": true,
     "alias": "region"
   },
@@ -177,7 +177,7 @@
     },
     "alias": "city",
     "type": "FIAS_CITY",
-    "required": true,
+    "required-condition": true,
     "visible-condition": true
   },
   {
@@ -190,7 +190,7 @@
       }
     },
     "type": "FIAS_METRO",
-    "required": true,
+    "required-condition": true,
     "visible-condition": {
       "$and": [
         {
@@ -217,7 +217,7 @@
       }
     },
     "type": "FIAS_DISTRICT",
-    "required": true,
+    "required-condition": true,
     "visible-condition": {
       "$and": [
         {
@@ -247,7 +247,7 @@
       }
     },
     "type": "FIAS_DIRECTION",
-    "required": true,
+    "required-condition": true,
     "visible-condition": {
       "$and": [
         {
@@ -375,11 +375,11 @@
             "title": "Альтернативная",
             "value": false
           }
-        ],
-        "required": false,
-        "default": null
+        ]
       }
     },
+    "required-condition": false,
+    "value": null,
     "visible-condition": {
       "$and": [
         {
@@ -629,8 +629,6 @@
     "data": {
       "singleOf": {
         "param": "isNew",
-        "required": true,
-        "default": false,
         "source": [
           {
             "title": "Новостройка",
@@ -643,6 +641,8 @@
         ]
       }
     },
+    "value": false,
+    "required-condition": true,
     "visible-condition": {
       "$and": [
         {
@@ -699,7 +699,7 @@
       }
     },
     "type": "year",
-    "required": true,
+    "required-condition": true,
     "visible-condition": {
       "$and": [
         {
@@ -720,7 +720,7 @@
       }
     },
     "type": "quarter",
-    "required": true,
+    "required-condition": true,
     "visible-condition": {
       "$and": [
         {
@@ -1124,11 +1124,11 @@
     "alias": "isOpenPlan",
     "data": {
       "singleOf": {
-        "param": "isOpenPlan",
-        "default": false,
-        "required": true
+        "param": "isOpenPlan"
       }
     },
+    "value": false,
+    "required-condition": true,
     "visible-condition": {
       "$or": [
         {
@@ -1143,8 +1143,7 @@
           "objectType.value": "office"
         }
       ]
-    },
-    "value": false
+    }
   },
   {
     "title": "Площадь жилая",
@@ -1193,7 +1192,7 @@
       }
     },
     "type": "decimal",
-    "required": true,
+    "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
         "$in": [
@@ -1213,7 +1212,7 @@
       }
     },
     "type": "decimal",
-    "required": true,
+    "required-condition": true,
     "visible-condition": {
       "$and": [
         {
@@ -1234,7 +1233,7 @@
       }
     },
     "type": "decimal",
-    "required": true,
+    "required-condition": true,
     "visible-condition": {
       "$and": [
         {
@@ -1268,7 +1267,7 @@
         ]
       }
     },
-    "required": true,
+    "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
         "$in": [
@@ -1291,7 +1290,7 @@
       }
     },
     "type": "images",
-    "required": true,
+    "required-condition": true,
     "visible-condition": true
   },
   {
@@ -1303,7 +1302,7 @@
       }
     },
     "type": "images",
-    "required": true,
+    "required-condition": true,
     "visible-condition": true
   },
   {
@@ -1315,7 +1314,7 @@
       }
     },
     "type": "STRING",
-    "required": true,
+    "required-condition": true,
     "visible-condition": true
   }
 ]
