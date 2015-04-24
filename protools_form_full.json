@@ -19,6 +19,7 @@
     "type": "LIST",
     "data": {
       "singleOf": {
+        "param": "isSell",
         "source": [
           {
             "title": "Продажа",
