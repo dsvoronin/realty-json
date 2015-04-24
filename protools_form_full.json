@@ -501,7 +501,6 @@
   },
   {
     "title": "Тип участка",
-    "alias": "landType",
     "type": "LIST",
     "data": {
       "singleOf": {
@@ -519,10 +518,11 @@
             "title": "Промназначение",
             "value": "promzone"
           }
-        ],
-        "required": true
+        ]
       }
     },
+    "alias": "landType",
+    "requried-condition": true,
     "visible-condition": {
       "objectType.value": "land"
     }
