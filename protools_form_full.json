@@ -660,7 +660,6 @@
   },
   {
     "title": "Этап строительства",
-    "alias": "isReady",
     "type": "LIST",
     "data": {
       "singleOf": {
@@ -674,10 +673,11 @@
             "title": "Дом не сдан",
             "value": false
           }
-        ],
-        "required": true
+        ]
       }
     },
+    "alias": "isReady",
+    "required-condition": true,
     "visible-condition": {
       "$and": [
         {
