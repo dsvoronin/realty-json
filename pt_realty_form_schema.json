@@ -69,34 +69,13 @@
       ]
     },
     "paramData": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/singleParamData"
-        },
-        {
-          "$ref": "#/definitions/multiParamData"
-        }
-      ]
-    },
-    "multiParamData": {
-      "type": "object",
-      "patternProperties": {
-        "^((?!singleOf).)*$": {
-          "$ref": "#/definitions/paramElement"
-        }
-      },
-      "minProperties": 2
-    },
-    "singleParamData": {
       "type": "object",
       "patternProperties": {
         ".*": {
           "$ref": "#/definitions/paramElement"
         }
       },
-      "minProperties": 1,
-      "maxProperties": 1,
-      "additionalProperties": false
+      "additionalProperties":false
     },
     "paramElement": {
       "anyOf": [
@@ -134,6 +113,7 @@
         },
         "source": {
           "type": "array",
+          "minItems":2,
           "items": {
             "$ref": "#/definitions/sourceElement"
           }
