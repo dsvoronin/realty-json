@@ -296,9 +296,7 @@
     "visible-condition": {
       "isNew.value": false
     },
-    "required-condition": {
-      "isNew.value": false
-    },
+    "required-condition": false,
     "comment": "Идентификатор дома из ФИАС"
   },
   {
@@ -316,7 +314,7 @@
       }
     },
     "alias": "building_custom",
-    "required-condition": true,
+    "required-condition": false,
     "visible-condition": {
       "isNew.value": true
     },
@@ -351,7 +349,7 @@
         ]
       }
     },
-    "required-condition": true,
+    "required-condition": false,
     "visible-condition": true,
     "value": {
       "symbol": "₽",
