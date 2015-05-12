@@ -50,7 +50,7 @@
           "$ref": "#/definitions/paramData"
         },
         "alias": {
-          "type": "string"
+          "$ref": "#/definitions/alias"
         },
         "required-condition": {
           "$ref": "#/definitions/someCondition"
@@ -60,8 +60,18 @@
         },
         "value": {
           "$ref": "#/definitions/paramValue"
+        },
+        "comment": {
+          "type":"string"
+        },
+        "valid-conditions": {
+          "type":"array",
+          "items":{
+            "$ref": "#/definitions/validationRule"
+          }
         }
       },
+      "additionalProperties":false,
       "required": [
         "title",
         "type",
@@ -71,7 +81,7 @@
     "paramData": {
       "type": "object",
       "patternProperties": {
-        ".*": {
+        "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$": {
           "$ref": "#/definitions/paramElement"
         }
       },
@@ -205,7 +215,7 @@
       "minProperties": 1,
       "maxProperties": 1,
       "patternProperties": {
-        ".*": {
+        "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$": {
           "type": "object",
           "properties": {
             "$in": {
@@ -226,10 +236,120 @@
       "maxProperties": 1,
       "additionalProperties": false,
       "patternProperties": {
-        ".*": {
+        "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$": {
           "$ref": "#/definitions/scalar"
         }
       }
+    },
+    "validationRule": {
+      "properties": {
+        "condition": {
+          "$ref": "#/definitions/validationCondition"
+        },
+        "errorMessage": {
+          "type": "string"
+        }
+      },
+      "minProperties":2,
+      "additionalProperties": false
+    },
+    "validationCondition": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/pathValidationCondition"
+        },
+        {
+          "$ref": "#/definitions/multipleValidationCondition"
+        }
+      ]
+    },
+    "multipleValidationCondition": {
+      "type": "object",
+      "properties": {
+        "$and": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/validationCondition"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "minProperies": 1,
+      "maxProperies": 1
+    },
+    "pathValidationCondition": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "patternProperties": {
+        "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/eqCondition"
+            },
+            {
+              "$ref": "#/definitions/typeCondition"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "typeCondition": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "integer",
+            "decimal"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "eqCondition": {
+      "type": "object",
+      "patternProperties": {
+        "\\$(ge|le|gt|lt)": {
+          "$ref": "#/definitions/eqOperand"
+        }
+      },
+      "additionalProperties": false
+    },
+    "eqOperand": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "$ref": "#/definitions/aliasPath"
+        },
+        {
+          "$ref": "#/definitions/aggregate"
+        }
+      ]
+    },
+    "aggregate": {
+      "type": "object",
+      "properties": {
+        "$sum": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/aliasPath"
+          },
+          "minItems": 2
+        }
+      },
+      "additionalProperties": false
+    },
+    "aliasPath": {
+      "type": "string",
+      "pattern": "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$"
+    },
+    "alias": {
+      "type": "string",
+      "pattern": "^[a-zA-Z_]+$"
     },
     "scalar": {
       "anyOf": [
