@@ -318,7 +318,10 @@
     "visible-condition": {
       "isNew.value": true
     },
-    "comment": "Адрес дома, введенный вручную"
+    "comment": "Адрес дома, введенный вручную",
+    "bindings": {
+      "buildingcustom.address":"building.num"
+    }
   },
   {
     "title": "Цена",
@@ -346,6 +349,16 @@
             "title": "Евро",
             "value": "eur"
           }
+        ]
+      }
+    },
+    "bindings": {
+      "pricing.spaceLabel":{
+        "$concat":[
+          "pricing.price/totalSpace.value",
+          " ",
+          "pricing.currency.symbol",
+          "за м²"
         ]
       }
     },

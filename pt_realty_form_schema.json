@@ -70,6 +70,9 @@
           "items":{
             "$ref": "#/definitions/validationRule"
           }
+        },
+        "bindings": {
+          "$ref": "#/definitions/bindings"
         }
       },
       "additionalProperties":false,
@@ -102,7 +105,7 @@
       "type": "object",
       "properties": {
         "param": {
-          "type": "string"
+          "$ref": "#/definitions/paramName"
         },
         "api": {
           "type": "string"
@@ -337,11 +340,23 @@
         "$sum": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/aliasPath"
+            "oneOf":[
+              {"$ref": "#/definitions/aliasPath"},
+              {"type": "number"}
+            ]
+          },
+          "minItems": 2
+        },
+        "$concat": {
+          "type": "array",
+          "items": {
+            "type": "string"
           },
           "minItems": 2
         }
       },
+      "minProperties":1,
+      "maxProperties":1,
       "additionalProperties": false
     },
     "aliasPath": {
@@ -349,6 +364,10 @@
       "pattern": "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$"
     },
     "alias": {
+      "type": "string",
+      "pattern": "^[a-zA-Z_]+$"
+    },
+    "paramName": {
       "type": "string",
       "pattern": "^[a-zA-Z_]+$"
     },
@@ -367,6 +386,22 @@
           "type": "null"
         }
       ]
+    },
+    "bindings": {
+      "type":"object",
+      "patternProperties": {
+        "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$":{
+          "$ref": "#/definitions/binding"
+        }
+      },
+      "minProperties":1,
+      "additionalProperties":false
+    },
+    "binding": {
+      "oneOf":[
+        {"$ref": "#/definitions/aliasPath"},
+        {"$ref": "#/definitions/aggregate"}
+      ]    
     }
   }
 }
