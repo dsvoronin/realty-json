@@ -491,7 +491,7 @@
     "title": "Расстояние до города, км.",
     "type": "DECIMAL",
     "data": {
-      "input": {
+      "singleOf": {
         "param": "distanceToCity"
       }
     },
@@ -1391,10 +1391,10 @@
     "alias": "landSpace",
     "data": {
       "amount": {
-        "param": "spaceAmount"
+        "param": "landSpace"
       },
       "unit": {
-        "param": "spaceUnit",
+        "param": "landSpaceUnit",
         "source": [
           {
             "title": "соток",
