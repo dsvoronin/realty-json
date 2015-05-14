@@ -489,7 +489,7 @@
   },
   {
     "title": "Расстояние до города, км.",
-    "type": "decimal",
+    "type": "DECIMAL",
     "data": {
       "input": {
         "param": "distanceToCity"
@@ -707,7 +707,7 @@
         "param": "readyDateYear"
       }
     },
-    "type": "year",
+    "type": "YEAR",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -728,7 +728,7 @@
         "param": "readyDateQuarter"
       }
     },
-    "type": "quarter",
+    "type": "QUARTER",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -786,7 +786,7 @@
         "param": "objectFloor"
       }
     },
-    "type": "number",
+    "type": "INTEGER",
     "required-condition": {
       "objectType.group.value": "living"
     },
@@ -826,7 +826,7 @@
         "param": "floorsTotal"
       }
     },
-    "type": "number",
+    "type": "INTEGER",
     "required-condition": {
       "objectType.group.value": {
         "$in": [
@@ -877,7 +877,7 @@
         "param": "ownersTotal"
       }
     },
-    "type": "number",
+    "type": "INTEGER",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -974,7 +974,7 @@
         "param": "roomsTotal"
       }
     },
-    "type": "integer",
+    "type": "INTEGER",
     "required-condition": false,
     "visible-condition": {
       "objectType.value": "office"
@@ -1194,14 +1194,14 @@
     }
   },
   {
-    "title": "Площадь жилая",
+    "title": "Площадь жилая, м²",
     "alias": "livingSpace",
     "data": {
       "singleOf": {
         "param": "livingSpace"
       }
     },
-    "type": "decimal",
+    "type": "DECIMAL",
     "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
@@ -1224,14 +1224,14 @@
     ]
   },
   {
-    "title": "Площадь кухни",
+    "title": "Площадь кухни, м²",
     "alias": "kitchenSpace",
     "data": {
       "singleOf": {
         "param": "kitchenSpace"
       }
     },
-    "type": "decimal",
+    "type": "DECIMAL",
     "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
@@ -1254,14 +1254,14 @@
     ]
   },
   {
-    "title": "Площадь общая",
+    "title": "Площадь общая, м²",
     "alias": "totalSpace",
     "data": {
       "singleOf": {
         "param": "totalSpace"
       }
     },
-    "type": "decimal",
+    "type": "DECIMAL",
     "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
@@ -1291,14 +1291,14 @@
     ]
   },
   {
-    "title": "Площадь на продажу",
+    "title": "Площадь на продажу, м²",
     "alias": "offeredSpace",
     "data": {
       "singleOf": {
         "param": "offeredSpace"
       }
     },
-    "type": "decimal",
+    "type": "DECIMAL",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -1329,14 +1329,14 @@
     ]
   },
   {
-    "title": "Площадь в аренду",
+    "title": "Площадь в аренду, м²",
     "alias": "offeredSpace",
     "data": {
       "singleOf": {
         "param": "offeredSpace"
       }
     },
-    "type": "decimal",
+    "type": "DECIMAL",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -1368,7 +1368,7 @@
   },
   {
     "title": "Площадь участка",
-    "type": "decimalUnits",
+    "type": "DECIMALUNITS",
     "alias": "landSpace",
     "data": {
       "amount": {
@@ -1421,7 +1421,7 @@
         "param": "photos"
       }
     },
-    "type": "images",
+    "type": "IMAGES",
     "required-condition": true,
     "visible-condition": true
   },
@@ -1433,7 +1433,7 @@
         "param": "planningImages"
       }
     },
-    "type": "images",
+    "type": "IMAGES",
     "required-condition": true,
     "visible-condition": true
   },

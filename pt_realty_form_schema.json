@@ -44,7 +44,8 @@
           "type": "string"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "pattern":"^[A-Z_]+$"
         },
         "data": {
           "$ref": "#/definitions/paramData"
