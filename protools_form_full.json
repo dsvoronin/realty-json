@@ -639,7 +639,6 @@
         ]
       }
     },
-    "value": false,
     "required-condition": true,
     "visible-condition": {
       "$and": [
