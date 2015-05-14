@@ -629,7 +629,9 @@
     },
     "alias": "buildingMaterial",
     "required-condition": true,
-    "visible-condition": true
+    "visible-condition": {
+              "objectType.group.value": "living"
+            }
   },
   {
     "title": "Тип",
