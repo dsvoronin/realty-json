@@ -351,6 +351,17 @@
     },
     "required-condition": false,
     "visible-condition": true,
+    "valid-conditions":[
+      {
+        "condition":{
+        "$and":[
+            {"pricing.price":{"$ge":0}},
+            {"pricing.price":{"type":"integer"}}
+          ]
+        },
+        "errorMessage":"Введите корректное значение"
+      }
+    ],
     "value": {
       "symbol": "₽",
       "title": "Рубли",
@@ -478,7 +489,7 @@
   },
   {
     "title": "Расстояние до города, км.",
-    "type": "decimal",
+    "type": "DECIMAL",
     "data": {
       "input": {
         "param": "distanceToCity"
@@ -696,7 +707,7 @@
         "param": "readyDateYear"
       }
     },
-    "type": "year",
+    "type": "YEAR",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -717,7 +728,7 @@
         "param": "readyDateQuarter"
       }
     },
-    "type": "quarter",
+    "type": "QUARTER",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -775,7 +786,7 @@
         "param": "objectFloor"
       }
     },
-    "type": "number",
+    "type": "INTEGER",
     "required-condition": {
       "objectType.group.value": "living"
     },
@@ -788,7 +799,24 @@
           "objectType.value": "office"
         }
       ]
-    }
+    },
+    "valid-conditions":[
+      {
+        "condition":{
+        "$and":[
+            {"objectFloor":{"$gt":0}},
+            {"objectFloor":{"type":"integer"}}
+          ]
+        },
+        "errorMessage":"Введите целое число"
+      },
+      {
+        "condition":{
+            "objectFloor":{"$gt":"floorsTotal"}
+        },
+        "errorMessage":"Этаж объекта недвижимости должен быть меньше этажности здания"
+      }
+    ]
   },
   {
     "title": "Этажность",
@@ -798,7 +826,7 @@
         "param": "floorsTotal"
       }
     },
-    "type": "number",
+    "type": "INTEGER",
     "required-condition": {
       "objectType.group.value": {
         "$in": [
@@ -821,7 +849,18 @@
           "objectType.value": "office"
         }
       ]
-    }
+    },
+    "valid-conditions":[
+      {
+        "condition":{
+        "$and":[
+            {"floorsTotal":{"$gt":0}},
+            {"floorsTotal":{"type":"integer"}}
+          ]
+        },
+        "errorMessage":"Введите целое число"
+      }
+    ]
   },
   {
     "title": "Квартира",
@@ -838,8 +877,8 @@
         "param": "ownersTotal"
       }
     },
-    "type": "number",
-    "required": true,
+    "type": "INTEGER",
+    "required-condition": true,
     "visible-condition": {
       "$and": [
         {
@@ -852,7 +891,18 @@
           "objectType.group.value": "living"
         }
       ]
-    }
+    },
+    "valid-conditions":[
+      {
+        "condition":{
+        "$and":[
+            {"floorsTotal":{"$gt":0}},
+            {"floorsTotal":{"type":"integer"}}
+          ]
+        },
+        "errorMessage":"Введите целое число"
+      }
+    ]
   },
   {
     "title": "Комнат",
@@ -924,8 +974,8 @@
         "param": "roomsTotal"
       }
     },
-    "type": "integer",
-    "required": false,
+    "type": "INTEGER",
+    "required-condition": false,
     "visible-condition": {
       "objectType.value": "office"
     }
@@ -1144,15 +1194,15 @@
     }
   },
   {
-    "title": "Площадь жилая",
+    "title": "Площадь жилая, м²",
     "alias": "livingSpace",
     "data": {
       "singleOf": {
         "param": "livingSpace"
       }
     },
-    "type": "decimal",
-    "required": true,
+    "type": "DECIMAL",
+    "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
         "$in": [
@@ -1160,18 +1210,29 @@
           "suburban"
         ]
       }
-    }
+    },
+    "valid-conditions":[
+      {
+        "condition":{
+        "$and":[
+            {"livingSpace":{"$gt":0}},
+            {"livingSpace":{"type":"decimal"}}
+          ]
+        },
+        "errorMessage":"Введите число"
+      }
+    ]
   },
   {
-    "title": "Площадь кухни",
+    "title": "Площадь кухни, м²",
     "alias": "kitchenSpace",
     "data": {
       "singleOf": {
         "param": "kitchenSpace"
       }
     },
-    "type": "decimal",
-    "required": true,
+    "type": "DECIMAL",
+    "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
         "$in": [
@@ -1179,17 +1240,28 @@
           "suburban"
         ]
       }
-    }
+    },
+    "valid-conditions":[
+      {
+        "condition":{
+        "$and":[
+            {"kitchenSpace":{"$gt":0}},
+            {"kitchenSpace":{"type":"decimal"}}
+          ]
+        },
+        "errorMessage":"Введите число"
+      }
+    ]
   },
   {
-    "title": "Площадь общая",
+    "title": "Площадь общая, м²",
     "alias": "totalSpace",
     "data": {
       "singleOf": {
         "param": "totalSpace"
       }
     },
-    "type": "decimal",
+    "type": "DECIMAL",
     "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
@@ -1199,17 +1271,34 @@
           "suburban"
         ]
       }
-    }
+    },
+    "valid-conditions":[
+      {
+        "condition":{
+        "$and":[
+            {"totalSpace":{"$gt":0}},
+            {"totalSpace":{"type":"decimal"}}
+          ]
+        },
+        "errorMessage":"Введите число"
+      },
+      {
+        "condition":{
+            "totalSpace":{"$ge":{"$sum":["kitchenSpace","livingSpace"]}}
+        },
+        "errorMessage":"Общая площадь объекта не должна быть меньше суммы площадей кухни и жилой площади"
+      }
+    ]
   },
   {
-    "title": "Площадь на продажу",
+    "title": "Площадь на продажу, м²",
     "alias": "offeredSpace",
     "data": {
       "singleOf": {
         "param": "offeredSpace"
       }
     },
-    "type": "decimal",
+    "type": "DECIMAL",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -1220,17 +1309,34 @@
           "objectType.value": "room"
         }
       ]
-    }
+    },
+    "valid-conditions":[
+      {
+        "condition":{
+        "$and":[
+            {"offeredSpace":{"$gt":0}},
+            {"offeredSpace":{"type":"decimal"}}
+          ]
+        },
+        "errorMessage":"Введите число"
+      },
+      {
+        "condition":{
+            "offeredSpace":{"$le":"totalSpace"}
+        },
+        "errorMessage":"Площадь на продажу не должна быть больше общей площади"
+      }
+    ]
   },
   {
-    "title": "Площадь в аренду",
+    "title": "Площадь в аренду, м²",
     "alias": "offeredSpace",
     "data": {
       "singleOf": {
         "param": "offeredSpace"
       }
     },
-    "type": "decimal",
+    "type": "DECIMAL",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -1241,11 +1347,28 @@
           "objectType.value": "room"
         }
       ]
-    }
+    },
+    "valid-conditions":[
+      {
+        "condition":{
+        "$and":[
+            {"offeredSpace":{"$gt":0}},
+            {"offeredSpace":{"type":"decimal"}}
+          ]
+        },
+        "errorMessage":"Введите число"
+      },
+      {
+        "condition":{
+            "offeredSpace":{"$le":"totalSpace"}
+        },
+        "errorMessage":"Площадь в аренду не должна быть больше общей площади"
+      }
+    ]
   },
   {
     "title": "Площадь участка",
-    "type": "decimalUnits",
+    "type": "DECIMALUNITS",
     "alias": "landSpace",
     "data": {
       "amount": {
@@ -1273,7 +1396,18 @@
           "land"
         ]
       }
-    }
+    },
+    "valid-conditions":[
+      {
+        "condition":{
+        "$and":[
+            {"landSpace":{"$gt":0}},
+            {"landSpace":{"type":"decimal"}}
+          ]
+        },
+        "errorMessage":"Введите число"
+      }
+    ]
   },
   {
     "title": "Фотографии, описание, контакты",
@@ -1287,7 +1421,7 @@
         "param": "photos"
       }
     },
-    "type": "images",
+    "type": "IMAGES",
     "required-condition": true,
     "visible-condition": true
   },
@@ -1299,7 +1433,7 @@
         "param": "planningImages"
       }
     },
-    "type": "images",
+    "type": "IMAGES",
     "required-condition": true,
     "visible-condition": true
   },
