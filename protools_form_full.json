@@ -68,7 +68,7 @@
             "value": "house",
             "group": {
               "title": "Жилая",
-              "value": "living"
+              "value": "suburban"
             }
           },
           {
@@ -491,7 +491,7 @@
     "title": "Расстояние до города, км.",
     "type": "DECIMAL",
     "data": {
-      "input": {
+      "singleOf": {
         "param": "distanceToCity"
       }
     },
@@ -629,7 +629,9 @@
     },
     "alias": "buildingMaterial",
     "required-condition": true,
-    "visible-condition": true
+    "visible-condition": {
+              "objectType.group.value": "living"
+            }
   },
   {
     "title": "Тип",
@@ -650,7 +652,6 @@
         ]
       }
     },
-    "value": false,
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -697,7 +698,10 @@
         }
       ]
     },
-    "value": true
+    "value": {
+            "title": "Дом сдан",
+            "value": true
+          }
   },
   {
     "title": "Срок сдачи (год)",
@@ -711,6 +715,9 @@
     "required-condition": true,
     "visible-condition": {
       "$and": [
+        {
+          "isNew.value": true
+        },
         {
           "isReady.value": false
         },
@@ -732,6 +739,9 @@
     "required-condition": true,
     "visible-condition": {
       "$and": [
+        {
+          "isNew.value": true
+        },
         {
           "isReady.value": false
         },
@@ -955,7 +965,10 @@
         ]
       }
     },
-    "value": "1",
+    "value": {
+            "title": "1",
+            "value": "1"
+          },
     "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
@@ -1060,7 +1073,10 @@
         ]
       }
     },
-    "value": "1",
+    "value": {
+            "title": "1",
+            "value": "1"
+          },
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -1153,7 +1169,10 @@
         ]
       }
     },
-    "value": "1",
+    "value": {
+            "title": "1",
+            "value": "1"
+          },
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -1372,10 +1391,10 @@
     "alias": "landSpace",
     "data": {
       "amount": {
-        "param": "spaceAmount"
+        "param": "landSpace"
       },
       "unit": {
-        "param": "spaceUnit",
+        "param": "landSpaceUnit",
         "source": [
           {
             "title": "соток",
@@ -1407,7 +1426,11 @@
         },
         "errorMessage":"Введите число"
       }
-    ]
+    ],
+    "value":{
+            "title": "соток",
+            "value": "are"
+          }
   },
   {
     "title": "Фотографии, описание, контакты",
