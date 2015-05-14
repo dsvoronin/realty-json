@@ -703,6 +703,9 @@
     "visible-condition": {
       "$and": [
         {
+          "isNew.value": true
+        },
+        {
           "isReady.value": false
         },
         {
@@ -723,6 +726,9 @@
     "required-condition": true,
     "visible-condition": {
       "$and": [
+        {
+          "isNew.value": true
+        },
         {
           "isReady.value": false
         },
