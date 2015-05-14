@@ -685,7 +685,10 @@
         }
       ]
     },
-    "value": true
+    "value": {
+            "title": "Дом сдан",
+            "value": true
+          }
   },
   {
     "title": "Срок сдачи (год)",
