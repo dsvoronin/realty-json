@@ -496,6 +496,7 @@
       }
     },
     "alias": "cityDistance",
+    "required-condition": true,
     "visible-condition": {
       "objectType.value": {
         "$in": [
