@@ -349,7 +349,7 @@
         ]
       }
     },
-    "required-condition": false,
+    "required-condition": true,
     "visible-condition": true,
     "valid-conditions":[
       {
@@ -496,6 +496,7 @@
       }
     },
     "alias": "cityDistance",
+    "required-condition": true,
     "visible-condition": {
       "objectType.value": {
         "$in": [
@@ -1445,7 +1446,7 @@
       }
     },
     "type": "IMAGES",
-    "required-condition": true,
+    "required-condition": false,
     "visible-condition": true
   },
   {
@@ -1457,7 +1458,7 @@
       }
     },
     "type": "IMAGES",
-    "required-condition": true,
+    "required-condition": false,
     "visible-condition": true
   },
   {
