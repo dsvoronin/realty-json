@@ -1446,7 +1446,7 @@
       }
     },
     "type": "IMAGES",
-    "required-condition": true,
+    "required-condition": false,
     "visible-condition": true
   },
   {
@@ -1458,7 +1458,7 @@
       }
     },
     "type": "IMAGES",
-    "required-condition": true,
+    "required-condition": false,
     "visible-condition": true
   },
   {
