@@ -1,19 +1,5 @@
 [
   {
-    "title": "Регион",
-    "data": {
-      "singleOf": {
-        "param": "regionId",
-        "api": "fias/region",
-        "value": "region.id"
-      }
-    },
-    "type": "FIAS_REGION",
-    "required-condition": true,
-    "visible-condition": true,
-    "alias": "region"
-  },
-  {
     "title": "Тип объявления",
     "alias": "isSell",
     "type": "LIST",
@@ -33,6 +19,20 @@
       }
     },
     "value": true
+  },
+  {
+    "title": "Регион",
+    "data": {
+      "singleOf": {
+        "param": "regionId",
+        "api": "fias/region",
+        "value": "region.id"
+      }
+    },
+    "type": "FIAS_REGION",
+    "required-condition": true,
+    "visible-condition": true,
+    "alias": "region"
   },
   {
     "title": "Адрес и стоимость",
@@ -351,15 +351,23 @@
     },
     "required-condition": true,
     "visible-condition": true,
-    "valid-conditions":[
+    "valid-conditions": [
       {
-        "condition":{
-        "$and":[
-            {"pricing.price":{"$ge":0}},
-            {"pricing.price":{"type":"integer"}}
+        "condition": {
+          "$and": [
+            {
+              "pricing.price": {
+                "$ge": 0
+              }
+            },
+            {
+              "pricing.price": {
+                "type": "integer"
+              }
+            }
           ]
         },
-        "errorMessage":"Введите корректное значение"
+        "errorMessage": "Введите корректное значение"
       }
     ],
     "value": {
@@ -631,8 +639,8 @@
     "alias": "buildingMaterial",
     "required-condition": true,
     "visible-condition": {
-              "objectType.group.value": "living"
-            }
+      "objectType.group.value": "living"
+    }
   },
   {
     "title": "Тип",
@@ -700,9 +708,9 @@
       ]
     },
     "value": {
-            "title": "Дом сдан",
-            "value": true
-          }
+      "title": "Дом сдан",
+      "value": true
+    }
   },
   {
     "title": "Срок сдачи (год)",
@@ -811,21 +819,31 @@
         }
       ]
     },
-    "valid-conditions":[
+    "valid-conditions": [
       {
-        "condition":{
-        "$and":[
-            {"objectFloor":{"$gt":0}},
-            {"objectFloor":{"type":"integer"}}
+        "condition": {
+          "$and": [
+            {
+              "objectFloor": {
+                "$gt": 0
+              }
+            },
+            {
+              "objectFloor": {
+                "type": "integer"
+              }
+            }
           ]
         },
-        "errorMessage":"Введите целое число"
+        "errorMessage": "Введите целое число"
       },
       {
-        "condition":{
-            "objectFloor":{"$gt":"floorsTotal"}
+        "condition": {
+          "objectFloor": {
+            "$gt": "floorsTotal"
+          }
         },
-        "errorMessage":"Этаж объекта недвижимости должен быть меньше этажности здания"
+        "errorMessage": "Этаж объекта недвижимости должен быть меньше этажности здания"
       }
     ]
   },
@@ -861,15 +879,23 @@
         }
       ]
     },
-    "valid-conditions":[
+    "valid-conditions": [
       {
-        "condition":{
-        "$and":[
-            {"floorsTotal":{"$gt":0}},
-            {"floorsTotal":{"type":"integer"}}
+        "condition": {
+          "$and": [
+            {
+              "floorsTotal": {
+                "$gt": 0
+              }
+            },
+            {
+              "floorsTotal": {
+                "type": "integer"
+              }
+            }
           ]
         },
-        "errorMessage":"Введите целое число"
+        "errorMessage": "Введите целое число"
       }
     ]
   },
@@ -903,15 +929,23 @@
         }
       ]
     },
-    "valid-conditions":[
+    "valid-conditions": [
       {
-        "condition":{
-        "$and":[
-            {"floorsTotal":{"$gt":0}},
-            {"floorsTotal":{"type":"integer"}}
+        "condition": {
+          "$and": [
+            {
+              "floorsTotal": {
+                "$gt": 0
+              }
+            },
+            {
+              "floorsTotal": {
+                "type": "integer"
+              }
+            }
           ]
         },
-        "errorMessage":"Введите целое число"
+        "errorMessage": "Введите целое число"
       }
     ]
   },
@@ -967,9 +1001,9 @@
       }
     },
     "value": {
-            "title": "1",
-            "value": "1"
-          },
+      "title": "1",
+      "value": "1"
+    },
     "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
@@ -1075,9 +1109,9 @@
       }
     },
     "value": {
-            "title": "1",
-            "value": "1"
-          },
+      "title": "1",
+      "value": "1"
+    },
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -1171,9 +1205,9 @@
       }
     },
     "value": {
-            "title": "1",
-            "value": "1"
-          },
+      "title": "1",
+      "value": "1"
+    },
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -1231,15 +1265,23 @@
         ]
       }
     },
-    "valid-conditions":[
+    "valid-conditions": [
       {
-        "condition":{
-        "$and":[
-            {"livingSpace":{"$gt":0}},
-            {"livingSpace":{"type":"decimal"}}
+        "condition": {
+          "$and": [
+            {
+              "livingSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "livingSpace": {
+                "type": "decimal"
+              }
+            }
           ]
         },
-        "errorMessage":"Введите число"
+        "errorMessage": "Введите число"
       }
     ]
   },
@@ -1261,15 +1303,23 @@
         ]
       }
     },
-    "valid-conditions":[
+    "valid-conditions": [
       {
-        "condition":{
-        "$and":[
-            {"kitchenSpace":{"$gt":0}},
-            {"kitchenSpace":{"type":"decimal"}}
+        "condition": {
+          "$and": [
+            {
+              "kitchenSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "kitchenSpace": {
+                "type": "decimal"
+              }
+            }
           ]
         },
-        "errorMessage":"Введите число"
+        "errorMessage": "Введите число"
       }
     ]
   },
@@ -1292,21 +1342,36 @@
         ]
       }
     },
-    "valid-conditions":[
+    "valid-conditions": [
       {
-        "condition":{
-        "$and":[
-            {"totalSpace":{"$gt":0}},
-            {"totalSpace":{"type":"decimal"}}
+        "condition": {
+          "$and": [
+            {
+              "totalSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "totalSpace": {
+                "type": "decimal"
+              }
+            }
           ]
         },
-        "errorMessage":"Введите число"
+        "errorMessage": "Введите число"
       },
       {
-        "condition":{
-            "totalSpace":{"$ge":{"$sum":["kitchenSpace","livingSpace"]}}
+        "condition": {
+          "totalSpace": {
+            "$ge": {
+              "$sum": [
+                "kitchenSpace",
+                "livingSpace"
+              ]
+            }
+          }
         },
-        "errorMessage":"Общая площадь объекта не должна быть меньше суммы площадей кухни и жилой площади"
+        "errorMessage": "Общая площадь объекта не должна быть меньше суммы площадей кухни и жилой площади"
       }
     ]
   },
@@ -1330,21 +1395,31 @@
         }
       ]
     },
-    "valid-conditions":[
+    "valid-conditions": [
       {
-        "condition":{
-        "$and":[
-            {"offeredSpace":{"$gt":0}},
-            {"offeredSpace":{"type":"decimal"}}
+        "condition": {
+          "$and": [
+            {
+              "offeredSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "offeredSpace": {
+                "type": "decimal"
+              }
+            }
           ]
         },
-        "errorMessage":"Введите число"
+        "errorMessage": "Введите число"
       },
       {
-        "condition":{
-            "offeredSpace":{"$le":"totalSpace"}
+        "condition": {
+          "offeredSpace": {
+            "$le": "totalSpace"
+          }
         },
-        "errorMessage":"Площадь на продажу не должна быть больше общей площади"
+        "errorMessage": "Площадь на продажу не должна быть больше общей площади"
       }
     ]
   },
@@ -1368,21 +1443,31 @@
         }
       ]
     },
-    "valid-conditions":[
+    "valid-conditions": [
       {
-        "condition":{
-        "$and":[
-            {"offeredSpace":{"$gt":0}},
-            {"offeredSpace":{"type":"decimal"}}
+        "condition": {
+          "$and": [
+            {
+              "offeredSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "offeredSpace": {
+                "type": "decimal"
+              }
+            }
           ]
         },
-        "errorMessage":"Введите число"
+        "errorMessage": "Введите число"
       },
       {
-        "condition":{
-            "offeredSpace":{"$le":"totalSpace"}
+        "condition": {
+          "offeredSpace": {
+            "$le": "totalSpace"
+          }
         },
-        "errorMessage":"Площадь в аренду не должна быть больше общей площади"
+        "errorMessage": "Площадь в аренду не должна быть больше общей площади"
       }
     ]
   },
@@ -1417,21 +1502,29 @@
         ]
       }
     },
-    "valid-conditions":[
+    "valid-conditions": [
       {
-        "condition":{
-        "$and":[
-            {"landSpace":{"$gt":0}},
-            {"landSpace":{"type":"decimal"}}
+        "condition": {
+          "$and": [
+            {
+              "landSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "landSpace": {
+                "type": "decimal"
+              }
+            }
           ]
         },
-        "errorMessage":"Введите число"
+        "errorMessage": "Введите число"
       }
     ],
-    "value":{
-            "title": "соток",
-            "value": "are"
-          }
+    "value": {
+      "title": "соток",
+      "value": "are"
+    }
   },
   {
     "title": "Фотографии, описание, контакты",
