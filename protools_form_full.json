@@ -826,7 +826,7 @@
       },
       {
         "condition":{
-            "objectFloor":{"$gt":"floorsTotal"}
+            "objectFloor":{"$le":"floorsTotal"}
         },
         "errorMessage":"Этаж объекта недвижимости должен быть меньше этажности здания"
       }
