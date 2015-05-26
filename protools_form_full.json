@@ -15,10 +15,13 @@
             "title": "Аренда",
             "value": false
           }
-        ]
+        ],
+        "default-value": {
+          "title": "Продажа",
+          "value": true
+        }
       }
-    },
-    "value": true
+    }
   },
   {
     "title": "Регион",
@@ -154,15 +157,15 @@
               "value": "commercial"
             }
           }
-        ]
-      }
-    },
-    "value": {
-      "title": "Квартира",
-      "value": "flat",
-      "group": {
-        "title": "Жилая",
-        "value": "living"
+        ],
+        "default-value": {
+          "title": "Квартира",
+          "value": "flat",
+          "group": {
+            "title": "Жилая",
+            "value": "living"
+          }
+        }
       }
     }
   },
@@ -346,7 +349,12 @@
             "title": "Евро",
             "value": "eur"
           }
-        ]
+        ],
+        "default-value": {
+          "symbol": "₽",
+          "title": "Рубли",
+          "value": "rub"
+        }
       }
     },
     "required-condition": true,
@@ -369,12 +377,7 @@
         },
         "errorMessage": "Введите корректное значение"
       }
-    ],
-    "value": {
-      "symbol": "₽",
-      "title": "Рубли",
-      "value": "rub"
-    }
+    ]
   },
   {
     "title": "Тип сделки",
@@ -392,11 +395,14 @@
             "title": "Альтернативная",
             "value": false
           }
-        ]
+        ],
+        "default-value": {
+          "title": "Свободная",
+          "value": true
+        }
       }
     },
     "required-condition": false,
-    "value": null,
     "visible-condition": {
       "$and": [
         {
@@ -409,10 +415,6 @@
           "objectType.value": "flat"
         }
       ]
-    },
-    "value": {
-      "title": "Свободная",
-      "value": true
     }
   },
   {
@@ -658,7 +660,11 @@
             "title": "Вторичка",
             "value": false
           }
-        ]
+        ],
+        "default-value": {
+          "title": "Вторичка",
+          "value": false
+        }
       }
     },
     "required-condition": true,
@@ -671,10 +677,6 @@
           "objectType.group.value": "living"
         }
       ]
-    },
-    "value": {
-      "title": "Вторичка",
-      "value": false
     }
   },
   {
@@ -692,7 +694,11 @@
             "title": "Дом не сдан",
             "value": false
           }
-        ]
+        ],
+        "default-value": {
+          "title": "Дом сдан",
+          "value": true
+        }
       }
     },
     "alias": "isReady",
@@ -706,10 +712,6 @@
           "objectType.group.value": "living"
         }
       ]
-    },
-    "value": {
-      "title": "Дом сдан",
-      "value": true
     }
   },
   {
@@ -799,13 +801,13 @@
   },
   {
     "title": "Этаж",
+    "type": "INTEGER",
     "alias": "objectFloor",
     "data": {
       "singleOf": {
         "param": "objectFloor"
       }
     },
-    "type": "INTEGER",
     "required-condition": {
       "objectType.group.value": "living"
     },
@@ -849,13 +851,13 @@
   },
   {
     "title": "Этажность",
+    "type": "INTEGER",
     "alias": "floorsTotal",
     "data": {
       "singleOf": {
         "param": "floorsTotal"
       }
     },
-    "type": "INTEGER",
     "required-condition": {
       "objectType.group.value": {
         "$in": [
@@ -908,13 +910,13 @@
   },
   {
     "title": "Число собственников",
+    "type": "INTEGER",
     "alias": "ownersTotal",
     "data": {
       "singleOf": {
         "param": "ownersTotal"
       }
     },
-    "type": "INTEGER",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -997,12 +999,12 @@
               }
             }
           }
-        ]
+        ],
+        "default-value": {
+          "title": "1",
+          "value": "1"
+        }
       }
-    },
-    "value": {
-      "title": "1",
-      "value": "1"
     },
     "required-condition": true,
     "visible-condition": {
@@ -1016,13 +1018,13 @@
   },
   {
     "title": "Комнат",
+    "type": "INTEGER",
     "alias": "roomsTotal",
     "data": {
       "singleOf": {
         "param": "roomsTotal"
       }
     },
-    "type": "INTEGER",
     "required-condition": false,
     "visible-condition": {
       "objectType.value": "office"
@@ -1030,8 +1032,8 @@
   },
   {
     "title": "Комнат в аренду",
-    "alias": "roomsRent",
     "type": "LIST",
+    "alias": "roomsRent",
     "data": {
       "singleOf": {
         "param": "roomsTotal",
@@ -1105,12 +1107,12 @@
             "title": "Студия",
             "value": "studio"
           }
-        ]
+        ],
+        "default-value": {
+          "title": "1",
+          "value": "1"
+        }
       }
-    },
-    "value": {
-      "title": "1",
-      "value": "1"
     },
     "required-condition": true,
     "visible-condition": {
@@ -1201,12 +1203,12 @@
             "title": "Студия",
             "value": "studio"
           }
-        ]
+        ],
+        "default-value": {
+          "title": "1",
+          "value": "1"
+        }
       }
-    },
-    "value": {
-      "title": "1",
-      "value": "1"
     },
     "required-condition": true,
     "visible-condition": {
@@ -1226,10 +1228,10 @@
     "alias": "isOpenPlan",
     "data": {
       "singleOf": {
-        "param": "isOpenPlan"
+        "param": "isOpenPlan",
+        "default-value": false
       }
     },
-    "value": false,
     "required-condition": true,
     "visible-condition": {
       "$or": [
@@ -1249,13 +1251,13 @@
   },
   {
     "title": "Площадь жилая, м²",
+    "type": "DECIMAL",
     "alias": "livingSpace",
     "data": {
       "singleOf": {
         "param": "livingSpace"
       }
     },
-    "type": "DECIMAL",
     "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
@@ -1287,13 +1289,13 @@
   },
   {
     "title": "Площадь кухни, м²",
+    "type": "DECIMAL",
     "alias": "kitchenSpace",
     "data": {
       "singleOf": {
         "param": "kitchenSpace"
       }
     },
-    "type": "DECIMAL",
     "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
@@ -1325,13 +1327,13 @@
   },
   {
     "title": "Площадь общая, м²",
+    "type": "DECIMAL",
     "alias": "totalSpace",
     "data": {
       "singleOf": {
         "param": "totalSpace"
       }
     },
-    "type": "DECIMAL",
     "required-condition": true,
     "visible-condition": {
       "objectType.group.value": {
@@ -1377,13 +1379,13 @@
   },
   {
     "title": "Площадь на продажу, м²",
+    "type": "DECIMAL",
     "alias": "offeredSpace",
     "data": {
       "singleOf": {
         "param": "offeredSpace"
       }
     },
-    "type": "DECIMAL",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -1425,13 +1427,13 @@
   },
   {
     "title": "Площадь в аренду, м²",
+    "type": "DECIMAL",
     "alias": "offeredSpace",
     "data": {
       "singleOf": {
         "param": "offeredSpace"
       }
     },
-    "type": "DECIMAL",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -1490,7 +1492,11 @@
             "title": "гектар",
             "value": "hectare"
           }
-        ]
+        ],
+        "default-value": {
+          "title": "соток",
+          "value": "are"
+        }
       }
     },
     "required-condition": true,
@@ -1520,11 +1526,7 @@
         },
         "errorMessage": "Введите число"
       }
-    ],
-    "value": {
-      "title": "соток",
-      "value": "are"
-    }
+    ]
   },
   {
     "title": "Фотографии, описание, контакты",
@@ -1532,37 +1534,37 @@
   },
   {
     "title": "Фотографии",
+    "type": "IMAGES",
     "alias": "photos",
     "data": {
       "singleOf": {
         "param": "photos"
       }
     },
-    "type": "IMAGES",
     "required-condition": false,
     "visible-condition": true
   },
   {
     "title": "Планировка",
+    "type": "IMAGES",
     "alias": "planningImages",
     "data": {
       "singleOf": {
         "param": "planningImages"
       }
     },
-    "type": "IMAGES",
     "required-condition": false,
     "visible-condition": true
   },
   {
     "title": "Описание",
+    "type": "STRING",
     "alias": "description",
     "data": {
       "singleOf": {
         "param": "description"
       }
     },
-    "type": "STRING",
     "required-condition": true,
     "visible-condition": true
   }
