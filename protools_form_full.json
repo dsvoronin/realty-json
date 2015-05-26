@@ -1424,8 +1424,8 @@
       {
         "condition":{
         "$and":[
-            {"landSpace":{"$gt":0}},
-            {"landSpace":{"type":"decimal"}}
+            {"landSpace.amount":{"$gt":0}},
+            {"landSpace.amount":{"type":"decimal"}}
           ]
         },
         "errorMessage":"Введите число"
