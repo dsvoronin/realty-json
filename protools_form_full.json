@@ -910,8 +910,8 @@
       {
         "condition":{
         "$and":[
-            {"floorsTotal":{"$gt":0}},
-            {"floorsTotal":{"type":"integer"}}
+            {"ownersTotal":{"$gt":0}},
+            {"ownersTotal":{"type":"integer"}}
           ]
         },
         "errorMessage":"Введите целое число"
