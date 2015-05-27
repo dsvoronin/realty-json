@@ -1018,7 +1018,7 @@
   },
   {
     "title": "Комнат",
-    "type": "INTEGER",
+    "type": "INTEGER_OBJECT",
     "alias": "roomsTotal",
     "data": {
       "singleOf": {
