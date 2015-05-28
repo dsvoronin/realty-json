@@ -1446,7 +1446,7 @@
     "alias": "contacts",
     "data": {
       "singleOf": {
-        "param": null
+        "param": "contacts"
       }
     },
     "type": "CONTACTS",
