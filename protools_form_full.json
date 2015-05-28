@@ -1553,12 +1553,12 @@
         "condition": {
           "$and": [
             {
-              "landSpace": {
+              "landSpace.amount": {
                 "$gt": 0
               }
             },
             {
-              "landSpace": {
+              "landSpace.amount": {
                 "type": "decimal"
               }
             }
