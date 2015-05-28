@@ -1439,6 +1439,22 @@
     }       
   },
   {
+    "title": "Контакты для связи",
+    "type": "HEADER"
+  },
+  {
+    "title": "Контакты",
+    "alias": "contacts",
+    "data": {
+      "singleOf": {
+        "param": "contacts"
+      }
+    },
+    "type": "CONTACTS",
+    "required-condition": false,
+    "visible-condition": true
+  },
+  {
     "title": "Фотографии, описание, контакты",
     "type": "HEADER"
   },
