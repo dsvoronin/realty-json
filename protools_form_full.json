@@ -1,8 +1,8 @@
 [
   {
     "title": "Тип объявления",
-    "alias": "isSell",
     "type": "LIST",
+    "alias": "isSell",
     "data": {
       "singleOf": {
         "param": "isSell",
@@ -16,6 +16,7 @@
             "value": false
           }
         ],
+        "xpath": "isSell.value",
         "default-value": {
           "title": "Продажа",
           "value": true
@@ -25,17 +26,17 @@
   },
   {
     "title": "Регион",
+    "type": "FIAS_REGION",
+    "alias": "region",
     "data": {
       "singleOf": {
         "param": "regionId",
         "api": "fias/region",
-        "value": "region.id"
+        "xpath": "region.id"
       }
     },
-    "type": "FIAS_REGION",
     "required-condition": true,
-    "visible-condition": true,
-    "alias": "region"
+    "visible-condition": true
   },
   {
     "title": "Адрес и стоимость",
@@ -48,7 +49,6 @@
     "data": {
       "singleOf": {
         "param": "objectType",
-        "value": "objectType.value",
         "source": [
           {
             "title": "Квартира",
@@ -158,6 +158,7 @@
             }
           }
         ],
+        "xpath": "objectType.value",
         "default-value": {
           "title": "Квартира",
           "value": "flat",
@@ -171,28 +172,29 @@
   },
   {
     "title": "Город",
+    "type": "FIAS_CITY",
+    "alias": "city",
     "data": {
       "singleOf": {
         "param": "cityId",
         "api": "fias/city?regionId=${region.id}&type=city",
-        "value": "city.id"
+        "xpath": "city.id"
       }
     },
-    "alias": "city",
-    "type": "FIAS_CITY",
     "required-condition": true,
     "visible-condition": true
   },
   {
     "title": "Метро",
+    "type": "FIAS_METRO",
     "alias": "metro",
     "data": {
       "singleOf": {
         "param": "metroId",
-        "api": "fias/metro?cityId=${city.id}"
+        "api": "fias/metro?cityId=${city.id}",
+        "xpath": "metro.id"
       }
     },
-    "type": "FIAS_METRO",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -212,14 +214,15 @@
   },
   {
     "title": "Район",
+    "type": "FIAS_DISTRICT",
     "alias": "district",
     "data": {
       "singleOf": {
         "param": "districtId",
-        "api": "fias/district?cityId=${city.id}"
+        "api": "fias/district?cityId=${city.id}",
+        "xpath": "district.id"
       }
     },
-    "type": "FIAS_DISTRICT",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -242,14 +245,15 @@
   },
   {
     "title": "Направление",
+    "type": "FIAS_DIRECTION",
     "alias": "direction",
     "data": {
       "singleOf": {
         "param": "directionId",
-        "api": "fias/direction?cityId=${city.id}"
+        "api": "fias/direction?cityId=${city.id}",
+        "xpath": "direction.id"
       }
     },
-    "type": "FIAS_DIRECTION",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -272,30 +276,31 @@
   },
   {
     "title": "Улица",
+    "type": "FIAS_STREET",
+    "alias": "street",
     "data": {
       "singleOf": {
         "param": "streetId",
         "api": "fias/address?parent=${city.id}&type=street",
-        "value": "street.id"
+        "xpath": "street.id"
       }
     },
-    "type": "FIAS_STREET",
     "visible-condition": true,
     "required-condition": {
       "isNew.value": false
-    },
-    "alias": "street"
+    }
   },
   {
     "title": "Дом",
+    "type": "FIAS_HOUSE",
     "alias": "building",
     "data": {
       "singleOf": {
         "param": "buildingId",
-        "api": "fias/house?parent=${street.id}"
+        "api": "fias/house?parent=${street.id}",
+        "xpath": "building.id"
       }
     },
-    "type": "FIAS_HOUSE",
     "visible-condition": {
       "isNew.value": false
     },
@@ -305,18 +310,21 @@
   {
     "title": "Дом",
     "type": "CUSTOM_HOUSE",
+    "alias": "building_custom",
     "data": {
       "address": {
-        "param": "buildingLabel"
+        "param": "buildingLabel",
+        "xpath": "building_custom.address"
       },
       "latitude": {
-        "param": "latitude"
+        "param": "latitude",
+        "xpath": "building_custom.latitude"
       },
       "longitude": {
-        "param": "longitude"
+        "param": "longitude",
+        "xpath": "building_custom.longitude"
       }
     },
-    "alias": "building_custom",
     "required-condition": false,
     "visible-condition": {
       "isNew.value": true
@@ -329,7 +337,8 @@
     "alias": "pricing",
     "data": {
       "price": {
-        "param": "price"
+        "param": "price",
+        "xpath": "pricing.price"
       },
       "currency": {
         "param": "priceCurrency",
@@ -350,6 +359,7 @@
             "value": "eur"
           }
         ],
+        "xpath": "pricing.currency",
         "default-value": {
           "symbol": "₽",
           "title": "Рубли",
@@ -396,6 +406,7 @@
             "value": false
           }
         ],
+        "xpath": "dealType.value",
         "default-value": {
           "title": "Свободная",
           "value": true
@@ -420,6 +431,7 @@
   {
     "title": "Тип аренды",
     "type": "LIST",
+    "alias": "pricePeriod",
     "data": {
       "singleOf": {
         "param": "pricePeriod",
@@ -447,10 +459,10 @@
               }
             }
           }
-        ]
+        ],
+        "xpath": "pricePeriod.value"
       }
     },
-    "alias": "pricePeriod",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -500,12 +512,13 @@
   {
     "title": "Расстояние до города, км.",
     "type": "DECIMAL",
+    "alias": "cityDistance",
     "data": {
       "singleOf": {
-        "param": "distanceToCity"
+        "param": "distanceToCity",
+        "xpath": "cityDistance"
       }
     },
-    "alias": "cityDistance",
     "required-condition": true,
     "visible-condition": {
       "objectType.value": {
@@ -522,6 +535,7 @@
   {
     "title": "Тип участка",
     "type": "LIST",
+    "alias": "landType",
     "data": {
       "singleOf": {
         "param": "landType",
@@ -538,10 +552,10 @@
             "title": "Промназначение",
             "value": "promzone"
           }
-        ]
+        ],
+        "xpath": "landType.value"
       }
     },
-    "alias": "landType",
     "required-condition": true,
     "visible-condition": {
       "objectType.value": "land"
@@ -550,6 +564,7 @@
   {
     "title": "Материал стен",
     "type": "LIST",
+    "alias": "buildingMaterial",
     "data": {
       "singleOf": {
         "param": "buildingMaterial",
@@ -635,10 +650,10 @@
               "objectType.group.value": "suburban"
             }
           }
-        ]
+        ],
+        "xpath": "buildingMaterial.value"
       }
     },
-    "alias": "buildingMaterial",
     "required-condition": true,
     "visible-condition": {
       "objectType.group.value": "living"
@@ -661,6 +676,7 @@
             "value": false
           }
         ],
+        "xpath": "isNew.value",
         "default-value": {
           "title": "Вторичка",
           "value": false
@@ -682,6 +698,7 @@
   {
     "title": "Этап строительства",
     "type": "LIST",
+    "alias": "isReady",
     "data": {
       "singleOf": {
         "param": "isReady",
@@ -695,13 +712,13 @@
             "value": false
           }
         ],
+        "xpath": "isReady.value",
         "default-value": {
           "title": "Дом сдан",
           "value": true
         }
       }
     },
-    "alias": "isReady",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -716,13 +733,14 @@
   },
   {
     "title": "Срок сдачи (год)",
+    "type": "YEAR",
     "alias": "readyDateYear",
     "data": {
       "singleOf": {
-        "param": "readyDateYear"
+        "param": "readyDateYear",
+        "xpath": "readyDateYear"
       }
     },
-    "type": "YEAR",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -740,13 +758,14 @@
   },
   {
     "title": "Срок сдачи (квартал)",
+    "type": "QUARTER",
     "alias": "readyDateQuarter",
     "data": {
       "singleOf": {
-        "param": "readyDateQuarter"
+        "param": "readyDateQuarter",
+        "xpath": "readyDateQuarter"
       }
     },
-    "type": "QUARTER",
     "required-condition": true,
     "visible-condition": {
       "$and": [
@@ -765,6 +784,7 @@
   {
     "title": "Класс здания",
     "type": "LIST",
+    "alias": "buildingClass",
     "data": {
       "singleOf": {
         "param": "buildingClass",
@@ -785,10 +805,10 @@
             "title": "D",
             "value": "D"
           }
-        ]
+        ],
+        "xpath": "buildingClass.value"
       }
     },
-    "alias": "buildingClass",
     "required-condition": true,
     "visible-condition": {
       "objectType.value": {
@@ -805,7 +825,8 @@
     "alias": "objectFloor",
     "data": {
       "singleOf": {
-        "param": "objectFloor"
+        "param": "objectFloor",
+        "xpath": "objectFloor"
       }
     },
     "required-condition": {
@@ -855,7 +876,8 @@
     "alias": "floorsTotal",
     "data": {
       "singleOf": {
-        "param": "floorsTotal"
+        "param": "floorsTotal",
+        "xpath": "floorsTotal"
       }
     },
     "required-condition": {
@@ -914,7 +936,8 @@
     "alias": "ownersTotal",
     "data": {
       "singleOf": {
-        "param": "ownersTotal"
+        "param": "ownersTotal",
+        "xpath": "ownersTotal"
       }
     },
     "required-condition": true,
@@ -953,8 +976,8 @@
   },
   {
     "title": "Комнат",
-    "alias": "roomsTotal",
     "type": "LIST",
+    "alias": "roomsTotal",
     "data": {
       "singleOf": {
         "param": "roomsTotal",
@@ -1000,6 +1023,7 @@
             }
           }
         ],
+        "xpath": "roomsTotal.value",
         "default-value": {
           "title": "1",
           "value": "1"
@@ -1022,7 +1046,8 @@
     "alias": "roomsTotal",
     "data": {
       "singleOf": {
-        "param": "roomsTotal"
+        "param": "roomsTotal",
+        "xpath": "roomsTotal"
       }
     },
     "required-condition": false,
@@ -1108,6 +1133,7 @@
             "value": "studio"
           }
         ],
+        "xpath": "roomsRent.value",
         "default-value": {
           "title": "1",
           "value": "1"
@@ -1204,6 +1230,7 @@
             "value": "studio"
           }
         ],
+        "xpath": "roomsSell.value",
         "default-value": {
           "title": "1",
           "value": "1"
@@ -1229,6 +1256,7 @@
     "data": {
       "singleOf": {
         "param": "isOpenPlan",
+        "xpath": "isOpenPlan",
         "default-value": false
       }
     },
@@ -1255,7 +1283,8 @@
     "alias": "livingSpace",
     "data": {
       "singleOf": {
-        "param": "livingSpace"
+        "param": "livingSpace",
+        "xpath": "livingSpace"
       }
     },
     "required-condition": true,
@@ -1293,7 +1322,8 @@
     "alias": "kitchenSpace",
     "data": {
       "singleOf": {
-        "param": "kitchenSpace"
+        "param": "kitchenSpace",
+        "xpath": "kitchenSpace"
       }
     },
     "required-condition": true,
@@ -1331,7 +1361,8 @@
     "alias": "totalSpace",
     "data": {
       "singleOf": {
-        "param": "totalSpace"
+        "param": "totalSpace",
+        "xpath": "totalSpace"
       }
     },
     "required-condition": true,
@@ -1383,7 +1414,8 @@
     "alias": "offeredSpace",
     "data": {
       "singleOf": {
-        "param": "offeredSpace"
+        "param": "offeredSpace",
+        "xpath": "offeredSpace"
       }
     },
     "required-condition": true,
@@ -1431,7 +1463,8 @@
     "alias": "offeredSpace",
     "data": {
       "singleOf": {
-        "param": "offeredSpace"
+        "param": "offeredSpace",
+        "xpath": "offeredSpace"
       }
     },
     "required-condition": true,
@@ -1479,7 +1512,8 @@
     "alias": "landSpace",
     "data": {
       "amount": {
-        "param": "landSpace"
+        "param": "landSpace",
+        "xpath": "landSpace.amount"
       },
       "unit": {
         "param": "landSpaceUnit",
@@ -1493,6 +1527,7 @@
             "value": "hectare"
           }
         ],
+        "xpath": "landSpace.unit",
         "default-value": {
           "title": "соток",
           "value": "are"
@@ -1538,7 +1573,8 @@
     "alias": "photos",
     "data": {
       "singleOf": {
-        "param": "photos"
+        "param": "photos",
+        "xpath": "photos"
       }
     },
     "required-condition": false,
@@ -1550,7 +1586,8 @@
     "alias": "planningImages",
     "data": {
       "singleOf": {
-        "param": "planningImages"
+        "param": "planningImages",
+        "xpath": "planningImages"
       }
     },
     "required-condition": false,
@@ -1562,7 +1599,8 @@
     "alias": "description",
     "data": {
       "singleOf": {
-        "param": "description"
+        "param": "description",
+        "xpath": "description"
       }
     },
     "required-condition": true,

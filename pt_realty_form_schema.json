@@ -104,12 +104,14 @@
         "api": {
           "type": "string"
         },
-        "value": {
+        "xpath": {
           "type": "string"
         }
       },
       "required": [
-        "param"
+        "param",
+        "xpath",
+        "api"
       ],
       "additionalProperties": false
     },
@@ -129,12 +131,13 @@
         "default-value": {
           "$ref": "#/definitions/paramValue"
         },
-        "value": {
+        "xpath": {
           "type": "string"
         }
       },
       "required": [
-        "param"
+        "param",
+        "xpath"
       ],
       "additionalProperties": false
     },
