@@ -656,7 +656,12 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "objectType.group.value": "living"
+      "objectType.group.value": {
+        "$in": [
+          "living",
+          "suburban"
+        ]
+      }
     }
   },
   {
