@@ -359,7 +359,7 @@
             "value": "eur"
           }
         ],
-        "xpath": "pricing.currency",
+        "xpath": "pricing.currency.value",
         "default-value": {
           "symbol": "₽",
           "title": "Рубли",
@@ -1527,7 +1527,7 @@
             "value": "hectare"
           }
         ],
-        "xpath": "landSpace.unit",
+        "xpath": "landSpace.unit.value",
         "default-value": {
           "title": "соток",
           "value": "are"
