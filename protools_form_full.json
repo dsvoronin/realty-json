@@ -365,7 +365,7 @@
           "$and": [
             {
               "pricing.price": {
-                "$ge": 0
+                "$gte": 0
               }
             },
             {
@@ -1365,7 +1365,7 @@
       {
         "condition": {
           "totalSpace": {
-            "$ge": {
+            "$gte": {
               "$sum": [
                 "kitchenSpace",
                 "livingSpace"
@@ -1418,7 +1418,7 @@
       {
         "condition": {
           "offeredSpace": {
-            "$le": "totalSpace"
+            "$lte": "totalSpace"
           }
         },
         "errorMessage": "Площадь на продажу не должна быть больше общей площади"
@@ -1466,7 +1466,7 @@
       {
         "condition": {
           "offeredSpace": {
-            "$le": "totalSpace"
+            "$lte": "totalSpace"
           }
         },
         "errorMessage": "Площадь в аренду не должна быть больше общей площади"
