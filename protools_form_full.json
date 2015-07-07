@@ -1610,5 +1610,17 @@
     },
     "required-condition": true,
     "visible-condition": true
+  },
+  {
+    "title": "Контакты",
+    "alias": "contacts",
+    "data": {
+      "singleOf": {
+        "param": "contacts"
+      }
+    },
+    "type": "CONTACTS",
+    "required-condition": false,
+    "visible-condition": true
   }
 ]
