@@ -31,7 +31,7 @@
     "data": {
       "singleOf": {
         "param": "regionId",
-        "api": "fias/region",
+        "api": "fias/region/",
         "xpath": "region.id"
       }
     },
