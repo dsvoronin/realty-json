@@ -1613,13 +1613,14 @@
   },
   {
     "title": "Контакты",
+    "type": "CONTACTS",
     "alias": "contacts",
     "data": {
       "singleOf": {
-        "param": "contacts"
+        "param": "contacts",
+        "xpath": "contacts"
       }
     },
-    "type": "CONTACTS",
     "required-condition": false,
     "visible-condition": true
   }
