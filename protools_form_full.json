@@ -31,7 +31,7 @@
     "data": {
       "singleOf": {
         "param": "regionId",
-        "api": "fias/region",
+        "api": "fias/region/",
         "xpath": "region.id"
       }
     },
@@ -1609,6 +1609,19 @@
       }
     },
     "required-condition": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Контакты",
+    "type": "CONTACTS",
+    "alias": "contacts",
+    "data": {
+      "singleOf": {
+        "param": "contacts",
+        "xpath": "contacts"
+      }
+    },
+    "required-condition": false,
     "visible-condition": true
   }
 ]
