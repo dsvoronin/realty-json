@@ -380,6 +380,11 @@
             },
             {
               "pricing.price": {
+                "$lte": 999999999999
+              }
+            },
+            {
+              "pricing.price": {
                 "type": "integer"
               }
             }
