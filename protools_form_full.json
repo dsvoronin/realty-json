@@ -1119,20 +1119,16 @@
             "title": "Студия",
             "value": "studio",
             "visible-condition": {
-              "$not": {
-                "objectType.value": "room"
-              }
+              "objectType.value": "flat"
             }
           }
         ],
-        "xpath": "roomsTotal.value",
-        "default-value": {
-          "title": "1",
-          "value": "1"
-        }
+        "xpath": "roomsTotal.value"
       }
     },
-    "required-condition": true,
+    "required-condition": {
+      "objectType.group.value": "living"
+    },
     "visible-condition": {
       "objectType.group.value": {
         "$in": [
@@ -1155,7 +1151,26 @@
     "required-condition": false,
     "visible-condition": {
       "objectType.value": "office"
-    }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "roomsTotal": {
+                "$gt": 0
+              }
+            },
+            {
+              "roomsTotal": {
+                "type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите целое положительное число"
+      }
+    ]
   },
   {
     "title": "Комнат в аренду",
