@@ -674,7 +674,7 @@
     }
   },
   {
-    "title": "Тип",
+    "title": "Тип дома",
     "type": "LIST",
     "alias": "isNew",
     "data": {
@@ -704,7 +704,7 @@
           "isSell.value": true
         },
         {
-          "objectType.group.value": "living"
+          "objectType.value": "flat"
         }
       ]
     }
