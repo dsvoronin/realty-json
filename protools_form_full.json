@@ -954,17 +954,41 @@
         "xpath": "ownersTotal"
       }
     },
-    "required-condition": true,
+    "required-condition": false,
     "visible-condition": {
-      "$and": [
+      "$or": [
         {
-          "isSell.value": true
+          "$and": [
+            {
+              "isSell.value": true
+            },
+            {
+              "isNew.value": false
+            },
+            {
+              "objectType.value": "flat"
+            }
+          ]
         },
         {
-          "isNew.value": false
+          "$and": [
+            {
+              "isSell.value": true
+            },
+            {
+              "objectType.value": "room"
+            }
+          ]
         },
         {
-          "objectType.group.value": "living"
+          "$and": [
+            {
+              "isSell.value": true
+            },
+            {
+              "objectType.group.value": "suburban"
+            }
+          ]
         }
       ]
     },
@@ -975,6 +999,11 @@
             {
               "floorsTotal": {
                 "$gt": 0
+              }
+            },
+            {
+              "floorsTotal": {
+                "$lte": 999
               }
             },
             {
