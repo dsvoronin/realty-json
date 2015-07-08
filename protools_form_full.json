@@ -758,9 +758,12 @@
         "xpath": "readyDateYear"
       }
     },
-    "required-condition": true,
+    "required-condition": false,
     "visible-condition": {
       "$and": [
+        {
+          "isSell.value": true
+        },
         {
           "isNew.value": true
         },
@@ -768,7 +771,7 @@
           "isReady.value": false
         },
         {
-          "objectType.group.value": "living"
+          "objectType.value": "flat"
         }
       ]
     }
@@ -783,9 +786,12 @@
         "xpath": "readyDateQuarter"
       }
     },
-    "required-condition": true,
+    "required-condition": false,
     "visible-condition": {
       "$and": [
+        {
+          "isSell.value": true
+        },
         {
           "isNew.value": true
         },
@@ -793,7 +799,7 @@
           "isReady.value": false
         },
         {
-          "objectType.group.value": "living"
+          "objectType.value": "flat"
         }
       ]
     }
