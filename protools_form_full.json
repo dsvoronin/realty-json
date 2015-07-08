@@ -1610,7 +1610,7 @@
   },
   {
     "title": "Площадь участка",
-    "type": "DECIMALUNITS",
+    "type": "DECIMAL_UNITS",
     "alias": "landSpace",
     "data": {
       "amount": {
