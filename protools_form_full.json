@@ -411,25 +411,31 @@
             "value": false
           }
         ],
-        "xpath": "dealType.value",
-        "default-value": {
-          "title": "Свободная",
-          "value": true
-        }
+        "xpath": "dealType.value"
       }
     },
     "required-condition": false,
     "visible-condition": {
-      "$and": [
+      "$or": [
         {
-          "isNew.value": false
-        },
-        {
-          "isSell.value": true
-        },
-        {
-          "objectType.value": "flat"
-        }
+          "$and": [
+            {
+              "isNew.value": false
+            },
+            {
+              "isSell.value": true
+            },
+            {
+              "objectType.value": "flat"
+            }
+          ]
+      },
+      {
+        "objectType.group.value": "suburban"
+      },
+      {
+        "objectType.value": "room"
+      }
       ]
     }
   },
