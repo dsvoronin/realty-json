@@ -728,8 +728,8 @@
         ],
         "xpath": "isReady.value",
         "default-value": {
-          "title": "Дом сдан",
-          "value": true
+          "title": "Дом не сдан",
+          "value": false
         }
       }
     },
@@ -737,10 +737,13 @@
     "visible-condition": {
       "$and": [
         {
+          "isSell.value": true
+        },
+        {
           "isNew.value": true
         },
         {
-          "objectType.group.value": "living"
+          "objectType.value": "flat"
         }
       ]
     }
