@@ -462,10 +462,10 @@
             "title": "Посуточная",
             "value": "daily",
             "visible-condition": {
-              "objectType.value": {
+              "objectType.group.value": {
                 "$in": [
-                  "flat",
-                  "room"
+                  "living",
+                  "suburban"
                 ]
               }
             }
@@ -482,11 +482,9 @@
         },
         {
           "objectType.group.value": {
-            "$in": [
-              "living",
-              "commercial",
-              "suburban"
-            ]
+            "$not": {
+              "objectType.group.value": "land"
+            }
           }
         }
       ]
