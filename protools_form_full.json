@@ -1396,7 +1396,7 @@
         "xpath": "livingSpace"
       }
     },
-    "required-condition": true,
+    "required-condition": false,
     "visible-condition": {
       "objectType.group.value": {
         "$in": [
