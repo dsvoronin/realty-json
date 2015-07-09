@@ -302,7 +302,9 @@
       }
     },
     "visible-condition": {
-      "isNew.value": false
+      "$not": {
+        "objectType.group.value": "land"
+      }
     },
     "required-condition": false,
     "comment": "Идентификатор дома из ФИАС"
@@ -327,7 +329,9 @@
     },
     "required-condition": false,
     "visible-condition": {
-      "isNew.value": true
+      "$not": {
+        "objectType.group.value": "land"
+      }
     },
     "comment": "Адрес дома, введенный вручную"
   },
