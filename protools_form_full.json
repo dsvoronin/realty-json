@@ -1175,10 +1175,10 @@
   {
     "title": "Комнат в аренду",
     "type": "LIST",
-    "alias": "roomsRent",
+    "alias": "roomsOffered",
     "data": {
       "singleOf": {
-        "param": "roomsTotal",
+        "param": "roomsOffered",
         "source": [
           {
             "title": "1",
@@ -1244,13 +1244,9 @@
             "visible-condition": {
               "roomsTotal.value": "6+"
             }
-          },
-          {
-            "title": "Студия",
-            "value": "studio"
           }
         ],
-        "xpath": "roomsRent.value",
+        "xpath": "roomsOffered.value",
         "default-value": {
           "title": "1",
           "value": "1"
@@ -1272,10 +1268,10 @@
   {
     "title": "Комнат на продажу",
     "type": "LIST",
-    "alias": "roomsSell",
+    "alias": "roomsOffered",
     "data": {
       "singleOf": {
-        "param": "roomsTotal",
+        "param": "roomsOffered",
         "source": [
           {
             "title": "1",
@@ -1341,13 +1337,9 @@
             "visible-condition": {
               "roomsTotal.value": "6+"
             }
-          },
-          {
-            "title": "Студия",
-            "value": "studio"
           }
         ],
-        "xpath": "roomsSell.value",
+        "xpath": "roomsOffered.value",
         "default-value": {
           "title": "1",
           "value": "1"
