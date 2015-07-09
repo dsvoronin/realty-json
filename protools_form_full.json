@@ -1479,10 +1479,8 @@
       }
     },
     "required-condition": {
-      "objectType.group.value": {
-        "$not": {
-          "objectType.group.value": "room"
-        }
+      "$not": {
+        "objectType.group.value": "room"
       }
     },
     "visible-condition": {
