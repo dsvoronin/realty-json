@@ -480,10 +480,8 @@
           "isSell.value": false
         },
         {
-          "objectType.group.value": {
-            "$not": {
-              "objectType.group.value": "land"
-            }
+          "$not": {
+            "objectType.group.value": "land"
           }
         }
       ]
