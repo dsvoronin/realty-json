@@ -1474,15 +1474,67 @@
         "xpath": "totalSpace"
       }
     },
-    "required-condition": true,
+    "required-condition": {
+      "objectType.group.value": {
+        "$not": {
+          "objectType.group.value": "room"
+        }
+      }
+    },
     "visible-condition": {
       "objectType.group.value": {
         "$in": [
           "living",
-          "commercial",
-          "suburban"
+          "commercial"
         ]
       }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "totalSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "totalSpace": {
+                "type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите число"
+      },
+      {
+        "condition": {
+          "totalSpace": {
+            "$gte": {
+              "$sum": [
+                "kitchenSpace",
+                "livingSpace"
+              ]
+            }
+          }
+        },
+        "errorMessage": "Общая площадь объекта не должна быть меньше суммы площадей кухни и жилой площади"
+      }
+    ]
+  },
+  {
+    "title": "Площадь дома, м²",
+    "type": "DECIMAL",
+    "alias": "totalSpace",
+    "data": {
+      "singleOf": {
+        "param": "totalSpace",
+        "xpath": "totalSpace"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.group.value": "suburban"
     },
     "valid-conditions": [
       {
