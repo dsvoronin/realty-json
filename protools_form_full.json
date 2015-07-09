@@ -887,7 +887,7 @@
         "xpath": "buildingClass.value"
       }
     },
-    "required-condition": true,
+    "required-condition": false,
     "visible-condition": {
       "objectType.value": {
         "$in": [
