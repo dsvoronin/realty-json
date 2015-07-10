@@ -379,10 +379,18 @@
     "type": "FIAS_HOUSE",
     "alias": "building",
     "data": {
-      "singleOf": {
+      "address": {
         "param": "buildingId",
         "api": "fias/house?parent=${street.id}",
         "xpath": "building.id"
+      },
+      "latitude": {
+        "param": "latitude",
+        "xpath": "building.latitude"
+      },
+      "longitude": {
+        "param": "longitude",
+        "xpath": "building.longitude"
       }
     },
     "visible-condition": {
