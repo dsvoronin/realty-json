@@ -219,9 +219,7 @@
               "city.hasMetro": true
             },
             {
-              "cityDistance": {
-                "$lt": 1
-              }
+              "cityDistance": 0
             },
             {
               "objectType.group.value": {
@@ -277,9 +275,7 @@
               "city.hasDistrict": true
             },
             {
-              "cityDistance": {
-                "$lt": 1
-              }
+              "cityDistance": 0
             },
             {
               "objectType.group.value": {
@@ -365,9 +361,7 @@
               }
             },
             {
-              "cityDistance": {
-                "$lt": 1
-              }
+              "cityDistance": 0
             }
           ]
         }
