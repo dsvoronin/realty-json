@@ -261,12 +261,9 @@
           "city.hasDirection": true
         },
         {
-          "objectType.value": {
+          "objectType.group.value": {
             "$in": [
-              "cottage",
-              "townhouse",
-              "cottage",
-              "summerHouse",
+              "suburban",
               "land"
             ]
           }
