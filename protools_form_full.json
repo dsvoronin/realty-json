@@ -340,7 +340,38 @@
     },
     "visible-condition": true,
     "required-condition": {
-      "isNew.value": false
+      "$or": [
+        {
+          "$and": [
+            {
+              "objectType.value": "flat"
+            },
+            {
+              "isNew.value": false
+            }
+          ]
+        },
+        {
+          "objectType.value": "room"
+        },
+        {
+          "$and": [
+            {
+              "objectType.group.value": {
+                "$in": [
+                  "suburban",
+                  "land"
+                ]
+              }
+            },
+            {
+              "cityDistance": {
+                "$lt": 1
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   {
