@@ -197,17 +197,41 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "$and": [
+      "$or": [
         {
-          "city.hasMetro": true
+          "$and": [
+            {
+              "city.hasMetro": true
+            },
+            {
+              "objectType.group.value": {
+                "$in": [
+                  "living",
+                  "commercial"
+                ]
+              }
+            }
+          ]
         },
         {
-          "objectType.group.value": {
-            "$in": [
-              "living",
-              "commercial"
-            ]
-          }
+          "$and": [
+            {
+              "city.hasMetro": true
+            },
+            {
+              "cityDistance": {
+                "$lt": 1
+              }
+            },
+            {
+              "objectType.group.value": {
+                "$in": [
+                  "suburban",
+                  "land"
+                ]
+              }
+            }
+          ]
         }
       ]
     }
@@ -225,20 +249,47 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "$and": [
+      "$or": [
         {
-          "city.hasMetro": false
+          "$and": [
+            {
+              "city.hasMetro": false
+            },
+            {
+              "city.hasDistrict": true
+            },
+            {
+              "objectType.group.value": {
+                "$in": [
+                  "living",
+                  "commercial"
+                ]
+              }
+            }
+          ]
         },
         {
-          "city.hasDistrict": true
-        },
-        {
-          "objectType.group.value": {
-            "$in": [
-              "living",
-              "commercial"
-            ]
-          }
+          "$and": [
+            {
+              "city.hasMetro": false
+            },
+            {
+              "city.hasDistrict": true
+            },
+            {
+              "cityDistance": {
+                "$lt": 1
+              }
+            },
+            {
+              "objectType.group.value": {
+                "$in": [
+                  "suburban",
+                  "land"
+                ]
+              }
+            }
+          ]
         }
       ]
     }
@@ -259,6 +310,11 @@
       "$and": [
         {
           "city.hasDirection": true
+        },
+        {
+          "cityDistance": {
+            "$gt": 0
+          }
         },
         {
           "objectType.group.value": {
