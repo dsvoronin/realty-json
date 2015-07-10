@@ -530,7 +530,26 @@
           "land"
         ]
       }
-    }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "cityDistance": {
+                "$gte": 0
+              }
+            },
+            {
+              "cityDistance": {
+                "type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите целое положительное число"
+      }
+    ]
   },
   {
     "title": "Тип участка",
