@@ -1827,7 +1827,7 @@
     ]
   },
   {
-    "title": "Фотографии, описание, контакты",
+    "title": "Фотографии и описание",
     "type": "HEADER"
   },
   {
@@ -1864,6 +1864,62 @@
       "singleOf": {
         "param": "description",
         "xpath": "description"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Контакты",
+    "type": "HEADER"
+  },
+  {
+    "title": "Название компании",
+    "type": "STRING",
+    "alias": "companyName",
+    "data": {
+      "singleOf": {
+        "param": "companyName",
+        "xpath": "companyName"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Контактное лицо",
+    "type": "STRING",
+    "alias": "contactName",
+    "data": {
+      "singleOf": {
+        "param": "contactName",
+        "xpath": "contactName"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true
+  },
+  {
+    "title": "Телефон",
+    "type": "STRING",
+    "alias": "phone",
+    "data": {
+      "singleOf": {
+        "param": "phone",
+        "xpath": "phone"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Электронная почта",
+    "type": "STRING",
+    "alias": "email",
+    "data": {
+      "singleOf": {
+        "param": "email",
+        "xpath": "email"
       }
     },
     "required-condition": true,
