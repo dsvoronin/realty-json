@@ -1899,7 +1899,7 @@
     ]
   },
   {
-    "title": "Фотографии и описание",
+    "title": "Фотографии, видео и описание",
     "type": "HEADER"
   },
   {
@@ -1939,6 +1939,19 @@
       }
     },
     "required-condition": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Видео",
+    "type": "STRING",
+    "alias": "video",
+    "data": {
+      "singleOf": {
+        "param": "video",
+        "xpath": "video"
+      }
+    },
+    "required-condition": false,
     "visible-condition": true
   },
   {
