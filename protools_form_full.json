@@ -1942,6 +1942,757 @@
     "visible-condition": true
   },
   {
+    "title": "Дополнительные параметры",
+    "type": "HEADER",
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Количество спальных мест",
+    "type": "LIST",
+    "alias": "sleepPlaceCount",
+    "data": {
+      "singleOf": {
+        "param": "sleepPlaceCount",
+        "source": [
+          {
+            "title": "1",
+            "value": "1"
+          },
+          {
+            "title": "2",
+            "value": "2"
+          },
+          {
+            "title": "3",
+            "value": "3"
+          },
+          {
+            "title": "4",
+            "value": "4"
+          },
+          {
+            "title": "5",
+            "value": "5"
+          },
+          {
+            "title": "6",
+            "value": "6"
+          },
+          {
+            "title": "7",
+            "value": "7"
+          },
+          {
+            "title": "8",
+            "value": "8"
+          },
+          {
+            "title": "9",
+            "value": "9"
+          },
+          {
+            "title": "10",
+            "value": "10"
+          },
+          {
+            "title": "11",
+            "value": "11"
+          },
+          {
+            "title": "12",
+            "value": "12"
+          },
+          {
+            "title": "13",
+            "value": "13"
+          },
+          {
+            "title": "14",
+            "value": "14"
+          },
+          {
+            "title": "15",
+            "value": "15"
+          },
+          {
+            "title": "16+",
+            "value": "16+"
+          }
+        ],
+        "xpath": "sleepPlaceCount.value"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Количество кроватей",
+    "type": "LIST",
+    "alias": "bedCount",
+    "data": {
+      "singleOf": {
+        "param": "bedCount",
+        "source": [
+          {
+            "title": "1",
+            "value": "1"
+          },
+          {
+            "title": "2",
+            "value": "2"
+          },
+          {
+            "title": "3",
+            "value": "3"
+          },
+          {
+            "title": "4",
+            "value": "4"
+          },
+          {
+            "title": "5",
+            "value": "5"
+          },
+          {
+            "title": "6",
+            "value": "6"
+          },
+          {
+            "title": "7",
+            "value": "7"
+          },
+          {
+            "title": "8+",
+            "value": "8+"
+          }
+        ],
+        "xpath": "bedCount.value"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Wi-Fi",
+    "type": "BOOLEAN",
+    "alias": "wifi",
+    "data": {
+      "singleOf": {
+        "param": "wifi",
+        "xpath": "wifi",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Телевизор",
+    "type": "BOOLEAN",
+    "alias": "tv",
+    "data": {
+      "singleOf": {
+        "param": "tv",
+        "xpath": "tv",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Кабельное или цифровое ТВ",
+    "type": "BOOLEAN",
+    "alias": "cableTv",
+    "data": {
+      "singleOf": {
+        "param": "cableTv",
+        "xpath": "cableTv",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Плита",
+    "type": "BOOLEAN",
+    "alias": "kitchenRange",
+    "data": {
+      "singleOf": {
+        "param": "kitchenRange",
+        "xpath": "kitchenRange",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Микроволновка",
+    "type": "BOOLEAN",
+    "alias": "microwaveOven",
+    "data": {
+      "singleOf": {
+        "param": "microwaveOven",
+        "xpath": "microwaveOven",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Холодильник",
+    "type": "BOOLEAN",
+    "alias": "refrigerator",
+    "data": {
+      "singleOf": {
+        "param": "refrigerator",
+        "xpath": "refrigerator",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Стиральная машина",
+    "type": "BOOLEAN",
+    "alias": "washingMachine",
+    "data": {
+      "singleOf": {
+        "param": "washingMachine",
+        "xpath": "washingMachine",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Фен",
+    "type": "BOOLEAN",
+    "alias": "hairDrier",
+    "data": {
+      "singleOf": {
+        "param": "hairDrier",
+        "xpath": "hairDrier",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Утюг",
+    "type": "BOOLEAN",
+    "alias": "iron",
+    "data": {
+      "singleOf": {
+        "param": "iron",
+        "xpath": "iron",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Кондиционер",
+    "type": "BOOLEAN",
+    "alias": "airConditioner",
+    "data": {
+      "singleOf": {
+        "param": "airConditioner",
+        "xpath": "airConditioner",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Камин",
+    "type": "BOOLEAN",
+    "alias": "firePlace",
+    "data": {
+      "singleOf": {
+        "param": "firePlace",
+        "xpath": "firePlace",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Есть балкон или лоджия",
+    "type": "BOOLEAN",
+    "alias": "balcony",
+    "data": {
+      "singleOf": {
+        "param": "balcony",
+        "xpath": "balcony",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": "living"
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Есть парковочное место",
+    "type": "BOOLEAN",
+    "alias": "parking",
+    "data": {
+      "singleOf": {
+        "param": "parking",
+        "xpath": "parking",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": "living"
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Бассейн",
+    "type": "BOOLEAN",
+    "alias": "pool",
+    "data": {
+      "singleOf": {
+        "param": "pool",
+        "xpath": "pool",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": "suburban"
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Баня или сауна",
+    "type": "BOOLEAN",
+    "alias": "sauna",
+    "data": {
+      "singleOf": {
+        "param": "sauna",
+        "xpath": "sauna",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": "suburban"
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Можно с питомцами",
+    "type": "BOOLEAN",
+    "alias": "petAllowed",
+    "data": {
+      "singleOf": {
+        "param": "petAllowed",
+        "xpath": "petAllowed",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Можно с детьми",
+    "type": "BOOLEAN",
+    "alias": "childAllowed",
+    "data": {
+      "singleOf": {
+        "param": "childAllowed",
+        "xpath": "childAllowed",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Можно для мероприятий",
+    "type": "BOOLEAN",
+    "alias": "eventAllowed",
+    "data": {
+      "singleOf": {
+        "param": "eventAllowed",
+        "xpath": "eventAllowed",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Можно курить",
+    "type": "BOOLEAN",
+    "alias": "smokingAllowed",
+    "data": {
+      "singleOf": {
+        "param": "smokingAllowed",
+        "xpath": "smokingAllowed",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
     "title": "Контакты",
     "type": "HEADER"
   },
