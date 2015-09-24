@@ -525,38 +525,27 @@
     }
   },
   {
-    "title": "Тип аренды",
+    "title": "Размерность цены",
     "type": "LIST",
-    "alias": "pricePeriod",
+    "alias": "priceUnit",
     "data": {
       "singleOf": {
-        "param": "pricePeriod",
+        "param": "priceUnit",
         "source": [
           {
-            "title": "Годовая",
-            "value": "yearly",
-            "visible-condition": {
-              "objectType.group.value": "commercial"
-            }
-          },
-          {
-            "title": "Помесячная",
+            "title": "за месяц",
             "value": "monthly"
           },
           {
-            "title": "Посуточная",
-            "value": "daily",
-            "visible-condition": {
-              "objectType.group.value": {
-                "$in": [
-                  "living",
-                  "suburban"
-                ]
-              }
-            }
+            "title": "за сутки",
+            "value": "daily"
           }
         ],
-        "xpath": "pricePeriod.value"
+        "xpath": "priceUnit.value",
+        "default-value": {
+          "title": "за месяц",
+          "value": "monthly"
+        }
       }
     },
     "required-condition": true,
@@ -566,9 +555,92 @@
           "isSell.value": false
         },
         {
-          "$not": {
-            "objectType.group.value": "land"
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
           }
+        }
+      ]
+    }
+  },
+  {
+    "title": "Размерность цены",
+    "type": "LIST",
+    "alias": "priceUnit",
+    "data": {
+      "singleOf": {
+        "param": "priceUnit",
+        "source": [
+          {
+            "title": "за все",
+            "value": "total"
+          },
+          {
+            "title": "за м²",
+            "value": "perMeter"
+          }
+        ],
+        "xpath": "priceUnit.value",
+        "default-value": {
+          "title": "за все",
+          "value": "total"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": true
+        },
+        {
+          "objectType.group.value": "commercial"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Размерность цены",
+    "type": "LIST",
+    "alias": "priceUnit",
+    "data": {
+      "singleOf": {
+        "param": "priceUnit",
+        "source": [
+          {
+            "title": "в месяц",
+            "value": "monthly"
+          },
+          {
+            "title": "в год",
+            "value": "annually"
+          },
+          {
+            "title": "за м² в месяц",
+            "value": "monthlyPerMeter"
+          },
+          {
+            "title": "за м² в год",
+            "value": "annuallyPerMeter"
+          }
+        ],
+        "xpath": "priceUnit.value",
+        "default-value": {
+          "title": "в месяц",
+          "value": "monthly"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": "commercial"
         }
       ]
     }
