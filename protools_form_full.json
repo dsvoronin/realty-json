@@ -467,13 +467,41 @@
   {
     "title": "Цена",
     "type": "PRICE",
-    "alias": "pricing",
+    "alias": "price",
     "data": {
-      "price": {
+      "singleOf": {
         "param": "price",
-        "xpath": "pricing.price"
-      },
-      "currency": {
+        "xpath": "price"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "price": {
+                "$gte": 0
+              }
+            },
+            {
+              "price": {
+                "type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите корректное значение"
+      }
+    ]
+  },
+  {
+    "title": "Валюта",
+    "type": "LIST",
+    "alias": "priceCurrency",
+    "data": {
+      "singleOf": {
         "param": "priceCurrency",
         "source": [
           {
@@ -492,7 +520,7 @@
             "value": "eur"
           }
         ],
-        "xpath": "pricing.currency.value",
+        "xpath": "priceCurrency.value",
         "default-value": {
           "symbol": "₽",
           "title": "Рубли",
@@ -501,75 +529,7 @@
       }
     },
     "required-condition": true,
-    "visible-condition": true,
-    "valid-conditions": [
-      {
-        "condition": {
-          "$and": [
-            {
-              "pricing.price": {
-                "$gte": 0
-              }
-            },
-            {
-              "pricing.price": {
-                "type": "integer"
-              }
-            }
-          ]
-        },
-        "errorMessage": "Введите корректное значение"
-      }
-    ]
-  },
-
-
-
-  
-  {
-    "title": "Тип сделки",
-    "type": "LIST",
-    "alias": "dealType",
-    "data": {
-      "singleOf": {
-        "param": "isFreeDeal",
-        "source": [
-          {
-            "title": "Свободная",
-            "value": true
-          },
-          {
-            "title": "Альтернативная",
-            "value": false
-          }
-        ],
-        "xpath": "dealType.value"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": {
-      "$or": [
-        {
-          "$and": [
-            {
-              "isNew.value": false
-            },
-            {
-              "isSell.value": true
-            },
-            {
-              "objectType.value": "flat"
-            }
-          ]
-      },
-      {
-        "objectType.group.value": "suburban"
-      },
-      {
-        "objectType.value": "room"
-      }
-      ]
-    }
+    "visible-condition": true
   },
   {
     "title": "Размерность цены",
@@ -689,6 +649,51 @@
         {
           "objectType.group.value": "commercial"
         }
+      ]
+    }
+  },
+  {
+    "title": "Тип сделки",
+    "type": "LIST",
+    "alias": "dealType",
+    "data": {
+      "singleOf": {
+        "param": "isFreeDeal",
+        "source": [
+          {
+            "title": "Свободная",
+            "value": true
+          },
+          {
+            "title": "Альтернативная",
+            "value": false
+          }
+        ],
+        "xpath": "dealType.value"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$or": [
+        {
+          "$and": [
+            {
+              "isNew.value": false
+            },
+            {
+              "isSell.value": true
+            },
+            {
+              "objectType.value": "flat"
+            }
+          ]
+      },
+      {
+        "objectType.group.value": "suburban"
+      },
+      {
+        "objectType.value": "room"
+      }
       ]
     }
   },
