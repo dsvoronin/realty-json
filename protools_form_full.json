@@ -25,24 +25,6 @@
     }
   },
   {
-    "title": "Регион",
-    "type": "FIAS_REGION",
-    "alias": "region",
-    "data": {
-      "singleOf": {
-        "param": "regionId",
-        "api": "fias/region",
-        "xpath": "region.id"
-      }
-    },
-    "required-condition": true,
-    "visible-condition": true
-  },
-  {
-    "title": "Адрес и стоимость",
-    "type": "HEADER"
-  },
-  {
     "title": "Тип недвижимости",
     "type": "GROUPED_LIST",
     "alias": "objectType",
@@ -169,6 +151,24 @@
         }
       }
     }
+  },
+  {
+    "title": "Адрес",
+    "type": "HEADER"
+  },
+  {
+    "title": "Регион",
+    "type": "FIAS_REGION",
+    "alias": "region",
+    "data": {
+      "singleOf": {
+        "param": "regionId",
+        "api": "fias/region",
+        "xpath": "region.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true
   },
   {
     "title": "Город",
@@ -324,6 +324,45 @@
     }
   },
   {
+    "title": "Расстояние до города, км.",
+    "type": "DECIMAL",
+    "alias": "cityDistance",
+    "data": {
+      "singleOf": {
+        "param": "distanceToCity",
+        "xpath": "cityDistance"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "suburban",
+          "land"
+        ]
+      }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "cityDistance": {
+                "$gte": 0
+              }
+            },
+            {
+              "cityDistance": {
+                "type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите целое положительное число"
+      }
+    ]
+  },
+  {
     "title": "Улица",
     "type": "FIAS_STREET",
     "alias": "street",
@@ -422,6 +461,10 @@
     "comment": "Адрес дома, введенный вручную"
   },
   {
+    "title": "Стоимость и условия сделки",
+    "type": "HEADER"
+  },
+  {
     "title": "Цена",
     "type": "PRICE",
     "alias": "pricing",
@@ -479,6 +522,10 @@
       }
     ]
   },
+
+
+
+  
   {
     "title": "Тип сделки",
     "type": "LIST",
@@ -672,45 +719,6 @@
     "visible-condition": {
       "objectType.group.value": "commercial"
     }
-  },
-  {
-    "title": "Расстояние до города, км.",
-    "type": "DECIMAL",
-    "alias": "cityDistance",
-    "data": {
-      "singleOf": {
-        "param": "distanceToCity",
-        "xpath": "cityDistance"
-      }
-    },
-    "required-condition": true,
-    "visible-condition": {
-      "objectType.group.value": {
-        "$in": [
-          "suburban",
-          "land"
-        ]
-      }
-    },
-    "valid-conditions": [
-      {
-        "condition": {
-          "$and": [
-            {
-              "cityDistance": {
-                "$gte": 0
-              }
-            },
-            {
-              "cityDistance": {
-                "type": "integer"
-              }
-            }
-          ]
-        },
-        "errorMessage": "Введите целое положительное число"
-      }
-    ]
   },
   {
     "title": "Тип участка",
