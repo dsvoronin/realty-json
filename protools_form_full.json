@@ -1856,30 +1856,12 @@
   },
   {
     "title": "Площадь участка",
-    "type": "DECIMAL_UNITS",
+    "type": "DECIMAL",
     "alias": "landSpace",
     "data": {
-      "amount": {
+      "singleOf": {
         "param": "landSpace",
-        "xpath": "landSpace.amount"
-      },
-      "unit": {
-        "param": "landSpaceUnit",
-        "source": [
-          {
-            "title": "соток",
-            "value": "are"
-          },
-          {
-            "title": "гектар",
-            "value": "hectare"
-          }
-        ],
-        "xpath": "landSpace.unit.value",
-        "default-value": {
-          "title": "соток",
-          "value": "are"
-        }
+        "xpath": "landSpace"
       }
     },
     "required-condition": true,
@@ -1896,12 +1878,12 @@
         "condition": {
           "$and": [
             {
-              "landSpace.amount": {
+              "landSpace": {
                 "$gt": 0
               }
             },
             {
-              "landSpace.amount": {
+              "landSpace": {
                 "type": "decimal"
               }
             }
@@ -1910,6 +1892,40 @@
         "errorMessage": "Введите число"
       }
     ]
+  },
+  {
+    "title": "Ед. измерения площади",
+    "type": "LIST",
+    "alias": "landSpaceUnit",
+    "data": {
+      "singleOf": {
+        "param": "landSpaceUnit",
+        "source": [
+          {
+            "title": "соток",
+            "value": "are"
+          },
+          {
+            "title": "гектар",
+            "value": "hectare"
+          }
+        ],
+        "xpath": "landSpaceUnit.value",
+        "default-value": {
+          "title": "соток",
+          "value": "are"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "suburban",
+          "land"
+        ]
+      }
+    }
   },
   {
     "title": "Фотографии, видео и описание",
