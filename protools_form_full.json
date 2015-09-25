@@ -466,7 +466,7 @@
   },
   {
     "title": "Цена",
-    "type": "PRICE",
+    "type": "INTEGER",
     "alias": "price",
     "data": {
       "singleOf": {
