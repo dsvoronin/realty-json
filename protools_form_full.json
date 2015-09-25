@@ -153,6 +153,42 @@
     }
   },
   {
+    "title": "Тип дома",
+    "type": "LIST",
+    "alias": "isNew",
+    "data": {
+      "singleOf": {
+        "param": "isNew",
+        "source": [
+          {
+            "title": "Новостройка",
+            "value": true
+          },
+          {
+            "title": "Вторичка",
+            "value": false
+          }
+        ],
+        "xpath": "isNew.value",
+        "default-value": {
+          "title": "Вторичка",
+          "value": false
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": true
+        },
+        {
+          "objectType.value": "flat"
+        }
+      ]
+    }
+  },
+  {
     "title": "Адрес",
     "type": "HEADER"
   },
@@ -855,42 +891,6 @@
           "suburban"
         ]
       }
-    }
-  },
-  {
-    "title": "Тип дома",
-    "type": "LIST",
-    "alias": "isNew",
-    "data": {
-      "singleOf": {
-        "param": "isNew",
-        "source": [
-          {
-            "title": "Новостройка",
-            "value": true
-          },
-          {
-            "title": "Вторичка",
-            "value": false
-          }
-        ],
-        "xpath": "isNew.value",
-        "default-value": {
-          "title": "Вторичка",
-          "value": false
-        }
-      }
-    },
-    "required-condition": true,
-    "visible-condition": {
-      "$and": [
-        {
-          "isSell.value": true
-        },
-        {
-          "objectType.value": "flat"
-        }
-      ]
     }
   },
   {
