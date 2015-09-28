@@ -222,7 +222,7 @@
   },
   {
     "title": "В черте города",
-    "type": "BOOLEAN",
+    "type": "CHECKBOX",
     "alias": "isWithinCity",
     "data": {
       "singleOf": {
@@ -426,7 +426,7 @@
   },
   {
     "title": "Нет точного адреса",
-    "type": "BOOLEAN",
+    "type": "CHECKBOX",
     "alias": "hasNoAddress",
     "data": {
       "singleOf": {
@@ -459,6 +459,24 @@
       ]
     }
   },
+  {
+    "title": "Указать точку на карте",
+    "type": "LOCATION",
+    "alias": "location",
+    "data": {
+      "latitude": {
+        "param": "latitude",
+        "xpath": "location.latitude"
+      },
+      "longitude": {
+        "param": "longitude",
+        "xpath": "location.longitude"
+      }
+    },
+    "visible-condition": {
+        "hasNoAddress" :true
+    }
+  }
   {
     "title": "Улица",
     "type": "FIAS_STREET",
@@ -509,18 +527,14 @@
     "type": "FIAS_HOUSE",
     "alias": "building",
     "data": {
-      "address": {
+      "fiasBuilding": {
         "param": "buildingId",
         "api": "fias/house?parent=${street.id}",
         "xpath": "building.id"
       },
-      "latitude": {
-        "param": "latitude",
-        "xpath": "building.latitude"
-      },
-      "longitude": {
-        "param": "longitude",
-        "xpath": "building.longitude"
+      "customBuilding": {
+        "param": "buildingLabel",
+        "xpath": "building_custom.address"
       }
     },
     "visible-condition": {
@@ -530,32 +544,6 @@
     },
     "required-condition": false,
     "comment": "Идентификатор дома из ФИАС"
-  },
-  {
-    "title": "Дом",
-    "type": "CUSTOM_HOUSE",
-    "alias": "building_custom",
-    "data": {
-      "address": {
-        "param": "buildingLabel",
-        "xpath": "building_custom.address"
-      },
-      "latitude": {
-        "param": "latitude",
-        "xpath": "building_custom.latitude"
-      },
-      "longitude": {
-        "param": "longitude",
-        "xpath": "building_custom.longitude"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": {
-      "$not": {
-        "objectType.group.value": "land"
-      }
-    },
-    "comment": "Адрес дома, введенный вручную"
   },
   {
     "title": "Стоимость и условия сделки",
