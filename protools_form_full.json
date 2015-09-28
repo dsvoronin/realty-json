@@ -689,6 +689,111 @@
     }
   },
   {
+    "title": "Комиссия, %",
+    "type": "INTEGER",
+    "alias": "commission",
+    "data": {
+      "singleOf": {
+        "param": "commission",
+        "xpath": "commission"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "priceUnit.value": "monthly"
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        }
+      ]
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "commission": {
+                "$gte": 0
+              }
+            },
+            {
+              "commission": {
+                "type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите корректное значение"
+      }
+    ]
+  },
+  {
+    "title": "Залог",
+    "type": "LIST",
+    "alias": "pledge",
+    "data": {
+      "singleOf": {
+        "param": "pledge",
+        "source": [
+          {
+            "title": "0.5 месяца",
+            "value": "0.5"
+          },
+          {
+            "title": "1 месяца",
+            "value": "1"
+          },
+          {
+            "title": "1.5 месяца",
+            "value": "1.5"
+          },
+          {
+            "title": "2 месяца",
+            "value": "2"
+          },
+          {
+            "title": "2.5 месяца",
+            "value": "2.5"
+          },
+          {
+            "title": "3 месяца",
+            "value": "3"
+          }
+        ],
+        "xpath": "pledge.value"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "priceUnit.value": "monthly"
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
     "title": "Тип сделки",
     "type": "LIST",
     "alias": "dealType",
