@@ -777,6 +777,11 @@
             },
             {
               "commission": {
+                "$lte": 200
+              }
+            },
+            {
+              "commission": {
                 "type": "integer"
               }
             }
