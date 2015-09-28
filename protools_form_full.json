@@ -221,6 +221,27 @@
     "visible-condition": true
   },
   {
+    "title": "В черте города",
+    "type": "BOOLEAN",
+    "alias": "isWithinCity",
+    "data": {
+      "singleOf": {
+        "param": "isWithinCity",
+        "xpath": "isWithinCity",
+        "default-value": false
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "suburban",
+          "land"
+        ]
+      }
+    }
+  },
+  {
     "title": "Метро",
     "type": "FIAS_METRO",
     "alias": "metro",
@@ -255,7 +276,7 @@
               "city.hasMetro": true
             },
             {
-              "cityDistance": 0
+              "isWithinCity": true
             },
             {
               "objectType.group.value": {
@@ -311,7 +332,7 @@
               "city.hasDistrict": true
             },
             {
-              "cityDistance": 0
+              "isWithinCity": true
             },
             {
               "objectType.group.value": {
@@ -344,9 +365,7 @@
           "city.hasDirection": true
         },
         {
-          "$not": {
-            "cityDistance": 0
-          }
+          "isWithinCity": false
         },
         {
           "objectType.group.value": {
@@ -371,12 +390,19 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "objectType.group.value": {
-        "$in": [
-          "suburban",
-          "land"
-        ]
-      }
+      "$and": [
+        {
+          "objectType.group.value": {
+            "$in": [
+              "suburban",
+              "land"
+            ]
+          }
+        },
+        {
+          "isWithinCity": false
+        }
+      ]
     },
     "valid-conditions": [
       {
@@ -397,6 +423,41 @@
         "errorMessage": "Введите целое положительное число"
       }
     ]
+  },
+  {
+    "title": "Нет точного адреса",
+    "type": "BOOLEAN",
+    "alias": "hasNoAddress",
+    "data": {
+      "singleOf": {
+        "param": "hasNoAddress",
+        "xpath": "hasNoAddress",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$or": [
+        {
+          "$and": [
+            {
+              "isNew.value": true
+            },
+            {
+              "objectType.value": "flat"
+            }
+          ]
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "suburban",
+              "land"
+            ]
+          }
+        }
+      ]
+    }
   },
   {
     "title": "Улица",
@@ -436,7 +497,7 @@
               }
             },
             {
-              "cityDistance": 0
+              "hasNoAddress": true
             }
           ]
         }
