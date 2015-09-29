@@ -439,22 +439,20 @@
     "visible-condition": {
       "$or": [
         {
+          "isNew.value": true
+        },
+        {
           "$and": [
             {
-              "isNew.value": true
+              "objectType.group.value": "suburban"
             },
             {
-              "objectType.value": "flat"
+              "isWithinCity": false
             }
           ]
         },
         {
-          "objectType.group.value": {
-            "$in": [
-              "suburban",
-              "land"
-            ]
-          }
+          "objectType.group.value": "land"
         }
       ]
     }
