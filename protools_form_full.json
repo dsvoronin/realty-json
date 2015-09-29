@@ -476,7 +476,7 @@
     "visible-condition": {
         "hasNoAddress" :true
     }
-  }
+  },
   {
     "title": "Улица",
     "type": "FIAS_STREET",
