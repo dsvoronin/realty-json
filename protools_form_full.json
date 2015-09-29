@@ -222,7 +222,7 @@
   },
   {
     "title": "В черте города",
-    "type": "CHECKBOX",
+    "type": "BOOLEAN",
     "alias": "isWithinCity",
     "data": {
       "singleOf": {
@@ -426,7 +426,7 @@
   },
   {
     "title": "Нет точного адреса",
-    "type": "CHECKBOX",
+    "type": "BOOLEAN",
     "alias": "hasNoAddress",
     "data": {
       "singleOf": {
