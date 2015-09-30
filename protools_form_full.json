@@ -547,7 +547,7 @@
       },
       "customBuilding": {
         "param": "buildingLabel",
-        "xpath": "building.title"
+        "xpath": "building_custom.address"
       }
     },
     "visible-condition": {
@@ -559,6 +559,27 @@
         },
         {
           "hasNoAddress": false
+        },
+        {
+          "$or": [
+            {
+              "$and": [
+                {
+                  "city.hasStreetlessBuilding": false
+                },
+                {
+                  "street.id": {
+                    "$length": {
+                      "$gt": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "city.hasStreetlessBuilding": true
+            }
+          ]
         }
       ]
     },
@@ -2928,7 +2949,19 @@
       }
     },
     "required-condition": true,
-    "visible-condition": true
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "companyName": {
+            "$length": {
+              "$lte": 60
+            }
+          }
+        },
+        "errorMessage": "Не более 60 символов"
+      }
+    ]
   },
   {
     "title": "Контактное лицо",
@@ -2941,7 +2974,19 @@
       }
     },
     "required-condition": false,
-    "visible-condition": true
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "contactName": {
+            "$length": {
+              "$lte": 40
+            }
+          }
+        },
+        "errorMessage": "Не более 40 символов"
+      }
+    ]
   },
   {
     "title": "Телефон",
