@@ -547,7 +547,7 @@
       },
       "customBuilding": {
         "param": "buildingLabel",
-        "xpath": "building_custom.address"
+        "xpath": "building.title"
       }
     },
     "visible-condition": {
