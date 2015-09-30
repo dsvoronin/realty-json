@@ -472,7 +472,7 @@
       }
     },
     "visible-condition": {
-        "hasNoAddress" :true
+      "hasNoAddress": true
     }
   },
   {
@@ -486,7 +486,9 @@
         "xpath": "street.id"
       }
     },
-    "visible-condition": true,
+    "visible-condition": {
+      "hasNoAddress": false
+    },
     "required-condition": {
       "$or": [
         {
@@ -496,11 +498,21 @@
             },
             {
               "isNew.value": false
+            },
+            {
+              "city.hasStreetlessBuilding": false
             }
           ]
         },
         {
-          "objectType.value": "room"
+          "$and": [
+            {
+              "objectType.value": "room"
+            },
+            {
+              "city.hasStreetlessBuilding": false
+            }
+          ]
         },
         {
           "$and": [
@@ -513,7 +525,10 @@
               }
             },
             {
-              "hasNoAddress": true
+              "city.hasStreetlessBuilding": false
+            },
+            {
+              "isWithinCity": true
             }
           ]
         }
@@ -536,9 +551,16 @@
       }
     },
     "visible-condition": {
-      "$not": {
-        "objectType.group.value": "land"
-      }
+      "$and": [
+        {
+          "$not": {
+            "objectType.group.value": "land"
+          }
+        },
+        {
+          "hasNoAddress": false
+        }
+      ]
     },
     "required-condition": false,
     "comment": "Идентификатор дома из ФИАС"
