@@ -487,7 +487,19 @@
       }
     },
     "visible-condition": {
-      "hasNoAddress": false
+
+      "$or": [
+        {
+          "hasNoAddress": false
+        },
+        {
+          "city.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        }
+      ]
     },
     "required-condition": {
       "$or": [
