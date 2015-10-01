@@ -488,7 +488,7 @@
     },
     "visible-condition": {
 
-      "$or": [
+      "$and": [
         {
           "hasNoAddress": false
         },
