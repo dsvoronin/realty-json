@@ -2960,6 +2960,7 @@
     "alias": "companyName",
     "data": {
       "singleOf": {
+        "responseTitlePath" : "companyName",
         "param": "companyName",
         "xpath": "companyName"
       }
@@ -2985,6 +2986,7 @@
     "alias": "contactName",
     "data": {
       "singleOf": {
+        "responseTitlePath" : "contactName",
         "param": "contactName",
         "xpath": "contactName"
       }
@@ -3010,6 +3012,7 @@
     "alias": "phone",
     "data": {
       "singleOf": {
+        "responseTitlePath" : "phone",
         "param": "phone",
         "xpath": "phone"
       }
@@ -3023,6 +3026,7 @@
     "alias": "email",
     "data": {
       "singleOf": {
+        "responseTitlePath" : "email",
         "param": "email",
         "xpath": "email"
       }
