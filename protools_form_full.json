@@ -2368,8 +2368,7 @@
           "priceUnit.value": "daily"
         }
       ]
-    },
-    "editable-condition": true
+    }
   },
   {
     "title": "Количество спальных мест",
