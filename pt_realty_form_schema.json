@@ -1,4 +1,4 @@
-{
+ {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
   "items": {
@@ -56,6 +56,9 @@
         "required-condition": {
           "$ref": "#/definitions/someCondition"
         },
+        "editable-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
         "visible-condition": {
           "$ref": "#/definitions/someCondition"
         },
@@ -106,6 +109,9 @@
         },
         "xpath": {
           "type": "string"
+        },
+        "responseTitlePath": {
+          "type": "string"
         }
       },
       "required": [
@@ -132,6 +138,9 @@
           "$ref": "#/definitions/paramValue"
         },
         "xpath": {
+          "type": "string"
+        },
+        "responseTitlePath": {
           "type": "string"
         }
       },
