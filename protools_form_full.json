@@ -299,7 +299,20 @@
         }
       ]
     },
-    "editable-condition": false
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "metro.id": {
+            "$length": {
+              "$eq": 0
+            }
+          }
+        }
+      ]
+    }
   },
   {
     "title": "Район",
@@ -356,7 +369,20 @@
         }
       ]
     },
-    "editable-condition": false
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "district.id": {
+            "$length": {
+              "$eq": 0
+            }
+          }
+        }
+      ]
+    }
   },
   {
     "title": "Направление",
@@ -388,7 +414,20 @@
         }
       ]
     },
-    "editable-condition": false
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "district.id": {
+            "$length": {
+              "$eq": 0
+            }
+          }
+        }
+      ]
+    }
   },
   {
     "title": "Расстояние до города, км.",
@@ -469,7 +508,20 @@
         }
       ]
     },
-    "editable-condition": false
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "street.id": {
+            "$length": {
+              "$eq": 0
+            }
+          }
+        }
+      ]
+    }
   },
   {
     "title": "Указать точку на карте",
@@ -488,7 +540,20 @@
     "visible-condition": {
       "hasNoAddress": true
     },
-    "editable-condition": false
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "street.id": {
+            "$length": {
+              "$eq": 0
+            }
+          }
+        }
+      ]
+    }
   },
   {
     "title": "Улица",
@@ -561,7 +626,20 @@
         }
       ]
     },
-    "editable-condition": false
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "street.id": {
+            "$length": {
+              "$eq": 0
+            }
+          }
+        }
+      ]
+    }
   },
   {
     "title": "Дом",
@@ -612,7 +690,31 @@
       ]
     },
     "required-condition": false,
-    "editable-condition": false,
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "$and": [
+            {
+              "building.id": {
+                "$length": {
+                  "$eq": 0
+                }
+              }
+            },
+            {
+              "building.title": {
+                "$length": {
+                  "$eq": 0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
     "comment": "Идентификатор дома из ФИАС"
   },
   {
