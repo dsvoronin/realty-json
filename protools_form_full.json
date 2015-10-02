@@ -22,7 +22,8 @@
           "value": true
         }
       }
-    }
+    },
+    "editable-condition": false
   },
   {
     "title": "Тип недвижимости",
@@ -151,7 +152,8 @@
           }
         }
       }
-    }
+    },
+    "editable-condition": false
   },
   {
     "title": "Тип дома",
@@ -187,7 +189,8 @@
           "objectType.value": "flat"
         }
       ]
-    }
+    },
+    "editable-condition": false
   },
   {
     "title": "Адрес",
@@ -206,7 +209,8 @@
       }
     },
     "required-condition": true,
-    "visible-condition": true
+    "visible-condition": true,
+    "editable-condition": false
   },
   {
     "title": "Город",
@@ -221,7 +225,8 @@
       }
     },
     "required-condition": true,
-    "visible-condition": true
+    "visible-condition": true,
+    "editable-condition": false
   },
   {
     "title": "В черте города",
@@ -242,7 +247,8 @@
           "land"
         ]
       }
-    }
+    },
+    "editable-condition": false
   },
   {
     "title": "Метро",
@@ -290,6 +296,20 @@
               }
             }
           ]
+        }
+      ]
+    },
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "metro.id": {
+            "$length": {
+              "$eq": 0
+            }
+          }
         }
       ]
     }
@@ -348,6 +368,20 @@
           ]
         }
       ]
+    },
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "district.id": {
+            "$length": {
+              "$eq": 0
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -376,6 +410,20 @@
               "suburban",
               "land"
             ]
+          }
+        }
+      ]
+    },
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "district.id": {
+            "$length": {
+              "$eq": 0
+            }
           }
         }
       ]
@@ -425,7 +473,8 @@
         },
         "errorMessage": "Введите целое положительное число"
       }
-    ]
+    ],
+    "editable-condition": false
   },
   {
     "title": "Нет точного адреса",
@@ -458,6 +507,20 @@
           "objectType.group.value": "land"
         }
       ]
+    },
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "street.id": {
+            "$length": {
+              "$eq": 0
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -476,6 +539,20 @@
     },
     "visible-condition": {
       "hasNoAddress": true
+    },
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "street.id": {
+            "$length": {
+              "$eq": 0
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -491,7 +568,6 @@
       }
     },
     "visible-condition": {
-
       "$and": [
         {
           "hasNoAddress": false
@@ -549,6 +625,20 @@
           ]
         }
       ]
+    },
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "street.id": {
+            "$length": {
+              "$eq": 0
+            }
+          }
+        }
+      ]
     }
   },
   {
@@ -600,6 +690,31 @@
       ]
     },
     "required-condition": false,
+    "editable-condition": {
+      "$and": [
+        {
+          "addressEditEnabled": true
+        },
+        {
+          "$and": [
+            {
+              "building.id": {
+                "$length": {
+                  "$eq": 0
+                }
+              }
+            },
+            {
+              "building.title": {
+                "$length": {
+                  "$eq": 0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
     "comment": "Идентификатор дома из ФИАС"
   },
   {
@@ -636,7 +751,8 @@
         },
         "errorMessage": "Введите корректное значение"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Валюта",
@@ -671,7 +787,8 @@
       }
     },
     "required-condition": true,
-    "visible-condition": true
+    "visible-condition": true,
+    "editable-condition": true
   },
   {
     "title": "Размерность цены",
@@ -712,7 +829,8 @@
           }
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Размерность цены",
@@ -748,7 +866,8 @@
           "objectType.group.value": "commercial"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Размерность цены",
@@ -792,7 +911,8 @@
           "objectType.group.value": "commercial"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Комиссия, %",
@@ -846,7 +966,8 @@
         },
         "errorMessage": "Введите корректное значение"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Залог",
@@ -902,7 +1023,8 @@
           }
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Тип сделки",
@@ -947,7 +1069,8 @@
         "objectType.value": "room"
       }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Дом",
@@ -1004,7 +1127,8 @@
     "required-condition": true,
     "visible-condition": {
       "objectType.value": "land"
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Материал стен",
@@ -1107,7 +1231,8 @@
           "suburban"
         ]
       }
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Этап строительства",
@@ -1146,7 +1271,8 @@
           "objectType.value": "flat"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Срок сдачи (год)",
@@ -1216,7 +1342,8 @@
           "objectType.value": "flat"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Срок сдачи (квартал)",
@@ -1262,7 +1389,8 @@
           "objectType.value": "flat"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Класс здания",
@@ -1300,7 +1428,8 @@
           "warehouse"
         ]
       }
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Этаж",
@@ -1351,7 +1480,8 @@
         },
         "errorMessage": "Этаж объекта недвижимости должен быть меньше этажности здания"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Этажность",
@@ -1404,7 +1534,8 @@
         },
         "errorMessage": "Введите целое положительное число"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Квартира",
@@ -1479,7 +1610,8 @@
         },
         "errorMessage": "Введите целое положительное число"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Комнат",
@@ -1541,7 +1673,8 @@
           "suburban"
         ]
       }
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Комнат",
@@ -1575,7 +1708,8 @@
         },
         "errorMessage": "Введите целое положительное число"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Комнат в аренду",
@@ -1668,7 +1802,8 @@
           "objectType.value": "room"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Комнат на продажу",
@@ -1761,7 +1896,8 @@
           "objectType.value": "room"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Свободная планировка",
@@ -1789,7 +1925,8 @@
           "objectType.value": "office"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Площадь жилая, м²",
@@ -1828,7 +1965,8 @@
         },
         "errorMessage": "Введите число"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Площадь кухни, м²",
@@ -1867,7 +2005,8 @@
         },
         "errorMessage": "Введите число"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Площадь общая, м²",
@@ -1923,7 +2062,8 @@
         },
         "errorMessage": "Общая площадь объекта не должна быть меньше суммы площадей кухни и жилой площади"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Площадь дома, м²",
@@ -1970,7 +2110,8 @@
         },
         "errorMessage": "Общая площадь объекта не должна быть меньше суммы площадей кухни и жилой площади"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Площадь на продажу, м²",
@@ -2019,7 +2160,8 @@
         },
         "errorMessage": "Площадь на продажу не должна быть больше общей площади"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Площадь в аренду, м²",
@@ -2068,7 +2210,8 @@
         },
         "errorMessage": "Площадь в аренду не должна быть больше общей площади"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Площадь участка",
@@ -2107,7 +2250,8 @@
         },
         "errorMessage": "Введите число"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Ед. измерения площади",
@@ -2141,7 +2285,8 @@
           "land"
         ]
       }
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Фотографии, видео и описание",
@@ -2158,7 +2303,8 @@
       }
     },
     "required-condition": false,
-    "visible-condition": true
+    "visible-condition": true,
+    "editable-condition": true
   },
   {
     "title": "Планировка",
@@ -2171,7 +2317,8 @@
       }
     },
     "required-condition": false,
-    "visible-condition": true
+    "visible-condition": true,
+    "editable-condition": true
   },
   {
     "title": "Описание",
@@ -2184,7 +2331,8 @@
       }
     },
     "required-condition": true,
-    "visible-condition": true
+    "visible-condition": true,
+    "editable-condition": true
   },
   {
     "title": "Видео",
@@ -2197,7 +2345,8 @@
       }
     },
     "required-condition": false,
-    "visible-condition": true
+    "visible-condition": true,
+    "editable-condition": true
   },
   {
     "title": "Дополнительные параметры",
@@ -2315,7 +2464,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Количество кроватей",
@@ -2379,7 +2529,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Wi-Fi",
@@ -2410,7 +2561,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Телевизор",
@@ -2441,7 +2593,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Кабельное или цифровое ТВ",
@@ -2472,7 +2625,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Плита",
@@ -2503,7 +2657,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Микроволновка",
@@ -2534,7 +2689,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Холодильник",
@@ -2565,7 +2721,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Стиральная машина",
@@ -2596,7 +2753,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Фен",
@@ -2627,7 +2785,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Утюг",
@@ -2658,7 +2817,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Кондиционер",
@@ -2689,7 +2849,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Камин",
@@ -2720,7 +2881,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Есть балкон или лоджия",
@@ -2746,7 +2908,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Есть парковочное место",
@@ -2772,7 +2935,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Бассейн",
@@ -2798,7 +2962,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Баня или сауна",
@@ -2824,7 +2989,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Можно с питомцами",
@@ -2855,7 +3021,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Можно с детьми",
@@ -2886,7 +3053,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Можно для мероприятий",
@@ -2917,7 +3085,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Можно курить",
@@ -2948,7 +3117,8 @@
           "priceUnit.value": "daily"
         }
       ]
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Контакты",
@@ -2978,7 +3148,8 @@
         },
         "errorMessage": "Не более 60 символов"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Контактное лицо",
@@ -3004,7 +3175,8 @@
         },
         "errorMessage": "Не более 40 символов"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Телефон",
@@ -3018,7 +3190,8 @@
       }
     },
     "required-condition": true,
-    "visible-condition": true
+    "visible-condition": true,
+    "editable-condition": true
   },
   {
     "title": "Электронная почта",
@@ -3032,6 +3205,7 @@
       }
     },
     "required-condition": true,
-    "visible-condition": true
+    "visible-condition": true,
+    "editable-condition": true
   }
 ]
