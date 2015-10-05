@@ -302,6 +302,9 @@
     "editable-condition": {
       "$and": [
         {
+          "isFromAutoupload": false
+        },
+        {
           "addressEditEnabled": true
         },
         {
@@ -372,6 +375,9 @@
     "editable-condition": {
       "$and": [
         {
+          "isFromAutoupload": false
+        },
+        {
           "addressEditEnabled": true
         },
         {
@@ -417,10 +423,13 @@
     "editable-condition": {
       "$and": [
         {
+          "isFromAutoupload": false
+        },
+        {
           "addressEditEnabled": true
         },
         {
-          "district.id": {
+          "direction.id": {
             "$length": {
               "$eq": 0
             }
@@ -511,6 +520,9 @@
     "editable-condition": {
       "$and": [
         {
+          "isFromAutoupload": false
+        },
+        {
           "addressEditEnabled": true
         },
         {
@@ -542,6 +554,9 @@
     },
     "editable-condition": {
       "$and": [
+        {
+          "isFromAutoupload": false
+        },
         {
           "addressEditEnabled": true
         },
@@ -629,6 +644,9 @@
     "editable-condition": {
       "$and": [
         {
+          "isFromAutoupload": false
+        },
+        {
           "addressEditEnabled": true
         },
         {
@@ -693,6 +711,9 @@
     "editable-condition": {
       "$and": [
         {
+          "isFromAutoupload": false
+        },
+        {
           "addressEditEnabled": true
         },
         {
@@ -752,7 +773,9 @@
         "errorMessage": "Введите корректное значение"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Валюта",
@@ -788,7 +811,9 @@
     },
     "required-condition": true,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Размерность цены",
@@ -830,7 +855,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Размерность цены",
@@ -867,7 +894,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Размерность цены",
@@ -912,7 +941,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Комиссия, %",
@@ -967,7 +998,9 @@
         "errorMessage": "Введите корректное значение"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Залог",
@@ -1024,7 +1057,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Тип сделки",
@@ -1070,7 +1105,9 @@
       }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Дом",
@@ -1128,7 +1165,9 @@
     "visible-condition": {
       "objectType.value": "land"
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Материал стен",
@@ -1232,7 +1271,9 @@
         ]
       }
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Этап строительства",
@@ -1272,7 +1313,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Срок сдачи (год)",
@@ -1343,7 +1386,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Срок сдачи (квартал)",
@@ -1390,7 +1435,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Класс здания",
@@ -1429,7 +1476,9 @@
         ]
       }
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Этаж",
@@ -1481,7 +1530,9 @@
         "errorMessage": "Этаж объекта недвижимости должен быть меньше этажности здания"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Этажность",
@@ -1535,7 +1586,9 @@
         "errorMessage": "Введите целое положительное число"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Квартира",
@@ -1611,7 +1664,9 @@
         "errorMessage": "Введите целое положительное число"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Комнат",
@@ -1674,7 +1729,9 @@
         ]
       }
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Комнат",
@@ -1709,7 +1766,9 @@
         "errorMessage": "Введите целое положительное число"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Комнат в аренду",
@@ -1803,7 +1862,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Комнат на продажу",
@@ -1897,7 +1958,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Свободная планировка",
@@ -1926,7 +1989,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Площадь жилая, м²",
@@ -1966,7 +2031,9 @@
         "errorMessage": "Введите число"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Площадь кухни, м²",
@@ -2006,7 +2073,9 @@
         "errorMessage": "Введите число"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Площадь общая, м²",
@@ -2063,7 +2132,9 @@
         "errorMessage": "Общая площадь объекта не должна быть меньше суммы площадей кухни и жилой площади"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Площадь дома, м²",
@@ -2111,7 +2182,9 @@
         "errorMessage": "Общая площадь объекта не должна быть меньше суммы площадей кухни и жилой площади"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Площадь на продажу, м²",
@@ -2161,7 +2234,9 @@
         "errorMessage": "Площадь на продажу не должна быть больше общей площади"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Площадь в аренду, м²",
@@ -2211,7 +2286,9 @@
         "errorMessage": "Площадь в аренду не должна быть больше общей площади"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Площадь участка",
@@ -2251,7 +2328,9 @@
         "errorMessage": "Введите число"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Ед. измерения площади",
@@ -2286,7 +2365,9 @@
         ]
       }
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Фотографии, видео и описание",
@@ -2304,7 +2385,9 @@
     },
     "required-condition": false,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Планировка",
@@ -2318,7 +2401,9 @@
     },
     "required-condition": false,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Описание",
@@ -2332,7 +2417,9 @@
     },
     "required-condition": true,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Видео",
@@ -2346,7 +2433,9 @@
     },
     "required-condition": false,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Дополнительные параметры",
@@ -2465,7 +2554,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Количество кроватей",
@@ -2530,7 +2621,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Wi-Fi",
@@ -2562,7 +2655,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Телевизор",
@@ -2594,7 +2689,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Кабельное или цифровое ТВ",
@@ -2626,7 +2723,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Плита",
@@ -2658,7 +2757,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Микроволновка",
@@ -2690,7 +2791,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Холодильник",
@@ -2722,7 +2825,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Стиральная машина",
@@ -2754,7 +2859,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Фен",
@@ -2786,7 +2893,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Утюг",
@@ -2818,7 +2927,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Кондиционер",
@@ -2850,7 +2961,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Камин",
@@ -2882,7 +2995,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Есть балкон или лоджия",
@@ -2909,7 +3024,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Есть парковочное место",
@@ -2936,7 +3053,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Бассейн",
@@ -2963,7 +3082,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Баня или сауна",
@@ -2990,7 +3111,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Можно с питомцами",
@@ -3022,7 +3145,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Можно с детьми",
@@ -3054,7 +3179,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Можно для мероприятий",
@@ -3086,7 +3213,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Можно курить",
@@ -3118,7 +3247,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Контакты",
@@ -3149,7 +3280,9 @@
         "errorMessage": "Не более 60 символов"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Контактное лицо",
@@ -3176,7 +3309,9 @@
         "errorMessage": "Не более 40 символов"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Телефон",
@@ -3191,7 +3326,9 @@
     },
     "required-condition": true,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Электронная почта",
@@ -3206,6 +3343,8 @@
     },
     "required-condition": true,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   }
 ]
