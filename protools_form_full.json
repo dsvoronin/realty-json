@@ -247,12 +247,23 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "objectType.group.value": {
-        "$in": [
-          "suburban",
-          "land"
-        ]
-      }
+      "$and": [
+        {
+          "city.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "suburban",
+              "land"
+            ]
+          }
+        }
+      ]
     },
     "editable-condition": false
   },
