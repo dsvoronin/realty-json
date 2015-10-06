@@ -225,7 +225,13 @@
       }
     },
     "required-condition": true,
-    "visible-condition": true,
+    "visible-condition": {
+      "region.id": {
+        "$length": {
+          "$gt": 0
+        }
+      } 
+    },
     "editable-condition": false
   },
   {
@@ -241,12 +247,23 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "objectType.group.value": {
-        "$in": [
-          "suburban",
-          "land"
-        ]
-      }
+      "$and": [
+        {
+          "city.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "suburban",
+              "land"
+            ]
+          }
+        }
+      ]
     },
     "editable-condition": false
   },
@@ -500,7 +517,18 @@
     "visible-condition": {
       "$or": [
         {
-          "isNew.value": true
+          "$and": [
+            {
+              "isNew.value": true
+            },
+            {
+              "city.id": {
+                "$length": {
+                  "$gt": 0
+                }
+              }
+            }
+          ]
         },
         {
           "$and": [
@@ -509,11 +537,29 @@
             },
             {
               "isWithinCity": false
+            },
+            {
+              "city.id": {
+                "$length": {
+                  "$gt": 0
+                }
+              }
             }
           ]
         },
         {
-          "objectType.group.value": "land"
+          "$and": [
+            {
+              "objectType.group.value": "land"
+            },
+            {
+              "city.id": {
+                "$length": {
+                  "$gt": 0
+                }
+              }
+            }
+          ]
         }
       ]
     },
@@ -550,7 +596,18 @@
       }
     },
     "visible-condition": {
-      "hasNoAddress": true
+      "$and": [
+        {
+          "city.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        },
+        {
+          "hasNoAddress": true
+        }
+      ]
     },
     "editable-condition": {
       "$and": [
