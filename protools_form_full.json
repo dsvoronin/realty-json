@@ -225,7 +225,13 @@
       }
     },
     "required-condition": true,
-    "visible-condition": true,
+    "visible-condition": {
+      "region.id": {
+        "$length": {
+          "$gt": 0
+        }
+      } 
+    },
     "editable-condition": false
   },
   {
