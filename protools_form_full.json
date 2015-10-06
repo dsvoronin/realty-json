@@ -596,7 +596,18 @@
       }
     },
     "visible-condition": {
-      "hasNoAddress": true
+      "$and": [
+        {
+          "city.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        },
+        {
+          "hasNoAddress": true
+        }
+      ]
     },
     "editable-condition": {
       "$and": [
