@@ -31,7 +31,7 @@
     "alias": "objectType",
     "data": {
       "singleOf": {
-        "responseTitlePath" : "objectName",
+        "responseTitlePath": "objectName",
         "param": "objectType",
         "source": [
           {
@@ -194,7 +194,8 @@
   },
   {
     "title": "Адрес",
-    "type": "HEADER"
+    "type": "HEADER",
+    "icon": "address"
   },
   {
     "title": "Регион",
@@ -202,7 +203,7 @@
     "alias": "region",
     "data": {
       "singleOf": {
-        "responseTitlePath" : "regionName",
+        "responseTitlePath": "regionName",
         "param": "regionId",
         "api": "fias/region",
         "xpath": "region.id"
@@ -218,7 +219,7 @@
     "alias": "city",
     "data": {
       "singleOf": {
-        "responseTitlePath" : "cityName",
+        "responseTitlePath": "cityName",
         "param": "cityId",
         "api": "fias/city?regionId=${region.id}&type=city",
         "xpath": "city.id"
@@ -230,7 +231,7 @@
         "$length": {
           "$gt": 0
         }
-      } 
+      }
     },
     "editable-condition": false
   },
@@ -640,7 +641,7 @@
     "alias": "street",
     "data": {
       "singleOf": {
-        "responseTitlePath" : "street",
+        "responseTitlePath": "street",
         "param": "streetId",
         "api": "fias/address?parent=${city.id}&type=street",
         "xpath": "street.id"
@@ -804,7 +805,8 @@
   },
   {
     "title": "Стоимость и условия сделки",
-    "type": "HEADER"
+    "type": "HEADER",
+    "icon": "price"
   },
   {
     "title": "Цена",
@@ -1160,13 +1162,13 @@
               "objectType.value": "flat"
             }
           ]
-      },
-      {
-        "objectType.group.value": "suburban"
-      },
-      {
-        "objectType.value": "room"
-      }
+        },
+        {
+          "objectType.group.value": "suburban"
+        },
+        {
+          "objectType.value": "room"
+        }
       ]
     },
     "editable-condition": {
@@ -1176,6 +1178,7 @@
   {
     "title": "Дом",
     "type": "HEADER",
+    "icon": "house",
     "visible-condition": {
       "objectType.group.value": "living"
     }
@@ -1183,6 +1186,7 @@
   {
     "title": "Дом и участок",
     "type": "HEADER",
+    "icon": "house",
     "visible-condition": {
       "objectType.group.value": "suburban"
     }
@@ -1190,6 +1194,7 @@
   {
     "title": "Участок",
     "type": "HEADER",
+    "icon": "house",
     "visible-condition": {
       "objectType.group.value": "land"
     }
@@ -1197,6 +1202,7 @@
   {
     "title": "Здание",
     "type": "HEADER",
+    "icon": "house",
     "visible-condition": {
       "objectType.group.value": "commercial"
     }
@@ -1657,6 +1663,7 @@
   {
     "title": "Квартира",
     "type": "HEADER",
+    "icon": "house"
     "visible-condition": {
       "objectType.group.value": "living"
     }
@@ -2435,7 +2442,8 @@
   },
   {
     "title": "Фотографии, видео и описание",
-    "type": "HEADER"
+    "type": "HEADER",
+    "icon": "photo"
   },
   {
     "title": "Фотографии",
@@ -2504,6 +2512,7 @@
   {
     "title": "Дополнительные параметры",
     "type": "HEADER",
+    "icon": "params",
     "visible-condition": {
       "$and": [
         {
@@ -3317,7 +3326,8 @@
   },
   {
     "title": "Контакты",
-    "type": "HEADER"
+    "type": "HEADER",
+    "icon": "contacts"
   },
   {
     "title": "Название компании",
@@ -3325,7 +3335,7 @@
     "alias": "companyName",
     "data": {
       "singleOf": {
-        "responseTitlePath" : "companyName",
+        "responseTitlePath": "companyName",
         "param": "companyName",
         "xpath": "companyName"
       }
@@ -3354,7 +3364,7 @@
     "alias": "contactName",
     "data": {
       "singleOf": {
-        "responseTitlePath" : "contactName",
+        "responseTitlePath": "contactName",
         "param": "contactName",
         "xpath": "contactName"
       }
@@ -3383,7 +3393,7 @@
     "alias": "phone",
     "data": {
       "singleOf": {
-        "responseTitlePath" : "phone",
+        "responseTitlePath": "phone",
         "param": "phone",
         "xpath": "phone"
       }
@@ -3400,7 +3410,7 @@
     "alias": "email",
     "data": {
       "singleOf": {
-        "responseTitlePath" : "email",
+        "responseTitlePath": "email",
         "param": "email",
         "xpath": "email"
       }
