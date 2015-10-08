@@ -158,7 +158,9 @@
                     "param": "metroId",
                     "value": "metro.id"
                 },
-                "api": "/rest/realtyOffer/getFilters/"
+                "dataSource": {
+                    "api": "/rest/realtyOffer/getFilters/"
+                }
             },
             "visible-condition": true
         },
