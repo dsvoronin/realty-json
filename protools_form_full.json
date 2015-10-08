@@ -1663,7 +1663,7 @@
   {
     "title": "Квартира",
     "type": "HEADER",
-    "icon": "house"
+    "icon": "house",
     "visible-condition": {
       "objectType.group.value": "living"
     }
