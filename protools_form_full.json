@@ -1807,11 +1807,11 @@
   {
     "title": "Комнат",
     "type": "INTEGER_OBJECT",
-    "alias": "roomsTotal",
+    "alias": "roomsTotalUnlimited",
     "data": {
       "singleOf": {
         "param": "roomsTotal",
-        "xpath": "roomsTotal"
+        "xpath": "roomsTotalUnlimited"
       }
     },
     "required-condition": false,
@@ -1823,12 +1823,12 @@
         "condition": {
           "$and": [
             {
-              "roomsTotal": {
+              "roomsTotalUnlimited": {
                 "$gt": 0
               }
             },
             {
-              "roomsTotal": {
+              "roomsTotalUnlimited": {
                 "type": "integer"
               }
             }
