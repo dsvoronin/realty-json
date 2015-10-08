@@ -1,4 +1,4 @@
- {
+{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
   "items": {
@@ -26,6 +26,9 @@
           "enum": [
             "HEADER"
           ]
+        },
+        "icon": {
+          "type": "string"
         },
         "visible-condition": {
           "$ref": "#/definitions/someCondition"
@@ -301,10 +304,10 @@
           "$ref": "#/definitions/pathConditionOperand"
         },
         "\\$in$": {
-          "type":"array",
-          "minItems":2,
-          "items":{
-              "$ref": "#/definitions/pathConditionOperand"
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/definitions/pathConditionOperand"
           }
         },
         "\\$length$": {
