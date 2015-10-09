@@ -1844,7 +1844,7 @@
   {
     "title": "Комнат в аренду",
     "type": "LIST",
-    "alias": "roomsOffered",
+    "alias": "roomsLeaseOffered",
     "data": {
       "singleOf": {
         "param": "roomsOffered",
@@ -1915,7 +1915,7 @@
             }
           }
         ],
-        "xpath": "roomsOffered.value",
+        "xpath": "roomsLeaseOffered.value",
         "default-value": {
           "title": "1",
           "value": "1"
