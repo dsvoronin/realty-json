@@ -928,7 +928,7 @@
   {
     "title": "Размерность цены",
     "type": "LIST",
-    "alias": "priceUnit",
+    "alias": "priceUnitCSale",
     "data": {
       "singleOf": {
         "param": "priceUnit",
@@ -942,7 +942,7 @@
             "value": "perMeter"
           }
         ],
-        "xpath": "priceUnit.value",
+        "xpath": "priceUnitCSale.value",
         "default-value": {
           "title": "за все",
           "value": "total"
@@ -967,7 +967,7 @@
   {
     "title": "Размерность цены",
     "type": "LIST",
-    "alias": "priceUnit",
+    "alias": "priceUnitCLease",
     "data": {
       "singleOf": {
         "param": "priceUnit",
@@ -989,7 +989,7 @@
             "value": "annuallyPerMeter"
           }
         ],
-        "xpath": "priceUnit.value",
+        "xpath": "priceUnitCLease.value",
         "default-value": {
           "title": "в месяц",
           "value": "monthly"
@@ -1844,7 +1844,7 @@
   {
     "title": "Комнат в аренду",
     "type": "LIST",
-    "alias": "roomsOffered",
+    "alias": "roomsLeaseOffered",
     "data": {
       "singleOf": {
         "param": "roomsOffered",
@@ -1915,7 +1915,7 @@
             }
           }
         ],
-        "xpath": "roomsOffered.value",
+        "xpath": "roomsLeaseOffered.value",
         "default-value": {
           "title": "1",
           "value": "1"
@@ -2210,11 +2210,11 @@
   {
     "title": "Площадь дома, м²",
     "type": "DECIMAL",
-    "alias": "totalSpace",
+    "alias": "totalHouseSpace",
     "data": {
       "singleOf": {
         "param": "totalSpace",
-        "xpath": "totalSpace"
+        "xpath": "totalHouseSpace"
       }
     },
     "required-condition": true,
@@ -2226,12 +2226,12 @@
         "condition": {
           "$and": [
             {
-              "totalSpace": {
+              "totalHouseSpace": {
                 "$gt": 0
               }
             },
             {
-              "totalSpace": {
+              "totalHouseSpace": {
                 "type": "decimal"
               }
             }
@@ -2241,7 +2241,7 @@
       },
       {
         "condition": {
-          "totalSpace": {
+          "totalHouseSpace": {
             "$gte": {
               "$sum": [
                 "kitchenSpace",
@@ -2312,11 +2312,11 @@
   {
     "title": "Площадь в аренду, м²",
     "type": "DECIMAL",
-    "alias": "offeredSpace",
+    "alias": "offeredLeaseSpace",
     "data": {
       "singleOf": {
         "param": "offeredSpace",
-        "xpath": "offeredSpace"
+        "xpath": "offeredLeaseSpace"
       }
     },
     "required-condition": true,
@@ -2335,12 +2335,12 @@
         "condition": {
           "$and": [
             {
-              "offeredSpace": {
+              "offeredLeaseSpace": {
                 "$gt": 0
               }
             },
             {
-              "offeredSpace": {
+              "offeredLeaseSpace": {
                 "type": "decimal"
               }
             }
@@ -2350,7 +2350,7 @@
       },
       {
         "condition": {
-          "offeredSpace": {
+          "offeredLeaseSpace": {
             "$lte": "totalSpace"
           }
         },
