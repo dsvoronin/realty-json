@@ -2312,11 +2312,11 @@
   {
     "title": "Площадь в аренду, м²",
     "type": "DECIMAL",
-    "alias": "offeredSpace",
+    "alias": "offeredLeaseSpace",
     "data": {
       "singleOf": {
         "param": "offeredSpace",
-        "xpath": "offeredSpace"
+        "xpath": "offeredLeaseSpace"
       }
     },
     "required-condition": true,
@@ -2335,12 +2335,12 @@
         "condition": {
           "$and": [
             {
-              "offeredSpace": {
+              "offeredLeaseSpace": {
                 "$gt": 0
               }
             },
             {
-              "offeredSpace": {
+              "offeredLeaseSpace": {
                 "type": "decimal"
               }
             }
@@ -2350,7 +2350,7 @@
       },
       {
         "condition": {
-          "offeredSpace": {
+          "offeredLeaseSpace": {
             "$lte": "totalSpace"
           }
         },
