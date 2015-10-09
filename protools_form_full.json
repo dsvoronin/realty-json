@@ -928,7 +928,7 @@
   {
     "title": "Размерность цены",
     "type": "LIST",
-    "alias": "priceUnit",
+    "alias": "priceUnitCSale",
     "data": {
       "singleOf": {
         "param": "priceUnit",
@@ -942,7 +942,7 @@
             "value": "perMeter"
           }
         ],
-        "xpath": "priceUnit.value",
+        "xpath": "priceUnitCSale.value",
         "default-value": {
           "title": "за все",
           "value": "total"
@@ -967,7 +967,7 @@
   {
     "title": "Размерность цены",
     "type": "LIST",
-    "alias": "priceUnit",
+    "alias": "priceUnitCLease",
     "data": {
       "singleOf": {
         "param": "priceUnit",
@@ -989,7 +989,7 @@
             "value": "annuallyPerMeter"
           }
         ],
-        "xpath": "priceUnit.value",
+        "xpath": "priceUnitCLease.value",
         "default-value": {
           "title": "в месяц",
           "value": "monthly"
