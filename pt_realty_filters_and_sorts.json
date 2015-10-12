@@ -1,6 +1,50 @@
 {
   "filters": [
     {
+      "title": "Тип сортировки",
+      "type": "SORT",
+      "alias": "sort",
+      "data": {
+        "sortField": {
+          "param": "sortField",
+          "xpath": "sort.sortField.value",
+          "source": [
+            {
+              "title": "Дата создания",
+              "value": "createdAt"
+            },
+            {
+              "title": "Цена",
+              "value": "price"
+            }
+          ],
+          "default-value": {
+            "title": "Дата создания",
+            "value": "createdAt"
+          }
+        },
+        "sortDirection": {
+          "param": "sortDirection",
+          "xpath": "sort.sortDirection.value",
+          "source": [
+            {
+              "title": "По возрастанию",
+              "value": "ASC"
+            },
+            {
+              "title": "По убыванию",
+              "value": "DESC"
+            }
+          ],
+          "default-value": {
+            "title": "По убыванию",
+            "value": "DESC"
+          }
+        }
+      },
+      "visible-condition": true
+    },
+    {
       "title": "Тип объявления",
       "type": "LIST",
       "alias": "isSell",
@@ -167,17 +211,13 @@
       "visible-condition": true
     },
     {
-      "title": "Цена",
-      "type": "PRICE_RANGE",
-      "alias": "priceRange",
+      "title": "Валюта",
+      "type": "LIST",
+      "alias": "currency",
       "data": {
-        "priceRange": {
-          "param": "price",
-          "xpath": "priceRange.range"
-        },
-        "currency": {
+        "singleOf": {
           "param": "priceCurrency",
-          "xpath": "priceRange.currency.value",
+          "xpath": "currency.value",
           "source": [
             {
               "symbol": "₽",
@@ -194,21 +234,26 @@
               "title": "Евро",
               "value": "eur"
             }
-          ]
+          ],
+          "default-value": {
+            "symbol": "₽",
+            "title": "Рубли",
+            "value": "rub"
+          }
         }
       },
-      "visible-condition": true
-    }
-  ],
-  "sortings": [
-    {
-      "title": "Дата создания",
-      "sortField": "createdAt",
       "visible-condition": true
     },
     {
       "title": "Цена",
-      "sortField": "price",
+      "type": "RANGE",
+      "alias": "priceRange",
+      "data": {
+        "singleOf": {
+          "param": "price",
+          "xpath": "priceRange"
+        }
+      },
       "visible-condition": true
     }
   ]
