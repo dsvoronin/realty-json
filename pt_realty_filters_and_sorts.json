@@ -3,9 +3,9 @@
     {
       "title": "Тип сортировки",
       "type": "SORT",
-      "alias": "sort",
+      "alias": "sortField",
       "data": {
-        "sortField": {
+        "singleOf": {
           "param": "sortField",
           "xpath": "sort.sortField.value",
           "source": [
@@ -22,8 +22,16 @@
             "title": "Дата создания",
             "value": "createdAt"
           }
-        },
-        "sortDirection": {
+        }
+      },
+      "visible-condition": true
+    },
+    {
+      "title": "Порядок сортировки",
+      "type": "SORT",
+      "alias": "sortDirection",
+      "data": {
+        "singleOf": {
           "param": "sortDirection",
           "xpath": "sort.sortDirection.value",
           "source": [
