@@ -257,9 +257,17 @@
       "type": "RANGE",
       "alias": "priceRange",
       "data": {
-        "singleOf": {
+        "price": {
           "param": "price",
           "xpath": "priceRange"
+        },
+        "limit_min": {
+            "title": "Цена от",
+            "param": "min"
+        },
+        "limit_max": {
+            "title": "Цена до",
+            "param": "max"
         }
       },
       "visible-condition": true
