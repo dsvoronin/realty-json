@@ -7,7 +7,7 @@
       "data": {
         "singleOf": {
           "param": "sortField",
-          "xpath": "sort.sortField.value",
+          "xpath": "sortField.value",
           "source": [
             {
               "title": "Дата создания",
@@ -33,7 +33,7 @@
       "data": {
         "singleOf": {
           "param": "sortDirection",
-          "xpath": "sort.sortDirection.value",
+          "xpath": "sortDirection.value",
           "source": [
             {
               "title": "По возрастанию",
