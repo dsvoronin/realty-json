@@ -10,16 +10,16 @@
           "xpath": "sortField.value",
           "source": [
             {
-              "title": "Дата создания",
+              "title": "По дате",
               "value": "createdAt"
             },
             {
-              "title": "Цена",
+              "title": "По цене",
               "value": "price"
             }
           ],
           "default-value": {
-            "title": "Дата создания",
+            "title": "По дате",
             "value": "createdAt"
           }
         }
