@@ -1,280 +1,278 @@
-{
-  "filters": [
-    {
-      "title": "Тип сортировки",
-      "type": "SORT",
-      "alias": "sortField",
-      "data": {
-        "singleOf": {
-          "param": "sortField",
-          "xpath": "sortField.value",
-          "source": [
-            {
-              "title": "По дате",
-              "value": "createdAt"
-            },
-            {
-              "title": "По цене",
-              "value": "price"
-            }
-          ],
-          "default-value": {
+[
+  {
+    "title": "Тип сортировки",
+    "type": "SORT",
+    "alias": "sortField",
+    "data": {
+      "singleOf": {
+        "param": "sortField",
+        "xpath": "sortField.value",
+        "source": [
+          {
             "title": "По дате",
             "value": "createdAt"
+          },
+          {
+            "title": "По цене",
+            "value": "price"
           }
+        ],
+        "default-value": {
+          "title": "По дате",
+          "value": "createdAt"
         }
-      },
-      "visible-condition": true
+      }
     },
-    {
-      "title": "Порядок сортировки",
-      "type": "SORT",
-      "alias": "sortDirection",
-      "data": {
-        "singleOf": {
-          "param": "sortDirection",
-          "xpath": "sortDirection.value",
-          "source": [
-            {
-              "title": "По возрастанию",
-              "value": "ASC"
-            },
-            {
-              "title": "По убыванию",
-              "value": "DESC"
-            }
-          ],
-          "default-value": {
+    "visible-condition": true
+  },
+  {
+    "title": "Порядок сортировки",
+    "type": "SORT",
+    "alias": "sortDirection",
+    "data": {
+      "singleOf": {
+        "param": "sortDirection",
+        "xpath": "sortDirection.value",
+        "source": [
+          {
+            "title": "По возрастанию",
+            "value": "ASC"
+          },
+          {
             "title": "По убыванию",
             "value": "DESC"
           }
+        ],
+        "default-value": {
+          "title": "По убыванию",
+          "value": "DESC"
         }
-      },
-      "visible-condition": true
+      }
     },
-    {
-      "title": "Тип объявления",
-      "type": "LIST",
-      "alias": "isSell",
-      "data": {
-        "singleOf": {
-          "param": "isSell",
-          "xpath": "isSell.value",
-          "source": [
-            {
-              "title": "Продажа",
-              "value": true
-            },
-            {
-              "title": "Аренда",
-              "value": false
-            }
-          ],
-          "default-value": {
-              "title": "Продажа",
-              "value": true
+    "visible-condition": true
+  },
+  {
+    "title": "Тип объявления",
+    "type": "LIST",
+    "alias": "isSell",
+    "data": {
+      "singleOf": {
+        "param": "isSell",
+        "xpath": "isSell.value",
+        "source": [
+          {
+            "title": "Продажа",
+            "value": true
+          },
+          {
+            "title": "Аренда",
+            "value": false
           }
+        ],
+        "default-value": {
+            "title": "Продажа",
+            "value": true
         }
-      },
-      "visible-condition": true
+      }
     },
-    {
-      "title": "Тип объекта",
-      "type": "GROUPED_LIST",
-      "alias": "objectType",
-      "data": {
-        "singleOf": {
-          "param": "objectType",
-          "xpath": "objectType.value",
-          "source": [
-            {
-              "title": "Квартиры",
-              "value": "flat",
-              "group": {
-                "title": "Жилая",
-                "value": "living"
-              }
-            },
-            {
-              "title": "Комнаты",
-              "value": "room",
-              "group": {
-                "title": "Жилая",
-                "value": "living"
-              }
-            },
-            {
-              "title": "Дома",
-              "value": "house",
-              "group": {
-                "title": "Жилая",
-                "value": "suburban"
-              }
-            },
-            {
-              "title": "Коттеджи",
-              "value": "cottage",
-              "group": {
-                "title": "Загородная",
-                "value": "suburban"
-              }
-            },
-            {
-              "title": "Таунхаусы",
-              "value": "townhouse",
-              "group": {
-                "title": "Загородная",
-                "value": "suburban"
-              }
-            },
-            {
-              "title": "Дачи",
-              "value": "summerHouse",
-              "group": {
-                "title": "Загородная",
-                "value": "suburban"
-              }
-            },
-            {
-              "title": "Участки",
-              "value": "land",
-              "group": {
-                "title": "Загородная",
-                "value": "land"
-              },
-              "visible-condition": {
-                "isSell.value": true
-              }
-            },
-            {
-              "title": "Магазины",
-              "value": "shop",
-              "group": {
-                "title": "Коммерческая",
-                "value": "commercial"
-              }
-            },
-            {
-              "title": "Отели",
-              "value": "hotel",
-              "group": {
-                "title": "Коммерческая",
-                "value": "commercial"
-              }
-            },
-            {
-              "title": "Офисы",
-              "value": "office",
-              "group": {
-                "title": "Коммерческая",
-                "value": "commercial"
-              }
-            },
-            {
-              "title": "Производства",
-              "value": "manufacture",
-              "group": {
-                "title": "Коммерческая",
-                "value": "commercial"
-              }
-            },
-            {
-              "title": "Склады",
-              "value": "warehouse",
-              "group": {
-                "title": "Коммерческая",
-                "value": "commercial"
-              }
-            },
-            {
-              "title": "Свободного назначения",
-              "value": "free",
-              "group": {
-                "title": "Коммерческая",
-                "value": "commercial"
-              }
+    "visible-condition": true
+  },
+  {
+    "title": "Тип объекта",
+    "type": "GROUPED_LIST",
+    "alias": "objectType",
+    "data": {
+      "singleOf": {
+        "param": "objectType",
+        "xpath": "objectType.value",
+        "source": [
+          {
+            "title": "Квартиры",
+            "value": "flat",
+            "group": {
+              "title": "Жилая",
+              "value": "living"
             }
-          ]
-        }
-      },
-      "visible-condition": true
-    },
-    {
-      "title": "Локация",
-      "type": "LOCATION",
-      "alias": "location",
-      "data": {
-        "city": {
-          "param": "cityId",
-          "value": "location.city.id"
-        },
-        "district": {
-          "param": "districtId",
-          "value": "location.district.id"
-        },
-        "metro": {
-          "param": "metroId",
-          "value": "location.metro.id"
-        },
-        "dataSource": {
-          "api": "/rest/realtyOffer/getFilters/"
-        }
-      },
-      "visible-condition": true
-    },
-    {
-      "title": "Валюта",
-      "type": "LIST",
-      "alias": "currency",
-      "data": {
-        "singleOf": {
-          "param": "priceCurrency",
-          "xpath": "currency.value",
-          "source": [
-            {
-              "symbol": "₽",
-              "title": "Рубли",
-              "value": "rub"
-            },
-            {
-              "symbol": "$",
-              "title": "Доллары США",
-              "value": "usd"
-            },
-            {
-              "symbol": "€",
-              "title": "Евро",
-              "value": "eur"
+          },
+          {
+            "title": "Комнаты",
+            "value": "room",
+            "group": {
+              "title": "Жилая",
+              "value": "living"
             }
-          ],
-          "default-value": {
+          },
+          {
+            "title": "Дома",
+            "value": "house",
+            "group": {
+              "title": "Жилая",
+              "value": "suburban"
+            }
+          },
+          {
+            "title": "Коттеджи",
+            "value": "cottage",
+            "group": {
+              "title": "Загородная",
+              "value": "suburban"
+            }
+          },
+          {
+            "title": "Таунхаусы",
+            "value": "townhouse",
+            "group": {
+              "title": "Загородная",
+              "value": "suburban"
+            }
+          },
+          {
+            "title": "Дачи",
+            "value": "summerHouse",
+            "group": {
+              "title": "Загородная",
+              "value": "suburban"
+            }
+          },
+          {
+            "title": "Участки",
+            "value": "land",
+            "group": {
+              "title": "Загородная",
+              "value": "land"
+            },
+            "visible-condition": {
+              "isSell.value": true
+            }
+          },
+          {
+            "title": "Магазины",
+            "value": "shop",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Отели",
+            "value": "hotel",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Офисы",
+            "value": "office",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Производства",
+            "value": "manufacture",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Склады",
+            "value": "warehouse",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Свободного назначения",
+            "value": "free",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          }
+        ]
+      }
+    },
+    "visible-condition": true
+  },
+  {
+    "title": "Локация",
+    "type": "LOCATION",
+    "alias": "location",
+    "data": {
+      "city": {
+        "param": "cityId",
+        "value": "location.city.id"
+      },
+      "district": {
+        "param": "districtId",
+        "value": "location.district.id"
+      },
+      "metro": {
+        "param": "metroId",
+        "value": "location.metro.id"
+      },
+      "dataSource": {
+        "api": "/rest/realtyOffer/getFilters/"
+      }
+    },
+    "visible-condition": true
+  },
+  {
+    "title": "Валюта",
+    "type": "LIST",
+    "alias": "currency",
+    "data": {
+      "singleOf": {
+        "param": "priceCurrency",
+        "xpath": "currency.value",
+        "source": [
+          {
             "symbol": "₽",
             "title": "Рубли",
             "value": "rub"
+          },
+          {
+            "symbol": "$",
+            "title": "Доллары США",
+            "value": "usd"
+          },
+          {
+            "symbol": "€",
+            "title": "Евро",
+            "value": "eur"
           }
+        ],
+        "default-value": {
+          "symbol": "₽",
+          "title": "Рубли",
+          "value": "rub"
         }
-      },
-      "visible-condition": true
+      }
     },
-    {
-      "title": "Цена",
-      "type": "RANGE",
-      "alias": "priceRange",
-      "data": {
-        "price": {
-          "param": "price",
-          "xpath": "priceRange"
-        },
-        "limit_min": {
-            "title": "Цена от",
-            "param": "min"
-        },
-        "limit_max": {
-            "title": "Цена до",
-            "param": "max"
-        }
+    "visible-condition": true
+  },
+  {
+    "title": "Цена",
+    "type": "RANGE",
+    "alias": "priceRange",
+    "data": {
+      "price": {
+        "param": "price",
+        "xpath": "priceRange"
       },
-      "visible-condition": true
-    }
-  ]
-}
+      "limit_min": {
+          "title": "Цена от",
+          "param": "min"
+      },
+      "limit_max": {
+          "title": "Цена до",
+          "param": "max"
+      }
+    },
+    "visible-condition": true
+  }
+]
