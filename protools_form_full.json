@@ -1551,60 +1551,6 @@
     }
   },
   {
-    "title": "Этаж",
-    "type": "INTEGER",
-    "alias": "objectFloor",
-    "data": {
-      "singleOf": {
-        "param": "objectFloor",
-        "xpath": "objectFloor"
-      }
-    },
-    "required-condition": {
-      "objectType.group.value": "living"
-    },
-    "visible-condition": {
-      "$or": [
-        {
-          "objectType.group.value": "living"
-        },
-        {
-          "objectType.value": "office"
-        }
-      ]
-    },
-    "valid-conditions": [
-      {
-        "condition": {
-          "$and": [
-            {
-              "objectFloor": {
-                "$gt": 0
-              }
-            },
-            {
-              "objectFloor": {
-                "type": "integer"
-              }
-            }
-          ]
-        },
-        "errorMessage": "Введите целое положительное число"
-      },
-      {
-        "condition": {
-          "objectFloor": {
-            "$lte": "floorsTotal"
-          }
-        },
-        "errorMessage": "Этаж объекта недвижимости должен быть меньше этажности здания"
-      }
-    ],
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
     "title": "Этажность",
     "type": "INTEGER",
     "alias": "floorsTotal",
@@ -1654,6 +1600,60 @@
           ]
         },
         "errorMessage": "Введите целое положительное число"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Этаж",
+    "type": "INTEGER",
+    "alias": "objectFloor",
+    "data": {
+      "singleOf": {
+        "param": "objectFloor",
+        "xpath": "objectFloor"
+      }
+    },
+    "required-condition": {
+      "objectType.group.value": "living"
+    },
+    "visible-condition": {
+      "$or": [
+        {
+          "objectType.group.value": "living"
+        },
+        {
+          "objectType.value": "office"
+        }
+      ]
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "objectFloor": {
+                "$gt": 0
+              }
+            },
+            {
+              "objectFloor": {
+                "type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите целое положительное число"
+      },
+      {
+        "condition": {
+          "objectFloor": {
+            "$lte": "floorsTotal"
+          }
+        },
+        "errorMessage": "Этаж объекта недвижимости должен быть меньше этажности здания"
       }
     ],
     "editable-condition": {
