@@ -2489,18 +2489,6 @@
     },
     "required-condition": true,
     "visible-condition": true,
-    "valid-conditions": [
-      {
-        "condition": {
-          "description": {
-            "$length": {
-              "$lte": 250
-            }
-          }
-        },
-        "errorMessage": "Длина описания не более 250 символов"
-      }
-    ],
     "editable-condition": {
       "isFromAutoupload": false
     }
