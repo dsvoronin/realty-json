@@ -266,7 +266,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Метро",
@@ -317,7 +319,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Район",
@@ -374,7 +378,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Направление",
@@ -406,7 +412,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Расстояние до города, км.",
@@ -460,7 +468,9 @@
         "errorMessage": "Введите целое положительное число"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Нет точного адреса",
@@ -523,7 +533,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Указать точку на карте",
@@ -553,7 +565,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Улица",
@@ -626,7 +640,9 @@
         }
       ]
     },
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Дом",
@@ -677,7 +693,9 @@
       ]
     },
     "required-condition": false,
-    "editable-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    },
     "comment": "Идентификатор дома из ФИАС"
   },
   {
