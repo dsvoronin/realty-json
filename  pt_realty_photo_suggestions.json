@@ -2,7 +2,7 @@
         {
             "title": "Сфотографируйте объект снаружи",
             "description": "Отсутствие фотографий снаружи подаст тревожный сигнал для покупателей",
-            "beforeImage": "",
+            "beforeImage": "http://photozeen-delta.s3.amazonaws.com/actiagent/photos/no-512.png",
             "afterImage": "http://photozeen-delta.s3.amazonaws.com/actiagent/photos/IMG_0672.jpg"
         },
         {
