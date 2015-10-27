@@ -452,18 +452,6 @@
           ]
         },
         "errorMessage": "Введите целое положительное число"
-      },
-       {
-        "condition": {
-          "$and": [
-            {
-              "cityDistance": {
-                "$gte": 0
-              },
-            }
-          ]
-        },
-        "errorMessage": "Введите целое положительное число"
       }
     ],
     "editable-condition": {
