@@ -440,9 +440,6 @@
         "condition": {
           "$and": [
             {
-
-            },
-            {
               "cityDistance": {
                 "$gte": 0
               }
