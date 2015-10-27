@@ -247,26 +247,10 @@
       }
     },
     "required-condition": true,
-    "visible-condition": {
-      "$and": [
-        {
-          "city.id": {
-            "$length": {
-              "$gt": 0
-            }
-          }
-        },
-        {
-          "objectType.group.value": {
-            "$in": [
-              "suburban",
-              "land"
-            ]
-          }
-        }
-      ]
-    },
-    "editable-condition": false
+    "visible-condition": false,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Метро",
@@ -303,7 +287,9 @@
               "city.hasMetro": true
             },
             {
-              "isWithinCity": true
+              "cityDistance": {
+                "$eq":0
+              }
             },
             {
               "objectType.group.value": {
@@ -318,21 +304,7 @@
       ]
     },
     "editable-condition": {
-      "$and": [
-        {
-          "isFromAutoupload": false
-        },
-        {
-          "addressEditEnabled": true
-        },
-        {
-          "metro.id": {
-            "$length": {
-              "$eq": 0
-            }
-          }
-        }
-      ]
+      "isFromAutoupload": false
     }
   },
   {
@@ -376,7 +348,9 @@
               "city.hasDistrict": true
             },
             {
-              "isWithinCity": true
+              "cityDistance": {
+                "$eq":0
+              }
             },
             {
               "objectType.group.value": {
@@ -391,21 +365,7 @@
       ]
     },
     "editable-condition": {
-      "$and": [
-        {
-          "isFromAutoupload": false
-        },
-        {
-          "addressEditEnabled": true
-        },
-        {
-          "district.id": {
-            "$length": {
-              "$eq": 0
-            }
-          }
-        }
-      ]
+      "isFromAutoupload": false
     }
   },
   {
@@ -426,7 +386,9 @@
           "city.hasDirection": true
         },
         {
-          "isWithinCity": false
+          "cityDistance": {
+                "$gt":0
+              }
         },
         {
           "objectType.group.value": {
@@ -439,21 +401,7 @@
       ]
     },
     "editable-condition": {
-      "$and": [
-        {
-          "isFromAutoupload": false
-        },
-        {
-          "addressEditEnabled": true
-        },
-        {
-          "direction.id": {
-            "$length": {
-              "$eq": 0
-            }
-          }
-        }
-      ]
+      "isFromAutoupload": false
     }
   },
   {
@@ -463,7 +411,8 @@
     "data": {
       "singleOf": {
         "param": "distanceToCity",
-        "xpath": "cityDistance"
+        "xpath": "cityDistance",
+        "default-value": 0
       }
     },
     "required-condition": true,
@@ -483,9 +432,6 @@
               "$gt": 0
             }
           }
-        },
-        {
-          "isWithinCity": false
         }
       ]
     },
@@ -508,7 +454,9 @@
         "errorMessage": "Введите целое положительное число"
       }
     ],
-    "editable-condition": false
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Нет точного адреса",
@@ -544,7 +492,9 @@
               "objectType.group.value": "suburban"
             },
             {
-              "isWithinCity": false
+              "cityDistance": {
+                "$gt":0
+              }
             },
             {
               "city.id": {
@@ -572,21 +522,7 @@
       ]
     },
     "editable-condition": {
-      "$and": [
-        {
-          "isFromAutoupload": false
-        },
-        {
-          "addressEditEnabled": true
-        },
-        {
-          "street.id": {
-            "$length": {
-              "$eq": 0
-            }
-          }
-        }
-      ]
+      "isFromAutoupload": false
     }
   },
   {
@@ -618,21 +554,7 @@
       ]
     },
     "editable-condition": {
-      "$and": [
-        {
-          "isFromAutoupload": false
-        },
-        {
-          "addressEditEnabled": true
-        },
-        {
-          "street.id": {
-            "$length": {
-              "$eq": 0
-            }
-          }
-        }
-      ]
+      "isFromAutoupload": false
     }
   },
   {
@@ -700,28 +622,16 @@
               "city.hasStreetlessBuilding": false
             },
             {
-              "isWithinCity": true
+              "cityDistance": {
+                "$eq":0
+              }
             }
           ]
         }
       ]
     },
     "editable-condition": {
-      "$and": [
-        {
-          "isFromAutoupload": false
-        },
-        {
-          "addressEditEnabled": true
-        },
-        {
-          "street.id": {
-            "$length": {
-              "$eq": 0
-            }
-          }
-        }
-      ]
+      "isFromAutoupload": false
     }
   },
   {
@@ -774,32 +684,7 @@
     },
     "required-condition": false,
     "editable-condition": {
-      "$and": [
-        {
-          "isFromAutoupload": false
-        },
-        {
-          "addressEditEnabled": true
-        },
-        {
-          "$and": [
-            {
-              "building.id": {
-                "$length": {
-                  "$eq": 0
-                }
-              }
-            },
-            {
-              "building.title": {
-                "$length": {
-                  "$eq": 0
-                }
-              }
-            }
-          ]
-        }
-      ]
+      "isFromAutoupload": false
     },
     "comment": "Идентификатор дома из ФИАС"
   },
@@ -1551,60 +1436,6 @@
     }
   },
   {
-    "title": "Этаж",
-    "type": "INTEGER",
-    "alias": "objectFloor",
-    "data": {
-      "singleOf": {
-        "param": "objectFloor",
-        "xpath": "objectFloor"
-      }
-    },
-    "required-condition": {
-      "objectType.group.value": "living"
-    },
-    "visible-condition": {
-      "$or": [
-        {
-          "objectType.group.value": "living"
-        },
-        {
-          "objectType.value": "office"
-        }
-      ]
-    },
-    "valid-conditions": [
-      {
-        "condition": {
-          "$and": [
-            {
-              "objectFloor": {
-                "$gt": 0
-              }
-            },
-            {
-              "objectFloor": {
-                "type": "integer"
-              }
-            }
-          ]
-        },
-        "errorMessage": "Введите целое положительное число"
-      },
-      {
-        "condition": {
-          "objectFloor": {
-            "$lte": "floorsTotal"
-          }
-        },
-        "errorMessage": "Этаж объекта недвижимости должен быть меньше этажности здания"
-      }
-    ],
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
     "title": "Этажность",
     "type": "INTEGER",
     "alias": "floorsTotal",
@@ -1654,6 +1485,60 @@
           ]
         },
         "errorMessage": "Введите целое положительное число"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Этаж",
+    "type": "INTEGER",
+    "alias": "objectFloor",
+    "data": {
+      "singleOf": {
+        "param": "objectFloor",
+        "xpath": "objectFloor"
+      }
+    },
+    "required-condition": {
+      "objectType.group.value": "living"
+    },
+    "visible-condition": {
+      "$or": [
+        {
+          "objectType.group.value": "living"
+        },
+        {
+          "objectType.value": "office"
+        }
+      ]
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "objectFloor": {
+                "$gt": 0
+              }
+            },
+            {
+              "objectFloor": {
+                "type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите целое положительное число"
+      },
+      {
+        "condition": {
+          "objectFloor": {
+            "$lte": "floorsTotal"
+          }
+        },
+        "errorMessage": "Этаж объекта недвижимости должен быть меньше этажности здания"
       }
     ],
     "editable-condition": {
@@ -2489,18 +2374,6 @@
     },
     "required-condition": true,
     "visible-condition": true,
-    "valid-conditions": [
-      {
-        "condition": {
-          "description": {
-            "$length": {
-              "$lte": 250
-            }
-          }
-        },
-        "errorMessage": "Длина описания не более 250 символов"
-      }
-    ],
     "editable-condition": {
       "isFromAutoupload": false
     }
