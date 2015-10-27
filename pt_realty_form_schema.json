@@ -255,14 +255,7 @@
       "maxProperties": 1,
       "patternProperties": {
         "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/pathCondition"
-            },
-            {
-              "$ref": "#/definitions/typeCondition"
-            }
-          ]
+          "$ref": "#/definitions/pathCondition"
         }
       },
       "additionalProperties": false
@@ -293,14 +286,21 @@
           ]
         },
         {
-          "$ref": "#/definitions/aggregate"
+          "anyOf": [
+            {
+              "$ref": "#/definitions/aggregate"
+            },
+            {
+              "$ref": "#/definitions/typeCondition"
+            }
+          ]
         }
       ]
     },
     "pathCondition": {
       "type": "object",
       "patternProperties": {
-        "\\$(gte|lte|gt|lt|eq)$": {
+        "\\$(gte|lte|gt|lt|eq|type)$": {
           "$ref": "#/definitions/pathConditionOperand"
         },
         "\\$in$": {
