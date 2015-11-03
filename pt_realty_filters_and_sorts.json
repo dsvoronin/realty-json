@@ -204,15 +204,21 @@
     "alias": "location",
     "data": {
       "city": {
-        "param": "cityId",
+        "extraParam":"locationType",
+        "extraValue":"city",
+        "param": "locationId",
         "value": "location.city.id"
       },
       "district": {
-        "param": "districtId",
+        "extraParam":"locationType",
+        "extraValue":"district",
+        "param": "locationId",
         "value": "location.district.id"
       },
       "metro": {
-        "param": "metroId",
+        "extraParam":"locationType",
+        "extraValue":"metro",
+        "param": "locationId",
         "value": "location.metro.id"
       },
       "dataSource": {
