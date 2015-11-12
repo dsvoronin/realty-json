@@ -228,7 +228,11 @@
       }
     },
     "required-condition": false,
-    "visible-condition": true,
+    "visible-condition": {
+      "$not": {
+        "engineType.value":"electro"
+        }
+    },
     "valid-conditions": [
       {
         "condition": {
