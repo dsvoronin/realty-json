@@ -247,25 +247,7 @@
       }
     },
     "required-condition": true,
-    "visible-condition": {
-      "$and": [
-        {
-          "city.id": {
-            "$length": {
-              "$gt": 0
-            }
-          }
-        },
-        {
-          "objectType.group.value": {
-            "$in": [
-              "suburban",
-              "land"
-            ]
-          }
-        }
-      ]
-    },
+    "visible-condition": false,
     "editable-condition": {
       "isFromAutoupload": false
     }
@@ -305,7 +287,9 @@
               "city.hasMetro": true
             },
             {
-              "isWithinCity": true
+              "cityDistance": {
+                "$eq":0
+              }
             },
             {
               "objectType.group.value": {
@@ -364,7 +348,9 @@
               "city.hasDistrict": true
             },
             {
-              "isWithinCity": true
+              "cityDistance": {
+                "$eq":0
+              }
             },
             {
               "objectType.group.value": {
@@ -400,7 +386,9 @@
           "city.hasDirection": true
         },
         {
-          "isWithinCity": false
+          "cityDistance": {
+                "$gt":0
+              }
         },
         {
           "objectType.group.value": {
@@ -423,7 +411,8 @@
     "data": {
       "singleOf": {
         "param": "distanceToCity",
-        "xpath": "cityDistance"
+        "xpath": "cityDistance",
+        "default-value": 0
       }
     },
     "required-condition": true,
@@ -443,9 +432,6 @@
               "$gt": 0
             }
           }
-        },
-        {
-          "isWithinCity": false
         }
       ]
     },
@@ -460,7 +446,7 @@
             },
             {
               "cityDistance": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -506,7 +492,9 @@
               "objectType.group.value": "suburban"
             },
             {
-              "isWithinCity": false
+              "cityDistance": {
+                "$gt":0
+              }
             },
             {
               "city.id": {
@@ -634,7 +622,9 @@
               "city.hasStreetlessBuilding": false
             },
             {
-              "isWithinCity": true
+              "cityDistance": {
+                "$eq":0
+              }
             }
           ]
         }
@@ -726,7 +716,7 @@
             },
             {
               "price": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -951,7 +941,7 @@
             },
             {
               "commission": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -1489,7 +1479,7 @@
             },
             {
               "floorsTotal": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -1535,7 +1525,7 @@
             },
             {
               "objectFloor": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -1622,7 +1612,7 @@
             },
             {
               "floorsTotal": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -1724,7 +1714,7 @@
             },
             {
               "roomsTotalUnlimited": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -1989,7 +1979,7 @@
             },
             {
               "livingSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
@@ -2031,7 +2021,7 @@
             },
             {
               "kitchenSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
@@ -2077,7 +2067,7 @@
             },
             {
               "totalSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
@@ -2127,7 +2117,7 @@
             },
             {
               "totalHouseSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
@@ -2184,7 +2174,7 @@
             },
             {
               "offeredSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
@@ -2236,7 +2226,7 @@
             },
             {
               "offeredLeaseSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
@@ -2286,7 +2276,7 @@
             },
             {
               "landSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
