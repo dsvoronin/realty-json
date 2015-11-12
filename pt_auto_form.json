@@ -133,7 +133,7 @@
             },
             {
               "year": {
-                "type": "integer"
+                "$type": "integer"
               }
             },
             {
@@ -301,7 +301,7 @@
             },
             {
               "engineCapacity": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             },
             {
@@ -311,7 +311,7 @@
             }
           ]
         },
-        "errorMessage": "Введите объём двигателя 0.1 — 0.6"
+        "errorMessage": "Введите объём двигателя 0.1 — 6.0"
       }
     ]
   },
@@ -518,7 +518,7 @@
   },
   {
     "title": "Цвет",
-    "type": "COLOR_LIST",
+    "type": "LIST",
     "alias": "color",
     "data": {
       "singleOf": {
@@ -661,7 +661,7 @@
             },
             {
               "price": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -987,7 +987,7 @@
             },
             {
               "suggestedPrice": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
