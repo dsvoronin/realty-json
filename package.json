@@ -12,6 +12,7 @@
     },
     "dependencies": {},
     "devDependencies": {
-        "is-my-json-valid": "2.10.1"
+        "is-my-json-valid": "2.10.1",
+        "eslint-plugin-react": "^2.6.4"
     }
 }
