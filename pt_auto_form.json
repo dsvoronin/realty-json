@@ -5,80 +5,6 @@
     "icon": "car"
   },
   {
-    "title": "Тип автомобиля",
-    "type": "LIST",
-    "alias": "vehicleType",
-    "data": {
-      "singleOf": {
-        "param": "vehicleType",
-        "source": [
-          {
-            "title": "Новый",
-            "value": "newcar"
-          },
-          {
-            "title": "Подержанный",
-            "value": "usedcar"
-          }
-        ],
-        "xpath": "vehicleType.value",
-        "default-value": {
-          "title": "Новый",
-          "value": "newcar"
-        }
-      }
-    },
-    "visible-condition": true,
-    "required-condition": true,
-    "editable-condition": false
-  },
-  {
-    "title": "Состояние",
-    "type": "LIST",
-    "alias": "condition",
-    "data": {
-      "singleOf": {
-        "param": "condition",
-        "source": [
-          {
-            "title": "Не битый",
-            "value": "undamaged"
-          },
-          {
-            "title": "Битый",
-            "value": "damaged"
-          }
-        ],
-        "xpath": "condition.value",
-        "default-value": {
-          "title": "Не битый",
-          "value": "undamaged"
-        }
-      }
-    },
-    "required-condition": true,
-    "visible-condition": {
-      "vehicleType.value": "usedcar" 
-    },
-    "editable-condition": true
-  },
-  {
-    "title": "Пробег, км",
-    "type": "INTEGER",
-    "alias": "milage",
-    "data": {
-      "singleOf": {
-        "param": "milage",
-        "xpath": "milage"
-      }
-    },
-    "required-condition": true,
-    "visible-condition": {
-      "vehicleType.value": "usedcar" 
-    },
-    "editable-condition": true
-  },
-  {
     "title": "Марка",
     "type": "STRING",
     "alias": "brand",
@@ -243,6 +169,19 @@
     "editable-condition": true
   },
   {
+    "title": "VIN",
+    "type": "STRING",
+    "alias": "vin",
+    "data": {
+      "singleOf": {
+        "param": "vin",
+        "xpath": "vin"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true
+  },
+  {
     "title": "Тип топлива",
     "type": "LIST",
     "alias": "engineType",
@@ -279,7 +218,7 @@
     "editable-condition": true
   },
   {
-    "title": "Объём",
+    "title": "Объём двигателя",
     "type": "DECIMAL",
     "alias": "engineCapacity",
     "data": {
@@ -316,7 +255,7 @@
     ]
   },
   {
-    "title": "Мощность двигателя, л.с.",
+    "title": "Мощность, л.с.",
     "type": "INTEGER",
     "alias": "enginePower",
     "data": {
@@ -338,7 +277,7 @@
         "xpath": "turbo"
       }
     },
-    "required-condition": true,
+    "required-condition": false,
     "editable-condition": true
   },
   {
@@ -402,95 +341,37 @@
     "editable-condition": true
   },
   {
-    "title": "Параметры",
+    "title": "Детали",
     "type": "HEADER",
     "icon": "address"
   },
   {
-    "title": "Владельцев по ПТС",
+    "title": "Тип автомобиля",
     "type": "LIST",
-    "alias": "ownersTotal",
+    "alias": "vehicleType",
     "data": {
       "singleOf": {
-        "param": "ownersTotal",
+        "param": "vehicleType",
         "source": [
           {
-            "title": "1",
-            "value": "1"
+            "title": "Новый",
+            "value": "newcar"
           },
           {
-            "title": "2",
-            "value": "2"
-          },
-          {
-            "title": "3",
-            "value": "3"
-          },
-          {
-            "title": "4+",
-            "value": "4+"
+            "title": "Подержанный",
+            "value": "usedcar"
           }
         ],
-        "xpath": "ownersTotal.value"
+        "xpath": "vehicleType.value",
+        "default-value": {
+          "title": "Новый",
+          "value": "newcar"
+        }
       }
     },
     "visible-condition": true,
-    "required-condition": false,
-    "editable-condition": true
-  },
-  {
-    "title": "Данные о ТО",
-    "type": "CHECKBOX_LIST",
-    "alias": "maintenance",
-    "data": {
-      "singleOf": {
-        "param": "maintenance",
-        "source": [
-          {
-            "title": "Есть сервисная книжка",
-            "value": "serviceBook"
-          },
-          {
-            "title": "Обслуживался у диллера",
-            "value": "serviceDealer"
-          },
-          {
-            "title": "На гарантии",
-            "value": "warranty"
-          }
-        ],
-        "xpath": "maintenance.value"
-      }
-    },
-    "visible-condition": true,
-    "required-condition": false,
-    "editable-condition": true
-  },
-  {
-    "title": "VIN",
-    "type": "STRING",
-    "alias": "vin",
-    "data": {
-      "singleOf": {
-        "param": "vin",
-        "xpath": "vin"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": true
-  },
-  {
-    "title": "Номер свидетельства ТС",
-    "type": "STRING",
-    "alias": "sts",
-    "data": {
-      "singleOf": {
-        "param": "sts",
-        "xpath": "sts"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": true
+    "required-condition": true,
+    "editable-condition": false
   },
   {
     "title": "Руль",
@@ -627,6 +508,130 @@
     "visible-condition": true,
     "required-condition": true,
     "editable-condition": true
+  },
+  {
+    "title": "Пробег, км",
+    "type": "INTEGER",
+    "alias": "milage",
+    "data": {
+      "singleOf": {
+        "param": "milage",
+        "xpath": "milage"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "vehicleType.value": "usedcar" 
+    },
+    "editable-condition": true
+  }, 
+  {
+    "title": "Состояние",
+    "type": "LIST",
+    "alias": "condition",
+    "data": {
+      "singleOf": {
+        "param": "condition",
+        "source": [
+          {
+            "title": "Не битый",
+            "value": "undamaged"
+          },
+          {
+            "title": "Битый",
+            "value": "damaged"
+          }
+        ],
+        "xpath": "condition.value",
+        "default-value": {
+          "title": "Не битый",
+          "value": "undamaged"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "vehicleType.value": "usedcar" 
+    },
+    "editable-condition": true
+  },
+  {
+    "title": "Владельцев по ПТС",
+    "type": "LIST",
+    "alias": "ownersTotal",
+    "data": {
+      "singleOf": {
+        "param": "ownersTotal",
+        "source": [
+          {
+            "title": "1",
+            "value": "1"
+          },
+          {
+            "title": "2",
+            "value": "2"
+          },
+          {
+            "title": "3",
+            "value": "3"
+          },
+          {
+            "title": "4+",
+            "value": "4+"
+          }
+        ],
+        "xpath": "ownersTotal.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Данные о ТО",
+    "type": "CHECKBOX_LIST",
+    "alias": "maintenance",
+    "data": {
+      "singleOf": {
+        "param": "maintenance",
+        "source": [
+          {
+            "title": "Есть сервисная книжка",
+            "value": "serviceBook"
+          },
+          {
+            "title": "Обслуживался у диллера",
+            "value": "serviceDealer"
+          },
+          {
+            "title": "На гарантии",
+            "value": "warranty"
+          }
+        ],
+        "xpath": "maintenance.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Номер свидетельства ТС",
+    "type": "STRING",
+    "alias": "sts",
+    "data": {
+      "singleOf": {
+        "param": "sts",
+        "xpath": "sts"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true
+  },
+  {
+    "title": "Параметры",
+    "type": "HEADER",
+    "icon": "address"
   },
   {
     "title": "Комплектация (Not implemented)",
