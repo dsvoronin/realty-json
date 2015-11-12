@@ -112,7 +112,7 @@
   },
   {
     "title": "Год выпуска",
-    "type": "INTERGER",
+    "type": "INTEGER",
     "alias": "year",
     "data": {
       "singleOf": {
