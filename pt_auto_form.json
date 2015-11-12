@@ -1,0 +1,270 @@
+[
+  {
+    "title": "Автомобиль",
+    "type": "HEADER",
+    "icon": "car"
+  },
+  {
+    "title": "Тип автомобиля",
+    "type": "LIST",
+    "alias": "vehicleType",
+    "data": {
+      "singleOf": {
+        "param": "vehicleType",
+        "source": [
+          {
+            "title": "Новый",
+            "value": "newcar"
+          },
+          {
+            "title": "Подержанный",
+            "value": "usedcar"
+          }
+        ],
+        "xpath": "vehicleType.value",
+        "default-value": {
+          "title": "Новый",
+          "value": "newcar"
+        }
+      }
+    },
+    "editable-condition": false
+  },
+  {
+    "title": "Состояние",
+    "type": "LIST",
+    "alias": "condition",
+    "data": {
+      "singleOf": {
+        "param": "condition",
+        "source": [
+          {
+            "title": "Не битый",
+            "value": "undamaged"
+          },
+          {
+            "title": "Битый",
+            "value": "damaged"
+          }
+        ],
+        "xpath": "condition.value",
+        "default-value": {
+          "title": "Не битый",
+          "value": "undamaged"
+        }
+      }
+    },
+    "visible-condition": {
+      "vehicleType.value": "usedcar" 
+    },
+    "editable-condition": true
+  },
+  {
+    "title": "Марка",
+    "type": "STRING",
+    "alias": "companyName",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "companyName",
+        "param": "companyName",
+        "xpath": "companyName"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "companyName": {
+            "$length": {
+              "$lte": 60
+            }
+          }
+        },
+        "errorMessage": "Не более 60 символов"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Расположение",
+    "type": "HEADER",
+    "icon": "address"
+  },
+  {
+    "title": "Регион",
+    "type": "FIAS_REGION",
+    "alias": "region",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "regionName",
+        "param": "regionId",
+        "api": "fias/region",
+        "xpath": "region.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": false
+  },
+  {
+    "title": "Город",
+    "type": "FIAS_CITY",
+    "alias": "city",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "cityName",
+        "param": "cityId",
+        "api": "fias/city?regionId=${region.id}&type=city",
+        "xpath": "city.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "region.id": {
+        "$length": {
+          "$gt": 0
+        }
+      }
+    },
+    "editable-condition": false
+  },
+  {
+    "title": "Метро",
+    "type": "FIAS_METRO",
+    "alias": "metro",
+    "data": {
+      "singleOf": {
+        "param": "metroId",
+        "api": "fias/metro?cityId=${city.id}",
+        "xpath": "metro.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "city.hasMetro": true
+    }
+  },
+  {
+    "title": "Район",
+    "type": "FIAS_DISTRICT",
+    "alias": "district",
+    "data": {
+      "singleOf": {
+        "param": "districtId",
+        "api": "fias/district?cityId=${city.id}",
+        "xpath": "district.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "city.hasMetro": false
+        },
+        {
+          "city.hasDistrict": true
+        }
+      ]
+    }
+  },
+  {
+    "title": "Контакты",
+    "type": "HEADER",
+    "icon": "contacts"
+  },
+  {
+    "title": "Название компании",
+    "type": "STRING",
+    "alias": "companyName",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "companyName",
+        "param": "companyName",
+        "xpath": "companyName"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "companyName": {
+            "$length": {
+              "$lte": 60
+            }
+          }
+        },
+        "errorMessage": "Не более 60 символов"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Контактное лицо",
+    "type": "STRING",
+    "alias": "contactName",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "contactName",
+        "param": "contactName",
+        "xpath": "contactName"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "contactName": {
+            "$length": {
+              "$lte": 40
+            }
+          }
+        },
+        "errorMessage": "Не более 40 символов"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Телефон",
+    "type": "STRING",
+    "alias": "phone",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "phone",
+        "param": "phone",
+        "xpath": "phone"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Электронная почта",
+    "type": "STRING",
+    "alias": "email",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "email",
+        "param": "email",
+        "xpath": "email"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  }
+]
