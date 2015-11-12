@@ -235,11 +235,7 @@
             "value": "5"
           }
         ],
-        "xpath": "condition.value",
-        "default-value": {
-          "title": "Не битый",
-          "value": "undamaged"
-        }
+        "xpath": "doors.value"
       }
     },
     "visible-condition": true,
