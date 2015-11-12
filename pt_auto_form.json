@@ -1264,17 +1264,17 @@
         "condition": {
           "$and": [
             {
-              "price": {
+              "discs": {
                 "$gte": 7
               }
             },
             {
-              "price": {
+              "discs": {
                 "$lte": 30
               }
             },
             {
-              "price": {
+              "discs": {
                 "$type": "integer"
               }
             }
