@@ -446,7 +446,7 @@
             },
             {
               "cityDistance": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -716,7 +716,7 @@
             },
             {
               "price": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -941,7 +941,7 @@
             },
             {
               "commission": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -1479,7 +1479,7 @@
             },
             {
               "floorsTotal": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -1525,7 +1525,7 @@
             },
             {
               "objectFloor": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -1612,7 +1612,7 @@
             },
             {
               "floorsTotal": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -1714,7 +1714,7 @@
             },
             {
               "roomsTotalUnlimited": {
-                "type": "integer"
+                "$type": "integer"
               }
             }
           ]
@@ -1979,7 +1979,7 @@
             },
             {
               "livingSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
@@ -2021,7 +2021,7 @@
             },
             {
               "kitchenSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
@@ -2067,7 +2067,7 @@
             },
             {
               "totalSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
@@ -2117,7 +2117,7 @@
             },
             {
               "totalHouseSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
@@ -2174,7 +2174,7 @@
             },
             {
               "offeredSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
@@ -2226,7 +2226,7 @@
             },
             {
               "offeredLeaseSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
@@ -2276,7 +2276,7 @@
             },
             {
               "landSpace": {
-                "type": "decimal"
+                "$type": "decimal"
               }
             }
           ]
