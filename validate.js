@@ -4,9 +4,10 @@ var fs = require('fs');
 
 var tests = [
     {
-        schema: './pt_realty_form_schema.json',
+        schema: './pt_form_schema.json',
         targets: [
-        './protools_form_full.json'
+            './pt_realty_form.json',
+            './pt_auto_form.json'
         ]
     },
     {
