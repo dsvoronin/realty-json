@@ -230,7 +230,10 @@
         }
       }
     },
-    "editable-condition": false
+    "editable-condition": false,
+    "clear-triggers": [
+      "region"
+    ]
   },
   {
     "title": "В черте города",
@@ -285,7 +288,7 @@
             },
             {
               "cityDistance": {
-                "$eq":0
+                "$eq": 0
               }
             },
             {
@@ -302,7 +305,11 @@
     },
     "editable-condition": {
       "isFromAutoupload": false
-    }
+    },
+    "clear-triggers": [
+      "region",
+      "city"
+    ]
   },
   {
     "title": "Район",
@@ -346,7 +353,7 @@
             },
             {
               "cityDistance": {
-                "$eq":0
+                "$eq": 0
               }
             },
             {
@@ -363,7 +370,11 @@
     },
     "editable-condition": {
       "isFromAutoupload": false
-    }
+    },
+    "clear-triggers": [
+      "region",
+      "city"
+    ]
   },
   {
     "title": "Направление",
@@ -384,8 +395,8 @@
         },
         {
           "cityDistance": {
-                "$gt":0
-              }
+            "$gt": 0
+          }
         },
         {
           "objectType.group.value": {
@@ -399,7 +410,11 @@
     },
     "editable-condition": {
       "isFromAutoupload": false
-    }
+    },
+    "clear-triggers": [
+      "region",
+      "city"
+    ]
   },
   {
     "title": "Расстояние до города, км.",
@@ -490,7 +505,7 @@
             },
             {
               "cityDistance": {
-                "$gt":0
+                "$gt": 0
               }
             },
             {
@@ -620,7 +635,7 @@
             },
             {
               "cityDistance": {
-                "$eq":0
+                "$eq": 0
               }
             }
           ]
@@ -629,7 +644,11 @@
     },
     "editable-condition": {
       "isFromAutoupload": false
-    }
+    },
+    "clear-triggers": [
+      "region",
+      "city"
+    ]
   },
   {
     "title": "Дом",
@@ -683,6 +702,10 @@
     "editable-condition": {
       "isFromAutoupload": false
     },
+    "clear-triggers": [
+      "region",
+      "city"
+    ],
     "comment": "Идентификатор дома из ФИАС"
   },
   {
