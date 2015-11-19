@@ -1,0 +1,3309 @@
+[
+  {
+    "title": "Тип объявления",
+    "type": "LIST",
+    "alias": "isSell",
+    "data": {
+      "singleOf": {
+        "param": "isSell",
+        "source": [
+          {
+            "title": "Продажа",
+            "value": true
+          },
+          {
+            "title": "Аренда",
+            "value": false
+          }
+        ],
+        "xpath": "isSell.value",
+        "default-value": {
+          "title": "Продажа",
+          "value": true
+        }
+      }
+    },
+    "editable-condition": false
+  },
+  {
+    "title": "Тип недвижимости",
+    "type": "GROUPED_LIST",
+    "alias": "objectType",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "objectName",
+        "param": "objectType",
+        "source": [
+          {
+            "title": "Квартира",
+            "value": "flat",
+            "group": {
+              "title": "Жилая",
+              "value": "living"
+            }
+          },
+          {
+            "title": "Комната",
+            "value": "room",
+            "group": {
+              "title": "Жилая",
+              "value": "living"
+            }
+          },
+          {
+            "title": "Дом",
+            "value": "house",
+            "group": {
+              "title": "Жилая",
+              "value": "suburban"
+            }
+          },
+          {
+            "title": "Коттедж",
+            "value": "cottage",
+            "group": {
+              "title": "Загородная",
+              "value": "suburban"
+            }
+          },
+          {
+            "title": "Таунхаус",
+            "value": "townhouse",
+            "group": {
+              "title": "Загородная",
+              "value": "suburban"
+            }
+          },
+          {
+            "title": "Дача",
+            "value": "summerHouse",
+            "group": {
+              "title": "Загородная",
+              "value": "suburban"
+            }
+          },
+          {
+            "title": "Участок",
+            "value": "land",
+            "group": {
+              "title": "Загородная",
+              "value": "land"
+            },
+            "visible-condition": {
+              "isSell.value": true
+            }
+          },
+          {
+            "title": "Магазин",
+            "value": "shop",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Отель",
+            "value": "hotel",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Офис",
+            "value": "office",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Производство",
+            "value": "manufacture",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Склад",
+            "value": "warehouse",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Свободного назначения",
+            "value": "free",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          }
+        ],
+        "xpath": "objectType.value",
+        "default-value": {
+          "title": "Квартира",
+          "value": "flat",
+          "group": {
+            "title": "Жилая",
+            "value": "living"
+          }
+        }
+      }
+    },
+    "editable-condition": false
+  },
+  {
+    "title": "Тип дома",
+    "type": "LIST",
+    "alias": "isNew",
+    "data": {
+      "singleOf": {
+        "param": "isNew",
+        "source": [
+          {
+            "title": "Новостройка",
+            "value": true
+          },
+          {
+            "title": "Вторичка",
+            "value": false
+          }
+        ],
+        "xpath": "isNew.value",
+        "default-value": {
+          "title": "Вторичка",
+          "value": false
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": true
+        },
+        {
+          "objectType.value": "flat"
+        }
+      ]
+    },
+    "editable-condition": false
+  },
+  {
+    "title": "Адрес",
+    "type": "HEADER",
+    "icon": "address"
+  },
+  {
+    "title": "Регион",
+    "type": "FIAS_REGION",
+    "alias": "region",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "regionName",
+        "param": "regionId",
+        "api": "fias/region",
+        "xpath": "region.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": false
+  },
+  {
+    "title": "Город",
+    "type": "FIAS_CITY",
+    "alias": "city",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "cityName",
+        "param": "cityId",
+        "api": "fias/city?regionId=${region.id}&type=city",
+        "xpath": "city.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "region.id": {
+        "$length": {
+          "$gt": 0
+        }
+      }
+    },
+    "editable-condition": false
+  },
+  {
+    "title": "В черте города",
+    "type": "BOOLEAN",
+    "alias": "isWithinCity",
+    "data": {
+      "singleOf": {
+        "param": "isWithinCity",
+        "xpath": "isWithinCity",
+        "default-value": false
+      }
+    },
+    "required-condition": true,
+    "visible-condition": false,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Метро",
+    "type": "FIAS_METRO",
+    "alias": "metro",
+    "data": {
+      "singleOf": {
+        "param": "metroId",
+        "api": "fias/metro?cityId=${city.id}",
+        "xpath": "metro.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$or": [
+        {
+          "$and": [
+            {
+              "city.hasMetro": true
+            },
+            {
+              "objectType.group.value": {
+                "$in": [
+                  "living",
+                  "commercial"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "$and": [
+            {
+              "city.hasMetro": true
+            },
+            {
+              "cityDistance": {
+                "$eq":0
+              }
+            },
+            {
+              "objectType.group.value": {
+                "$in": [
+                  "suburban",
+                  "land"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Район",
+    "type": "FIAS_DISTRICT",
+    "alias": "district",
+    "data": {
+      "singleOf": {
+        "param": "districtId",
+        "api": "fias/district?cityId=${city.id}",
+        "xpath": "district.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$or": [
+        {
+          "$and": [
+            {
+              "city.hasMetro": false
+            },
+            {
+              "city.hasDistrict": true
+            },
+            {
+              "objectType.group.value": {
+                "$in": [
+                  "living",
+                  "commercial"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "$and": [
+            {
+              "city.hasMetro": false
+            },
+            {
+              "city.hasDistrict": true
+            },
+            {
+              "cityDistance": {
+                "$eq":0
+              }
+            },
+            {
+              "objectType.group.value": {
+                "$in": [
+                  "suburban",
+                  "land"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Направление",
+    "type": "FIAS_DIRECTION",
+    "alias": "direction",
+    "data": {
+      "singleOf": {
+        "param": "directionId",
+        "api": "fias/direction?cityId=${city.id}",
+        "xpath": "direction.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "city.hasDirection": true
+        },
+        {
+          "cityDistance": {
+                "$gt":0
+              }
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "suburban",
+              "land"
+            ]
+          }
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Расстояние до города, км.",
+    "type": "DECIMAL",
+    "alias": "cityDistance",
+    "data": {
+      "singleOf": {
+        "param": "distanceToCity",
+        "xpath": "cityDistance",
+        "default-value": 0
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "objectType.group.value": {
+            "$in": [
+              "suburban",
+              "land"
+            ]
+          }
+        },
+        {
+          "city.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        }
+      ]
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "cityDistance": {
+                "$gte": 0
+              }
+            },
+            {
+              "cityDistance": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите целое положительное число"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Нет точного адреса",
+    "type": "BOOLEAN",
+    "alias": "hasNoAddress",
+    "data": {
+      "singleOf": {
+        "param": "hasNoAddress",
+        "xpath": "hasNoAddress",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$or": [
+        {
+          "$and": [
+            {
+              "isNew.value": true
+            },
+            {
+              "city.id": {
+                "$length": {
+                  "$gt": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$and": [
+            {
+              "objectType.group.value": "suburban"
+            },
+            {
+              "cityDistance": {
+                "$gt":0
+              }
+            },
+            {
+              "city.id": {
+                "$length": {
+                  "$gt": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$and": [
+            {
+              "objectType.group.value": "land"
+            },
+            {
+              "city.id": {
+                "$length": {
+                  "$gt": 0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Указать точку на карте",
+    "type": "LOCATION",
+    "alias": "location",
+    "data": {
+      "latitude": {
+        "param": "latitude",
+        "xpath": "location.latitude"
+      },
+      "longitude": {
+        "param": "longitude",
+        "xpath": "location.longitude"
+      }
+    },
+    "visible-condition": {
+      "$and": [
+        {
+          "city.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        },
+        {
+          "hasNoAddress": true
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Улица",
+    "type": "FIAS_STREET",
+    "alias": "street",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "street",
+        "param": "streetId",
+        "api": "fias/address?parent=${city.id}&type=street",
+        "xpath": "street.id"
+      }
+    },
+    "visible-condition": {
+      "$and": [
+        {
+          "hasNoAddress": false
+        },
+        {
+          "city.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        }
+      ]
+    },
+    "required-condition": {
+      "$or": [
+        {
+          "$and": [
+            {
+              "objectType.value": "flat"
+            },
+            {
+              "isNew.value": false
+            },
+            {
+              "city.hasStreetlessBuilding": false
+            }
+          ]
+        },
+        {
+          "$and": [
+            {
+              "objectType.value": "room"
+            },
+            {
+              "city.hasStreetlessBuilding": false
+            }
+          ]
+        },
+        {
+          "$and": [
+            {
+              "objectType.group.value": {
+                "$in": [
+                  "suburban",
+                  "land"
+                ]
+              }
+            },
+            {
+              "city.hasStreetlessBuilding": false
+            },
+            {
+              "cityDistance": {
+                "$eq":0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Дом",
+    "type": "FIAS_HOUSE",
+    "alias": "building",
+    "data": {
+      "fiasBuilding": {
+        "param": "buildingId",
+        "api": "fias/house?parent=${street.id}",
+        "xpath": "building.id"
+      },
+      "customBuilding": {
+        "param": "buildingLabel",
+        "xpath": "building.title"
+      }
+    },
+    "visible-condition": {
+      "$and": [
+        {
+          "$not": {
+            "objectType.group.value": "land"
+          }
+        },
+        {
+          "hasNoAddress": false
+        },
+        {
+          "$or": [
+            {
+              "$and": [
+                {
+                  "city.hasStreetlessBuilding": false
+                },
+                {
+                  "street.id": {
+                    "$length": {
+                      "$gt": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "city.hasStreetlessBuilding": true
+            }
+          ]
+        }
+      ]
+    },
+    "required-condition": false,
+    "editable-condition": {
+      "isFromAutoupload": false
+    },
+    "comment": "Идентификатор дома из ФИАС"
+  },
+  {
+    "title": "Стоимость и условия сделки",
+    "type": "HEADER",
+    "icon": "price"
+  },
+  {
+    "title": "Цена",
+    "type": "INTEGER",
+    "alias": "price",
+    "data": {
+      "singleOf": {
+        "param": "price",
+        "xpath": "price"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "price": {
+                "$gte": 0
+              }
+            },
+            {
+              "price": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите корректное значение"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Валюта",
+    "type": "LIST",
+    "alias": "priceCurrency",
+    "data": {
+      "singleOf": {
+        "param": "priceCurrency",
+        "source": [
+          {
+            "symbol": "₽",
+            "title": "Рубли",
+            "value": "rub"
+          },
+          {
+            "symbol": "$",
+            "title": "Доллары США",
+            "value": "usd"
+          },
+          {
+            "symbol": "€",
+            "title": "Евро",
+            "value": "eur"
+          }
+        ],
+        "xpath": "priceCurrency.value",
+        "default-value": {
+          "symbol": "₽",
+          "title": "Рубли",
+          "value": "rub"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Размерность цены",
+    "type": "LIST",
+    "alias": "priceUnit",
+    "data": {
+      "singleOf": {
+        "param": "priceUnit",
+        "source": [
+          {
+            "title": "за месяц",
+            "value": "monthly"
+          },
+          {
+            "title": "за сутки",
+            "value": "daily"
+          }
+        ],
+        "xpath": "priceUnit.value",
+        "default-value": {
+          "title": "за месяц",
+          "value": "monthly"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Размерность цены",
+    "type": "LIST",
+    "alias": "priceUnitCSale",
+    "data": {
+      "singleOf": {
+        "param": "priceUnit",
+        "source": [
+          {
+            "title": "за все",
+            "value": "total"
+          },
+          {
+            "title": "за м²",
+            "value": "perMeter"
+          }
+        ],
+        "xpath": "priceUnitCSale.value",
+        "default-value": {
+          "title": "за все",
+          "value": "total"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": true
+        },
+        {
+          "objectType.group.value": "commercial"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Размерность цены",
+    "type": "LIST",
+    "alias": "priceUnitCLease",
+    "data": {
+      "singleOf": {
+        "param": "priceUnit",
+        "source": [
+          {
+            "title": "в месяц",
+            "value": "monthly"
+          },
+          {
+            "title": "в год",
+            "value": "annually"
+          },
+          {
+            "title": "за м² в месяц",
+            "value": "monthlyPerMeter"
+          },
+          {
+            "title": "за м² в год",
+            "value": "annuallyPerMeter"
+          }
+        ],
+        "xpath": "priceUnitCLease.value",
+        "default-value": {
+          "title": "в месяц",
+          "value": "monthly"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": "commercial"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Комиссия, %",
+    "type": "INTEGER",
+    "alias": "commission",
+    "data": {
+      "singleOf": {
+        "param": "commission",
+        "xpath": "commission"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "priceUnit.value": "monthly"
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        }
+      ]
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "commission": {
+                "$gte": 0
+              }
+            },
+            {
+              "commission": {
+                "$lte": 200
+              }
+            },
+            {
+              "commission": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите корректное значение"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Залог",
+    "type": "LIST",
+    "alias": "pledge",
+    "data": {
+      "singleOf": {
+        "param": "pledge",
+        "source": [
+          {
+            "title": "0.5 месяца",
+            "value": "0.5"
+          },
+          {
+            "title": "1 месяца",
+            "value": "1"
+          },
+          {
+            "title": "1.5 месяца",
+            "value": "1.5"
+          },
+          {
+            "title": "2 месяца",
+            "value": "2"
+          },
+          {
+            "title": "2.5 месяца",
+            "value": "2.5"
+          },
+          {
+            "title": "3 месяца",
+            "value": "3"
+          }
+        ],
+        "xpath": "pledge.value"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "priceUnit.value": "monthly"
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Тип сделки",
+    "type": "LIST",
+    "alias": "dealType",
+    "data": {
+      "singleOf": {
+        "param": "isFreeDeal",
+        "source": [
+          {
+            "title": "Свободная",
+            "value": true
+          },
+          {
+            "title": "Альтернативная",
+            "value": false
+          }
+        ],
+        "xpath": "dealType.value"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$or": [
+        {
+          "$and": [
+            {
+              "isNew.value": false
+            },
+            {
+              "isSell.value": true
+            },
+            {
+              "objectType.value": "flat"
+            }
+          ]
+        },
+        {
+          "objectType.group.value": "suburban"
+        },
+        {
+          "objectType.value": "room"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Дом",
+    "type": "HEADER",
+    "icon": "house",
+    "visible-condition": {
+      "objectType.group.value": "living"
+    }
+  },
+  {
+    "title": "Дом и участок",
+    "type": "HEADER",
+    "icon": "house",
+    "visible-condition": {
+      "objectType.group.value": "suburban"
+    }
+  },
+  {
+    "title": "Участок",
+    "type": "HEADER",
+    "icon": "house",
+    "visible-condition": {
+      "objectType.group.value": "land"
+    }
+  },
+  {
+    "title": "Здание",
+    "type": "HEADER",
+    "icon": "house",
+    "visible-condition": {
+      "objectType.group.value": "commercial"
+    }
+  },
+  {
+    "title": "Тип участка",
+    "type": "LIST",
+    "alias": "landType",
+    "data": {
+      "singleOf": {
+        "param": "landType",
+        "source": [
+          {
+            "title": "ИЖС",
+            "value": "ijs"
+          },
+          {
+            "title": "СНТ",
+            "value": "snt"
+          },
+          {
+            "title": "Промназначение",
+            "value": "promzone"
+          }
+        ],
+        "xpath": "landType.value"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.value": "land"
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Материал стен",
+    "type": "LIST",
+    "alias": "buildingMaterial",
+    "data": {
+      "singleOf": {
+        "param": "buildingMaterial",
+        "source": [
+          {
+            "title": "Блочный",
+            "value": "block",
+            "visible-condition": {
+              "objectType.group.value": "living"
+            }
+          },
+          {
+            "title": "Деревянный",
+            "value": "wood",
+            "visible-condition": {
+              "objectType.group.value": "living"
+            }
+          },
+          {
+            "title": "Кирпич",
+            "value": "brick"
+          },
+          {
+            "title": "Монолитный",
+            "value": "monolith",
+            "visible-condition": {
+              "objectType.group.value": "living"
+            }
+          },
+          {
+            "title": "Панельный",
+            "value": "panel",
+            "visible-condition": {
+              "objectType.group.value": "living"
+            }
+          },
+          {
+            "title": "Брус",
+            "value": "squaredBeam",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "Бревно",
+            "value": "log",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "Металл",
+            "value": "metal",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "Пеноблоки",
+            "value": "foamConcreteBlock",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "Сэндвич-панели",
+            "value": "sandwich",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "Ж.б. Панели",
+            "value": "reinforcedConcretePanel",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "Экспериментальные материалы",
+            "value": "experimentalMaterial",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          }
+        ],
+        "xpath": "buildingMaterial.value"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "living",
+          "suburban"
+        ]
+      }
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Этап строительства",
+    "type": "LIST",
+    "alias": "isReady",
+    "data": {
+      "singleOf": {
+        "param": "isReady",
+        "source": [
+          {
+            "title": "Дом сдан",
+            "value": true
+          },
+          {
+            "title": "Дом не сдан",
+            "value": false
+          }
+        ],
+        "xpath": "isReady.value",
+        "default-value": {
+          "title": "Дом не сдан",
+          "value": false
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": true
+        },
+        {
+          "isNew.value": true
+        },
+        {
+          "objectType.value": "flat"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Срок сдачи (год)",
+    "type": "YEAR",
+    "alias": "readyDateYear",
+    "data": {
+      "singleOf": {
+        "param": "readyDateYear",
+        "source": [
+          {
+            "title": "2015",
+            "value": 2015
+          },
+          {
+            "title": "2016",
+            "value": 2016
+          },
+          {
+            "title": "2017",
+            "value": 2017
+          },
+          {
+            "title": "2018",
+            "value": 2018
+          },
+          {
+            "title": "2019",
+            "value": 2019
+          },
+          {
+            "title": "2020",
+            "value": 2020
+          },
+          {
+            "title": "2021",
+            "value": 2021
+          },
+          {
+            "title": "2022",
+            "value": 2022
+          },
+          {
+            "title": "2023",
+            "value": 2023
+          },
+          {
+            "title": "2024",
+            "value": 2024
+          }
+        ],
+        "xpath": "readyDateYear"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": true
+        },
+        {
+          "isNew.value": true
+        },
+        {
+          "isReady.value": false
+        },
+        {
+          "objectType.value": "flat"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Срок сдачи (квартал)",
+    "type": "QUARTER",
+    "alias": "readyDateQuarter",
+    "data": {
+      "singleOf": {
+        "param": "readyDateQuarter",
+        "source": [
+          {
+            "title": "1 квартал",
+            "value": 1
+          },
+          {
+            "title": "2 квартал",
+            "value": 2
+          },
+          {
+            "title": "3 квартал",
+            "value": 3
+          },
+          {
+            "title": "4 квартал",
+            "value": 4
+          }
+        ],
+        "xpath": "readyDateQuarter"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": true
+        },
+        {
+          "isNew.value": true
+        },
+        {
+          "isReady.value": false
+        },
+        {
+          "objectType.value": "flat"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Класс здания",
+    "type": "LIST",
+    "alias": "buildingClass",
+    "data": {
+      "singleOf": {
+        "param": "buildingClass",
+        "source": [
+          {
+            "title": "A",
+            "value": "A"
+          },
+          {
+            "title": "B",
+            "value": "B"
+          },
+          {
+            "title": "C",
+            "value": "C"
+          },
+          {
+            "title": "D",
+            "value": "D"
+          }
+        ],
+        "xpath": "buildingClass.value"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "objectType.value": {
+        "$in": [
+          "office",
+          "warehouse"
+        ]
+      }
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Этажность",
+    "type": "INTEGER",
+    "alias": "floorsTotal",
+    "data": {
+      "singleOf": {
+        "param": "floorsTotal",
+        "xpath": "floorsTotal"
+      }
+    },
+    "required-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "living",
+          "suburban"
+        ]
+      }
+    },
+    "visible-condition": {
+      "$or": [
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "objectType.value": "office"
+        }
+      ]
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "floorsTotal": {
+                "$gt": 0
+              }
+            },
+            {
+              "floorsTotal": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите целое положительное число"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Этаж",
+    "type": "INTEGER",
+    "alias": "objectFloor",
+    "data": {
+      "singleOf": {
+        "param": "objectFloor",
+        "xpath": "objectFloor"
+      }
+    },
+    "required-condition": {
+      "objectType.group.value": "living"
+    },
+    "visible-condition": {
+      "$or": [
+        {
+          "objectType.group.value": "living"
+        },
+        {
+          "objectType.value": "office"
+        }
+      ]
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "objectFloor": {
+                "$gt": 0
+              }
+            },
+            {
+              "objectFloor": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите целое положительное число"
+      },
+      {
+        "condition": {
+          "objectFloor": {
+            "$lte": "floorsTotal"
+          }
+        },
+        "errorMessage": "Этаж объекта недвижимости должен быть меньше этажности здания"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Квартира",
+    "type": "HEADER",
+    "icon": "house",
+    "visible-condition": {
+      "objectType.group.value": "living"
+    }
+  },
+  {
+    "title": "Число собственников",
+    "type": "INTEGER",
+    "alias": "ownersTotal",
+    "data": {
+      "singleOf": {
+        "param": "ownersTotal",
+        "xpath": "ownersTotal"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$or": [
+        {
+          "$and": [
+            {
+              "isSell.value": true
+            },
+            {
+              "isNew.value": false
+            },
+            {
+              "objectType.value": "flat"
+            }
+          ]
+        },
+        {
+          "$and": [
+            {
+              "isSell.value": true
+            },
+            {
+              "objectType.value": "room"
+            }
+          ]
+        },
+        {
+          "$and": [
+            {
+              "isSell.value": true
+            },
+            {
+              "objectType.group.value": "suburban"
+            }
+          ]
+        }
+      ]
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "floorsTotal": {
+                "$gt": 0
+              }
+            },
+            {
+              "floorsTotal": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите целое положительное число"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Комнат",
+    "type": "LIST",
+    "alias": "roomsTotal",
+    "data": {
+      "singleOf": {
+        "param": "roomsTotal",
+        "source": [
+          {
+            "title": "1",
+            "value": "1"
+          },
+          {
+            "title": "2",
+            "value": "2"
+          },
+          {
+            "title": "3",
+            "value": "3"
+          },
+          {
+            "title": "4",
+            "value": "4"
+          },
+          {
+            "title": "5",
+            "value": "5"
+          },
+          {
+            "title": "6",
+            "value": "6",
+            "visible-condition": {
+              "objectType.group.value": "suburban"
+            }
+          },
+          {
+            "title": "6+",
+            "value": "6+"
+          },
+          {
+            "title": "Студия",
+            "value": "studio",
+            "visible-condition": {
+              "objectType.value": "flat"
+            }
+          }
+        ],
+        "xpath": "roomsTotal.value"
+      }
+    },
+    "required-condition": {
+      "objectType.group.value": "living"
+    },
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "living",
+          "suburban"
+        ]
+      }
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Комнат",
+    "type": "INTEGER_OBJECT",
+    "alias": "roomsTotalUnlimited",
+    "data": {
+      "singleOf": {
+        "param": "roomsTotal",
+        "xpath": "roomsTotalUnlimited"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "objectType.value": "office"
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "roomsTotalUnlimited": {
+                "$gt": 0
+              }
+            },
+            {
+              "roomsTotalUnlimited": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите целое положительное число"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Комнат в аренду",
+    "type": "LIST",
+    "alias": "roomsLeaseOffered",
+    "data": {
+      "singleOf": {
+        "param": "roomsOffered",
+        "source": [
+          {
+            "title": "1",
+            "value": "1"
+          },
+          {
+            "title": "2",
+            "value": "2",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "3",
+            "value": "3",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "3",
+                  "4",
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "4",
+            "value": "4",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "4",
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "5",
+            "value": "5",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "6",
+            "value": "6",
+            "visible-condition": {
+              "roomsTotal.value": "6+"
+            }
+          }
+        ],
+        "xpath": "roomsLeaseOffered.value",
+        "default-value": {
+          "title": "1",
+          "value": "1"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.value": "room"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Комнат на продажу",
+    "type": "LIST",
+    "alias": "roomsOffered",
+    "data": {
+      "singleOf": {
+        "param": "roomsOffered",
+        "source": [
+          {
+            "title": "1",
+            "value": "1"
+          },
+          {
+            "title": "2",
+            "value": "2",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "3",
+            "value": "3",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "3",
+                  "4",
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "4",
+            "value": "4",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "4",
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "5",
+            "value": "5",
+            "visible-condition": {
+              "roomsTotal.value": {
+                "$in": [
+                  "5",
+                  "6+"
+                ]
+              }
+            }
+          },
+          {
+            "title": "6",
+            "value": "6",
+            "visible-condition": {
+              "roomsTotal.value": "6+"
+            }
+          }
+        ],
+        "xpath": "roomsOffered.value",
+        "default-value": {
+          "title": "1",
+          "value": "1"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": true
+        },
+        {
+          "objectType.value": "room"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Свободная планировка",
+    "type": "BOOLEAN",
+    "alias": "isOpenPlan",
+    "data": {
+      "singleOf": {
+        "param": "isOpenPlan",
+        "xpath": "isOpenPlan",
+        "default-value": false
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$or": [
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "objectType.value": "office"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Площадь жилая, м²",
+    "type": "DECIMAL",
+    "alias": "livingSpace",
+    "data": {
+      "singleOf": {
+        "param": "livingSpace",
+        "xpath": "livingSpace"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "living",
+          "suburban"
+        ]
+      }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "livingSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "livingSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите число"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Площадь кухни, м²",
+    "type": "DECIMAL",
+    "alias": "kitchenSpace",
+    "data": {
+      "singleOf": {
+        "param": "kitchenSpace",
+        "xpath": "kitchenSpace"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "living",
+          "suburban"
+        ]
+      }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "kitchenSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "kitchenSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите число"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Площадь общая, м²",
+    "type": "DECIMAL",
+    "alias": "totalSpace",
+    "data": {
+      "singleOf": {
+        "param": "totalSpace",
+        "xpath": "totalSpace"
+      }
+    },
+    "required-condition": {
+      "$not": {
+        "objectType.group.value": "room"
+      }
+    },
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "living",
+          "commercial"
+        ]
+      }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "totalSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "totalSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите число"
+      },
+      {
+        "condition": {
+          "totalSpace": {
+            "$gte": {
+              "$sum": [
+                "kitchenSpace",
+                "livingSpace"
+              ]
+            }
+          }
+        },
+        "errorMessage": "Общая площадь объекта не должна быть меньше суммы площадей кухни и жилой площади"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Площадь дома, м²",
+    "type": "DECIMAL",
+    "alias": "totalHouseSpace",
+    "data": {
+      "singleOf": {
+        "param": "totalSpace",
+        "xpath": "totalHouseSpace"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.group.value": "suburban"
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "totalHouseSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "totalHouseSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите число"
+      },
+      {
+        "condition": {
+          "totalHouseSpace": {
+            "$gte": {
+              "$sum": [
+                "kitchenSpace",
+                "livingSpace"
+              ]
+            }
+          }
+        },
+        "errorMessage": "Общая площадь объекта не должна быть меньше суммы площадей кухни и жилой площади"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Площадь на продажу, м²",
+    "type": "DECIMAL",
+    "alias": "offeredSpace",
+    "data": {
+      "singleOf": {
+        "param": "offeredSpace",
+        "xpath": "offeredSpace"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": true
+        },
+        {
+          "objectType.value": "room"
+        }
+      ]
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "offeredSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "offeredSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите число"
+      },
+      {
+        "condition": {
+          "offeredSpace": {
+            "$lte": "totalSpace"
+          }
+        },
+        "errorMessage": "Площадь на продажу не должна быть больше общей площади"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Площадь в аренду, м²",
+    "type": "DECIMAL",
+    "alias": "offeredLeaseSpace",
+    "data": {
+      "singleOf": {
+        "param": "offeredSpace",
+        "xpath": "offeredLeaseSpace"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.value": "room"
+        }
+      ]
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "offeredLeaseSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "offeredLeaseSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите число"
+      },
+      {
+        "condition": {
+          "offeredLeaseSpace": {
+            "$lte": "totalSpace"
+          }
+        },
+        "errorMessage": "Площадь в аренду не должна быть больше общей площади"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Площадь участка",
+    "type": "DECIMAL",
+    "alias": "landSpace",
+    "data": {
+      "singleOf": {
+        "param": "landSpace",
+        "xpath": "landSpace"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "suburban",
+          "land"
+        ]
+      }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "landSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "landSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите число"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Ед. измерения площади",
+    "type": "LIST",
+    "alias": "landSpaceUnit",
+    "data": {
+      "singleOf": {
+        "param": "landSpaceUnit",
+        "source": [
+          {
+            "title": "соток",
+            "value": "are"
+          },
+          {
+            "title": "гектар",
+            "value": "hectare"
+          }
+        ],
+        "xpath": "landSpaceUnit.value",
+        "default-value": {
+          "title": "соток",
+          "value": "are"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.group.value": {
+        "$in": [
+          "suburban",
+          "land"
+        ]
+      }
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Фотографии, видео и описание",
+    "type": "HEADER",
+    "icon": "photo"
+  },
+  {
+    "title": "Фотографии",
+    "type": "IMAGES",
+    "alias": "photos",
+    "data": {
+      "singleOf": {
+        "param": "photos",
+        "xpath": "photos"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Планировка",
+    "type": "IMAGES",
+    "alias": "planningImages",
+    "data": {
+      "singleOf": {
+        "param": "planningImages",
+        "xpath": "planningImages"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Описание",
+    "type": "STRING",
+    "alias": "description",
+    "data": {
+      "singleOf": {
+        "param": "description",
+        "xpath": "description"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Видео",
+    "type": "STRING",
+    "alias": "video",
+    "data": {
+      "singleOf": {
+        "param": "video",
+        "xpath": "video"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Дополнительные параметры",
+    "type": "HEADER",
+    "icon": "params",
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Количество спальных мест",
+    "type": "LIST",
+    "alias": "sleepPlaceCount",
+    "data": {
+      "singleOf": {
+        "param": "sleepPlaceCount",
+        "source": [
+          {
+            "title": "1",
+            "value": "1"
+          },
+          {
+            "title": "2",
+            "value": "2"
+          },
+          {
+            "title": "3",
+            "value": "3"
+          },
+          {
+            "title": "4",
+            "value": "4"
+          },
+          {
+            "title": "5",
+            "value": "5"
+          },
+          {
+            "title": "6",
+            "value": "6"
+          },
+          {
+            "title": "7",
+            "value": "7"
+          },
+          {
+            "title": "8",
+            "value": "8"
+          },
+          {
+            "title": "9",
+            "value": "9"
+          },
+          {
+            "title": "10",
+            "value": "10"
+          },
+          {
+            "title": "11",
+            "value": "11"
+          },
+          {
+            "title": "12",
+            "value": "12"
+          },
+          {
+            "title": "13",
+            "value": "13"
+          },
+          {
+            "title": "14",
+            "value": "14"
+          },
+          {
+            "title": "15",
+            "value": "15"
+          },
+          {
+            "title": "16+",
+            "value": "16+"
+          }
+        ],
+        "xpath": "sleepPlaceCount.value"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Количество кроватей",
+    "type": "LIST",
+    "alias": "bedCount",
+    "data": {
+      "singleOf": {
+        "param": "bedCount",
+        "source": [
+          {
+            "title": "1",
+            "value": "1"
+          },
+          {
+            "title": "2",
+            "value": "2"
+          },
+          {
+            "title": "3",
+            "value": "3"
+          },
+          {
+            "title": "4",
+            "value": "4"
+          },
+          {
+            "title": "5",
+            "value": "5"
+          },
+          {
+            "title": "6",
+            "value": "6"
+          },
+          {
+            "title": "7",
+            "value": "7"
+          },
+          {
+            "title": "8+",
+            "value": "8+"
+          }
+        ],
+        "xpath": "bedCount.value"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Wi-Fi",
+    "type": "BOOLEAN",
+    "alias": "wifi",
+    "data": {
+      "singleOf": {
+        "param": "wifi",
+        "xpath": "wifi",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Телевизор",
+    "type": "BOOLEAN",
+    "alias": "tv",
+    "data": {
+      "singleOf": {
+        "param": "tv",
+        "xpath": "tv",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Кабельное или цифровое ТВ",
+    "type": "BOOLEAN",
+    "alias": "cableTv",
+    "data": {
+      "singleOf": {
+        "param": "cableTv",
+        "xpath": "cableTv",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Плита",
+    "type": "BOOLEAN",
+    "alias": "kitchenRange",
+    "data": {
+      "singleOf": {
+        "param": "kitchenRange",
+        "xpath": "kitchenRange",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Микроволновка",
+    "type": "BOOLEAN",
+    "alias": "microwaveOven",
+    "data": {
+      "singleOf": {
+        "param": "microwaveOven",
+        "xpath": "microwaveOven",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Холодильник",
+    "type": "BOOLEAN",
+    "alias": "refrigerator",
+    "data": {
+      "singleOf": {
+        "param": "refrigerator",
+        "xpath": "refrigerator",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Стиральная машина",
+    "type": "BOOLEAN",
+    "alias": "washingMachine",
+    "data": {
+      "singleOf": {
+        "param": "washingMachine",
+        "xpath": "washingMachine",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Фен",
+    "type": "BOOLEAN",
+    "alias": "hairDrier",
+    "data": {
+      "singleOf": {
+        "param": "hairDrier",
+        "xpath": "hairDrier",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Утюг",
+    "type": "BOOLEAN",
+    "alias": "iron",
+    "data": {
+      "singleOf": {
+        "param": "iron",
+        "xpath": "iron",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Кондиционер",
+    "type": "BOOLEAN",
+    "alias": "airConditioner",
+    "data": {
+      "singleOf": {
+        "param": "airConditioner",
+        "xpath": "airConditioner",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Камин",
+    "type": "BOOLEAN",
+    "alias": "firePlace",
+    "data": {
+      "singleOf": {
+        "param": "firePlace",
+        "xpath": "firePlace",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Есть балкон или лоджия",
+    "type": "BOOLEAN",
+    "alias": "balcony",
+    "data": {
+      "singleOf": {
+        "param": "balcony",
+        "xpath": "balcony",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": "living"
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Есть парковочное место",
+    "type": "BOOLEAN",
+    "alias": "parking",
+    "data": {
+      "singleOf": {
+        "param": "parking",
+        "xpath": "parking",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": "living"
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Бассейн",
+    "type": "BOOLEAN",
+    "alias": "pool",
+    "data": {
+      "singleOf": {
+        "param": "pool",
+        "xpath": "pool",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": "suburban"
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Баня или сауна",
+    "type": "BOOLEAN",
+    "alias": "sauna",
+    "data": {
+      "singleOf": {
+        "param": "sauna",
+        "xpath": "sauna",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": "suburban"
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Можно с питомцами",
+    "type": "BOOLEAN",
+    "alias": "petAllowed",
+    "data": {
+      "singleOf": {
+        "param": "petAllowed",
+        "xpath": "petAllowed",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Можно с детьми",
+    "type": "BOOLEAN",
+    "alias": "childAllowed",
+    "data": {
+      "singleOf": {
+        "param": "childAllowed",
+        "xpath": "childAllowed",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Можно для мероприятий",
+    "type": "BOOLEAN",
+    "alias": "eventAllowed",
+    "data": {
+      "singleOf": {
+        "param": "eventAllowed",
+        "xpath": "eventAllowed",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Можно курить",
+    "type": "BOOLEAN",
+    "alias": "smokingAllowed",
+    "data": {
+      "singleOf": {
+        "param": "smokingAllowed",
+        "xpath": "smokingAllowed",
+        "default-value": false
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        },
+        {
+          "priceUnit.value": "daily"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Контакты",
+    "type": "HEADER",
+    "icon": "contacts"
+  },
+  {
+    "title": "Название компании",
+    "type": "STRING",
+    "alias": "companyName",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "companyName",
+        "param": "companyName",
+        "xpath": "companyName"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "companyName": {
+            "$length": {
+              "$lte": 60
+            }
+          }
+        },
+        "errorMessage": "Не более 60 символов"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Контактное лицо",
+    "type": "STRING",
+    "alias": "contactName",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "contactName",
+        "param": "contactName",
+        "xpath": "contactName"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "contactName": {
+            "$length": {
+              "$lte": 40
+            }
+          }
+        },
+        "errorMessage": "Не более 40 символов"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Телефон",
+    "type": "STRING",
+    "alias": "phone",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "phone",
+        "param": "phone",
+        "xpath": "phone"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Электронная почта",
+    "type": "STRING",
+    "alias": "email",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "email",
+        "param": "email",
+        "xpath": "email"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  }
+]

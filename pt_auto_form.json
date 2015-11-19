@@ -1,0 +1,1684 @@
+[
+  {
+    "title": "Автомобиль",
+    "type": "HEADER",
+    "icon": "car"
+  },
+  {
+    "title": "Марка",
+    "type": "STRING",
+    "alias": "brand",
+    "data": {
+      "singleOf": {
+        "param": "brand",
+        "xpath": "brand"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Модель",
+    "type": "STRING",
+    "alias": "modelName",
+    "data": {
+      "singleOf": {
+        "param": "modelName",
+        "xpath": "modelName"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Год выпуска",
+    "type": "INTEGER",
+    "alias": "year",
+    "data": {
+      "singleOf": {
+        "param": "year",
+        "xpath": "year"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "year": {
+                "$gte": 1960
+              }
+            },
+            {
+              "year": {
+                "$type": "integer"
+              }
+            },
+            {
+              "year": {
+                "$lte": 2015
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите год выпуска 1960 — 2015"
+      }
+    ]
+  },
+  {
+    "title": "Тип кузова",
+    "type": "LIST",
+    "alias": "bodyType",
+    "data": {
+      "singleOf": {
+        "param": "bodyType",
+        "source": [
+          {
+            "title": "Седан",
+            "value": "sedan"
+          },
+          {
+            "title": "Хетчбек",
+            "value": "hatchback"
+          },
+          {
+            "title": "Универсал",
+            "value": "stationwagon"
+          },
+          {
+            "title": "Внедорожник",
+            "value": "suv"
+          },
+          {
+            "title": "Кабриолет",
+            "value": "cabriolet"
+          },
+          {
+            "title": "Кроссовер",
+            "value": "crossover"
+          },
+          {
+            "title": "Купе",
+            "value": "coupe"
+          },
+          {
+            "title": "Лимузин",
+            "value": "limousine"
+          },
+          {
+            "title": "Минивен",
+            "value": "van"
+          },
+          {
+            "title": "Пикап",
+            "value": "pickup"
+          },
+          {
+            "title": "Фургон",
+            "value": "boxbody"
+          },
+          {
+            "title": "Микроавтобус",
+            "value": "minibus"
+          }
+        ],
+        "xpath": "bodyType.value"
+      }
+    },
+    "visible-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Количество дверей",
+    "type": "LIST",
+    "alias": "doors",
+    "data": {
+      "singleOf": {
+        "param": "doors",
+        "source": [
+          {
+            "title": "2",
+            "value": "2"
+          },
+          {
+            "title": "3",
+            "value": "3"
+          },
+          {
+            "title": "4",
+            "value": "4"
+          },
+          {
+            "title": "5",
+            "value": "5"
+          }
+        ],
+        "xpath": "doors.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "VIN",
+    "type": "STRING",
+    "alias": "vin",
+    "data": {
+      "singleOf": {
+        "param": "vin",
+        "xpath": "vin"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true
+  },
+  {
+    "title": "Тип топлива",
+    "type": "LIST",
+    "alias": "engineType",
+    "data": {
+      "singleOf": {
+        "param": "engineType",
+        "source": [
+          {
+            "title": "Бензин",
+            "value": "gasoline"
+          },
+          {
+            "title": "Дизель",
+            "value": "diesel"
+          },
+          {
+            "title": "Гибрид",
+            "value": "hybrid"
+          },
+          {
+            "title": "Электро",
+            "value": "electro"
+          },
+          {
+            "title": "Газ",
+            "value": "gas"
+          }
+        ],
+        "xpath": "engineType.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Объём двигателя",
+    "type": "DECIMAL",
+    "alias": "engineCapacity",
+    "data": {
+      "singleOf": {
+        "param": "engineCapacity",
+        "xpath": "engineCapacity"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$not": {
+        "engineType.value":"electro"
+        }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "engineCapacity": {
+                "$gte": 0.1
+              }
+            },
+            {
+              "engineCapacity": {
+                "$type": "decimal"
+              }
+            },
+            {
+              "engineCapacity": {
+                "$lte": 6.0
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите объём двигателя 0.1 — 6.0"
+      }
+    ]
+  },
+  {
+    "title": "Мощность, л.с.",
+    "type": "INTEGER",
+    "alias": "enginePower",
+    "data": {
+      "singleOf": {
+        "param": "enginePower",
+        "xpath": "enginePower"
+      }
+    },
+    "required-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Наддув",
+    "type": "BOOLEAN",
+    "alias": "turbo",
+    "data": {
+      "singleOf": {
+        "param": "turbo",
+        "xpath": "turbo"
+      }
+    },
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Коробка передач",
+    "type": "LIST",
+    "alias": "transmission",
+    "data": {
+      "singleOf": {
+        "param": "transmission",
+        "source": [
+          {
+            "title": "Механика",
+            "value": "MT"
+          },
+          {
+            "title": "Автомат",
+            "value": "AT"
+          },
+          {
+            "title": "Робот",
+            "value": "AMT"
+          },
+          {
+            "title": "Вариатор",
+            "value": "CVT"
+          }
+        ],
+        "xpath": "transmission.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Привод",
+    "type": "LIST",
+    "alias": "drive",
+    "data": {
+      "singleOf": {
+        "param": "drive",
+        "source": [
+          {
+            "title": "Передний",
+            "value": "frontWheelDrive"
+          },
+          {
+            "title": "Задний",
+            "value": "rearWheelDrive"
+          },
+          {
+            "title": "Полный",
+            "value": "fullDrive"
+          }
+        ],
+        "xpath": "drive.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Детали",
+    "type": "HEADER",
+    "icon": "address"
+  },
+  {
+    "title": "Тип автомобиля",
+    "type": "LIST",
+    "alias": "vehicleType",
+    "data": {
+      "singleOf": {
+        "param": "vehicleType",
+        "source": [
+          {
+            "title": "Новый",
+            "value": "newcar"
+          },
+          {
+            "title": "Подержанный",
+            "value": "usedcar"
+          }
+        ],
+        "xpath": "vehicleType.value",
+        "default-value": {
+          "title": "Новый",
+          "value": "newcar"
+        }
+      }
+    },
+    "visible-condition": true,
+    "required-condition": true,
+    "editable-condition": false
+  },
+  {
+    "title": "Руль",
+    "type": "LIST",
+    "alias": "steeringWheel",
+    "data": {
+      "singleOf": {
+        "param": "steeringWheel",
+        "source": [
+          {
+            "title": "Левый",
+            "value": "left"
+          },
+          {
+            "title": "Правый",
+            "value": "right"
+          }
+        ],
+        "xpath": "steeringWheel.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Цвет",
+    "type": "LIST",
+    "alias": "color",
+    "data": {
+      "singleOf": {
+        "param": "color",
+        "source": [
+          {
+            "title":"Бежевый",
+            "value":"beige",
+            "hexFrom":"F1DCB9",
+            "hexTo":"F1DCB9"
+          },
+          {
+            "title":"Белый",
+            "value":"white",
+            "hexFrom":"FFFFFF",
+            "hexTo":"FFFFFF"
+          },
+          {
+            "title":"Голубой",
+            "value":"lightblue",
+            "hexFrom":"78C5F4",
+            "hexTo":"78C5F4"
+          },
+          {
+            "title":"Синий",
+            "value":"blue",
+            "hexFrom":"3342B6",
+            "hexTo":"3342B6"
+          },
+          {
+            "title":"Жёлтый",
+            "value":"yellow",
+            "hexFrom":"FFE659",
+            "hexTo":"FFE659"
+          },
+          {
+            "title":"Зеленый",
+            "value":"green",
+            "hexFrom":"28B26F",
+            "hexTo":"28B26F"
+          },
+          {
+            "title":"Золотой",
+            "value":"gold",
+            "hexFrom":"FABB20",
+            "hexTo":"FABB20"
+          },
+          {
+            "title":"Коричневый",
+            "value":"brown",
+            "hexFrom":"964B01",
+            "hexTo":"964B01"
+          },
+          {
+            "title":"Красный",
+            "value":"red",
+            "hexFrom":"FD0103",
+            "hexTo":"FD0103"
+          },
+          {
+            "title":"Оранжевый",
+            "value":"orange",
+            "hexFrom":"FF7906",
+            "hexTo":"FF7906"
+          },
+          {
+            "title":"Пурпурный",
+            "value":"purple",
+            "hexFrom":"C302AB",
+            "hexTo":"C302AB"
+          },
+          {
+            "title":"Розовый",
+            "value":"pink",
+            "hexFrom":"FECAD9",
+            "hexTo":"FECAD9"
+          },
+          {
+            "title":"Серебряный",
+            "value":"silver",
+            "hexFrom":"B6B6B6",
+            "hexTo":"F2F2F2"
+          },
+          {
+            "title":"Серый",
+            "value":"grey",
+            "hexFrom":"A6A6A6",
+            "hexTo":"A6A6A6"
+          },
+          {
+            "title":"Фиолетовый",
+            "value":"magenta",
+            "hexFrom":"7F02FF",
+            "hexTo":"7F02FF"
+          },
+          {
+            "title":"Чёрный",
+            "value":"black",
+            "hexFrom":"000000",
+            "hexTo":"000000"
+          }
+        ],
+        "xpath": "color.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Пробег, км",
+    "type": "INTEGER",
+    "alias": "milage",
+    "data": {
+      "singleOf": {
+        "param": "milage",
+        "xpath": "milage"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "vehicleType.value": "usedcar" 
+    },
+    "editable-condition": true
+  }, 
+  {
+    "title": "Состояние",
+    "type": "LIST",
+    "alias": "condition",
+    "data": {
+      "singleOf": {
+        "param": "condition",
+        "source": [
+          {
+            "title": "Не битый",
+            "value": "undamaged"
+          },
+          {
+            "title": "Битый",
+            "value": "damaged"
+          }
+        ],
+        "xpath": "condition.value",
+        "default-value": {
+          "title": "Не битый",
+          "value": "undamaged"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "vehicleType.value": "usedcar" 
+    },
+    "editable-condition": true
+  },
+  {
+    "title": "Владельцев по ПТС",
+    "type": "LIST",
+    "alias": "ownersTotal",
+    "data": {
+      "singleOf": {
+        "param": "ownersTotal",
+        "source": [
+          {
+            "title": "1",
+            "value": "1"
+          },
+          {
+            "title": "2",
+            "value": "2"
+          },
+          {
+            "title": "3",
+            "value": "3"
+          },
+          {
+            "title": "4+",
+            "value": "4+"
+          }
+        ],
+        "xpath": "ownersTotal.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Данные о ТО",
+    "type": "CHECKBOX_LIST",
+    "alias": "maintenance",
+    "data": {
+      "singleOf": {
+        "param": "maintenance",
+        "source": [
+          {
+            "title": "Есть сервисная книжка",
+            "value": "serviceBook"
+          },
+          {
+            "title": "Обслуживался у диллера",
+            "value": "serviceDealer"
+          },
+          {
+            "title": "На гарантии",
+            "value": "warranty"
+          }
+        ],
+        "xpath": "maintenance.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Номер свидетельства ТС",
+    "type": "STRING",
+    "alias": "sts",
+    "data": {
+      "singleOf": {
+        "param": "sts",
+        "xpath": "sts"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true
+  },
+  {
+    "title": "Комплектация",
+    "type": "HEADER",
+    "icon": "params"
+  },
+  {
+    "title": "Усилитель руля",
+    "type": "LIST",
+    "alias": "wheelBooster",
+    "data": {
+      "singleOf": {
+        "param": "wheelBooster",
+        "source": [
+          {
+            "title": "Гидро",
+            "value": "hydro"
+          },
+          {
+            "title": "Электрогидро",
+            "value": "hydroElectro"
+          },
+          {
+            "title": "Электро",
+            "value": "electro"
+          }
+        ],
+        "xpath": "wheelBooster.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Помощь при вождении",
+    "type": "CHECKBOX_LIST",
+    "alias": "maintenance",
+    "data": {
+      "singleOf": {
+        "param": "driveAssistance",
+        "source": [
+          {
+            "title":"Автоматический парковщик",
+            "value":"automaticValet"
+          },
+          {
+            "title":"Парктроник задний",
+            "value":"rearParktronic"
+          },
+          {
+            "title":"Парктроник передний",
+            "value":"frontParktronic"
+          },
+          {
+            "title":"Камера заднего вида",
+            "value":"rearCamera"
+          },
+          {
+            "title":"Датчик дождя",
+            "value":"rainSensor"
+          },
+          {
+            "title":"Круиз-контроль",
+            "value":"cruiseControl"
+          },
+          {
+            "title":"Датчик света",
+            "value":"lightSensor"
+          },
+          {
+            "title":"Система контроля слепых зон",
+            "value":"blindSpotSystem"
+          },
+          {
+            "title":"Бортовой компьютер",
+            "value":"boardComputer"
+          }
+        ],
+        "xpath": "driveAssistance.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Управление климатом",
+    "type": "LIST",
+    "alias": "climateType",
+    "data": {
+      "singleOf": {
+        "param": "climateType",
+        "source": [
+          {
+            "title":"Кондиционер",
+            "value":"conditioner"
+          },
+          {
+            "title":"Климат однозонный",
+            "value":"oneZoneClimate"
+          },
+          {
+            "title":"Климат многозонный",
+            "value":"multiZoneClimate"
+          }
+        ],
+        "xpath": "climateType.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Управление на руле",
+    "type": "BOOLEAN",
+    "alias": "climateOnWheel",
+    "data": {
+      "singleOf": {
+        "param": "climateOnWheel",
+        "xpath": "climateOnWheel"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Атермальное остекление",
+    "type": "BOOLEAN",
+    "alias": "climateWindow",
+    "data": {
+      "singleOf": {
+        "param": "climateWindow",
+        "xpath": "climateWindow"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Обогрев",
+    "type": "CHECKBOX_LIST",
+    "alias": "heating",
+    "data": {
+      "singleOf": {
+        "param": "heating",
+        "source": [
+          {
+            "title":"Передних сидений",
+            "value":"frontSeats"
+          },
+          {
+            "title":"Задних сидений",
+            "value":"backSeats"
+          },
+          {
+            "title":"Зеркал",
+            "value":"mirrors"
+          },
+          {
+            "title":"Заднего стекла",
+            "value":"rearWindow"
+          },
+          {
+            "title":"Руля",
+            "value":"wheel"
+          }
+
+        ],
+        "xpath": "heating.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Электропривод",
+    "type": "CHECKBOX_LIST",
+    "alias": "electroDrive",
+    "data": {
+      "singleOf": {
+        "param": "electroDrive",
+        "source": [
+          {
+            "title":"Передних сидений",
+            "value":"frontSeats"
+          },
+          {
+            "title":"Задних сидений",
+            "value":"backSeats"
+          },
+          {
+            "title":"Зеркал",
+            "value":"mirrors"
+          },
+          {
+            "title":"Рулевой колонки",
+            "value":"wheel"
+          },
+          {
+            "title":"Складывания зеркал",
+            "value":"foldingMirrors"
+          }
+        ],
+        "xpath": "electroDrive.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Память настроек",
+    "type": "CHECKBOX_LIST",
+    "alias": "memozieSettings",
+    "data": {
+      "singleOf": {
+        "param": "memozieSettings",
+        "source": [
+          {
+            "title":"Передних сидений",
+            "value":"frontSeats"
+          },
+          {
+            "title":"Задних сидений",
+            "value":"backSeats"
+          },
+          {
+            "title":"Зеркал",
+            "value":"mirrors"
+          },
+          {
+            "title":"Рулевой колонки",
+            "value":"wheel"
+          }
+
+        ],
+        "xpath": "memozieSettings.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Электростеклоподъемники",
+    "type": "LIST",
+    "alias": "electroWinder",
+    "data": {
+      "singleOf": {
+        "param": "electroWinder",
+        "source": [
+          {
+            "title":"Передние",
+            "value":"frontal"
+          },
+          {
+            "title":"Передние и задние",
+            "value":"frontalBack"
+          }
+        ],
+        "xpath": "electroWinder.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Салон",
+    "type": "LIST",
+    "alias": "salon",
+    "data": {
+      "singleOf": {
+        "param": "salon",
+        "source": [
+          {
+            "title":"Кожа",
+            "value":"leather"
+          },
+          {
+            "title":"Ткань",
+            "value":"cloth"
+          },
+          {
+            "title":"Велюр",
+            "value":"velour"
+          },
+          {
+            "title":"Комбинированный",
+            "value":"combined"
+          }
+        ],
+        "xpath": "salon.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Кожанный руль",
+    "type": "BOOLEAN",
+    "alias": "leatherWheel",
+    "data": {
+      "singleOf": {
+        "param": "leatherWheel",
+        "xpath": "leatherWheel"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Люк",
+    "type": "BOOLEAN",
+    "alias": "hatch",
+    "data": {
+      "singleOf": {
+        "param": "hatch",
+        "xpath": "hatch"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Противоугонная система",
+    "type": "CHECKBOX_LIST",
+    "alias": "security",
+    "data": {
+      "singleOf": {
+        "param": "security",
+        "source": [
+          {
+            "title":"Сигнализация",
+            "value":"alarm"
+          },
+          {
+            "title":"Центральный замок",
+            "value":"centralLock"
+          },
+          {
+            "title":"Иммобилайзер",
+            "value":"immobiliser"
+          },
+          {
+            "title":"Спутник",
+            "value":"satellite"
+          }
+        ],
+        "xpath": "security.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Подушки безопасности",
+    "type": "CHECKBOX_LIST",
+    "alias": "airBag",
+    "data": {
+      "singleOf": {
+        "param": "airBag",
+        "source": [
+          {
+            "title":"Фронтальные",
+            "value":"front"
+          },
+          {
+            "title":"Коленные",
+            "value":"knee"
+          },
+          {
+            "title":"Шторки",
+            "value":"curtain"
+          },
+          {
+            "title":"Боковые передние",
+            "value":"frontSide"
+          },
+          {
+            "title":"Боковые задние",
+            "value":"backSide"
+          }
+        ],
+        "xpath": "airBag.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Активная безопасность",
+    "type": "CHECKBOX_LIST",
+    "alias": "activeSecurity",
+    "data": {
+      "singleOf": {
+        "param": "activeSecurity",
+        "source": [
+          {
+            "title":"Антиблокировка тормозов",
+            "value":"abs"
+          },
+          {
+            "title":"Антипробуксовка",
+            "value":"asr"
+          },
+          {
+            "title":"Курсовая устойчивость",
+            "value":"esr"
+          },
+          {
+            "title":"Распред. тормозных усилий",
+            "value":"ebd"
+          },
+          {
+            "title":"Экстренное торможение",
+            "value":"eba"
+          },
+          {
+            "title":"Блок. дифференциала",
+            "value":"eds"
+          },
+          {
+            "title":"Обнаружение пешеходов",
+            "value":"pds"
+          }
+        ],
+        "xpath": "activeSecurity.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Мультимедиа и навигация",
+    "type": "CHECKBOX_LIST",
+    "alias": "multimedia",
+    "data": {
+      "singleOf": {
+        "param": "multimedia",
+        "source": [
+          {
+            "title":"CD/DVD/Blue-ray",
+            "value":"cd"
+          },
+          {
+            "title":"MP3",
+            "value":"mp3"
+          },
+          {
+            "title":"AUX",
+            "value":"aux"
+          },
+          {
+            "title":"GPS-навигатор",
+            "value":"gps"
+          },
+          {
+            "title":"Радио",
+            "value":"radio"
+          },
+          {
+            "title":"Видео",
+            "value":"video"
+          },
+          {
+            "title":"Bluetooth",
+            "value":"bluetooth"
+          },
+          {
+            "title":"TV",
+            "value":"tv"
+          },
+          {
+            "title":"Управление на руле",
+            "value":"wheelControl"
+          },
+          {
+            "title":"USB",
+            "value":"usb"
+          }
+        ],
+        "xpath": "multimedia.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Аудиосистема",
+    "type": "LIST",
+    "alias": "audio",
+    "data": {
+      "singleOf": {
+        "param": "audio",
+        "source": [
+          {
+            "title":"2 колонки",
+            "value":"2"
+          },
+          {
+            "title":"4 колонки",
+            "value":"4"
+          },
+          {
+            "title":"6 колонок",
+            "value":"6"
+          },
+          {
+            "title":"8+ колонок",
+            "value":"8+"
+          }
+        ],
+        "xpath": "audio.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Сабвуфер",
+    "type": "BOOLEAN",
+    "alias": "subwoofer",
+    "data": {
+      "singleOf": {
+        "param": "subwoofer",
+        "xpath": "subwoofer"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Фары",
+    "type": "LIST",
+    "alias": "headlight",
+    "data": {
+      "singleOf": {
+        "param": "headlight",
+        "source": [
+          {
+            "title":"Галогеновые",
+            "value":"halogen"
+          },
+          {
+            "title":"Ксеноновые",
+            "value":"xenon"
+          },
+          {
+            "title":"Светодиодные",
+            "value":"led"
+          }
+        ],
+        "xpath": "headlight.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Омыватели фар",
+    "type": "BOOLEAN",
+    "alias": "headlightWash",
+    "data": {
+      "singleOf": {
+        "param": "headlightWash",
+        "xpath": "headlightWash"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Противотуманные фары",
+    "type": "BOOLEAN",
+    "alias": "headlightFog",
+    "data": {
+      "singleOf": {
+        "param": "headlightFog",
+        "xpath": "headlightFog"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Адаптивное освещение",
+    "type": "BOOLEAN",
+    "alias": "headlightAdaptive",
+    "data": {
+      "singleOf": {
+        "param": "headlightAdaptive",
+        "xpath": "headlightAdaptive"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Диаметр дисков, дюймы",
+    "type": "INTEGER",
+    "alias": "discs",
+    "data": {
+      "singleOf": {
+        "param": "discs",
+        "xpath": "discs"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "discs": {
+                "$gte": 7
+              }
+            },
+            {
+              "discs": {
+                "$lte": 30
+              }
+            },
+            {
+              "discs": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите корректное значение"
+      }
+    ],
+    "editable-condition": true
+  },
+  {
+    "title": "Зимние шины в комплекте",
+    "type": "BOOLEAN",
+    "alias": "winterTyres",
+    "data": {
+      "singleOf": {
+        "param": "winterTyres",
+        "xpath": "winterTyres"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Цена и описание",
+    "type": "HEADER",
+    "icon": "XXX"
+  },
+  {
+    "title": "Цена",
+    "type": "INTEGER",
+    "alias": "price",
+    "data": {
+      "singleOf": {
+        "param": "price",
+        "xpath": "price"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "price": {
+                "$gte": 0
+              }
+            },
+            {
+              "price": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите корректное значение"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Валюта",
+    "type": "LIST",
+    "alias": "priceCurrency",
+    "data": {
+      "singleOf": {
+        "param": "priceCurrency",
+        "source": [
+          {
+            "symbol": "₽",
+            "title": "Рубли",
+            "value": "rub"
+          },
+          {
+            "symbol": "$",
+            "title": "Доллары США",
+            "value": "usd"
+          },
+          {
+            "symbol": "€",
+            "title": "Евро",
+            "value": "eur"
+          }
+        ],
+        "xpath": "priceCurrency.value",
+        "default-value": {
+          "symbol": "₽",
+          "title": "Рубли",
+          "value": "rub"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Описание",
+    "type": "STRING",
+    "alias": "description",
+    "data": {
+      "singleOf": {
+        "param": "description",
+        "xpath": "description"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Фотографии и видео",
+    "type": "HEADER",
+    "icon": "photo"
+  },
+  {
+    "title": "Фотографии",
+    "type": "IMAGES",
+    "alias": "photos",
+    "data": {
+      "singleOf": {
+        "param": "photos",
+        "xpath": "photos"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Видео",
+    "type": "STRING",
+    "alias": "video",
+    "data": {
+      "singleOf": {
+        "param": "video",
+        "xpath": "video"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Расположение",
+    "type": "HEADER",
+    "icon": "address"
+  },
+  {
+    "title": "Регион",
+    "type": "FIAS_REGION",
+    "alias": "region",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "regionName",
+        "param": "regionId",
+        "api": "fias/region",
+        "xpath": "region.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": false
+  },
+  {
+    "title": "Город",
+    "type": "FIAS_CITY",
+    "alias": "city",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "cityName",
+        "param": "cityId",
+        "api": "fias/city?regionId=${region.id}&type=city",
+        "xpath": "city.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "region.id": {
+        "$length": {
+          "$gt": 0
+        }
+      }
+    },
+    "editable-condition": false
+  },
+  {
+    "title": "Метро",
+    "type": "FIAS_METRO",
+    "alias": "metro",
+    "data": {
+      "singleOf": {
+        "param": "metroId",
+        "api": "fias/metro?cityId=${city.id}",
+        "xpath": "metro.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "city.hasMetro": true
+    }
+  },
+  {
+    "title": "Район",
+    "type": "FIAS_DISTRICT",
+    "alias": "district",
+    "data": {
+      "singleOf": {
+        "param": "districtId",
+        "api": "fias/district?cityId=${city.id}",
+        "xpath": "district.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "city.hasMetro": false
+        },
+        {
+          "city.hasDistrict": true
+        }
+      ]
+    }
+  },
+  {
+    "title": "Контакты",
+    "type": "HEADER",
+    "icon": "contacts"
+  },
+  {
+    "title": "Название компании",
+    "type": "STRING",
+    "alias": "companyName",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "companyName",
+        "param": "companyName",
+        "xpath": "companyName"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "companyName": {
+            "$length": {
+              "$lte": 60
+            }
+          }
+        },
+        "errorMessage": "Не более 60 символов"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Контактное лицо",
+    "type": "STRING",
+    "alias": "contactName",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "contactName",
+        "param": "contactName",
+        "xpath": "contactName"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "contactName": {
+            "$length": {
+              "$lte": 40
+            }
+          }
+        },
+        "errorMessage": "Не более 40 символов"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Телефон",
+    "type": "STRING",
+    "alias": "phone",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "phone",
+        "param": "phone",
+        "xpath": "phone"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Электронная почта",
+    "type": "STRING",
+    "alias": "email",
+    "data": {
+      "singleOf": {
+        "responseTitlePath": "email",
+        "param": "email",
+        "xpath": "email"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Заметки (видны только вам)",
+    "type": "HEADER",
+    "icon": "params"
+  },
+  {
+    "title": "Лист приемки",
+    "type": "IMAGES",
+    "alias": "checklist",
+    "data": {
+      "singleOf": {
+        "param": "checklist",
+        "xpath": "checklist"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Внутренняя оценка, руб",
+    "type": "INTEGER",
+    "alias": "suggestedPrice",
+    "data": {
+      "singleOf": {
+        "param": "price",
+        "xpath": "price"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "suggestedPrice": {
+                "$gte": 0
+              }
+            },
+            {
+              "suggestedPrice": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите корректное значение"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Комментарий",
+    "type": "STRING",
+    "alias": "comment",
+    "data": {
+      "singleOf": {
+        "param": "comment",
+        "xpath": "comment"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  }
+]

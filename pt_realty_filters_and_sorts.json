@@ -19,7 +19,6 @@
                     ]
                 }
             },
-            "value": true,
             "visible-condition": true
         },
         {
@@ -140,7 +139,6 @@
                     ]
                 }
             },
-            "value": "flat",
             "visible-condition": true
         },
         {
@@ -160,7 +158,9 @@
                     "param": "metroId",
                     "value": "metro.id"
                 },
-                "api": "/rest/realtyOffer/getFilters/"
+                "dataSource": {
+                    "api": "/rest/realtyOffer/getFilters/"
+                }
             },
             "visible-condition": true
         },
@@ -197,180 +197,6 @@
                 }
             },
             "visible-condition": true
-        },
-        {
-            "title": "Комнат",
-            "type": "LIST",
-            "alias": "roomsTotal",
-            "data": {
-                "singleOf": {
-                    "param": "roomsTotal",
-                    "source": [
-                        {
-                            "title": "1",
-                            "value": "1"
-                        },
-                        {
-                            "title": "2",
-                            "value": "2"
-                        },
-                        {
-                            "title": "3",
-                            "value": "3"
-                        },
-                        {
-                            "title": "4",
-                            "value": "4"
-                        },
-                        {
-                            "title": "5",
-                            "value": "5"
-                        },
-                        {
-                            "title": "6",
-                            "value": "6",
-                            "visible-condition": {
-                                "objectType.group.value": "suburban"
-                            }
-                        },
-                        {
-                            "title": "6+",
-                            "value": "6+"
-                        },
-                        {
-                            "title": "Студия",
-                            "value": "studio",
-                            "visible-condition": {
-                                "$not": {
-                                    "objectType.value": "room"
-                                }
-                            }
-                        }
-                    ]
-                }
-            },
-            "visible-condition": {
-                "$and": [
-                    {
-                        "objectType.group.value": {
-                            "$in": [
-                                "living",
-                                "suburban"
-                            ]
-                        }
-                    },
-                    {
-                        "$not": {
-                            "objectType.value": "room"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Комнат в аренду",
-            "type": "LIST",
-            "alias": "roomsOffered",
-            "data": {
-                "singleOf": {
-                    "param": "roomsOffered",
-                    "source": [
-                        {
-                            "title": "1",
-                            "value": "1"
-                        },
-                        {
-                            "title": "2",
-                            "value": "2"
-                        },
-                        {
-                            "title": "3",
-                            "value": "3"
-                        },
-                        {
-                            "title": "4",
-                            "value": "4"
-                        },
-                        {
-                            "title": "5",
-                            "value": "5"
-                        },
-                        {
-                            "title": "6",
-                            "value": "6",
-                            "visible-condition": {
-                                "objectType.group.value": "suburban"
-                            }
-                        }
-                    ]
-                }
-            },
-            "visible-condition": {
-                "$and": [
-                    {
-                        "isSell.value": false
-                    },
-                    {
-                        "objectType.value": "room"
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Участок, сотки",
-            "type": "SPACE_RANGE",
-            "alias": "landSpaceRange",
-            "data": {
-                "from": {
-                    "param": "landSpace.min"
-                },
-                "to": {
-                    "param": "landSpace.max"
-                },
-                "unit": {
-                    "param": "landSpaceUnit",
-                    "source": [
-                        {
-                            "title": "соток",
-                            "value": "are"
-                        },
-                        {
-                            "title": "гектар",
-                            "value": "hectare"
-                        }
-                    ]
-                }
-            },
-            "visible-condition": {
-                "objectType.group.value": "suburban"
-            }
-        },
-        {
-            "title": "Тип участка",
-            "type": "LIST",
-            "alias": "landType",
-            "data": {
-                "singleOf": {
-                    "param": "landType",
-                    "source": [
-                        {
-                            "title": "ИЖС",
-                            "value": "ijs"
-                        },
-                        {
-                            "title": "СНТ",
-                            "value": "snt"
-                        },
-                        {
-                            "title": "Промназначение",
-                            "value": "promzone"
-                        }
-                    ]
-                }
-            },
-            "visible-condition": {
-                "objectType.value": "land"
-            }
         }
     ],
     "sortings": [
@@ -383,79 +209,6 @@
             "title": "Цена",
             "sortField": "price",
             "visible-condition": true
-        },
-        {
-            "title": "Комнат",
-            "sortField": "roomsTotal",
-            "visible-condition": {
-                "$and": [
-                    {
-                        "objectType.group.value": {
-                            "$in": [
-                                "living",
-                                "suburban"
-                            ]
-                        }
-                    },
-                    {
-                        "$not": {
-                            "objectType.value": "room"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "title": "Комнат",
-            "sortField": "roomsOffered",
-            "visible-condition": {
-                "objectType.value": "room"
-            }
-        },
-        {
-            "title": "Площадь",
-            "sortField": "totalSpace",
-            "visible-condition": true
-        },
-        {
-            "title": "Этаж",
-            "sortField": "objectFloor",
-            "visible-condition": {
-                "objectType.group.value": "living"
-            }
-        },
-        {
-            "title": "Участок, сотки",
-            "sortField": "landSpace",
-            "visible-condition": {
-                "objectType.group.value": "suburban"
-            }
-        },
-        {
-            "title": "Площадь соток",
-            "sortField": "landSpace",
-            "visible-condition": {
-                "objectType.value": "land"
-            }
-        },
-        {
-            "title": "Тип участка",
-            "sortField": "landSpace",
-            "visible-condition": {
-                "objectType.value": "land"
-            }
-        },
-        {
-            "title": "Класс",
-            "sortField": "buildingClass",
-            "visible-condition": {
-                "objectType.value": {
-                    "$in": [
-                        "office",
-                        "warehouse"
-                    ]
-                }
-            }
         }
     ]
 }

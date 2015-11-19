@@ -27,6 +27,9 @@
             "HEADER"
           ]
         },
+        "icon": {
+          "type": "string"
+        },
         "visible-condition": {
           "$ref": "#/definitions/someCondition"
         }
@@ -54,6 +57,9 @@
           "$ref": "#/definitions/alias"
         },
         "required-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "editable-condition": {
           "$ref": "#/definitions/someCondition"
         },
         "visible-condition": {
@@ -106,6 +112,9 @@
         },
         "xpath": {
           "type": "string"
+        },
+        "responseTitlePath": {
+          "type": "string"
         }
       },
       "required": [
@@ -132,6 +141,9 @@
           "$ref": "#/definitions/paramValue"
         },
         "xpath": {
+          "type": "string"
+        },
+        "responseTitlePath": {
           "type": "string"
         }
       },
@@ -179,7 +191,7 @@
           "$ref": "#/definitions/simpleCondition"
         },
         {
-          "$ref": "#/definitions/inCondition"
+          "$ref": "#/definitions/pathValidationCondition"
         },
         {
           "$ref": "#/definitions/explicitCondition"
@@ -214,26 +226,6 @@
       "maxProperties": 1,
       "minProperties": 1
     },
-    "inCondition": {
-      "type": "object",
-      "minProperties": 1,
-      "maxProperties": 1,
-      "patternProperties": {
-        "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$": {
-          "type": "object",
-          "properties": {
-            "$in": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/scalar"
-              }
-            }
-          },
-          "additionalProperties": false
-        }
-      },
-      "additionalProperties": false
-    },
     "simpleCondition": {
       "type": "object",
       "minProperties": 1,
@@ -248,7 +240,7 @@
     "validationRule": {
       "properties": {
         "condition": {
-          "$ref": "#/definitions/validationCondition"
+          "$ref": "#/definitions/someCondition"
         },
         "errorMessage": {
           "type": "string"
@@ -257,82 +249,65 @@
       "minProperties": 2,
       "additionalProperties": false
     },
-    "validationCondition": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/pathValidationCondition"
-        },
-        {
-          "$ref": "#/definitions/multipleValidationCondition"
-        }
-      ]
-    },
-    "multipleValidationCondition": {
-      "type": "object",
-      "properties": {
-        "$and": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/validationCondition"
-          }
-        }
-      },
-      "additionalProperties": false,
-      "minProperies": 1,
-      "maxProperies": 1
-    },
     "pathValidationCondition": {
       "type": "object",
       "minProperties": 1,
       "maxProperties": 1,
       "patternProperties": {
         "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/eqCondition"
-            },
-            {
-              "$ref": "#/definitions/typeCondition"
-            }
-          ]
+          "$ref": "#/definitions/pathCondition"
         }
       },
       "additionalProperties": false
     },
     "typeCondition": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "integer",
-            "decimal"
-          ]
-        }
-      },
+      "type": "string",
+      "enum": [
+        "integer",
+        "decimal"
+      ],
       "additionalProperties": false
     },
-    "eqCondition": {
-      "type": "object",
-      "patternProperties": {
-        "\\$(ge|le|gt|lt)": {
-          "$ref": "#/definitions/eqOperand"
-        }
-      },
-      "additionalProperties": false
-    },
-    "eqOperand": {
+    "pathConditionOperand": {
       "oneOf": [
         {
-          "type": "number"
-        },
-        {
-          "$ref": "#/definitions/aliasPath"
+          "anyOf": [
+            {
+              "$ref": "#/definitions/aliasPath"
+            },
+            {
+              "$ref": "#/definitions/scalar"
+            }
+          ]
         },
         {
           "$ref": "#/definitions/aggregate"
         }
       ]
+    },
+    "pathCondition": {
+      "type": "object",
+      "patternProperties": {
+        "\\$(gte|lte|gt|lt|eq)$": {
+          "$ref": "#/definitions/pathConditionOperand"
+        },
+        "\\$in$": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/definitions/pathConditionOperand"
+          }
+        },
+        "\\$length$": {
+          "$ref": "#/definitions/pathCondition"
+        },
+        "\\$type$": {
+          "$ref": "#/definitions/typeCondition"
+        }
+      },
+      "additionalProperties": false,
+      "maxProperties": 1,
+      "minProperties": 1
     },
     "aggregate": {
       "type": "object",
@@ -340,12 +315,14 @@
         "$sum": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/aliasPath"
+            "$ref": "#/definitions/pathConditionOperand"
           },
           "minItems": 2
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "maxProperties": 1,
+      "minProperties": 1
     },
     "aliasPath": {
       "type": "string",
