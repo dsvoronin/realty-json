@@ -203,22 +203,14 @@
     "type": "LOCATION",
     "alias": "location",
     "data": {
-      "extraParam":"locationType",
-      "param": "locationId",
-      "city": {
-        "extraValue":"city",
-        "value": "location.city.id"
-      },
-      "district": {
-        "extraValue":"district",
-        "value": "location.district.id"
-      },
-      "metro": {
-        "extraValue":"metro",
-        "value": "location.metro.id"
-      },
-      "dataSource": {
+      "singleOf": {
+        "param": "locationId",
+        "xpath": "location.id",
         "api": "/rest/realtyOffer/getFilters/"
+      },
+      "locationType": {
+        "param":"locationType",
+        "xpath":"location.type"
       }
     },
     "visible-condition": true
@@ -262,17 +254,15 @@
     "type": "RANGE",
     "alias": "priceRange",
     "data": {
-      "price": {
-        "param": "price",
-        "xpath": "priceRange"
-      },
       "limit_min": {
           "title": "Цена от",
-          "param": "min"
+          "param": "price.min",
+          "xpath": "priceRange.min"
       },
       "limit_max": {
           "title": "Цена до",
-          "param": "max"
+          "param": "price.max",
+          "xpath": "priceRange.max"
       }
     },
     "visible-condition": true

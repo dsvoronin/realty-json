@@ -124,6 +124,9 @@
     "paramElementSource": {
       "type": "object",
       "properties": {
+        "title": {
+          "type": "string"
+        },
         "param": {
           "type": "string"
         },
