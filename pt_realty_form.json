@@ -550,6 +550,7 @@
         }
       ]
     },
+    "required-condition": true,
     "editable-condition": {
       "isFromAutoupload": false
     }
