@@ -31,7 +31,6 @@
     "alias": "objectType",
     "data": {
       "singleOf": {
-        "responseTitlePath": "objectName",
         "param": "objectType",
         "source": [
           {
@@ -203,7 +202,6 @@
     "alias": "region",
     "data": {
       "singleOf": {
-        "responseTitlePath": "regionName",
         "param": "regionId",
         "api": "fias/region",
         "xpath": "region.id"
@@ -219,7 +217,6 @@
     "alias": "city",
     "data": {
       "singleOf": {
-        "responseTitlePath": "cityName",
         "param": "cityId",
         "api": "fias/city?regionId=${region.id}&type=city",
         "xpath": "city.id"
@@ -563,7 +560,6 @@
     "alias": "street",
     "data": {
       "singleOf": {
-        "responseTitlePath": "street",
         "param": "streetId",
         "api": "fias/address?parent=${city.id}&type=street",
         "xpath": "street.id"
@@ -3220,7 +3216,6 @@
     "alias": "companyName",
     "data": {
       "singleOf": {
-        "responseTitlePath": "companyName",
         "param": "companyName",
         "xpath": "companyName"
       }
@@ -3249,7 +3244,6 @@
     "alias": "contactName",
     "data": {
       "singleOf": {
-        "responseTitlePath": "contactName",
         "param": "contactName",
         "xpath": "contactName"
       }
@@ -3278,7 +3272,6 @@
     "alias": "phone",
     "data": {
       "singleOf": {
-        "responseTitlePath": "phone",
         "param": "phone",
         "xpath": "phone"
       }
@@ -3295,7 +3288,6 @@
     "alias": "email",
     "data": {
       "singleOf": {
-        "responseTitlePath": "email",
         "param": "email",
         "xpath": "email"
       }

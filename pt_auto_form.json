@@ -1441,7 +1441,6 @@
     "alias": "region",
     "data": {
       "singleOf": {
-        "responseTitlePath": "regionName",
         "param": "regionId",
         "api": "fias/region",
         "xpath": "region.id"
@@ -1457,7 +1456,6 @@
     "alias": "city",
     "data": {
       "singleOf": {
-        "responseTitlePath": "cityName",
         "param": "cityId",
         "api": "fias/city?regionId=${region.id}&type=city",
         "xpath": "city.id"
@@ -1523,7 +1521,6 @@
     "alias": "companyName",
     "data": {
       "singleOf": {
-        "responseTitlePath": "companyName",
         "param": "companyName",
         "xpath": "companyName"
       }
@@ -1552,7 +1549,6 @@
     "alias": "contactName",
     "data": {
       "singleOf": {
-        "responseTitlePath": "contactName",
         "param": "contactName",
         "xpath": "contactName"
       }
@@ -1581,7 +1577,6 @@
     "alias": "phone",
     "data": {
       "singleOf": {
-        "responseTitlePath": "phone",
         "param": "phone",
         "xpath": "phone"
       }
@@ -1598,7 +1593,6 @@
     "alias": "email",
     "data": {
       "singleOf": {
-        "responseTitlePath": "email",
         "param": "email",
         "xpath": "email"
       }
