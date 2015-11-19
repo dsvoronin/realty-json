@@ -1,0 +1,664 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/element"
+  },
+  "definitions": {
+    "element": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/headerElement"
+        },
+        {
+          "$ref": "#/definitions/formElementAny"
+        }
+      ]
+    },
+    "headerElement": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "HEADER"
+          ]
+        },
+        "visible-condition": {
+          "$ref": "#/definitions/someCondition"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "type"
+      ]
+    },
+    "formElementAny": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/formElementMAGIC"
+        },
+        {
+          "$ref": "#/definitions/formElementINPUTLIST"
+        },
+        {
+          "$ref": "#/definitions/formElementLIST"
+        },
+        {
+          "$ref": "#/definitions/formElementROUTE"
+        },
+        {
+          "$ref": "#/definitions/formElementTIMESPAN"
+        },
+        {
+          "$ref": "#/definitions/formElement"
+        }
+      ]
+    },
+    "formElementMAGIC": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "value": "MAGIC_STRING"
+        },
+        "generated": {
+          "type": "boolean",
+          "value": true
+        },
+        "data": {
+          "$ref": "#/definitions/paramData"
+        },
+        "alias": {
+          "$ref": "#/definitions/alias"
+        },
+        "required-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "visible-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "valid-conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/validationRule"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "type",
+        "alias",
+        "data"
+      ]
+    },
+    "formElementINPUTLIST": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "value": "INPUT_LIST"
+        },
+        "data": {
+          "$ref": "#/definitions/paramData"
+        },
+        "alias": {
+          "$ref": "#/definitions/alias"
+        },
+        "required-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "visible-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "valid-conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/validationRule"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "type",
+        "alias",
+        "data"
+      ]
+    },
+    "formElementTIMESPAN": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "value": "TIMESPAN"
+        },
+        "minTimestamp": {
+          "type": "number",
+          "minimum": 1441196816
+        },
+        "maxTimestamp": {
+          "type": "number",
+          "minimum": 1441196816
+        },
+        "data": {
+          "$ref": "#/definitions/paramData"
+        },
+        "alias": {
+          "$ref": "#/definitions/alias"
+        },
+        "required-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "visible-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "valid-conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/validationRule"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "type",
+        "alias",
+        "data"
+      ]
+    },
+    "formElementROUTE": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "value": "ROUTE"
+        },
+        "minPoints": {
+          "type": "number",
+          "minimum": 2,
+          "maximum": 10
+        },
+        "maxPoints": {
+          "type": "number",
+          "minimum": 2,
+          "maximum": 10
+        },
+        "data": {
+          "$ref": "#/definitions/paramData"
+        },
+        "alias": {
+          "$ref": "#/definitions/alias"
+        },
+        "required-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "visible-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "valid-conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/validationRule"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "type",
+        "alias",
+        "data"
+      ]
+    },
+    "formElementLIST": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "value": "LIST"
+        },
+        "minItems": {
+          "type": "number",
+          "minimum":0
+        },
+        "maxItems": {
+          "type": "number",
+          "minimum":0
+        },
+        "data": {
+          "$ref": "#/definitions/paramData"
+        },
+        "alias": {
+          "$ref": "#/definitions/alias"
+        },
+        "required-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "visible-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "valid-conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/validationRule"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "type",
+        "alias",
+        "data"
+      ]
+    },
+    "formElement": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "enum": [
+            "STRING"
+          ]
+
+        },
+        "type": {
+          "type": "string",
+          "pattern": "^[A-Z_]+$"
+        },
+        "data": {
+          "$ref": "#/definitions/paramData"
+        },
+        "alias": {
+          "$ref": "#/definitions/alias"
+        },
+        "required-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "visible-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "valid-conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/validationRule"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "type",
+        "alias"
+      ]
+    },
+    "paramData": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$": {
+          "$ref": "#/definitions/paramElement"
+        }
+      },
+      "additionalProperties": false
+    },
+    "paramElement": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/paramElementAPI"
+        },
+        {
+          "$ref": "#/definitions/paramElementSource"
+        },
+        {
+          "$ref": "#/definitions/paramElementInput"
+        }
+      ]
+    },
+    "paramElementAPI": {
+      "type": "object",
+      "properties": {
+        "param": {
+          "type": "string"
+        },
+        "api": {
+          "type": "string"
+        },
+        "xpath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "param",
+        "xpath",
+        "api"
+      ],
+      "additionalProperties": false
+    },
+    "paramElementSource": {
+      "type": "object",
+      "properties": {
+        "param": {
+          "type": "string"
+        },
+        "source": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/definitions/sourceElement"
+          }
+        },
+        "default-value": {
+          "$ref": "#/definitions/paramValue"
+        },
+        "xpath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "param",
+        "xpath"
+      ],
+      "additionalProperties": false
+    },
+    "paramElementInput": {
+      "type": "object",
+      "properties": {
+        "param": {
+          "type": "string"
+        },
+        "default-value": {
+          "$ref": "#/definitions/paramValue"
+        },
+        "xpath": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "INTEGER",
+            "STRING"
+          ]
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "param",
+        "xpath",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "paramValue": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/scalar"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "sourceElement": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/scalar"
+        },
+        "visible-condition": {
+          "$ref": "#/definitions/someCondition"
+        }
+      },
+      "required": [
+        "title",
+        "value"
+      ],
+      "additionalProperties": true
+    },
+    "someCondition": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/complexCondition"
+        },
+        {
+          "$ref": "#/definitions/simpleCondition"
+        },
+        {
+          "$ref": "#/definitions/inCondition"
+        },
+        {
+          "$ref": "#/definitions/explicitCondition"
+        }
+      ]
+    },
+    "explicitCondition": {
+      "type": "boolean"
+    },
+    "complexCondition": {
+      "type": "object",
+      "properties": {
+        "$and": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/someCondition"
+          },
+          "minItems": 1
+        },
+        "$or": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/someCondition"
+          },
+          "minItems": 1
+        },
+        "$not": {
+          "$ref": "#/definitions/someCondition"
+        }
+      },
+      "additionalProperties": false,
+      "maxProperties": 1,
+      "minProperties": 1
+    },
+    "inCondition": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "patternProperties": {
+        "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$": {
+          "type": "object",
+          "properties": {
+            "$in": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/scalar"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "simpleCondition": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$": {
+          "$ref": "#/definitions/scalar"
+        }
+      }
+    },
+    "validationRule": {
+      "properties": {
+        "condition": {
+          "$ref": "#/definitions/validationCondition"
+        },
+        "errorMessage": {
+          "type": "string"
+        }
+      },
+      "minProperties": 2,
+      "additionalProperties": false
+    },
+    "validationCondition": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/pathValidationCondition"
+        },
+        {
+          "$ref": "#/definitions/multipleValidationCondition"
+        }
+      ]
+    },
+    "multipleValidationCondition": {
+      "type": "object",
+      "properties": {
+        "$and": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/validationCondition"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "minProperies": 1,
+      "maxProperies": 1
+    },
+    "pathValidationCondition": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "patternProperties": {
+        "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/eqCondition"
+            },
+            {
+              "$ref": "#/definitions/typeCondition"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "typeCondition": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "integer",
+            "decimal"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "eqCondition": {
+      "type": "object",
+      "patternProperties": {
+        "\\$(ge|le|gt|lt)": {
+          "$ref": "#/definitions/eqOperand"
+        }
+      },
+      "additionalProperties": false
+    },
+    "eqOperand": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "$ref": "#/definitions/aliasPath"
+        },
+        {
+          "$ref": "#/definitions/aggregate"
+        }
+      ]
+    },
+    "aggregate": {
+      "type": "object",
+      "properties": {
+        "$sum": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/aliasPath"
+          },
+          "minItems": 2
+        }
+      },
+      "additionalProperties": false
+    },
+    "aliasPath": {
+      "type": "string",
+      "pattern": "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$"
+    },
+    "alias": {
+      "type": "string",
+      "pattern": "^[a-zA-Z_]+$"
+    },
+    "scalar": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

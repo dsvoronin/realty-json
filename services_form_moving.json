@@ -1,0 +1,258 @@
+[
+  {
+    "title": "Тип переезда",
+    "type": "LIST",
+    "alias": "moveType",
+    "data": {
+      "singleOf": {
+        "param": "moveType",
+        "source": [
+          {
+            "title": "Квартирный переезд",
+            "value": "flat"
+          },
+          {
+            "title": "Офисный переезд",
+            "value": "office"
+          }
+        ],
+        "xpath": "moveType.value"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Что нужно перевезти?",
+    "type": "LIST",
+    "alias": "moveObject",
+    "data": {
+      "singleOf": {
+        "param": "moveObject",
+        "source": [
+          {
+            "title": "Мебель/Техника/Личные вещи",
+            "value": "furniture_etc"
+          },
+          {
+            "title": "1-комнатная квартира",
+            "value": "1_room_flat"
+          },
+          {
+            "title": "2-комнатная квартира",
+            "value": "2_room_flat"
+          },
+          {
+            "title": "3-комнатная квартира",
+            "value": "3_room_flat"
+          },
+          {
+            "title": "Другое",
+            "value": "other"
+          }
+        ],
+        "xpath": "moveObject.value"
+      }
+    },
+    "required-condition": {"moveType.value":"flat"},
+    "visible-condition": {"moveType.value":"flat"}
+  },
+  {
+    "title": "Уточните, что нужно перевезти",
+    "type": "STRING",
+    "alias": "moveObjectOther",
+    "data": {
+      "singleOf": {
+        "param": "moveObjectOther",
+        "xpath": "moveObjectOther.value"
+      }
+    },
+    "required-condition": {"moveObject.value":"other"},
+    "visible-condition": {"moveObject.value":"other"}
+  },
+  {
+    "title": "Мебель/Техника",
+    "type": "INPUT_LIST",
+    "alias": "moveVolume",
+    "data": {
+      "furniture_tech": {
+        "param": "moveVolumeFurniture",
+        "xpath": "moveVolumeFurniture.value",
+        "title": "Мебель/Техника",
+        "type": "INTEGER"
+      },
+      "boxes": {
+        "param": "moveVolumeBoxes",
+        "xpath": "moveVolumeBoxes.value",
+        "title": "Личные вещи",
+        "type": "INTEGER"
+      }
+    },
+    "required-condition": {"moveObject.value":"furniture_etc"},
+    "visible-condition": {"moveObject.value":"furniture_etc"}
+  },
+  {
+    "title": "Число рабочих мест",
+    "type": "LIST",
+    "alias": "moveWorkplaces",
+    "data": {
+      "singleOf": {
+        "param": "moveWorkplaces",
+        "source": [
+          {
+            "title": "1-5",
+            "value": "1_5"
+          },
+          {
+            "title": "5-10",
+            "value": "5_10"
+          },
+          {
+            "title": "10-20",
+            "value": "10_20"
+          },
+          {
+            "title": "От 20",
+            "value": "gte_20"
+          },
+          {
+            "title": "Другое",
+            "value": "other"
+          }
+        ],
+        "xpath": "moveWorkplaces.value"
+      }
+    },
+    "required-condition": {"moveType.value":"office"},
+    "visible-condition": {"moveType.value":"office"}
+  },
+  {
+    "title": "Уточните объём перевозки",
+    "type": "STRING",
+    "alias": "moveWorkplacesOther",
+    "data": {
+      "singleOf": {
+        "param": "moveWorkplacesOther",
+        "xpath": "moveWorkplacesOther.value"
+      }
+    },
+    "required-condition": {"moveWorkplaces.value":"other"},
+    "visible-condition": {"moveWorkplaces.value":"other"}
+  },
+  {
+    "title": "Какие необходимы услуги?",
+    "type": "LIST",
+    "maxItems":7,
+    "minItems":0,
+    "alias": "moveServices",
+    "data": {
+      "singleOf": {
+        "param": "moveServices",
+        "source": [
+          {
+            "title": "Транспортное средство",
+            "value": "transport"
+          },
+          {
+            "title": "Грузчики",
+            "value": "movers"
+          },
+          {
+            "title": "Упаковочные материалы",
+            "value": "packing_material"
+          },
+          {
+            "title": "Упаковывание вещей",
+            "value": "packing"
+          },
+          {
+            "title": "Сборка и/или разборка мебели",
+            "value": "furniture_assembly"
+          },
+          {
+            "title": "Хрупкий груз",
+            "value": "fragile"
+          },
+          {
+            "title": "Негабаритный/тяжелый груз",
+            "value": "cumbersome"
+          }
+        ],
+        "xpath": "moveServices.value"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Маршрут",
+    "type": "ROUTE",
+    "alias": "locations",
+    "minPoints":2,
+    "maxPoints":4,
+    "data": {
+      "singleOf": {
+        "param": "locations",
+        "xpath": "locations"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Дата и время",
+    "type": "TIMESPAN",
+    "alias": "time",
+    "minTimestamp":1443396816,
+    "maxTimestamp":1443596816,
+    "data": {
+      "singleOf": {
+        "param": "time",
+        "xpath": "time"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Комментарий",
+    "type": "STRING",
+    "alias": "comment",
+    "data": {
+      "singleOf": {
+        "param": "comment",
+        "xpath": "comment.value"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true
+  },
+  {
+    "title": "Название задачи",
+    "type": "MAGIC_STRING",
+    "alias": "title",
+    "generated": true,
+    "data": {
+      "singleOf": {
+        "param": "title",
+        "xpath": "title.value"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true
+  },
+  {
+    "title": "Описание задачи",
+    "type": "MAGIC_STRING",
+    "generated": true,
+    "alias": "description",
+    "data": {
+      "singleOf": {
+        "param": "description",
+        "xpath": "description.value"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true
+  }
+]
