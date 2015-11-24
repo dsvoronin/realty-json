@@ -77,7 +77,7 @@
         "clear-triggers": {
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/alias"
           }
         }
       },
