@@ -73,6 +73,12 @@
           "items": {
             "$ref": "#/definitions/validationRule"
           }
+        },
+        "clear-triggers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/alias"
+          }
         }
       },
       "additionalProperties": false,
