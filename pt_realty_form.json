@@ -657,7 +657,7 @@
     "data": {
       "fiasBuilding": {
         "param": "buildingId",
-        "api": "fias/house?parent=${street.id}",
+        "api": "fias/house?parent=${street.id|city.id}",
         "xpath": "building.id"
       },
       "customBuilding": {
