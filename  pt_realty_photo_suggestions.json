@@ -9,7 +9,7 @@
         "title": "Сфотографируйте объект снаружи",
         "description": "Отсутствие фотографий снаружи подаст тревожный сигнал для покупателей.",
         "beforeImage": "http://content.delta.photozeen.com/actiagent/photos/outside_ok_2.jpg",
-        "afterImage": "http://content.delta.photozeen.com/actiagent/photos/no-512.png"
+        "afterImage": "http://content.delta.photozeen.com/actiagent/photos/noPhotoIphone6.png"
     },
     {
         "title": "Проверьте, что фотографии внешнего фида объекта соответствуют сезону",
