@@ -200,7 +200,7 @@
   },
   {
     "title": "Локация",
-    "type": "LOCATION",
+    "type": "LOCATION_LIST",
     "alias": "location",
     "data": {
       "singleOf": {
