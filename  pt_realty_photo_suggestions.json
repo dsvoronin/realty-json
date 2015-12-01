@@ -14,8 +14,8 @@
     {
         "title": "Проверьте, что фотографии внешнего фида объекта соответствуют сезону",
         "description": "Летом не должно быть фотографий со снегом.",
-        "beforeImage": "http://content.delta.photozeen.com/actiagent/photos/winter-summer-12.jpg",
-        "afterImage": "http://content.delta.photozeen.com/actiagent/photos/winter-summer-12%202.jpg"
+        "beforeImage": "http://content.delta.photozeen.com/actiagent/photos/outside_ok_2.jpg",
+        "afterImage": "http://content.delta.photozeen.com/actiagent/photos/IMG_0840.jpg"
     },
     {
         "title": "Убедитесь, что стоите спиной к солнцу",
