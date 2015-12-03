@@ -2435,7 +2435,7 @@
     }
   },
   {
-    "title": "Кол-во спальных мест",
+    "title": "Кол-во спал. мест",
     "type": "LIST",
     "alias": "sleepPlaceCount",
     "data": {
