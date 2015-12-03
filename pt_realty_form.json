@@ -417,7 +417,7 @@
     ]
   },
   {
-    "title": "Расстояние до города, км.",
+    "title": "До города, км.",
     "type": "DECIMAL",
     "alias": "cityDistance",
     "data": {
@@ -1251,7 +1251,7 @@
     }
   },
   {
-    "title": "Этап строительства",
+    "title": "Этап стр-ва",
     "type": "LIST",
     "alias": "isReady",
     "data": {
@@ -1293,7 +1293,7 @@
     }
   },
   {
-    "title": "Срок сдачи (год)",
+    "title": "Сдача, год",
     "type": "YEAR",
     "alias": "readyDateYear",
     "data": {
@@ -1366,7 +1366,7 @@
     }
   },
   {
-    "title": "Срок сдачи (квартал)",
+    "title": "Сдача, квартал",
     "type": "QUARTER",
     "alias": "readyDateQuarter",
     "data": {
@@ -1574,7 +1574,7 @@
     }
   },
   {
-    "title": "Число собственников",
+    "title": "Число собст-ков",
     "type": "INTEGER",
     "alias": "ownersTotal",
     "data": {
@@ -1939,7 +1939,7 @@
     }
   },
   {
-    "title": "Свободная планировка",
+    "title": "Свобод. план-ка",
     "type": "BOOLEAN",
     "alias": "isOpenPlan",
     "data": {
@@ -1970,7 +1970,7 @@
     }
   },
   {
-    "title": "Площадь жилая, м²",
+    "title": "Жилая, м²",
     "type": "DECIMAL",
     "alias": "livingSpace",
     "data": {
@@ -2012,7 +2012,7 @@
     }
   },
   {
-    "title": "Площадь кухни, м²",
+    "title": "Кухня, м²",
     "type": "DECIMAL",
     "alias": "kitchenSpace",
     "data": {
@@ -2054,7 +2054,7 @@
     }
   },
   {
-    "title": "Площадь общая, м²",
+    "title": "Общая, м²",
     "type": "DECIMAL",
     "alias": "totalSpace",
     "data": {
@@ -2163,7 +2163,7 @@
     }
   },
   {
-    "title": "Площадь на продажу, м²",
+    "title": "На продажу, м²",
     "type": "DECIMAL",
     "alias": "offeredSpace",
     "data": {
@@ -2215,7 +2215,7 @@
     }
   },
   {
-    "title": "Площадь в аренду, м²",
+    "title": "В аренду, м²",
     "type": "DECIMAL",
     "alias": "offeredLeaseSpace",
     "data": {
@@ -2267,7 +2267,7 @@
     }
   },
   {
-    "title": "Площадь участка",
+    "title": "Площадь уч-ка",
     "type": "DECIMAL",
     "alias": "landSpace",
     "data": {
@@ -2309,7 +2309,7 @@
     }
   },
   {
-    "title": "Ед. измерения площади",
+    "title": "Ед. измер. площади",
     "type": "LIST",
     "alias": "landSpaceUnit",
     "data": {
@@ -2438,7 +2438,7 @@
     }
   },
   {
-    "title": "Количество спальных мест",
+    "title": "Кол-во спальных мест",
     "type": "LIST",
     "alias": "sleepPlaceCount",
     "data": {
@@ -2537,7 +2537,7 @@
     }
   },
   {
-    "title": "Количество кроватей",
+    "title": "Кол-во кроватей",
     "type": "LIST",
     "alias": "bedCount",
     "data": {
@@ -2672,7 +2672,7 @@
     }
   },
   {
-    "title": "Кабельное или цифровое ТВ",
+    "title": "Кабел. или цифр. ТВ",
     "type": "BOOLEAN",
     "alias": "cableTv",
     "data": {
@@ -2808,7 +2808,7 @@
     }
   },
   {
-    "title": "Стиральная машина",
+    "title": "Стир. машина",
     "type": "BOOLEAN",
     "alias": "washingMachine",
     "data": {
@@ -2978,7 +2978,7 @@
     }
   },
   {
-    "title": "Есть балкон или лоджия",
+    "title": "Балкон или лоджия",
     "type": "BOOLEAN",
     "alias": "balcony",
     "data": {
@@ -3007,7 +3007,7 @@
     }
   },
   {
-    "title": "Есть парковочное место",
+    "title": "Парков. место",
     "type": "BOOLEAN",
     "alias": "parking",
     "data": {
@@ -3094,7 +3094,7 @@
     }
   },
   {
-    "title": "Можно с питомцами",
+    "title": "Питомцы",
     "type": "BOOLEAN",
     "alias": "petAllowed",
     "data": {
@@ -3128,7 +3128,7 @@
     }
   },
   {
-    "title": "Можно с детьми",
+    "title": "Дети",
     "type": "BOOLEAN",
     "alias": "childAllowed",
     "data": {
@@ -3162,7 +3162,7 @@
     }
   },
   {
-    "title": "Можно для мероприятий",
+    "title": "Мероприятия",
     "type": "BOOLEAN",
     "alias": "eventAllowed",
     "data": {
@@ -3196,7 +3196,7 @@
     }
   },
   {
-    "title": "Можно курить",
+    "title": "Курение",
     "type": "BOOLEAN",
     "alias": "smokingAllowed",
     "data": {
@@ -3235,7 +3235,7 @@
     "icon": "contacts"
   },
   {
-    "title": "Название компании",
+    "title": "Компания",
     "type": "STRING",
     "alias": "companyName",
     "data": {
@@ -3263,7 +3263,7 @@
     }
   },
   {
-    "title": "Контактное лицо",
+    "title": "Контакт",
     "type": "STRING",
     "alias": "contactName",
     "data": {
@@ -3307,7 +3307,7 @@
     }
   },
   {
-    "title": "Электронная почта",
+    "title": "Эл. почта",
     "type": "STRING",
     "alias": "email",
     "data": {
