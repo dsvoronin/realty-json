@@ -2595,6 +2595,26 @@
     }
   },
   {
+    "title": "Мультимедиа",
+    "type": "HEADER",
+    "icon": "params",
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
     "title": "Wi-Fi",
     "type": "BOOLEAN",
     "alias": "wifi",
@@ -2685,6 +2705,26 @@
     },
     "editable-condition": {
       "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Бытовая техника",
+    "type": "HEADER",
+    "icon": "params",
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -2874,6 +2914,26 @@
     }
   },
   {
+    "title": "Комфорт",
+    "type": "HEADER",
+    "icon": "params",
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
     "title": "Кондиционер",
     "type": "BOOLEAN",
     "alias": "airConditioner",
@@ -3037,6 +3097,26 @@
     },
     "editable-condition": {
       "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Дополнительно разрешается",
+    "type": "HEADER",
+    "icon": "params",
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        }
+      ]
     }
   },
   {
