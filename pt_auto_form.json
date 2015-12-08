@@ -1,5 +1,33 @@
 [
   {
+    "title": "Тип автомобиля",
+    "type": "LIST",
+    "alias": "vehicleType",
+    "data": {
+      "singleOf": {
+        "param": "vehicleType",
+        "source": [
+          {
+            "title": "Новый",
+            "value": "newcar"
+          },
+          {
+            "title": "Подержанный",
+            "value": "usedcar"
+          }
+        ],
+        "xpath": "vehicleType.value",
+        "default-value": {
+          "title": "Новый",
+          "value": "newcar"
+        }
+      }
+    },
+    "visible-condition": true,
+    "required-condition": true,
+    "editable-condition": false
+  },
+  {
     "title": "Автомобиль",
     "type": "HEADER",
     "icon": "car"
@@ -348,34 +376,6 @@
     "title": "Детали",
     "type": "HEADER",
     "icon": "address"
-  },
-  {
-    "title": "Тип автомобиля",
-    "type": "LIST",
-    "alias": "vehicleType",
-    "data": {
-      "singleOf": {
-        "param": "vehicleType",
-        "source": [
-          {
-            "title": "Новый",
-            "value": "newcar"
-          },
-          {
-            "title": "Подержанный",
-            "value": "usedcar"
-          }
-        ],
-        "xpath": "vehicleType.value",
-        "default-value": {
-          "title": "Новый",
-          "value": "newcar"
-        }
-      }
-    },
-    "visible-condition": true,
-    "required-condition": true,
-    "editable-condition": false
   },
   {
     "title": "Руль",
