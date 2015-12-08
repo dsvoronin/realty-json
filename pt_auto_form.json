@@ -9,12 +9,12 @@
     "type": "STRING",
     "alias": "brand",
     "data": {
-      "title": {
+      "singleOf": {
         "param": "brand",
         "xpath": "brand.name",
         "api":"getBrands"
       },
-      "value": {
+      "extra": {
         "param": "brandId",
         "xpath": "brand.id"
       }
@@ -30,12 +30,12 @@
     "type": "STRING",
     "alias": "model",
     "data": {
-      "title": {
+      "singleOf": {
         "param": "modelName",
         "xpath": "model.name",
         "api":"getModels"
       },
-      "value": {
+      "extra": {
         "param": "modelId",
         "xpath": "model.id"
       }
