@@ -102,6 +102,78 @@
     ]
   },
   {
+    "title": "Пробег, км",
+    "type": "INTEGER",
+    "alias": "milage",
+    "data": {
+      "singleOf": {
+        "param": "milage",
+        "xpath": "milage"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "vehicleType.value": "usedcar" 
+    },
+    "editable-condition": true
+  }, 
+  {
+    "title": "Состояние",
+    "type": "LIST",
+    "alias": "condition",
+    "data": {
+      "singleOf": {
+        "param": "condition",
+        "source": [
+          {
+            "title": "Не битый",
+            "value": "undamaged"
+          },
+          {
+            "title": "Битый",
+            "value": "damaged"
+          }
+        ],
+        "xpath": "condition.value",
+        "default-value": {
+          "title": "Не битый",
+          "value": "undamaged"
+        }
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "vehicleType.value": "usedcar" 
+    },
+    "editable-condition": true
+  },
+  {
+    "title": "VIN",
+    "type": "STRING",
+    "alias": "vin",
+    "data": {
+      "singleOf": {
+        "param": "vin",
+        "xpath": "vin"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true
+  },
+  {
+    "title": "Номер свидетельства ТС",
+    "type": "STRING",
+    "alias": "sts",
+    "data": {
+      "singleOf": {
+        "param": "sts",
+        "xpath": "sts"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true
+  },
+  {
     "title": "Тип кузова",
     "type": "LIST",
     "alias": "bodyType",
@@ -194,211 +266,6 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
-  },
-  {
-    "title": "VIN",
-    "type": "STRING",
-    "alias": "vin",
-    "data": {
-      "singleOf": {
-        "param": "vin",
-        "xpath": "vin"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": true
-  },
-  {
-    "title": "Тип топлива",
-    "type": "LIST",
-    "alias": "engineType",
-    "data": {
-      "singleOf": {
-        "param": "engineType",
-        "source": [
-          {
-            "title": "Бензин",
-            "value": "gasoline"
-          },
-          {
-            "title": "Дизель",
-            "value": "diesel"
-          },
-          {
-            "title": "Гибрид",
-            "value": "hybrid"
-          },
-          {
-            "title": "Электро",
-            "value": "electro"
-          },
-          {
-            "title": "Газ",
-            "value": "gas"
-          }
-        ],
-        "xpath": "engineType.value"
-      }
-    },
-    "visible-condition": true,
-    "required-condition": false,
-    "editable-condition": true
-  },
-  {
-    "title": "Объём двигателя",
-    "type": "DECIMAL",
-    "alias": "engineCapacity",
-    "data": {
-      "singleOf": {
-        "param": "engineCapacity",
-        "xpath": "engineCapacity"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": {
-      "$not": {
-        "engineType.value":"electro"
-        }
-    },
-    "valid-conditions": [
-      {
-        "condition": {
-          "$and": [
-            {
-              "engineCapacity": {
-                "$gte": 0.1
-              }
-            },
-            {
-              "engineCapacity": {
-                "$type": "decimal"
-              }
-            },
-            {
-              "engineCapacity": {
-                "$lte": 6.0
-              }
-            }
-          ]
-        },
-        "errorMessage": "Введите объём двигателя 0.1 — 6.0"
-      }
-    ]
-  },
-  {
-    "title": "Мощность, л.с.",
-    "type": "INTEGER",
-    "alias": "enginePower",
-    "data": {
-      "singleOf": {
-        "param": "enginePower",
-        "xpath": "enginePower"
-      }
-    },
-    "required-condition": true,
-    "editable-condition": true
-  },
-  {
-    "title": "Наддув",
-    "type": "BOOLEAN",
-    "alias": "turbo",
-    "data": {
-      "singleOf": {
-        "param": "turbo",
-        "xpath": "turbo"
-      }
-    },
-    "required-condition": false,
-    "editable-condition": true
-  },
-  {
-    "title": "Коробка передач",
-    "type": "LIST",
-    "alias": "transmission",
-    "data": {
-      "singleOf": {
-        "param": "transmission",
-        "source": [
-          {
-            "title": "Механика",
-            "value": "MT"
-          },
-          {
-            "title": "Автомат",
-            "value": "AT"
-          },
-          {
-            "title": "Робот",
-            "value": "AMT"
-          },
-          {
-            "title": "Вариатор",
-            "value": "CVT"
-          }
-        ],
-        "xpath": "transmission.value"
-      }
-    },
-    "visible-condition": true,
-    "required-condition": true,
-    "editable-condition": true
-  },
-  {
-    "title": "Привод",
-    "type": "LIST",
-    "alias": "drive",
-    "data": {
-      "singleOf": {
-        "param": "drive",
-        "source": [
-          {
-            "title": "Передний",
-            "value": "frontWheelDrive"
-          },
-          {
-            "title": "Задний",
-            "value": "rearWheelDrive"
-          },
-          {
-            "title": "Полный",
-            "value": "fullDrive"
-          }
-        ],
-        "xpath": "drive.value"
-      }
-    },
-    "visible-condition": true,
-    "required-condition": true,
-    "editable-condition": true
-  },
-  {
-    "title": "Детали",
-    "type": "HEADER",
-    "icon": "address"
-  },
-  {
-    "title": "Руль",
-    "type": "LIST",
-    "alias": "steeringWheel",
-    "data": {
-      "singleOf": {
-        "param": "steeringWheel",
-        "source": [
-          {
-            "title": "Левый",
-            "value": "left"
-          },
-          {
-            "title": "Правый",
-            "value": "right"
-          }
-        ],
-        "xpath": "steeringWheel.value"
-      }
-    },
-    "visible-condition": true,
-    "required-condition": true,
     "editable-condition": true
   },
   {
@@ -514,49 +381,190 @@
     "editable-condition": true
   },
   {
-    "title": "Пробег, км",
-    "type": "INTEGER",
-    "alias": "milage",
-    "data": {
-      "singleOf": {
-        "param": "milage",
-        "xpath": "milage"
-      }
-    },
-    "required-condition": true,
-    "visible-condition": {
-      "vehicleType.value": "usedcar" 
-    },
-    "editable-condition": true
-  }, 
-  {
-    "title": "Состояние",
+    "title": "Тип топлива",
     "type": "LIST",
-    "alias": "condition",
+    "alias": "engineType",
     "data": {
       "singleOf": {
-        "param": "condition",
+        "param": "engineType",
         "source": [
           {
-            "title": "Не битый",
-            "value": "undamaged"
+            "title": "Бензин",
+            "value": "gasoline"
           },
           {
-            "title": "Битый",
-            "value": "damaged"
+            "title": "Дизель",
+            "value": "diesel"
+          },
+          {
+            "title": "Гибрид",
+            "value": "hybrid"
+          },
+          {
+            "title": "Электро",
+            "value": "electro"
+          },
+          {
+            "title": "Газ",
+            "value": "gas"
           }
         ],
-        "xpath": "condition.value",
-        "default-value": {
-          "title": "Не битый",
-          "value": "undamaged"
+        "xpath": "engineType.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Наддув",
+    "type": "BOOLEAN",
+    "alias": "turbo",
+    "data": {
+      "singleOf": {
+        "param": "turbo",
+        "xpath": "turbo"
+      }
+    },
+    "required-condition": false,
+    "editable-condition": true
+  },
+  {
+    "title": "Объём двигателя",
+    "type": "DECIMAL",
+    "alias": "engineCapacity",
+    "data": {
+      "singleOf": {
+        "param": "engineCapacity",
+        "xpath": "engineCapacity"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$not": {
+        "engineType.value":"electro"
         }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "engineCapacity": {
+                "$gte": 0.1
+              }
+            },
+            {
+              "engineCapacity": {
+                "$type": "decimal"
+              }
+            },
+            {
+              "engineCapacity": {
+                "$lte": 6.0
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите объём двигателя 0.1 — 6.0"
+      }
+    ]
+  },
+  {
+    "title": "Мощность, л.с.",
+    "type": "INTEGER",
+    "alias": "enginePower",
+    "data": {
+      "singleOf": {
+        "param": "enginePower",
+        "xpath": "enginePower"
       }
     },
     "required-condition": true,
-    "visible-condition": {
-      "vehicleType.value": "usedcar" 
+    "editable-condition": true
+  },
+  {
+    "title": "Коробка передач",
+    "type": "LIST",
+    "alias": "transmission",
+    "data": {
+      "singleOf": {
+        "param": "transmission",
+        "source": [
+          {
+            "title": "Механика",
+            "value": "MT"
+          },
+          {
+            "title": "Автомат",
+            "value": "AT"
+          },
+          {
+            "title": "Робот",
+            "value": "AMT"
+          },
+          {
+            "title": "Вариатор",
+            "value": "CVT"
+          }
+        ],
+        "xpath": "transmission.value"
+      }
     },
+    "visible-condition": true,
+    "required-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Привод",
+    "type": "LIST",
+    "alias": "drive",
+    "data": {
+      "singleOf": {
+        "param": "drive",
+        "source": [
+          {
+            "title": "Передний",
+            "value": "frontWheelDrive"
+          },
+          {
+            "title": "Задний",
+            "value": "rearWheelDrive"
+          },
+          {
+            "title": "Полный",
+            "value": "fullDrive"
+          }
+        ],
+        "xpath": "drive.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Руль",
+    "type": "LIST",
+    "alias": "steeringWheel",
+    "data": {
+      "singleOf": {
+        "param": "steeringWheel",
+        "source": [
+          {
+            "title": "Левый",
+            "value": "left"
+          },
+          {
+            "title": "Правый",
+            "value": "right"
+          }
+        ],
+        "xpath": "steeringWheel.value"
+      }
+    },
+    "visible-condition": true,
+    "required-condition": true,
     "editable-condition": true
   },
   {
@@ -618,19 +626,6 @@
     "visible-condition": true,
     "required-condition": false,
     "editable-condition": true
-  },
-  {
-    "title": "Номер свидетельства ТС",
-    "type": "STRING",
-    "alias": "sts",
-    "data": {
-      "singleOf": {
-        "param": "sts",
-        "xpath": "sts"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": true
   },
   {
     "title": "Комплектация",
@@ -1431,9 +1426,109 @@
     }
   },
   {
-    "title": "Расположение",
+    "title": "Внутренняя информация (видна только вам)",
     "type": "HEADER",
-    "icon": "address"
+    "icon": "params"
+  },
+  {
+    "title": "Лист приемки",
+    "type": "IMAGES",
+    "alias": "checklist",
+    "data": {
+      "singleOf": {
+        "param": "checklist",
+        "xpath": "checklist"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Внутренняя оценка, руб",
+    "type": "INTEGER",
+    "alias": "suggestedPrice",
+    "data": {
+      "singleOf": {
+        "param": "price",
+        "xpath": "price"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "suggestedPrice": {
+                "$gte": 0
+              }
+            },
+            {
+              "suggestedPrice": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите корректное значение"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Комментарий",
+    "type": "STRING",
+    "alias": "comment",
+    "data": {
+      "singleOf": {
+        "param": "comment",
+        "xpath": "comment"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Контакты",
+    "type": "HEADER",
+    "icon": "contacts"
+  },
+  {
+    "title": "Название компании",
+    "type": "STRING",
+    "alias": "companyName",
+    "data": {
+      "singleOf": {
+        "param": "companyName",
+        "xpath": "companyName"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "companyName": {
+            "$length": {
+              "$lte": 60
+            }
+          }
+        },
+        "errorMessage": "Не более 60 символов"
+      }
+    ],
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Регион",
@@ -1511,39 +1606,6 @@
     }
   },
   {
-    "title": "Контакты",
-    "type": "HEADER",
-    "icon": "contacts"
-  },
-  {
-    "title": "Название компании",
-    "type": "STRING",
-    "alias": "companyName",
-    "data": {
-      "singleOf": {
-        "param": "companyName",
-        "xpath": "companyName"
-      }
-    },
-    "required-condition": true,
-    "visible-condition": true,
-    "valid-conditions": [
-      {
-        "condition": {
-          "companyName": {
-            "$length": {
-              "$lte": 60
-            }
-          }
-        },
-        "errorMessage": "Не более 60 символов"
-      }
-    ],
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
     "title": "Контактное лицо",
     "type": "STRING",
     "alias": "contactName",
@@ -1598,78 +1660,6 @@
       }
     },
     "required-condition": true,
-    "visible-condition": true,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
-    "title": "Заметки (видны только вам)",
-    "type": "HEADER",
-    "icon": "params"
-  },
-  {
-    "title": "Лист приемки",
-    "type": "IMAGES",
-    "alias": "checklist",
-    "data": {
-      "singleOf": {
-        "param": "checklist",
-        "xpath": "checklist"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": true,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
-    "title": "Внутренняя оценка, руб",
-    "type": "INTEGER",
-    "alias": "suggestedPrice",
-    "data": {
-      "singleOf": {
-        "param": "price",
-        "xpath": "price"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": true,
-    "valid-conditions": [
-      {
-        "condition": {
-          "$and": [
-            {
-              "suggestedPrice": {
-                "$gte": 0
-              }
-            },
-            {
-              "suggestedPrice": {
-                "$type": "integer"
-              }
-            }
-          ]
-        },
-        "errorMessage": "Введите корректное значение"
-      }
-    ],
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
-    "title": "Комментарий",
-    "type": "STRING",
-    "alias": "comment",
-    "data": {
-      "singleOf": {
-        "param": "comment",
-        "xpath": "comment"
-      }
-    },
-    "required-condition": false,
     "visible-condition": true,
     "editable-condition": {
       "isFromAutoupload": false
