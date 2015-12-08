@@ -1069,10 +1069,24 @@
           ]
         },
         {
-          "objectType.group.value": "suburban"
+          "$and": [
+            {
+              "isSell.value": true
+            },
+            {
+              "objectType.group.value": "suburban"
+            }
+          ]
         },
         {
-          "objectType.value": "room"
+          "$and": [
+            {
+              "isSell.value": true
+            },
+            {
+              "objectType.value": "room"
+            }
+          ]
         }
       ]
     },
