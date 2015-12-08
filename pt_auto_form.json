@@ -9,9 +9,14 @@
     "type": "STRING",
     "alias": "brand",
     "data": {
-      "singleOf": {
+      "title": {
         "param": "brand",
-        "xpath": "brand"
+        "xpath": "brand.name",
+        "api":"getBrands"
+      },
+      "value": {
+        "param": "brandId",
+        "xpath": "brand.id"
       }
     },
     "required-condition": true,
@@ -23,11 +28,16 @@
   {
     "title": "Модель",
     "type": "STRING",
-    "alias": "modelName",
+    "alias": "model",
     "data": {
-      "singleOf": {
+      "title": {
         "param": "modelName",
-        "xpath": "modelName"
+        "xpath": "model.name",
+        "api":"getModels"
+      },
+      "value": {
+        "param": "modelId",
+        "xpath": "model.id"
       }
     },
     "required-condition": true,
