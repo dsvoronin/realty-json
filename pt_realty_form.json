@@ -2346,75 +2346,6 @@
     }
   },
   {
-    "title": "Фотографии и описание",
-    "type": "HEADER",
-    "icon": "photo"
-  },
-  {
-    "title": "Фотографии",
-    "type": "IMAGES",
-    "alias": "photos",
-    "data": {
-      "singleOf": {
-        "param": "photos",
-        "xpath": "photos"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": true,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
-    "title": "Планировка",
-    "type": "IMAGES",
-    "alias": "planningImages",
-    "data": {
-      "singleOf": {
-        "param": "planningImages",
-        "xpath": "planningImages"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": true,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
-    "title": "Описание",
-    "type": "STRING",
-    "alias": "description",
-    "data": {
-      "singleOf": {
-        "param": "description",
-        "xpath": "description"
-      }
-    },
-    "required-condition": true,
-    "visible-condition": true,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
-    "title": "Видео",
-    "type": "STRING",
-    "alias": "video",
-    "data": {
-      "singleOf": {
-        "param": "video",
-        "xpath": "video"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": false,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
     "title": "Дополнительные параметры",
     "type": "HEADER",
     "icon": "params",
@@ -3332,6 +3263,75 @@
     },
     "required-condition": true,
     "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+    {
+    "title": "Фотографии и описание",
+    "type": "HEADER",
+    "icon": "photo"
+  },
+  {
+    "title": "Фотографии",
+    "type": "IMAGES",
+    "alias": "photos",
+    "data": {
+      "singleOf": {
+        "param": "photos",
+        "xpath": "photos"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Планировка",
+    "type": "IMAGES",
+    "alias": "planningImages",
+    "data": {
+      "singleOf": {
+        "param": "planningImages",
+        "xpath": "planningImages"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Описание",
+    "type": "STRING",
+    "alias": "description",
+    "data": {
+      "singleOf": {
+        "param": "description",
+        "xpath": "description"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Видео",
+    "type": "STRING",
+    "alias": "video",
+    "data": {
+      "singleOf": {
+        "param": "video",
+        "xpath": "video"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": false,
     "editable-condition": {
       "isFromAutoupload": false
     }
