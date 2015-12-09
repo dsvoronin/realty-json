@@ -18,8 +18,8 @@
         ],
         "xpath": "vehicleType.value",
         "default-value": {
-          "title": "Новый",
-          "value": "newcar"
+          "title": "Подержанный",
+          "value": "usedcar"
         }
       }
     },
