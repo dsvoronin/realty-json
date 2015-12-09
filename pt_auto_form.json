@@ -12,7 +12,7 @@
       "singleOf": {
         "param": "brand",
         "xpath": "brand.name",
-        "api":"getBrands"
+        "api":"autoOffer/getBrands"
       },
       "extra": {
         "param": "brandId",
@@ -33,7 +33,7 @@
       "singleOf": {
         "param": "modelName",
         "xpath": "model.name",
-        "api":"getModels"
+        "api":"autoOffer/getModels"
       },
       "extra": {
         "param": "modelId",
