@@ -38,31 +38,34 @@
     "alias": "brand",
     "data": {
       "singleOf": {
-        "param": "brand",
-        "xpath": "brand"
+        "param": "brandId",
+        "xpath": "brand.id",
+        "api": "autoOffer/getBrands"
       }
     },
     "required-condition": true,
     "visible-condition": true,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
+    "editable-condition": false
   },
   {
     "title": "Модель",
     "type": "STRING",
-    "alias": "modelName",
+    "alias": "model",
     "data": {
       "singleOf": {
-        "param": "modelName",
-        "xpath": "modelName"
+        "param": "modelId",
+        "xpath": "model.id",
+        "api": "autoOffer/getModels?brandId=${brand.id}"
       }
     },
     "required-condition": true,
-    "visible-condition": true,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
+    "visible-condition": {
+      "brand.hasModels": true
+    },
+    "editable-condition": false,
+    "clear-triggers": [
+      "brand"
+    ]
   },
   {
     "title": "Год выпуска",
@@ -99,7 +102,8 @@
         },
         "errorMessage": "Введите год выпуска 1960 — 2015"
       }
-    ]
+    ],
+    "editable-condition": true
   },
   {
     "title": "Пробег, км",
