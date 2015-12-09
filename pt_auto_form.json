@@ -10,13 +10,9 @@
     "alias": "brand",
     "data": {
       "singleOf": {
-        "param": "brand",
-        "xpath": "brand.name",
-        "api":"autoOffer/getBrands"
-      },
-      "extra": {
         "param": "brandId",
-        "xpath": "brand.id"
+        "xpath": "brand.id",
+        "api":"autoOffer/getBrands"
       }
     },
     "required-condition": true,
@@ -31,13 +27,9 @@
     "alias": "model",
     "data": {
       "singleOf": {
-        "param": "modelName",
-        "xpath": "model.name",
-        "api":"autoOffer/getModels?brandId=${brand.id}"
-      },
-      "extra": {
         "param": "modelId",
-        "xpath": "model.id"
+        "xpath": "model.id",
+        "api":"autoOffer/getModels?brandId=${brand.id}"
       }
     },
     "required-condition": true,
