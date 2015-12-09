@@ -69,40 +69,17 @@
   },
   {
     "title": "Год выпуска",
-    "type": "INTEGER",
+    "type": "STRING",
     "alias": "year",
     "data": {
       "singleOf": {
-        "param": "year",
-        "xpath": "year"
+        "param": "yearId",
+        "xpath": "year.id",
+        "api": "autoOffer/years"
       }
     },
     "required-condition": true,
     "visible-condition": true,
-    "valid-conditions": [
-      {
-        "condition": {
-          "$and": [
-            {
-              "year": {
-                "$gte": 1960
-              }
-            },
-            {
-              "year": {
-                "$type": "integer"
-              }
-            },
-            {
-              "year": {
-                "$lte": 2015
-              }
-            }
-          ]
-        },
-        "errorMessage": "Введите год выпуска 1960 — 2015"
-      }
-    ],
     "editable-condition": true
   },
   {
