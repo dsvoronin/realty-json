@@ -33,7 +33,7 @@
       "singleOf": {
         "param": "modelName",
         "xpath": "model.name",
-        "api":"autoOffer/getModels"
+        "api":"autoOffer/getModels?brandId=${brand.id}"
       },
       "extra": {
         "param": "modelId",
