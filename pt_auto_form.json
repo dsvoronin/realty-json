@@ -85,18 +85,45 @@
   {
     "title": "Пробег, км",
     "type": "INTEGER",
-    "alias": "milage",
+    "alias": "mileage",
     "data": {
       "singleOf": {
-        "param": "milage",
-        "xpath": "milage"
+        "param": "mileage",
+        "xpath": "mileage"
       }
     },
     "required-condition": true,
     "visible-condition": {
       "vehicleType.value": "usedcar" 
     },
-    "editable-condition": true
+    "editable-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "mileage": {
+                "$gt": 0
+              }
+            },
+            {
+              "mileage": {
+                "$lt": 100000000
+              }
+            },
+            {
+              "mileage": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите целое положительное число"
+      }
+    ],
+    "clear-triggers": [
+      "vehicleType"
+    ]
   }, 
   {
     "title": "Состояние",
@@ -115,18 +142,17 @@
             "value": "damaged"
           }
         ],
-        "xpath": "condition.value",
-        "default-value": {
-          "title": "Не битый",
-          "value": "undamaged"
-        }
+        "xpath": "condition.value"
       }
     },
-    "required-condition": true,
+    "required-condition": false,
     "visible-condition": {
       "vehicleType.value": "usedcar" 
     },
-    "editable-condition": true
+    "editable-condition": true,
+    "clear-triggers": [
+      "vehicleType"
+    ]
   },
   {
     "title": "VIN",
