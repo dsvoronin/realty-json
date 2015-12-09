@@ -165,7 +165,23 @@
       }
     },
     "required-condition": false,
-    "visible-condition": true
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "vin": {
+                "$length": {
+                  "$eq": 17
+                }
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите корректный VIN-номер: 17 символов, вместо букв I, O, Q используйте цифры 1 и 0"
+      }
+    ]
   },
   {
     "title": "Номер свидетельства ТС",
@@ -178,7 +194,23 @@
       }
     },
     "required-condition": false,
-    "visible-condition": true
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "sts": {
+                "$length": {
+                  "$eq": 10
+                }
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите корректный Номер свидетельства ТС: 10 символов, образец: 12АА123456 (при написании используется кириллица) или 1200123456"
+      }
+    ]
   },
   {
     "title": "Тип кузова",
