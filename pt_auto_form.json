@@ -118,7 +118,7 @@
             }
           ]
         },
-        "errorMessage": "Введите целое положительное число"
+        "errorMessage": "Введите корректное значение"
       }
     ],
     "clear-triggers": [
@@ -768,7 +768,7 @@
             }
           ]
         },
-        "errorMessage": "Введите целое положительное число не больше 1000"
+        "errorMessage": "Введите корректное значение"
       }
     ]
   },
@@ -930,15 +930,15 @@
         "param": "wheelBooster",
         "source": [
           {
-            "title": "Гидро",
+            "title": "Гидро-",
             "value": "hydro"
           },
           {
-            "title": "Электрогидро",
+            "title": "Электрогидро-",
             "value": "hydroElectro"
           },
           {
-            "title": "Электро",
+            "title": "Электро-",
             "value": "electro"
           }
         ],
@@ -952,7 +952,7 @@
   {
     "title": "Помощь при вождении",
     "type": "CHECKBOX_LIST",
-    "alias": "maintenance",
+    "alias": "driveAssistance",
     "data": {
       "singleOf": {
         "param": "driveAssistance",
