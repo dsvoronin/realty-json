@@ -80,7 +80,9 @@
     },
     "required-condition": true,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Пробег, км",
@@ -96,7 +98,9 @@
     "visible-condition": {
       "vehicleType.value": "usedcar" 
     },
-    "editable-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    },
     "valid-conditions": [
       {
         "condition": {
@@ -149,7 +153,9 @@
     "visible-condition": {
       "vehicleType.value": "usedcar" 
     },
-    "editable-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    },
     "clear-triggers": [
       "vehicleType"
     ]
@@ -273,7 +279,9 @@
       }
     },
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Количество дверей",
@@ -305,7 +313,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Цвет",
@@ -417,7 +427,9 @@
     },
     "visible-condition": true,
     "required-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Тип топлива",
@@ -453,7 +465,9 @@
     },
     "visible-condition": true,
     "required-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Наддув",
@@ -467,7 +481,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Объём двигателя",
@@ -730,7 +746,9 @@
         "engineType.value":"electro"
       }
     },
-    "editable-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    },
     "clear-triggers": [
       "engineType"
     ]
@@ -746,7 +764,9 @@
       }
     },
     "required-condition": true,
-    "editable-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    },
     "valid-conditions": [
       {
         "condition": {
@@ -802,7 +822,9 @@
     },
     "visible-condition": true,
     "required-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Привод",
@@ -830,7 +852,9 @@
     },
     "visible-condition": true,
     "required-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Руль",
@@ -854,7 +878,9 @@
     },
     "visible-condition": true,
     "required-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Владельцев по ПТС",
@@ -886,7 +912,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Данные о ТО",
@@ -914,7 +942,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Комплектация",
@@ -947,7 +977,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Помощь при вождении",
@@ -999,7 +1031,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Управление климатом",
@@ -1027,7 +1061,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Управление на руле",
@@ -1041,7 +1077,9 @@
     },
     "required-condition": false,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Атермальное остекление",
@@ -1055,7 +1093,9 @@
     },
     "required-condition": false,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Обогрев",
@@ -1092,7 +1132,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Электропривод",
@@ -1128,7 +1170,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Память настроек",
@@ -1161,7 +1205,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Электростеклоподъемники",
@@ -1185,7 +1231,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Салон",
@@ -1217,7 +1265,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Кожанный руль",
@@ -1231,7 +1281,9 @@
     },
     "required-condition": false,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Люк",
@@ -1245,7 +1297,9 @@
     },
     "required-condition": false,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Противоугонная система",
@@ -1277,7 +1331,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Подушки безопасности",
@@ -1313,7 +1369,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Активная безопасность",
@@ -1357,7 +1415,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Мультимедиа и навигация",
@@ -1413,7 +1473,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Аудиосистема",
@@ -1445,7 +1507,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Сабвуфер",
@@ -1459,7 +1523,9 @@
     },
     "required-condition": false,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Фары",
@@ -1487,7 +1553,9 @@
     },
     "visible-condition": true,
     "required-condition": false,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Омыватели фар",
@@ -1501,7 +1569,9 @@
     },
     "required-condition": false,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Противотуманные фары",
@@ -1515,7 +1585,9 @@
     },
     "required-condition": false,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Адаптивное освещение",
@@ -1529,7 +1601,9 @@
     },
     "required-condition": false,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Диаметр дисков, дюймы",
@@ -1567,7 +1641,9 @@
         "errorMessage": "Введите корректное значение"
       }
     ],
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Зимние шины в комплекте",
@@ -1581,7 +1657,9 @@
     },
     "required-condition": false,
     "visible-condition": true,
-    "editable-condition": true
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Цена и описание",
