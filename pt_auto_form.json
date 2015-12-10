@@ -465,48 +465,274 @@
         "xpath": "turbo"
       }
     },
+    "visible-condition": true,
     "required-condition": false,
     "editable-condition": true
   },
   {
     "title": "Объём двигателя",
-    "type": "DECIMAL",
+    "type": "LIST",
     "alias": "engineCapacity",
     "data": {
       "singleOf": {
         "param": "engineCapacity",
-        "xpath": "engineCapacity"
+        "source": [
+          {
+            "title": "0.1",
+            "value": "0.1"
+          },
+          {
+            "title": "0.2",
+            "value": "0.2"
+          },
+          {
+            "title": "0.3",
+            "value": "0.3"
+          },
+          {
+            "title": "0.4",
+            "value": "0.4"
+          },
+          {
+            "title": "0.5",
+            "value": "0.5"
+          },
+          {
+            "title": "0.6",
+            "value": "0.6"
+          },
+          {
+            "title": "0.7",
+            "value": "0.7"
+          },
+          {
+            "title": "0.8",
+            "value": "0.8"
+          },
+          {
+            "title": "0.9",
+            "value": "0.9"
+          },
+          {
+            "title": "1.0",
+            "value": "1.0"
+          },
+          {
+            "title": "1.1",
+            "value": "1.1"
+          },
+          {
+            "title": "1.2",
+            "value": "1.2"
+          },
+          {
+            "title": "1.3",
+            "value": "1.3"
+          },
+          {
+            "title": "1.4",
+            "value": "1.4"
+          },
+          {
+            "title": "1.5",
+            "value": "1.5"
+          },
+          {
+            "title": "1.6",
+            "value": "1.6"
+          },
+          {
+            "title": "1.7",
+            "value": "1.7"
+          },
+          {
+            "title": "1.8",
+            "value": "1.8"
+          },
+          {
+            "title": "1.9",
+            "value": "1.9"
+          },{
+            "title": "2.0",
+            "value": "2.0"
+          },
+          {
+            "title": "2.1",
+            "value": "2.1"
+          },
+          {
+            "title": "2.2",
+            "value": "2.2"
+          },
+          {
+            "title": "2.3",
+            "value": "2.3"
+          },
+          {
+            "title": "2.4",
+            "value": "2.4"
+          },
+          {
+            "title": "2.5",
+            "value": "2.5"
+          },
+          {
+            "title": "2.6",
+            "value": "2.6"
+          },
+          {
+            "title": "2.7",
+            "value": "2.7"
+          },
+          {
+            "title": "2.8",
+            "value": "2.8"
+          },
+          {
+            "title": "2.9",
+            "value": "2.9"
+          },
+          {
+            "title": "3.0",
+            "value": "3.0"
+          },
+          {
+            "title": "3.1",
+            "value": "3.1"
+          },
+          {
+            "title": "3.2",
+            "value": "3.2"
+          },
+          {
+            "title": "3.3",
+            "value": "3.3"
+          },
+          {
+            "title": "3.4",
+            "value": "3.4"
+          },
+          {
+            "title": "3.5",
+            "value": "3.5"
+          },
+          {
+            "title": "3.6",
+            "value": "3.6"
+          },
+          {
+            "title": "3.7",
+            "value": "3.7"
+          },
+          {
+            "title": "3.8",
+            "value": "3.8"
+          },
+          {
+            "title": "3.9",
+            "value": "3.9"
+          },
+          {
+            "title": "4.0",
+            "value": "4.0"
+          },
+          {
+            "title": "4.1",
+            "value": "4.1"
+          },
+          {
+            "title": "4.2",
+            "value": "4.2"
+          },
+          {
+            "title": "4.3",
+            "value": "4.3"
+          },
+          {
+            "title": "4.4",
+            "value": "4.4"
+          },
+          {
+            "title": "4.5",
+            "value": "4.5"
+          },
+          {
+            "title": "4.6",
+            "value": "4.6"
+          },
+          {
+            "title": "4.7",
+            "value": "4.7"
+          },
+          {
+            "title": "4.8",
+            "value": "4.8"
+          },
+          {
+            "title": "4.9",
+            "value": "4.9"
+          },
+          {
+            "title": "5.0",
+            "value": "5.0"
+          },
+          {
+            "title": "5.1",
+            "value": "5.1"
+          },
+          {
+            "title": "5.2",
+            "value": "5.2"
+          },
+          {
+            "title": "5.3",
+            "value": "5.3"
+          },
+          {
+            "title": "5.4",
+            "value": "5.4"
+          },
+          {
+            "title": "5.5",
+            "value": "5.5"
+          },
+          {
+            "title": "5.6",
+            "value": "5.6"
+          },
+          {
+            "title": "5.7",
+            "value": "5.7"
+          },
+          {
+            "title": "5.8",
+            "value": "5.8"
+          },
+          {
+            "title": "5.9",
+            "value": "5.9"
+          },
+          {
+            "title": "6.0",
+            "value": "6.0"
+          },
+          {
+            "title": "6.0+",
+            "value": "6.0+"
+          }
+        ],
+        "xpath": "engineCapacity.value"
       }
     },
-    "required-condition": false,
+    "required-condition": true,
     "visible-condition": {
       "$not": {
         "engineType.value":"electro"
-        }
-    },
-    "valid-conditions": [
-      {
-        "condition": {
-          "$and": [
-            {
-              "engineCapacity": {
-                "$gte": 0.1
-              }
-            },
-            {
-              "engineCapacity": {
-                "$type": "decimal"
-              }
-            },
-            {
-              "engineCapacity": {
-                "$lte": 6.0
-              }
-            }
-          ]
-        },
-        "errorMessage": "Введите объём двигателя 0.1 — 6.0"
       }
+    },
+    "editable-condition": true,
+    "clear-triggers": [
+      "engineType"
     ]
   },
   {
@@ -520,7 +746,31 @@
       }
     },
     "required-condition": true,
-    "editable-condition": true
+    "editable-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "enginePower": {
+                "$gte": 0
+              }
+            },
+            {
+              "mileage": {
+                "$lte": 1000
+              }
+            },
+            {
+              "mileage": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите целое положительное число не больше 1000"
+      }
+    ]
   },
   {
     "title": "Коробка передач",
