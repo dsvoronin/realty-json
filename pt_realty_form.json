@@ -417,7 +417,7 @@
     ]
   },
   {
-    "title": "Расстояние до города, км.",
+    "title": "До города, км.",
     "type": "DECIMAL",
     "alias": "cityDistance",
     "data": {
@@ -698,6 +698,75 @@
       "city"
     ],
     "comment": "Идентификатор дома из ФИАС"
+  },
+    {
+    "title": "Фотографии и описание",
+    "type": "HEADER",
+    "icon": "photo"
+  },
+  {
+    "title": "Фотографии",
+    "type": "IMAGES",
+    "alias": "photos",
+    "data": {
+      "singleOf": {
+        "param": "photos",
+        "xpath": "photos"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Планировка",
+    "type": "IMAGES",
+    "alias": "planningImages",
+    "data": {
+      "singleOf": {
+        "param": "planningImages",
+        "xpath": "planningImages"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Описание",
+    "type": "STRING",
+    "alias": "description",
+    "data": {
+      "singleOf": {
+        "param": "description",
+        "xpath": "description"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Видео",
+    "type": "STRING",
+    "alias": "video",
+    "data": {
+      "singleOf": {
+        "param": "video",
+        "xpath": "video"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": false,
+    "editable-condition": {
+      "isFromAutoupload": false
+    }
   },
   {
     "title": "Стоимость и условия сделки",
@@ -1060,10 +1129,24 @@
           ]
         },
         {
-          "objectType.group.value": "suburban"
+          "$and": [
+            {
+              "isSell.value": true
+            },
+            {
+              "objectType.group.value": "suburban"
+            }
+          ]
         },
         {
-          "objectType.value": "room"
+          "$and": [
+            {
+              "isSell.value": true
+            },
+            {
+              "objectType.value": "room"
+            }
+          ]
         }
       ]
     },
@@ -1242,7 +1325,7 @@
     }
   },
   {
-    "title": "Этап строительства",
+    "title": "Этап стр-ва",
     "type": "LIST",
     "alias": "isReady",
     "data": {
@@ -1284,7 +1367,7 @@
     }
   },
   {
-    "title": "Срок сдачи (год)",
+    "title": "Сдача, год",
     "type": "YEAR",
     "alias": "readyDateYear",
     "data": {
@@ -1357,7 +1440,7 @@
     }
   },
   {
-    "title": "Срок сдачи (квартал)",
+    "title": "Сдача, квартал",
     "type": "QUARTER",
     "alias": "readyDateQuarter",
     "data": {
@@ -1565,7 +1648,7 @@
     }
   },
   {
-    "title": "Число собственников",
+    "title": "Число собст-ков",
     "type": "INTEGER",
     "alias": "ownersTotal",
     "data": {
@@ -1930,7 +2013,7 @@
     }
   },
   {
-    "title": "Свободная планировка",
+    "title": "Свобод. план-ка",
     "type": "BOOLEAN",
     "alias": "isOpenPlan",
     "data": {
@@ -1961,7 +2044,7 @@
     }
   },
   {
-    "title": "Площадь жилая, м²",
+    "title": "Жилая, м²",
     "type": "DECIMAL",
     "alias": "livingSpace",
     "data": {
@@ -2003,7 +2086,7 @@
     }
   },
   {
-    "title": "Площадь кухни, м²",
+    "title": "Кухня, м²",
     "type": "DECIMAL",
     "alias": "kitchenSpace",
     "data": {
@@ -2045,7 +2128,7 @@
     }
   },
   {
-    "title": "Площадь общая, м²",
+    "title": "Общая, м²",
     "type": "DECIMAL",
     "alias": "totalSpace",
     "data": {
@@ -2154,7 +2237,7 @@
     }
   },
   {
-    "title": "Площадь на продажу, м²",
+    "title": "На продажу, м²",
     "type": "DECIMAL",
     "alias": "offeredSpace",
     "data": {
@@ -2206,7 +2289,7 @@
     }
   },
   {
-    "title": "Площадь в аренду, м²",
+    "title": "В аренду, м²",
     "type": "DECIMAL",
     "alias": "offeredLeaseSpace",
     "data": {
@@ -2258,7 +2341,7 @@
     }
   },
   {
-    "title": "Площадь участка",
+    "title": "Площадь уч-ка",
     "type": "DECIMAL",
     "alias": "landSpace",
     "data": {
@@ -2300,7 +2383,7 @@
     }
   },
   {
-    "title": "Ед. измерения площади",
+    "title": "Ед. измер. площади",
     "type": "LIST",
     "alias": "landSpaceUnit",
     "data": {
@@ -2337,75 +2420,6 @@
     }
   },
   {
-    "title": "Фотографии и описание",
-    "type": "HEADER",
-    "icon": "photo"
-  },
-  {
-    "title": "Фотографии",
-    "type": "IMAGES",
-    "alias": "photos",
-    "data": {
-      "singleOf": {
-        "param": "photos",
-        "xpath": "photos"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": true,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
-    "title": "Планировка",
-    "type": "IMAGES",
-    "alias": "planningImages",
-    "data": {
-      "singleOf": {
-        "param": "planningImages",
-        "xpath": "planningImages"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": true,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
-    "title": "Описание",
-    "type": "STRING",
-    "alias": "description",
-    "data": {
-      "singleOf": {
-        "param": "description",
-        "xpath": "description"
-      }
-    },
-    "required-condition": true,
-    "visible-condition": true,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
-    "title": "Видео",
-    "type": "STRING",
-    "alias": "video",
-    "data": {
-      "singleOf": {
-        "param": "video",
-        "xpath": "video"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": false,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
     "title": "Дополнительные параметры",
     "type": "HEADER",
     "icon": "params",
@@ -2421,15 +2435,12 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     }
   },
   {
-    "title": "Количество спальных мест",
+    "title": "Кол-во спал. мест",
     "type": "LIST",
     "alias": "sleepPlaceCount",
     "data": {
@@ -2517,9 +2528,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -2528,7 +2536,7 @@
     }
   },
   {
-    "title": "Количество кроватей",
+    "title": "Кол-во кроватей",
     "type": "LIST",
     "alias": "bedCount",
     "data": {
@@ -2584,14 +2592,31 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
     "editable-condition": {
       "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Мультимедиа",
+    "type": "HEADER",
+    "icon": "params",
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -2618,9 +2643,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -2652,9 +2674,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -2663,7 +2682,7 @@
     }
   },
   {
-    "title": "Кабельное или цифровое ТВ",
+    "title": "Кабел. или цифр. ТВ",
     "type": "BOOLEAN",
     "alias": "cableTv",
     "data": {
@@ -2686,14 +2705,31 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
     "editable-condition": {
       "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Бытовая техника",
+    "type": "HEADER",
+    "icon": "params",
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -2720,9 +2756,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -2754,9 +2787,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -2788,9 +2818,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -2799,7 +2826,7 @@
     }
   },
   {
-    "title": "Стиральная машина",
+    "title": "Стир. машина",
     "type": "BOOLEAN",
     "alias": "washingMachine",
     "data": {
@@ -2822,9 +2849,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -2856,9 +2880,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -2890,14 +2911,31 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
     "editable-condition": {
       "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Комфорт",
+    "type": "HEADER",
+    "icon": "params",
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        }
+      ]
     }
   },
   {
@@ -2924,9 +2962,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -2958,9 +2993,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -2969,7 +3001,7 @@
     }
   },
   {
-    "title": "Есть балкон или лоджия",
+    "title": "Балкон или лоджия",
     "type": "BOOLEAN",
     "alias": "balcony",
     "data": {
@@ -2987,9 +3019,6 @@
         },
         {
           "objectType.group.value": "living"
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -2998,7 +3027,7 @@
     }
   },
   {
-    "title": "Есть парковочное место",
+    "title": "Парков. место",
     "type": "BOOLEAN",
     "alias": "parking",
     "data": {
@@ -3016,9 +3045,6 @@
         },
         {
           "objectType.group.value": "living"
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -3045,9 +3071,6 @@
         },
         {
           "objectType.group.value": "suburban"
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -3074,9 +3097,6 @@
         },
         {
           "objectType.group.value": "suburban"
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -3085,7 +3105,27 @@
     }
   },
   {
-    "title": "Можно с питомцами",
+    "title": "Дополнительно разрешается",
+    "type": "HEADER",
+    "icon": "params",
+    "visible-condition": {
+      "$and": [
+        {
+          "isSell.value": false
+        },
+        {
+          "objectType.group.value": {
+            "$in": [
+              "living",
+              "suburban"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "title": "Питомцы",
     "type": "BOOLEAN",
     "alias": "petAllowed",
     "data": {
@@ -3108,9 +3148,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -3119,7 +3156,7 @@
     }
   },
   {
-    "title": "Можно с детьми",
+    "title": "Дети",
     "type": "BOOLEAN",
     "alias": "childAllowed",
     "data": {
@@ -3142,9 +3179,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -3153,7 +3187,7 @@
     }
   },
   {
-    "title": "Можно для мероприятий",
+    "title": "Мероприятия",
     "type": "BOOLEAN",
     "alias": "eventAllowed",
     "data": {
@@ -3176,9 +3210,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -3187,7 +3218,7 @@
     }
   },
   {
-    "title": "Можно курить",
+    "title": "Курение",
     "type": "BOOLEAN",
     "alias": "smokingAllowed",
     "data": {
@@ -3210,9 +3241,6 @@
               "suburban"
             ]
           }
-        },
-        {
-          "priceUnit.value": "daily"
         }
       ]
     },
@@ -3226,7 +3254,7 @@
     "icon": "contacts"
   },
   {
-    "title": "Название компании",
+    "title": "Компания",
     "type": "STRING",
     "alias": "companyName",
     "data": {
@@ -3254,7 +3282,7 @@
     }
   },
   {
-    "title": "Контактное лицо",
+    "title": "Контакт",
     "type": "STRING",
     "alias": "contactName",
     "data": {
@@ -3298,7 +3326,7 @@
     }
   },
   {
-    "title": "Электронная почта",
+    "title": "Эл. почта",
     "type": "STRING",
     "alias": "email",
     "data": {
