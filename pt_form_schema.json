@@ -264,7 +264,9 @@
       "type": "string",
       "enum": [
         "integer",
-        "decimal"
+        "@integer",
+        "decimal",
+        "@decimal"
       ],
       "additionalProperties": false
     },
