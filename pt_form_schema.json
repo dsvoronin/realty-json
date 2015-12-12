@@ -288,7 +288,7 @@
     "pathCondition": {
       "type": "object",
       "patternProperties": {
-        "\\$(gte|lte|gt|lt|eq)$": {
+        "\\$(gte|lte|gt|lt|eq|regexp)$": {
           "$ref": "#/definitions/pathConditionOperand"
         },
         "\\$in$": {
