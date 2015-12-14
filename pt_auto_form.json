@@ -117,7 +117,7 @@
             },
             {
               "mileage": {
-                "$type": "@integer"
+                "$type": "integer"
               }
             }
           ]
@@ -178,7 +178,7 @@
           "$and": [
             {
               "vin": {
-                "$regexp":"@^[A-Z0-9]{17}$"
+                "$regexp":"^[A-Z0-9]{17}$"
               }
             }
           ]
@@ -205,7 +205,7 @@
           "$and": [
             {
               "sts": {
-                "$regexp": "@^([А-Я]{2}|[0-9]{2})[0-9]{8}$"
+                "$regexp": "^(?=.{10}$)([0-9]{0,8}[А-Я]{0,2}[0-9]{0,8})$"
               }
             }
           ]
@@ -759,7 +759,7 @@
             },
             {
               "mileage": {
-                "$type": "@integer"
+                "$type": "integer"
               }
             }
           ]
@@ -1609,7 +1609,7 @@
             },
             {
               "discs": {
-                "$type": "@integer"
+                "$type": "integer"
               }
             }
           ]
@@ -1670,7 +1670,7 @@
             },
             {
               "price": {
-                "$type": "@integer"
+                "$type": "integer"
               }
             }
           ]
@@ -1817,7 +1817,7 @@
             },
             {
               "suggestedPrice": {
-                "$type": "@integer"
+                "$type": "integer"
               }
             }
           ]
