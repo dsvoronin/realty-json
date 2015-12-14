@@ -501,26 +501,17 @@
         {
           "$and": [
             {
-              "objectType.group.value": "suburban"
+              "objectType.group.value": {
+                "$in": [
+                  "suburban",
+                  "land"
+                ]
+              }
             },
             {
               "cityDistance": {
                 "$gt": 0
               }
-            },
-            {
-              "city.id": {
-                "$length": {
-                  "$gt": 0
-                }
-              }
-            }
-          ]
-        },
-        {
-          "$and": [
-            {
-              "objectType.group.value": "land"
             },
             {
               "city.id": {
