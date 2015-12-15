@@ -73,7 +73,7 @@
     "alias": "year",
     "data": {
       "singleOf": {
-        "param": "yearId",
+        "param": "year",
         "xpath": "year.id",
         "api": "autoOffer/years"
       }
