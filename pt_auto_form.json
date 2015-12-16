@@ -753,12 +753,12 @@
               }
             },
             {
-              "mileage": {
+              "enginePower": {
                 "$lte": 1000
               }
             },
             {
-              "mileage": {
+              "enginePower": {
                 "$type": "integer"
               }
             }
