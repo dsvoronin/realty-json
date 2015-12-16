@@ -275,6 +275,7 @@
       }
     },
     "visible-condition": true,
+    "required-condition": true,
     "editable-condition": {
       "isFromAutoupload": false
     }
