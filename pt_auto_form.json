@@ -12,13 +12,13 @@
             "value": "newcar"
           },
           {
-            "title": "Подержанный",
+            "title": "С пробегом",
             "value": "usedcar"
           }
         ],
         "xpath": "vehicleType.value",
         "default-value": {
-          "title": "Подержанный",
+          "title": "С пробегом",
           "value": "usedcar"
         }
       }
