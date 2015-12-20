@@ -1,0 +1,10 @@
+{
+    "name": "protools/json-form",
+    "authors": [
+        {
+            "name": "Dmitriy Voronin",
+            "email": "dvoronin@avito.ru"
+        }
+    ],
+    "require": {}
+}
