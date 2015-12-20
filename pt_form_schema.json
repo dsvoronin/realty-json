@@ -267,7 +267,9 @@
       "type": "string",
       "enum": [
         "integer",
-        "decimal"
+        "@integer",
+        "decimal",
+        "@decimal"
       ],
       "additionalProperties": false
     },
@@ -291,7 +293,7 @@
     "pathCondition": {
       "type": "object",
       "patternProperties": {
-        "\\$(gte|lte|gt|lt|eq)$": {
+        "\\$(gte|lte|gt|lt|eq|regexp)$": {
           "$ref": "#/definitions/pathConditionOperand"
         },
         "\\$in$": {
