@@ -1635,7 +1635,7 @@
       {
         "condition": {
           "objectFloor": {
-            "$lte": "floorsTotal"
+            "$lte": "@floorsTotal"
           }
         },
         "errorMessage": "Этаж объекта недвижимости должен быть меньше этажности здания"
@@ -2179,8 +2179,8 @@
           "totalSpace": {
             "$gte": {
               "$sum": [
-                "kitchenSpace",
-                "livingSpace"
+                "@kitchenSpace",
+                "@livingSpace"
               ]
             }
           }
@@ -2229,8 +2229,8 @@
           "totalHouseSpace": {
             "$gte": {
               "$sum": [
-                "kitchenSpace",
-                "livingSpace"
+                "@kitchenSpace",
+                "@livingSpace"
               ]
             }
           }
@@ -2284,7 +2284,7 @@
       {
         "condition": {
           "offeredSpace": {
-            "$lte": "totalSpace"
+            "$lte": "@totalSpace"
           }
         },
         "errorMessage": "Площадь на продажу не должна быть больше общей площади"
@@ -2336,7 +2336,7 @@
       {
         "condition": {
           "offeredLeaseSpace": {
-            "$lte": "totalSpace"
+            "$lte": "@totalSpace"
           }
         },
         "errorMessage": "Площадь в аренду не должна быть больше общей площади"
