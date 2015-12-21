@@ -647,7 +647,12 @@
           "isNew.value": false
         }
       ]
-    }
+    },
+    "clear-triggers": [
+      "region",
+      "city",
+      "street"
+    ]
   },
   {
     "title": "Улица",
@@ -789,7 +794,8 @@
     },
     "clear-triggers": [
       "region",
-      "city"
+      "city",
+      "street"
     ],
     "comment": "Идентификатор дома из ФИАС"
   },
