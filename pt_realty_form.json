@@ -236,6 +236,77 @@
     ]
   },
   {
+    "title": "Название объекта",
+    "type": "LIST",
+    "alias": "development",
+    "data": {
+      "singleOf": {
+        "param": "developmentId",
+        "api": "realtyOffer/development?cityId=${city.id}",
+        "xpath": "development.id"
+      }
+    },
+    "visible-condition": {
+     "isNew.value": true
+    },
+    "required-condition": true,
+    "editable-condition": {
+      "$and": [
+        {
+          "isFromAutoupload": false
+        },
+        {            
+          "development":
+          {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        }
+      ]
+    },
+    "clear-triggers": [
+      "region",
+      "city"
+    ],
+    "comment": "Название объекта новостройки"
+  },  
+  {
+    "title": "Корпус объекта",
+    "type": "LIST",
+    "alias": "developmentBuilding",
+    "data": {
+      "singleOf": {
+        "param": "developmentBuildingId",
+        "api": "realtyOffer/buildings?developmentId=${development.id}",
+        "xpath": "building.id"
+      }
+    },
+    "visible-condition": {
+      "development.hasBuildings.value": true
+    },
+    "required-condition": true,
+    "editable-condition": {    
+      "$and": [
+        {
+          "isFromAutoupload": false
+        },
+        {            
+          "developmentBuilding":
+          {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        }
+      ]
+    },
+    "clear-triggers": [
+      "development"
+    ],
+    "comment": "Корпус объекта новостройки"
+  },    
+  {
     "title": "В черте города",
     "type": "BOOLEAN",
     "alias": "isWithinCity",
@@ -1114,7 +1185,7 @@
     },
     "required-condition": false,
     "visible-condition": {
-      "$or": [
+      "$and": [
         {
           "$and": [
             {
@@ -1122,26 +1193,16 @@
             },
             {
               "isSell.value": true
-            },
-            {
-              "objectType.value": "flat"
             }
           ]
         },
         {
-          "$and": [
+          "$or": [
             {
-              "isSell.value": true
+              "objectType.value": "flat"
             },
             {
               "objectType.group.value": "suburban"
-            }
-          ]
-        },
-        {
-          "$and": [
-            {
-              "isSell.value": true
             },
             {
               "objectType.value": "room"
