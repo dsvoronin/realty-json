@@ -336,39 +336,46 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "$or": [
+      "$and": [
         {
-          "$and": [
-            {
-              "city.hasMetro": true
-            },
-            {
-              "objectType.group.value": {
-                "$in": [
-                  "living",
-                  "commercial"
-                ]
-              }
-            }
-          ]
+          "isNew": false
         },
         {
-          "$and": [
+          "$or": [
             {
-              "city.hasMetro": true
+              "$and": [
+                {
+                  "city.hasMetro": true
+                },
+                {
+                  "objectType.group.value": {
+                    "$in": [
+                      "living",
+                      "commercial"
+                    ]
+                  }
+                }
+              ]
             },
             {
-              "cityDistance": {
-                "$eq": 0
-              }
-            },
-            {
-              "objectType.group.value": {
-                "$in": [
-                  "suburban",
-                  "land"
-                ]
-              }
+              "$and": [
+                {
+                  "city.hasMetro": true
+                },
+                {
+                  "cityDistance": {
+                    "$eq": 0
+                  }
+                },
+                {
+                  "objectType.group.value": {
+                    "$in": [
+                      "suburban",
+                      "land"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -395,45 +402,52 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "$or": [
+      "$and": [
         {
-          "$and": [
-            {
-              "city.hasMetro": false
-            },
-            {
-              "city.hasDistrict": true
-            },
-            {
-              "objectType.group.value": {
-                "$in": [
-                  "living",
-                  "commercial"
-                ]
-              }
-            }
-          ]
+          "isNew": false
         },
         {
-          "$and": [
+          "$or": [
             {
-              "city.hasMetro": false
+              "$and": [
+                {
+                  "city.hasMetro": false
+                },
+                {
+                  "city.hasDistrict": true
+                },
+                {
+                  "objectType.group.value": {
+                    "$in": [
+                      "living",
+                      "commercial"
+                    ]
+                  }
+                }
+              ]
             },
             {
-              "city.hasDistrict": true
-            },
-            {
-              "cityDistance": {
-                "$eq": 0
-              }
-            },
-            {
-              "objectType.group.value": {
-                "$in": [
-                  "suburban",
-                  "land"
-                ]
-              }
+              "$and": [
+                {
+                  "city.hasMetro": false
+                },
+                {
+                  "city.hasDistrict": true
+                },
+                {
+                  "cityDistance": {
+                    "$eq": 0
+                  }
+                },
+                {
+                  "objectType.group.value": {
+                    "$in": [
+                      "suburban",
+                      "land"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -554,44 +568,29 @@
     },
     "required-condition": false,
     "visible-condition": {
-      "$or": [
+      "$and": [
         {
-          "$and": [
-            {
-              "isNew.value": true
-            },
-            {
-              "city.id": {
-                "$length": {
-                  "$gt": 0
-                }
-              }
-            }
-          ]
+          "isNew": false
         },
         {
-          "$and": [
-            {
-              "objectType.group.value": {
-                "$in": [
-                  "suburban",
-                  "land"
-                ]
-              }
-            },
-            {
-              "cityDistance": {
-                "$gt": 0
-              }
-            },
-            {
-              "city.id": {
-                "$length": {
-                  "$gt": 0
-                }
-              }
+          "objectType.group.value": {
+            "$in": [
+              "suburban",
+              "land"
+            ]
+          }
+        },
+        {
+          "cityDistance": {
+            "$gt": 0
+          }
+        },
+        {
+          "city.id": {
+            "$length": {
+              "$gt": 0
             }
-          ]
+          }
         }
       ]
     },
@@ -629,7 +628,14 @@
     },
     "required-condition": true,
     "editable-condition": {
-      "isFromAutoupload": false
+      "$and": [
+        {
+          "isFromAutoupload": false
+        },
+        {
+          "isNew": false
+        }
+      ]
     }
   },
   {
@@ -645,6 +651,9 @@
     },
     "visible-condition": {
       "$and": [
+        {
+          "isNew": false
+        },
         {
           "hasNoAddress": false
         },
@@ -729,6 +738,9 @@
     },
     "visible-condition": {
       "$and": [
+        {
+          "isNew": false
+        },
         {
           "$not": {
             "objectType.group.value": "land"
