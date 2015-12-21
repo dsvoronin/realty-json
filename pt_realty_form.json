@@ -242,7 +242,7 @@
     "data": {
       "singleOf": {
         "param": "developmentId",
-        "api": "realtyOffer/development?cityId=${city.id}",
+        "api": "realtyOffer/suggestDevelopments?cityId=${city.id}",
         "xpath": "development.id"
       }
     },
