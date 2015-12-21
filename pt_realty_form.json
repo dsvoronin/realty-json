@@ -247,7 +247,18 @@
       }
     },
     "visible-condition": {
-     "isNew.value": true
+      "$and": [
+        {
+          "isNew.value": true 
+        },
+        {
+          "city.id": {
+            "$length" : {
+              "$gt":0
+            }
+          }
+        }
+      ]
     },
     "required-condition": true,
     "editable-condition": {
@@ -283,7 +294,7 @@
       }
     },
     "visible-condition": {
-      "development.hasBuildings.value": true
+      "development.hasBuildings": true
     },
     "required-condition": true,
     "editable-condition": {    
