@@ -284,7 +284,7 @@
   },  
   {
     "title": "Корпус объекта",
-    "type": "FIAS_DEVELOPMENTBUILDING",
+    "type": "FIAS_DEVELOPMENT_BUILDING",
     "alias": "developmentBuilding",
     "data": {
       "singleOf": {
