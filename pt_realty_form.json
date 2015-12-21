@@ -237,7 +237,7 @@
   },
   {
     "title": "Название объекта",
-    "type": "LIST",
+    "type": "FIAS_DEVELOPMENT",
     "alias": "development",
     "data": {
       "singleOf": {
@@ -284,7 +284,7 @@
   },  
   {
     "title": "Корпус объекта",
-    "type": "LIST",
+    "type": "FIAS_DEVELOPMENTBUILDING",
     "alias": "developmentBuilding",
     "data": {
       "singleOf": {
