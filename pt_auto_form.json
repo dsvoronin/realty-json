@@ -1592,7 +1592,7 @@
         "xpath": "discs"
       }
     },
-    "required-condition": true,
+    "required-condition": false,
     "visible-condition": true,
     "valid-conditions": [
       {
