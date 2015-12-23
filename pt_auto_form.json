@@ -384,7 +384,7 @@
           },
           {
             "title":"Пурпурный",
-            "value":"purple",
+            "value":"magenta",
             "hexFrom":"C302AB",
             "hexTo":"C302AB"
           },
@@ -408,7 +408,7 @@
           },
           {
             "title":"Фиолетовый",
-            "value":"magenta",
+            "value":"purple",
             "hexFrom":"7F02FF",
             "hexTo":"7F02FF"
           },
