@@ -1753,13 +1753,6 @@
             "value": "5"
           },
           {
-            "title": "6",
-            "value": "6",
-            "visible-condition": {
-              "objectType.group.value": "suburban"
-            }
-          },
-          {
             "title": "6+",
             "value": "6+"
           },
