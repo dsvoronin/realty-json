@@ -205,12 +205,12 @@
     "data": {
       "singleOf": {
         "param": "locationId",
-        "xpath": "location.id",
+        "xpath": "location.value.id",
         "api": "/rest/realtyOffer/getFilters/"
       },
       "locationType": {
         "param":"locationType",
-        "xpath":"location.type"
+        "xpath":"location.value.type"
       }
     },
     "visible-condition": true
