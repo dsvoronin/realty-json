@@ -559,7 +559,12 @@
     "required-condition": true,
     "editable-condition": {
       "isFromAutoupload": false
-    }
+    },
+    "clear-triggers": [
+      "region",
+      "city",
+      "street"
+    ]
   },
   {
     "title": "Улица",
@@ -695,7 +700,8 @@
     },
     "clear-triggers": [
       "region",
-      "city"
+      "city",
+      "street"
     ],
     "comment": "Идентификатор дома из ФИАС"
   },
@@ -1745,13 +1751,6 @@
           {
             "title": "5",
             "value": "5"
-          },
-          {
-            "title": "6",
-            "value": "6",
-            "visible-condition": {
-              "objectType.group.value": "suburban"
-            }
           },
           {
             "title": "6+",
