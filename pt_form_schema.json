@@ -12,7 +12,43 @@
         },
         {
           "$ref": "#/definitions/formElement"
+        },
+        {
+          "$ref": "#/definitions/compoundElement"
         }
+      ]
+    },
+    "compoundElement": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "pattern": "^[A-Z_]+$"
+        },
+        "alias": {
+          "$ref": "#/definitions/alias"
+        },
+        "children": {
+          "$ref": "#/definitions/children"
+        },
+        "required-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "editable-condition": {
+          "$ref": "#/definitions/someCondition"
+        },
+        "visible-condition": {
+          "$ref": "#/definitions/someCondition"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "type",
+        "children"
       ]
     },
     "headerElement": {
@@ -87,6 +123,12 @@
         "type",
         "alias"
       ]
+    },
+    "children": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/formElement"
+      }
     },
     "paramData": {
       "type": "object",
