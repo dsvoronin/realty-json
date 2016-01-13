@@ -706,7 +706,7 @@
     "comment": "Идентификатор дома из ФИАС"
   },
     {
-    "title": "Фотографии и описание",
+    "title": "Фото",
     "type": "HEADER",
     "icon": "photo"
   },
@@ -726,6 +726,11 @@
       "isFromAutoupload": false
     }
   },
+    {
+    "title": "Планировка",
+    "type": "HEADER",
+    "icon": "planning"
+  },
   {
     "title": "Планировка",
     "type": "IMAGES",
@@ -741,6 +746,11 @@
     "editable-condition": {
       "isFromAutoupload": false
     }
+  },
+    {
+    "title": "Описание",
+    "type": "HEADER",
+    "icon": "description"
   },
   {
     "title": "Описание",
@@ -1648,7 +1658,7 @@
   {
     "title": "Квартира",
     "type": "HEADER",
-    "icon": "house",
+    "icon": "params",
     "visible-condition": {
       "objectType.group.value": "living"
     }
