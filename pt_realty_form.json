@@ -526,7 +526,11 @@
     },
     "editable-condition": {
       "isFromAutoupload": false
-    }
+    },
+    "clear-triggers": [
+      "region",
+      "city"
+    ]
   },
   {
     "title": "Указать точку на карте",
