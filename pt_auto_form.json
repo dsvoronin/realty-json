@@ -1597,7 +1597,7 @@
           "xpath": "discs"
         }
       },
-      "required-condition": true,
+      "required-condition": false,
       "visible-condition": true,
       "valid-conditions": [
         {
@@ -1678,7 +1678,7 @@
             },
             {
               "price": {
-                "$lte": 999999999999
+                "$lte": 9999999999
               }
             },
             {
