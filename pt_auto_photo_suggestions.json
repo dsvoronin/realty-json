@@ -62,5 +62,51 @@
         "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/focus_thumb.jpg",
         "afterImage": "http://www.avito.ru/files/protools/auto/unfocus.jpg",
         "afterThumbnailImage": "http://www.avito.ru/files/protools/auto/unfocus_thumb.jpg"
-    }
+    },
+    {
+       "title": "Вид спереди под углом 45°",
+       "description": "Используйте его в качестве основного фото в объявлении",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/1.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/1_thumb.jpg"
+   },
+   {
+       "title": "Вид слева",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/2.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/2_thumb.jpg"
+   },
+   {
+       "title": "Вид сзади под углом 45°",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/3.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/3_thumb.jpg"
+   },
+   {
+       "title": "Вид справа",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/4.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/4_thumb.jpg"
+   },
+   {
+       "title": "Подкапотное пространство",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/5%20clean.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/5%20clean_thumb.jpg"
+   },
+   {
+       "title": "Багажник",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/6.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/6_thumb.jpg"
+   },
+   {
+       "title": "Внутренний вид спереди",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/7.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/7_thumb.jpg"
+   },
+   {
+       "title": "Внутренний вид сзади",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/8.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/8_thumb.jpg"
+   },
+   {
+       "title": "Крупный вид панели инструментов",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/9.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/9_thumb.jpg"
+   }
 ]
