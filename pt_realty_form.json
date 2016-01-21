@@ -758,6 +758,18 @@
     },
     "required-condition": true,
     "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "description": {
+            "$length": {
+              "$lte": 3000
+            }
+          }
+        },
+        "errorMessage": "Описание не может быть длиннее 3000 символов"
+      }
+    ],
     "editable-condition": {
       "isFromAutoupload": false
     }
@@ -808,7 +820,12 @@
               "price": {
                 "$type": "integer"
               }
-            }
+            },
+            {
+              "price": {
+                "$lt": 1000000000000
+              }
+            }            
           ]
         },
         "errorMessage": "Введите корректное значение"
@@ -1585,6 +1602,11 @@
               "floorsTotal": {
                 "$type": "integer"
               }
+            },
+            {
+              "floorsTotal": {
+                "$lt": 100
+              }
             }
           ]
         },
@@ -1631,6 +1653,11 @@
               "objectFloor": {
                 "$type": "integer"
               }
+            },
+            {
+              "objectFloor": {
+                "$lt": 100
+              }
             }
           ]
         },
@@ -1642,7 +1669,7 @@
             "$lte": "@floorsTotal"
           }
         },
-        "errorMessage": "Этаж объекта недвижимости должен быть меньше этажности здания"
+        "errorMessage": "Этаж объекта недвижимости должен быть не больше этажности здания"
       }
     ],
     "editable-condition": {
@@ -1710,15 +1737,20 @@
         "condition": {
           "$and": [
             {
-              "floorsTotal": {
+              "ownersTotal": {
                 "$gt": 0
               }
             },
             {
-              "floorsTotal": {
+              "ownersTotal": {
                 "$type": "integer"
               }
-            }
+            },
+            {
+              "ownersTotal": {
+                "$lt": 100
+              }
+            }            
           ]
         },
         "errorMessage": "Введите целое положительное число"
@@ -2078,7 +2110,12 @@
               "livingSpace": {
                 "$type": "decimal"
               }
-            }
+            },
+            {
+              "livingSpace": {
+                "$lt": 10000
+              }
+            }            
           ]
         },
         "errorMessage": "Введите число"
@@ -2120,7 +2157,12 @@
               "kitchenSpace": {
                 "$type": "decimal"
               }
-            }
+            },
+            {
+              "kitchenSpace": {
+                "$lt": 10000
+              }
+            }            
           ]
         },
         "errorMessage": "Введите число"
@@ -2166,7 +2208,12 @@
               "totalSpace": {
                 "$type": "decimal"
               }
-            }
+            },
+            {
+              "totalSpace": {
+                "$lt": 10000
+              }
+            }            
           ]
         },
         "errorMessage": "Введите число"
@@ -2216,7 +2263,12 @@
               "totalHouseSpace": {
                 "$type": "decimal"
               }
-            }
+            },
+            {
+              "totalHouseSpace": {
+                "$lt": 10000
+              }
+            }            
           ]
         },
         "errorMessage": "Введите число"
@@ -2273,7 +2325,12 @@
               "offeredSpace": {
                 "$type": "decimal"
               }
-            }
+            },
+            {
+              "offeredSpace": {
+                "$lt": 10000
+              }
+            }            
           ]
         },
         "errorMessage": "Введите число"
@@ -2325,7 +2382,12 @@
               "offeredLeaseSpace": {
                 "$type": "decimal"
               }
-            }
+            },
+            {
+              "offeredLeaseSpace": {
+                "$lt": 10000
+              }
+            }            
           ]
         },
         "errorMessage": "Введите число"
@@ -2375,7 +2437,12 @@
               "landSpace": {
                 "$type": "decimal"
               }
-            }
+            },
+            {
+              "landSpace": {
+                "$lt": 10000
+              }
+            }            
           ]
         },
         "errorMessage": "Введите число"
