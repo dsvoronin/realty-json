@@ -1,0 +1,50 @@
+[
+    {
+        "title": "Приведите автомобиль в порядок",
+        "description": "Воспользуйтесь услугами комплексной мойки и чистки автомобиля",
+        "beforeImage": "http://www.avito.ru/files/protools/auto/clean.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/dirty.jpg"
+    },
+    {
+        "title": "Добейтесь эффекта нового авто",
+        "description": "Выровняйте руль, выньте ключ из замка зажигания, подголовники и вентиляционные решетки установите на одном уровне",
+        "beforeImage": "http://www.avito.ru/files/protools/auto/new%20inside.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/old%20inside.jpg"
+    },
+    {
+        "title": "Выберите нейтральный фон",
+        "description": "Это поможет сконцентрировать внимание покупателя на машине",
+        "beforeImage": "http://www.avito.ru/files/protools/auto/neutral.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/ugly%20building.jpg"
+    },
+    {
+        "title": "Фотографируйте автомобиль в солнечный день",
+        "description": "Фотографии получаются лучше в солнечный день",
+        "beforeImage": "http://www.avito.ru/files/protools/auto/focus.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/dark.jpg"
+    },
+    {
+        "title": "Позаботьтесь о хорошем освещении",
+        "description": "Используйте дневной свет или организуйте качественное освещение в помещении",
+        "beforeImage": "http://www.avito.ru/files/protools/auto/indoors_light.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/indoors_dark.jpg"
+    },
+    {
+        "title": "Убедитесь, что стоите спиной к солнцу",
+        "description": "Иначе на фотографии могут быть ненужные блики",
+        "beforeImage": "http://www.avito.ru/files/protools/auto/focus.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/IMG_0107_done_1_1.jpg"
+    },
+    {
+        "title": "Делайте фото в альбомной (горизонтальной) ориентации",
+        "description": "Такая ориентация снимка соответствует нашему восприятию - мы привыкли рассматривать автомобиль в горизонтальном направлении",
+        "beforeImage": "http://www.avito.ru/files/protools/auto/horizontal.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/vertical.jpg"
+    },
+    {
+        "title": "Делайте несколько кадров",
+        "description": "Несколько кадров дадут возможность отбраковать нечеткие снимки",
+        "beforeImage": "http://www.avito.ru/files/protools/auto/focus.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/unfocus.jpg"
+    }
+]
