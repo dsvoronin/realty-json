@@ -3,48 +3,110 @@
         "title": "Приведите автомобиль в порядок",
         "description": "Воспользуйтесь услугами комплексной мойки и чистки автомобиля",
         "beforeImage": "http://www.avito.ru/files/protools/auto/clean.jpg",
-        "afterImage": "http://www.avito.ru/files/protools/auto/dirty.jpg"
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/clean_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/dirty.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/auto/dirty_thumb.jpg"
     },
     {
         "title": "Добейтесь эффекта нового авто",
         "description": "Выровняйте руль, выньте ключ из замка зажигания, подголовники и вентиляционные решетки установите на одном уровне",
         "beforeImage": "http://www.avito.ru/files/protools/auto/new%20inside.jpg",
-        "afterImage": "http://www.avito.ru/files/protools/auto/old%20inside.jpg"
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/new%20inside_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/old%20inside.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/auto/old%20inside_thumb.jpg"
     },
     {
         "title": "Выберите нейтральный фон",
         "description": "Это поможет сконцентрировать внимание покупателя на машине",
         "beforeImage": "http://www.avito.ru/files/protools/auto/neutral.jpg",
-        "afterImage": "http://www.avito.ru/files/protools/auto/ugly%20building.jpg"
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/neutral_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/ugly%20building.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/auto/ugly%20building_thumb.jpg"
     },
     {
         "title": "Фотографируйте автомобиль в солнечный день",
         "description": "Фотографии получаются лучше в солнечный день",
         "beforeImage": "http://www.avito.ru/files/protools/auto/focus.jpg",
-        "afterImage": "http://www.avito.ru/files/protools/auto/dark.jpg"
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/focus_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/dark.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/auto/dark_thumb.jpg"
     },
     {
         "title": "Позаботьтесь о хорошем освещении",
         "description": "Используйте дневной свет или организуйте качественное освещение в помещении",
         "beforeImage": "http://www.avito.ru/files/protools/auto/indoors_light.jpg",
-        "afterImage": "http://www.avito.ru/files/protools/auto/indoors_dark.jpg"
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/indoors_light_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/indoors_dark.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/auto/indoors_dark_thumb.jpg"
     },
     {
         "title": "Убедитесь, что стоите спиной к солнцу",
         "description": "Иначе на фотографии могут быть ненужные блики",
         "beforeImage": "http://www.avito.ru/files/protools/auto/focus.jpg",
-        "afterImage": "http://www.avito.ru/files/protools/auto/IMG_0107_done_1_1.jpg"
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/focus_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/IMG_0107_done_1_1.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/auto/IMG_0107_done_1_1_thumb.jpg"
     },
     {
         "title": "Делайте фото в альбомной (горизонтальной) ориентации",
         "description": "Такая ориентация снимка соответствует нашему восприятию - мы привыкли рассматривать автомобиль в горизонтальном направлении",
         "beforeImage": "http://www.avito.ru/files/protools/auto/horizontal.jpg",
-        "afterImage": "http://www.avito.ru/files/protools/auto/vertical.jpg"
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/horizontal_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/vertical.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/auto/vertical_thumb.jpg"
     },
     {
         "title": "Делайте несколько кадров",
         "description": "Несколько кадров дадут возможность отбраковать нечеткие снимки",
         "beforeImage": "http://www.avito.ru/files/protools/auto/focus.jpg",
-        "afterImage": "http://www.avito.ru/files/protools/auto/unfocus.jpg"
-    }
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/focus_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/auto/unfocus.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/auto/unfocus_thumb.jpg"
+    },
+    {
+       "title": "Вид спереди под углом 45°",
+       "description": "Используйте его в качестве основного фото в объявлении",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/1.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/1_thumb.jpg"
+   },
+   {
+       "title": "Вид слева",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/2.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/2_thumb.jpg"
+   },
+   {
+       "title": "Вид сзади под углом 45°",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/3.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/3_thumb.jpg"
+   },
+   {
+       "title": "Вид справа",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/4.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/4_thumb.jpg"
+   },
+   {
+       "title": "Подкапотное пространство",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/5%20clean.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/5%20clean_thumb.jpg"
+   },
+   {
+       "title": "Багажник",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/6.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/6_thumb.jpg"
+   },
+   {
+       "title": "Внутренний вид спереди",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/7.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/7_thumb.jpg"
+   },
+   {
+       "title": "Внутренний вид сзади",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/8.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/8_thumb.jpg"
+   },
+   {
+       "title": "Крупный вид панели инструментов",
+       "beforeImage": "http://www.avito.ru/files/protools/auto/9.jpg",
+       "beforeThumbnailImage": "http://www.avito.ru/files/protools/auto/9_thumb.jpg"
+   }
 ]
