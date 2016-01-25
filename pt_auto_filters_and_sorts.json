@@ -1,0 +1,180 @@
+[
+  {
+    "title": "Тип сортировки",
+    "type": "SORT",
+    "alias": "sortField",
+    "data": {
+      "singleOf": {
+        "param": "sortField",
+        "xpath": "sortField.value",
+        "source": [
+          {
+            "title": "По дате добавления",
+            "value": "id"
+          },
+          {
+            "title": "По году выпуска",
+            "value": "year"
+          },
+          {
+            "title": "По цене",
+            "value": "price"
+          },
+          {
+            "title": "По пробегу",
+            "value": "mileage"
+          }
+        ],
+        "default-value": {
+          "title": "По дате добавления",
+          "value": "id"
+        }
+      }
+    },
+    "visible-condition": true
+  },
+  {
+    "title": "Порядок сортировки",
+    "type": "SORT",
+    "alias": "sortDirection",
+    "data": {
+      "singleOf": {
+        "param": "sortDirection",
+        "xpath": "sortDirection.value",
+        "source": [
+          {
+            "title": "По возрастанию",
+            "value": "ASC"
+          },
+          {
+            "title": "По убыванию",
+            "value": "DESC"
+          }
+        ],
+        "default-value": {
+          "title": "По убыванию",
+          "value": "DESC"
+        }
+      }
+    },
+    "visible-condition": true
+  },
+  {
+    "title": "Тип автомобиля",
+    "type": "LIST",
+    "alias": "vehicleType",
+    "data": {
+      "singleOf": {
+        "param": "vehicleType",
+        "xpath": "vehicleType.value",
+        "source": [
+          {
+            "title": "Все",
+            "value": null
+          },
+          {
+            "title": "Новый",
+            "value": "newcar"
+          },
+          {
+            "title": "Подержаный",
+            "value": "usercar"
+          }
+        ],
+        "default-value": {
+          "title": "Все",
+          "value": null
+        }
+      }
+    },
+    "visible-condition": true
+  },
+  {
+    "title": "Валюта",
+    "type": "LIST",
+    "alias": "currency",
+    "data": {
+      "singleOf": {
+        "param": "priceCurrency",
+        "xpath": "currency.value",
+        "source": [
+          {
+            "symbol": "₽",
+            "title": "Рубли",
+            "value": "rub"
+          },
+          {
+            "symbol": "$",
+            "title": "Доллары США",
+            "value": "usd"
+          },
+          {
+            "symbol": "€",
+            "title": "Евро",
+            "value": "eur"
+          }
+        ],
+        "default-value": {
+          "symbol": "₽",
+          "title": "Рубли",
+          "value": "rub"
+        }
+      }
+    },
+    "visible-condition": true
+  },
+  {
+    "title": "Цена",
+    "type": "RANGE",
+    "alias": "priceRange",
+    "data": {
+      "limit_min": {
+          "title": "Цена от",
+          "param": "price.min",
+          "xpath": "priceRange.min"
+      },
+      "limit_max": {
+          "title": "Цена до",
+          "param": "price.max",
+          "xpath": "priceRange.max"
+      }
+    },
+    "visible-condition": true
+  },
+  {
+    "title": "Год",
+    "type": "RANGE",
+    "alias": "yearRange",
+    "data": {
+      "limit_min": {
+          "title": "Год от",
+          "param": "year.min",
+          "xpath": "yearRange.min"
+      },
+      "limit_max": {
+          "title": "Год до",
+          "param": "year.max",
+          "xpath": "yearRange.max"
+      }
+    },
+    "visible-condition": true
+  },
+  {
+    "title": "Пробег",
+    "type": "RANGE",
+    "alias": "mileageRange",
+    "data": {
+      "limit_min": {
+          "title": "Пробег от (км)",
+          "param": "mileage.min",
+          "xpath": "mileageRange.min"
+      },
+      "limit_max": {
+          "title": "Пробег до (км)",
+          "param": "mileage.max",
+          "xpath": "mileageRange.max"
+      }
+    },
+    "visible-condition": true
+  }
+]
