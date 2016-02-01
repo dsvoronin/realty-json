@@ -1745,6 +1745,18 @@
     },
     "required-condition": true,
     "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "description": {
+            "$length": {
+              "$lte": 3000
+            }
+          }
+        },
+        "errorMessage": "Описание не может быть длиннее 3000 символов"
+      }
+    ],
     "editable-condition": {
       "isFromAutoupload": false
     }
