@@ -68,11 +68,7 @@
             "title": "Аренда",
             "value": false
           }
-        ],
-        "default-value": {
-            "title": "Продажа",
-            "value": true
-        }
+        ]
       }
     },
     "visible-condition": true
