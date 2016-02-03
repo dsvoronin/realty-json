@@ -34,7 +34,7 @@
   },
   {
     "title": "Марка",
-    "type": "STRING",
+    "type": "BRAND_SUGGEST",
     "alias": "brand",
     "data": {
       "singleOf": {
@@ -49,7 +49,7 @@
   },
   {
     "title": "Модель",
-    "type": "STRING",
+    "type": "MODEL_SUGGEST",
     "alias": "model",
     "data": {
       "singleOf": {
@@ -1949,7 +1949,8 @@
         }
       }
     },
-    "editable-condition": false
+    "editable-condition": false,
+    "clear-triggers": ["region"]
   },
   {
     "title": "Метро",
@@ -1965,7 +1966,8 @@
     "required-condition": true,
     "visible-condition": {
       "city.hasMetro": true
-    }
+    },
+    "clear-triggers": ["region", "city"]
   },
   {
     "title": "Район",
@@ -1988,7 +1990,8 @@
           "city.hasDistrict": true
         }
       ]
-    }
+    },
+    "clear-triggers": ["region", "city"]
   },
   {
     "title": "Контактное лицо",
