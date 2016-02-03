@@ -284,7 +284,8 @@
     "visible-condition": true,
     "data": {
       "singleOf": {
-        "param": "adState"
+        "param": "adState",
+        "xpath": "publicationStatus"
       }
     }
   }
