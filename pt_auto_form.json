@@ -1866,6 +1866,18 @@
     },
     "required-condition": false,
     "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "description": {
+            "$length": {
+              "$lte": 3000
+            }
+          }
+        },
+        "errorMessage": "Комментарий не может быть длиннее 3000 символов"
+      }
+    ],
     "editable-condition": {
       "isFromAutoupload": false
     }
