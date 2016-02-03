@@ -276,5 +276,16 @@
       }
     },
     "visible-condition": true
+  },
+  {
+    "title": "Статус публикации",
+    "type": "PUBLICATION_STATUS",
+    "alias": "publicationStatus",
+    "visible-condition": true,
+    "data": {
+      "singleOf": {
+        "param": "adState"
+      }
+    }
   }
 ]
