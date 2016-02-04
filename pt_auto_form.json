@@ -69,7 +69,7 @@
   },
   {
     "title": "Год выпуска",
-    "type": "STRING",
+    "type": "YEAR_SUGGEST",
     "alias": "year",
     "data": {
       "singleOf": {
