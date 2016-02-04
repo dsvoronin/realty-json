@@ -1869,7 +1869,7 @@
     "valid-conditions": [
       {
         "condition": {
-          "description": {
+          "comment": {
             "$length": {
               "$lte": 3000
             }
