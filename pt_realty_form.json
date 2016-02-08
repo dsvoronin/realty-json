@@ -236,6 +236,88 @@
     ]
   },
   {
+    "title": "Название объекта",
+    "type": "FIAS_DEVELOPMENT",
+    "alias": "development",
+    "data": {
+      "singleOf": {
+        "param": "developmentId",
+        "api": "realtyOffer/suggestDevelopments?cityId=${city.id}",
+        "xpath": "development.id"
+      }
+    },
+    "visible-condition": {
+      "$and": [
+        {
+          "isNew.value": true 
+        },
+        {
+          "city.id": {
+            "$length" : {
+              "$gt":0
+            }
+          }
+        }
+      ]
+    },
+    "required-condition": true,
+    "editable-condition": {
+      "$and": [
+        {
+          "isFromAutoupload": false
+        },
+        {            
+          "development":
+          {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        }
+      ]
+    },
+    "clear-triggers": [
+      "region",
+      "city"
+    ],
+    "comment": "Название объекта новостройки"
+  },  
+  {
+    "title": "Корпус объекта",
+    "type": "FIAS_DEVELOPMENT_BUILDING",
+    "alias": "developmentBuilding",
+    "data": {
+      "singleOf": {
+        "param": "developmentBuildingId",
+        "api": "realtyOffer/buildings?developmentId=${development.id}",
+        "xpath": "building.id"
+      }
+    },
+    "visible-condition": {
+      "development.hasBuildings": true
+    },
+    "required-condition": true,
+    "editable-condition": {    
+      "$and": [
+        {
+          "isFromAutoupload": false
+        },
+        {            
+          "developmentBuilding":
+          {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        }
+      ]
+    },
+    "clear-triggers": [
+      "development"
+    ],
+    "comment": "Корпус объекта новостройки"
+  },    
+  {
     "title": "В черте города",
     "type": "BOOLEAN",
     "alias": "isWithinCity",
@@ -265,39 +347,46 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "$or": [
+      "$and": [
         {
-          "$and": [
-            {
-              "city.hasMetro": true
-            },
-            {
-              "objectType.group.value": {
-                "$in": [
-                  "living",
-                  "commercial"
-                ]
-              }
-            }
-          ]
+          "isNew.value": false
         },
         {
-          "$and": [
+          "$or": [
             {
-              "city.hasMetro": true
+              "$and": [
+                {
+                  "city.hasMetro": true
+                },
+                {
+                  "objectType.group.value": {
+                    "$in": [
+                      "living",
+                      "commercial"
+                    ]
+                  }
+                }
+              ]
             },
             {
-              "cityDistance": {
-                "$eq": 0
-              }
-            },
-            {
-              "objectType.group.value": {
-                "$in": [
-                  "suburban",
-                  "land"
-                ]
-              }
+              "$and": [
+                {
+                  "city.hasMetro": true
+                },
+                {
+                  "cityDistance": {
+                    "$eq": 0
+                  }
+                },
+                {
+                  "objectType.group.value": {
+                    "$in": [
+                      "suburban",
+                      "land"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -324,45 +413,52 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "$or": [
+      "$and": [
         {
-          "$and": [
-            {
-              "city.hasMetro": false
-            },
-            {
-              "city.hasDistrict": true
-            },
-            {
-              "objectType.group.value": {
-                "$in": [
-                  "living",
-                  "commercial"
-                ]
-              }
-            }
-          ]
+          "isNew.value": false
         },
         {
-          "$and": [
+          "$or": [
             {
-              "city.hasMetro": false
+              "$and": [
+                {
+                  "city.hasMetro": false
+                },
+                {
+                  "city.hasDistrict": true
+                },
+                {
+                  "objectType.group.value": {
+                    "$in": [
+                      "living",
+                      "commercial"
+                    ]
+                  }
+                }
+              ]
             },
             {
-              "city.hasDistrict": true
-            },
-            {
-              "cityDistance": {
-                "$eq": 0
-              }
-            },
-            {
-              "objectType.group.value": {
-                "$in": [
-                  "suburban",
-                  "land"
-                ]
-              }
+              "$and": [
+                {
+                  "city.hasMetro": false
+                },
+                {
+                  "city.hasDistrict": true
+                },
+                {
+                  "cityDistance": {
+                    "$eq": 0
+                  }
+                },
+                {
+                  "objectType.group.value": {
+                    "$in": [
+                      "suburban",
+                      "land"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -483,44 +579,29 @@
     },
     "required-condition": false,
     "visible-condition": {
-      "$or": [
+      "$and": [
         {
-          "$and": [
-            {
-              "isNew.value": true
-            },
-            {
-              "city.id": {
-                "$length": {
-                  "$gt": 0
-                }
-              }
-            }
-          ]
+          "isNew.value": false
         },
         {
-          "$and": [
-            {
-              "objectType.group.value": {
-                "$in": [
-                  "suburban",
-                  "land"
-                ]
-              }
-            },
-            {
-              "cityDistance": {
-                "$gt": 0
-              }
-            },
-            {
-              "city.id": {
-                "$length": {
-                  "$gt": 0
-                }
-              }
+          "objectType.group.value": {
+            "$in": [
+              "suburban",
+              "land"
+            ]
+          }
+        },
+        {
+          "cityDistance": {
+            "$gt": 0
+          }
+        },
+        {
+          "city.id": {
+            "$length": {
+              "$gt": 0
             }
-          ]
+          }
         }
       ]
     },
@@ -558,7 +639,14 @@
     },
     "required-condition": true,
     "editable-condition": {
-      "isFromAutoupload": false
+      "$and": [
+        {
+          "isFromAutoupload": false
+        },
+        {
+          "isNew.value": false
+        }
+      ]
     },
     "clear-triggers": [
       "region",
@@ -579,6 +667,9 @@
     },
     "visible-condition": {
       "$and": [
+        {
+          "isNew.value": false
+        },
         {
           "hasNoAddress": false
         },
@@ -663,6 +754,9 @@
     },
     "visible-condition": {
       "$and": [
+        {
+          "isNew.value": false
+        },
         {
           "$not": {
             "objectType.group.value": "land"
@@ -1137,7 +1231,7 @@
     },
     "required-condition": false,
     "visible-condition": {
-      "$or": [
+      "$and": [
         {
           "$and": [
             {
@@ -1145,26 +1239,16 @@
             },
             {
               "isSell.value": true
-            },
-            {
-              "objectType.value": "flat"
             }
           ]
         },
         {
-          "$and": [
+          "$or": [
             {
-              "isSell.value": true
+              "objectType.value": "flat"
             },
             {
               "objectType.group.value": "suburban"
-            }
-          ]
-        },
-        {
-          "$and": [
-            {
-              "isSell.value": true
             },
             {
               "objectType.value": "room"
