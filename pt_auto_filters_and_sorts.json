@@ -90,40 +90,6 @@
     "visible-condition": true
   },
   {
-    "title": "Статус публикации",
-    "type": "LIST",
-    "alias": "adState",
-    "data": {
-      "singleOf": {
-        "param": "adState",
-        "xpath": "adState.value",
-        "source": [
-          {
-            "title": "Любой",
-            "value": null
-          },
-          {
-            "title": "Опубликовано",
-            "value": "active"
-          },
-          {
-            "title": "Не опубликовано",
-            "value": "inactive"
-          },
-          {
-            "title": "Ошибки публикации",
-            "value": "faulty"
-          }
-        ],
-        "default-value": {
-          "title": "Любой",
-          "value": null
-        }
-      }
-    },
-    "visible-condition": true
-  },
-  {
     "title": "Валюта",
     "type": "LIST",
     "alias": "currency",
@@ -207,6 +173,40 @@
           "title": "Пробег до (км)",
           "param": "mileage.max",
           "xpath": "mileageRange.max"
+      }
+    },
+    "visible-condition": true
+  },
+  {
+    "title": "Статус публикации",
+    "type": "LIST",
+    "alias": "adState",
+    "data": {
+      "singleOf": {
+        "param": "adState",
+        "xpath": "adState.value",
+        "source": [
+          {
+            "title": "Любой",
+            "value": null
+          },
+          {
+            "title": "Опубликовано",
+            "value": "active"
+          },
+          {
+            "title": "Не опубликовано",
+            "value": "inactive"
+          },
+          {
+            "title": "Ошибки публикации",
+            "value": "faulty"
+          }
+        ],
+        "default-value": {
+          "title": "Любой",
+          "value": null
+        }
       }
     },
     "visible-condition": true
