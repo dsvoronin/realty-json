@@ -926,7 +926,7 @@
   {
     "title": "Дополнительные параметры",
     "type": "HEADER",
-    "icon": "params"
+    "icon": "complectation"
   },
   {
     "title": "Комплектация",
@@ -1802,22 +1802,6 @@
     "title": "Внутренняя информация (видна только вам)",
     "type": "HEADER",
     "icon": "params"
-  },
-  {
-    "title": "Лист приемки",
-    "type": "IMAGES",
-    "alias": "checklist",
-    "data": {
-      "singleOf": {
-        "param": "checklist",
-        "xpath": "checklist"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": false,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
   },
   {
     "title": "Внутренняя оценка, руб",
