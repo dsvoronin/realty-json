@@ -265,14 +265,36 @@
   },
   {
     "title": "Статус публикации",
-    "type": "PUBLICATION_STATUS",
-    "alias": "publicationStatus",
-    "visible-condition": true,
+    "type": "LIST",
+    "alias": "adState",
     "data": {
       "singleOf": {
         "param": "adState",
-        "xpath": "publicationStatus"
+        "xpath": "adState.value",
+        "source": [
+          {
+            "title": "Любой",
+            "value": null
+          },
+          {
+            "title": "Опубликовано",
+            "value": "active"
+          },
+          {
+            "title": "Не опубликовано",
+            "value": "inactive"
+          },
+          {
+            "title": "Ошибки публикации",
+            "value": "faulty"
+          }
+        ],
+        "default-value": {
+          "title": "Любой",
+          "value": null
+        }
       }
-    }
+    },
+    "visible-condition": true
   }
 ]
