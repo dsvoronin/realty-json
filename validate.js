@@ -7,7 +7,8 @@ var tests = [
         schema: './pt_form_schema.json',
         targets: [
             './pt_realty_form.json',
-            './pt_auto_form.json'
+            './pt_auto_form.json',
+            './pt_services_new_form.json'
         ]
     },
     {
