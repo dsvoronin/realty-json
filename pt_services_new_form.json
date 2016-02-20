@@ -1,5 +1,9 @@
 [
   {
+    "title": "",
+    "type": "HEADER"
+  },
+  {
     "title": "Вид услуги",
     "type": "LIST",
     "alias": "serviceType",
