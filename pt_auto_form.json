@@ -1888,7 +1888,7 @@
     "alias": "employee",
     "data": {
       "singleOf": {
-        "param": "employee",
+        "param": "member_id",
         "xpath": "employee.id",
         "api": "employee/list"
       }
