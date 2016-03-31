@@ -1883,6 +1883,25 @@
     }
   },
   {
+    "title": "Ответственный сотрудник",
+    "type": "STRING",
+    "alias": "employee",
+    "data": {
+      "singleOf": {
+        "param": "employee",
+        "xpath": "employee.id",
+        "api": "employee/list"
+      }
+    },
+    "required-condition": {
+    	"isCompany": true
+    },
+    "visible-condition": {
+    	"isCompany": true
+    },
+    "editable-condition": true
+  },
+  {
     "title": "Контакты",
     "type": "HEADER",
     "icon": "contacts"
