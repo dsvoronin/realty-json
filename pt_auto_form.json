@@ -1885,11 +1885,11 @@
   {
     "title": "Ответственный сотрудник",
     "type": "STRING",
-    "alias": "employee",
+    "alias": "responsibleMember",
     "data": {
       "singleOf": {
         "param": "member_id",
-        "xpath": "employee.id",
+        "xpath": "responsibleMember.id",
         "api": "employee/list"
       }
     },
