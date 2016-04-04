@@ -1890,7 +1890,7 @@
       "singleOf": {
         "param": "member_id",
         "xpath": "responsibleMember.id",
-        "api": "employee/list"
+        "api": "api/mobile/employee/list/1/"
       }
     },
     "required-condition": {
