@@ -1883,25 +1883,6 @@
     }
   },
   {
-    "title": "Ответственный сотрудник",
-    "type": "STRING",
-    "alias": "responsibleMember",
-    "data": {
-      "singleOf": {
-        "param": "member_id",
-        "xpath": "responsibleMember.id",
-        "api": "api/mobile/employee/list/1/"
-      }
-    },
-    "required-condition": {
-    	"isCompany": true
-    },
-    "visible-condition": {
-    	"isCompany": true
-    },
-    "editable-condition": true
-  },
-  {
     "title": "Контакты",
     "type": "HEADER",
     "icon": "contacts"
@@ -1933,6 +1914,25 @@
     "editable-condition": {
       "isFromAutoupload": false
     }
+  },
+  {
+    "title": "Ответственный сотрудник",
+    "type": "STRING",
+    "alias": "responsibleMember",
+    "data": {
+      "singleOf": {
+        "param": "member_id",
+        "xpath": "responsibleMember.id",
+        "api": "api/mobile/employee/list/1/"
+      }
+    },
+    "required-condition": {
+      "isCompany": true
+    },
+    "visible-condition": {
+      "isCompany": true
+    },
+    "editable-condition": true
   },
   {
     "title": "Регион",
