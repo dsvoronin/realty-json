@@ -3353,7 +3353,7 @@
     "alias": "responsibleMember",
     "data": {
       "singleOf": {
-        "param": "member_id",
+        "param": "memberId",
         "xpath": "responsibleMember.id",
         "api": "api/mobile/employee/list/1/"
       }
