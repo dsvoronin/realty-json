@@ -226,6 +226,7 @@
   {
     "title": "Ответственный сотрудник",
     "type": "RESPONSIBLE_MEMBER",
+    "alias": "responsibleMember",
     "dataSource": {
         "api": "/rest/employee/list/"
     },
