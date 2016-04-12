@@ -224,6 +224,14 @@
     "visible-condition": true
   },
   {
+    "title": "Ответственный сотрудник",
+    "type": "RESPONSIBLE_MEMBER",
+    "dataSource": {
+        "api": "/rest/employee/list/"
+    },
+    "visible-condition": true
+  },
+  {
     "title": "Валюта",
     "type": "LIST",
     "alias": "currency",
