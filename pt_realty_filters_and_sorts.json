@@ -228,7 +228,7 @@
     "type": "RESPONSIBLE_MEMBER",
     "alias": "responsibleMember",
     "dataSource": {
-        "api": "/rest/employee/list/"
+        "api": "employee/list/"
     },
     "visible-condition": true
   },
