@@ -229,7 +229,10 @@
     "alias": "responsibleMember",
     "data": {
     	"singleOf": {
-      		"param": "memberId"
+      		"param": "memberId",
+      		"default-value": {
+        		"title": "Любой"
+    		}
       	},
     	"dataSource": {
         	"api": "api/mobile/employee/list/1/"
@@ -237,9 +240,6 @@
     },
     "visible-condition": {
       "isCompany": true
-    },
-    "default-value": {
-        "title": "Любой"
     }
   },
   {
