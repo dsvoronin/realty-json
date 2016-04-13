@@ -237,6 +237,9 @@
     },
     "visible-condition": {
       "isCompany": true
+    },
+    "default-value": {
+        "title": "Любой"
     }
   },
   {
