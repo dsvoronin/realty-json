@@ -228,7 +228,9 @@
     "type": "STRING",
     "alias": "responsibleMember",
     "data": {
-      	"param": "memberId",
+    	"singleOf": {
+      		"param": "memberId"
+      	},
     	"dataSource": {
         	"api": "api/mobile/employee/list/1/"
     	}
