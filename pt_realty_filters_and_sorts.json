@@ -225,12 +225,17 @@
   },
   {
     "title": "Ответственный сотрудник",
-    "type": "RESPONSIBLE_MEMBER",
+    "type": "STRING",
     "alias": "responsibleMember",
-    "dataSource": {
-        "api": "employee/list/"
+    "data": {
+      	"param": "memberId",
+    	"dataSource": {
+        	"api": "api/mobile/employee/list/1/"
+    	}
     },
-    "visible-condition": true
+    "visible-condition": {
+      "isCompany": true
+    }
   },
   {
     "title": "Валюта",
