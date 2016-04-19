@@ -7,7 +7,8 @@ var tests = [
         schema: './pt_form_schema.json',
         targets: [
             './pt_realty_form.json',
-            './pt_auto_form.json'
+            './pt_auto_form.json',
+            './pt_realty_filters_and_sorts.json'
         ]
     },
     {
@@ -34,4 +35,3 @@ tests.forEach(function(test) {
         }
     });
 });
-
