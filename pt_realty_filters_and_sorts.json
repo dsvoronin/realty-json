@@ -224,6 +224,25 @@
     "visible-condition": true
   },
   {
+    "title": "Ответственный сотрудник",
+    "type": "STRING",
+    "alias": "responsibleMember",
+    "data": {
+    	"singleOf": {
+      		"param": "memberId",
+      		"default-value": {
+        		"title": "Любой"
+    		}
+      	},
+    	"dataSource": {
+        	"api": "api/mobile/employee/list/1/"
+    	}
+    },
+    "visible-condition": {
+      "isCompany": true
+    }
+  },
+  {
     "title": "Валюта",
     "type": "LIST",
     "alias": "currency",
