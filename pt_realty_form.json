@@ -835,7 +835,7 @@
               "price": {
                 "$lt": 1000000000000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите корректное значение"
@@ -1760,7 +1760,7 @@
               "ownersTotal": {
                 "$lt": 100
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите целое положительное число"
@@ -2125,7 +2125,7 @@
               "livingSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -2172,7 +2172,7 @@
               "kitchenSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -2223,7 +2223,7 @@
               "totalSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -2278,7 +2278,7 @@
               "totalHouseSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -2340,7 +2340,7 @@
               "offeredSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -2397,7 +2397,7 @@
               "offeredLeaseSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -2452,7 +2452,7 @@
               "landSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -3387,7 +3387,8 @@
     "data": {
       "singleOf": {
         "param": "contactName",
-        "xpath": "contactName"
+        "xpath": "contactName",
+        "bind": "@responsibleMember.contactName"
       }
     },
     "required-condition": false,
@@ -3415,7 +3416,8 @@
     "data": {
       "singleOf": {
         "param": "phone",
-        "xpath": "phone"
+        "xpath": "phone",
+        "bind": "@responsibleMember.phone"
       }
     },
     "required-condition": true,
@@ -3431,7 +3433,8 @@
     "data": {
       "singleOf": {
         "param": "email",
-        "xpath": "email"
+        "xpath": "email",
+        "bind": "@responsibleMember.email"
       }
     },
     "required-condition": true,
