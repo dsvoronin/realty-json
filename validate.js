@@ -1,6 +1,12 @@
 'use strict';
-var validator = require('is-my-json-valid');
 var fs = require('fs');
+var Ajv = require('ajv');
+
+var ajv = Ajv(
+  {
+    // allErrors: true
+  }
+);
 
 var tests = [
     {
@@ -19,20 +25,18 @@ var tests = [
     }
 ];
 
-
-
 tests.forEach(function(test) {
    var schema = JSON.parse(fs.readFileSync(test.schema, 'utf8'));
    test.targets.forEach(function(targetPath) {
         var target = JSON.parse(fs.readFileSync(targetPath, 'utf8'));
-        var validate = validator(schema, {verbose: true, greedy: true});
+
+        var validate = ajv.compile(schema)
         console.log('validating [' + targetPath + '] against [' + test.schema + ']...');
-        var result = validate(target);
+
+        var result = validate(target)
+
         if (!result) {
-            throw validate.errors.map(function (obj) {
-                return JSON.stringify(obj);
-            }).join('\n');
+            console.log(validate.errors)
         }
     });
 });
-
