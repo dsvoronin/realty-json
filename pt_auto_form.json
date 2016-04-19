@@ -1853,7 +1853,7 @@
     "valid-conditions": [
       {
         "condition": {
-          "description": {
+          "comment": {
             "$length": {
               "$lte": 3000
             }
@@ -1898,6 +1898,25 @@
     "editable-condition": {
       "isFromAutoupload": false
     }
+  },
+  {
+    "title": "Ответственный сотрудник",
+    "type": "STRING",
+    "alias": "responsibleMember",
+    "data": {
+      "singleOf": {
+        "param": "memberId",
+        "xpath": "responsibleMember.id",
+        "api": "api/mobile/employee/list/1/"
+      }
+    },
+    "required-condition": {
+      "isCompany": true
+    },
+    "visible-condition": {
+      "isCompany": true
+    },
+    "editable-condition": true
   },
   {
     "title": "Регион",
