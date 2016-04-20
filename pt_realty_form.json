@@ -3388,7 +3388,7 @@
       "singleOf": {
         "param": "contactName",
         "xpath": "contactName",
-        "bind": "@responsibleMember.contactName"
+        "bind": "@responsibleMember.contacts.contactName"
       }
     },
     "required-condition": false,
@@ -3417,7 +3417,7 @@
       "singleOf": {
         "param": "phone",
         "xpath": "phone",
-        "bind": "@responsibleMember.phone"
+        "bind": "@responsibleMember.contacts.phone"
       }
     },
     "required-condition": true,
@@ -3434,7 +3434,7 @@
       "singleOf": {
         "param": "email",
         "xpath": "email",
-        "bind": "@responsibleMember.email"
+        "bind": "@responsibleMember.contacts.email"
       }
     },
     "required-condition": true,
