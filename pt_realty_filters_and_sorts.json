@@ -213,7 +213,7 @@
   },
   {
     "title": "Ответственный сотрудник",
-    "type": "LIST",
+    "type": "RESPONSIBLE",
     "alias": "responsibleMember",
     "data": {
     	"singleOf": {
