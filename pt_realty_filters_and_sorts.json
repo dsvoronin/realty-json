@@ -213,18 +213,14 @@
   },
   {
     "title": "Ответственный сотрудник",
-    "type": "STRING",
+    "type": "LIST",
     "alias": "responsibleMember",
     "data": {
     	"singleOf": {
       		"param": "memberId",
-      		"default-value": {
-        		"title": "Любой"
-    		}
-      	},
-    	"dataSource": {
-        	"api": "api/mobile/employee/list/1/"
-    	}
+          "xpath": "responsibleMember.id",
+          "api": "api/mobile/employee/list/1/"
+      	}
     },
     "visible-condition": {
       "isCompany": true
