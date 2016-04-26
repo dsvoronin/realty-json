@@ -3355,7 +3355,7 @@
       "singleOf": {
         "param": "memberId",
         "xpath": "responsibleMember.id",
-        "api": "api/mobile/employee/list/1/"
+        "api": "api/mobile/offer/responsible/1/"
       }
     },
     "required-condition": {

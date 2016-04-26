@@ -235,7 +235,7 @@
     		}
       	},
     	"dataSource": {
-        	"api": "api/mobile/employee/list/1/"
+        	"api": "api/mobile/offer/responsible/1/"
     	}
     },
     "visible-condition": {
