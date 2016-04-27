@@ -1793,7 +1793,7 @@
       }
     },
     "required-condition": false,
-    "visible-condition": false,
+    "visible-condition": true,
     "editable-condition": {
       "isFromAutoupload": false
     }
