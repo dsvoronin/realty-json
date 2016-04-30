@@ -1907,7 +1907,7 @@
       "singleOf": {
         "param": "memberId",
         "xpath": "responsibleMember.id",
-        "api": "api/mobile/employee/list/1/"
+        "api": "api/mobile/offer/responsible/1/"
       }
     },
     "required-condition": {
@@ -2003,7 +2003,8 @@
     "data": {
       "singleOf": {
         "param": "contactName",
-        "xpath": "contactName"
+        "xpath": "contactName",
+        "bind": "@responsibleMember.contacts.contactName"
       }
     },
     "required-condition": false,
@@ -2031,7 +2032,8 @@
     "data": {
       "singleOf": {
         "param": "phone",
-        "xpath": "phone"
+        "xpath": "phone",
+        "bind": "@responsibleMember.contacts.phone"
       }
     },
     "required-condition": true,
@@ -2047,7 +2049,8 @@
     "data": {
       "singleOf": {
         "param": "email",
-        "xpath": "email"
+        "xpath": "email",
+        "bind": "@responsibleMember.contacts.email"
       }
     },
     "required-condition": true,
