@@ -1912,7 +1912,14 @@
       }
     ],
     "editable-condition": {
-      "isFromAutoupload": false
+      "$or": [
+        {
+          "isFromAutoupload": false
+        },
+        {
+          "isCompany": true
+        }
+      ]
     }
   },
   {

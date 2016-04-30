@@ -821,7 +821,7 @@
               "price": {
                 "$lt": 1000000000000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите корректное значение"
@@ -1746,7 +1746,7 @@
               "ownersTotal": {
                 "$lt": 100
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите целое положительное число"
@@ -2111,7 +2111,7 @@
               "livingSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -2158,7 +2158,7 @@
               "kitchenSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -2209,7 +2209,7 @@
               "totalSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -2264,7 +2264,7 @@
               "totalHouseSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -2326,7 +2326,7 @@
               "offeredSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -2383,7 +2383,7 @@
               "offeredLeaseSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -2438,7 +2438,7 @@
               "landSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
         "errorMessage": "Введите число"
@@ -3344,7 +3344,14 @@
       }
     ],
     "editable-condition": {
-      "isFromAutoupload": false
+      "$or": [
+        {
+          "isFromAutoupload": false
+        },
+        {
+          "isCompany": true
+        }
+      ]
     }
   },
   {
