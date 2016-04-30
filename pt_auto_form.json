@@ -1912,7 +1912,7 @@
       }
     ],
     "editable-condition": {
-      "$or": [
+      "$and": [
         {
           "isFromAutoupload": false
         },
