@@ -178,6 +178,21 @@
     "visible-condition": true
   },
   {
+    "title": "Ответственный сотрудник",
+    "type": "GROUPED_LIST",
+    "alias": "responsibleMember",
+    "data": {
+      "singleOf": {
+        "param": "memberId",
+        "xpath": "responsibleMember.id",
+        "api": "api/mobile/employee/list/1/"
+      }
+    },
+    "visible-condition": {
+      "isCompany": true
+    }
+  },
+  {
     "title": "Статус публикации",
     "type": "LIST",
     "alias": "adState",
