@@ -3344,7 +3344,8 @@
       }
     ],
     "editable-condition": {
-      "isFromAutoupload": false
+      "isFromAutoupload": false,
+      "isCompany": true
     }
   },
   {
