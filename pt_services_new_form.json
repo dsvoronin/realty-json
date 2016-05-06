@@ -1,0 +1,258 @@
+[
+  {
+    "title": "",
+    "type": "HEADER"
+  },
+  {
+    "title": "Вид услуги",
+    "type": "LIST",
+    "alias": "serviceType",
+    "data": {
+      "singleOf": {
+        "param": "serviceType",
+        "source": [
+          {
+            "title": "IT, интернет, телеком",
+            "value": "PARENT_ID_1"
+          },
+          {
+            "title": "Бытовые услуги",
+            "value": "PARENT_ID_2"
+          }
+        ],
+        "xpath": "serviceType.value"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Тип услуги",
+    "type": "LIST",
+    "alias": "serviceSubType",
+    "data": {
+      "singleOf": {
+        "param": "serviceSubType",
+        "source": [
+          {
+            "title": "Создание и продвижение сайтов",
+            "value": "42",
+            "visible-condition": {
+              "serviceType.value": "PARENT_ID_1"
+            }
+          },
+          {
+            "title": "Настройка интернета и сетей",
+            "value": "43",
+            "visible-condition": {
+              "serviceType.value": "PARENT_ID_1"
+            }
+          },
+          {
+            "title": "Изготовление ключей",
+            "value": "44",
+            "visible-condition": {
+              "serviceType.value": "PARENT_ID_2"
+            }
+          }
+        ],
+        "xpath": "serviceSubType.value"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "serviceType.value": {
+        "$length": {
+          "$gt": 0
+        }
+      }
+    },
+    "editable-condition": true,
+    "clear-triggers": [
+      "serviceType"
+    ]
+  },
+  {
+    "title": "",
+    "type": "HEADER"
+  },
+  {
+    "title": "Город",
+    "type": "FIAS_CITY",
+    "alias": "city",
+    "data": {
+      "singleOf": {
+        "param": "cityId",
+        "api": "fias/city",
+        "xpath": "city.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "editable-condition": true
+  },
+  {
+    "title": "Метро",
+    "type": "FIAS_METRO",
+    "alias": "metro",
+    "data": {
+      "singleOf": {
+        "param": "metroId",
+        "api": "fias/metro?cityId=${city.id}",
+        "xpath": "metro.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "city.hasMetro": true
+    },
+    "editable-condition": true,
+    "clear-triggers": [
+      "city"
+    ]
+  },
+  {
+    "title": "Район",
+    "type": "FIAS_DISTRICT",
+    "alias": "district",
+    "data": {
+      "singleOf": {
+        "param": "districtId",
+        "api": "fias/district?cityId=${city.id}",
+        "xpath": "district.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "city.hasMetro": false
+        },
+        {
+          "city.hasDistrict": true
+        }
+      ]
+    },
+    "editable-condition": true,
+    "clear-triggers": [
+      "city"
+    ]
+  },
+  {
+    "title": "",
+    "type": "HEADER"
+  },
+  {
+    "title": "Название",
+    "type": "STRING",
+    "alias": "title",
+    "data": {
+      "singleOf": {
+        "param": "title",
+        "xpath": "title"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "description": {
+            "$length": {
+              "$lte": 3000
+            }
+          }
+        },
+        "errorMessage": "Название не может быть длиннее 3000 символов"
+      }
+    ],
+    "editable-condition": true
+  },
+  {
+    "title": "Описание",
+    "type": "STRING",
+    "alias": "description",
+    "data": {
+      "singleOf": {
+        "param": "description",
+        "xpath": "description"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "description": {
+            "$length": {
+              "$lte": 3000
+            }
+          }
+        },
+        "errorMessage": "Описание не может быть длиннее 3000 символов"
+      }
+    ],
+    "editable-condition": true
+  },
+  {
+    "title": "",
+    "type": "HEADER"
+  },
+  {
+    "title": "Стоимость",
+    "type": "INTEGER",
+    "alias": "price",
+    "data": {
+      "singleOf": {
+        "param": "price",
+        "xpath": "price"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "price": {
+                "$gte": 0
+              }
+            },
+            {
+              "price": {
+                "$type": "integer"
+              }
+            },
+            {
+              "price": {
+                "$lt": 1000000000000
+              }
+            }            
+          ]
+        },
+        "errorMessage": "Введите корректное значение"
+      }
+    ],
+    "editable-condition": true
+  },
+  {
+    "title": "",
+    "type": "HEADER"
+  },
+  {
+    "title": "Фотографии",
+    "type": "IMAGES",
+    "alias": "photos",
+    "data": {
+      "singleOf": {
+        "param": "photos",
+        "xpath": "photos"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "editable-condition": true
+  }
+]
