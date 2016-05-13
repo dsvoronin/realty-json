@@ -224,7 +224,7 @@
     "visible-condition": true
   },
   {
-    "title": "Ответственный сотрудник",
+    "title": "Ответственный",
     "type": "STRING",
     "alias": "responsibleMember",
     "data": {
