@@ -205,8 +205,8 @@
         "api": "/rest/realtyOffer/getFilters/"
       },
       "locationType": {
-        "param":"locationType",
-        "xpath":"location.value.type"
+        "param": "locationType",
+        "xpath": "location.value.type"
       }
     },
     "visible-condition": true
@@ -216,11 +216,11 @@
     "type": "GROUPED_LIST",
     "alias": "responsibleMember",
     "data": {
-    	"singleOf": {
-      		"param": "memberId",
-          "xpath": "responsibleMember.id",
-          "api": "api/mobile/employee/list/1/"
-      	}
+      "singleOf": {
+        "param": "memberId",
+        "xpath": "responsibleMember.id",
+        "api": "api/mobile/employee/list/1/"
+      }
     },
     "visible-condition": {
       "isCompany": true
@@ -266,26 +266,64 @@
     "alias": "priceRange",
     "data": {
       "limit_min": {
-          "title": "Цена от",
-          "param": "price.min",
-          "xpath": "priceRange.min"
+        "title": "Цена от",
+        "param": "price.min",
+        "xpath": "priceRange.min"
       },
       "limit_max": {
-          "title": "Цена до",
-          "param": "price.max",
-          "xpath": "priceRange.max"
+        "title": "Цена до",
+        "param": "price.max",
+        "xpath": "priceRange.max"
       }
     },
     "visible-condition": true
   },
   {
-    "title": "Статус публикации",
+    "title": "СТАТУС",
+    "type": "HEADER"
+  },
+  {
+    "title": "Avito",
     "type": "LIST",
     "alias": "adState",
     "data": {
       "singleOf": {
         "param": "adState",
         "xpath": "adState.value",
+        "source": [
+          {
+            "title": "Любой",
+            "value": null
+          },
+          {
+            "title": "Опубликовано",
+            "value": "active"
+          },
+          {
+            "title": "Не опубликовано",
+            "value": "inactive"
+          },
+          {
+            "title": "Ошибки публикации",
+            "value": "faulty"
+          }
+        ],
+        "default-value": {
+          "title": "Любой",
+          "value": null
+        }
+      }
+    },
+    "visible-condition": true
+  },
+  {
+    "title": "Domofond",
+    "type": "LIST",
+    "alias": "adState_dom",
+    "data": {
+      "singleOf": {
+        "param": "adState_dom",
+        "xpath": "adState_dom.value",
         "source": [
           {
             "title": "Любой",
