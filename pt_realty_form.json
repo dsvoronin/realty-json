@@ -3454,7 +3454,7 @@
         "condition": {
           "$and": [
             {
-              "vin": {
+              "email": {
                 "$regexp":"/.+@.+\\..+/i"
               }
             }
