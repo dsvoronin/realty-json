@@ -3448,6 +3448,20 @@
     "visible-condition": true,
     "editable-condition": {
       "isFromAutoupload": false
-    }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "vin": {
+                "$regexp":"/.+@.+\\..+/i"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Введите корректный Email-адрес"
+      }
+    ]
   }
 ]
