@@ -3374,7 +3374,7 @@
     "editable-condition": true
   },
   {
-    "title": "Контакт",
+    "title": "Контактное лицо",
     "type": "STRING",
     "alias": "contactName",
     "data": {
