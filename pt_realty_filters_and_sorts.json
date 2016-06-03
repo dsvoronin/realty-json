@@ -306,11 +306,11 @@
     "alias": "adState",
     "data": {
       "singleOf": {
-        "param": "adState",
+        "param": "avito",
         "xpath": "adState.value",
         "source": [
           {
-            "title": "Любой",
+            "title": "Все",
             "value": null
           },
           {
@@ -340,11 +340,11 @@
     "alias": "adState_dom",
     "data": {
       "singleOf": {
-        "param": "adState_dom",
+        "param": "domofond",
         "xpath": "adState_dom.value",
         "source": [
           {
-            "title": "Любой",
+            "title": "Все",
             "value": null
           },
           {
