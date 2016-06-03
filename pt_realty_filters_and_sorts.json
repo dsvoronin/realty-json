@@ -327,7 +327,7 @@
           }
         ],
         "default-value": {
-          "title": "Любой",
+          "title": "Все",
           "value": null
         }
       }
@@ -337,7 +337,7 @@
   {
     "title": "Domofond",
     "type": "LIST",
-    "alias": "adState_dom",
+    "alias": "adState",
     "data": {
       "singleOf": {
         "param": "domofond",
@@ -361,7 +361,7 @@
           }
         ],
         "default-value": {
-          "title": "Любой",
+          "title": "Все",
           "value": null
         }
       }
