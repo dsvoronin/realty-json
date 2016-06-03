@@ -297,14 +297,75 @@
     "visible-condition": true
   },
   {
-    "title": "Статус публикации",
-    "type": "PUBLICATION_STATUS",
-    "alias": "publicationStatus",
-    "visible-condition": true,
+    "title": "СТАТУС ПУБЛИКАЦИИ",
+    "type": "HEADER"
+  },
+  {
+    "title": "Avito",
+    "type": "LIST",
+    "alias": "adState",
     "data": {
       "singleOf": {
-        "param": "adState"
+        "param": "adState",
+        "xpath": "adState.value",
+        "source": [
+          {
+            "title": "Любой",
+            "value": null
+          },
+          {
+            "title": "Опубликовано",
+            "value": "active"
+          },
+          {
+            "title": "Не опубликовано",
+            "value": "inactive"
+          },
+          {
+            "title": "Ошибки публикации",
+            "value": "faulty"
+          }
+        ],
+        "default-value": {
+          "title": "Любой",
+          "value": null
+        }
       }
-    }
+    },
+    "visible-condition": true
+  },
+  {
+    "title": "Domofond",
+    "type": "LIST",
+    "alias": "adState_dom",
+    "data": {
+      "singleOf": {
+        "param": "adState_dom",
+        "xpath": "adState_dom.value",
+        "source": [
+          {
+            "title": "Любой",
+            "value": null
+          },
+          {
+            "title": "Опубликовано",
+            "value": "active"
+          },
+          {
+            "title": "Не опубликовано",
+            "value": "inactive"
+          },
+          {
+            "title": "Ошибки публикации",
+            "value": "faulty"
+          }
+        ],
+        "default-value": {
+          "title": "Любой",
+          "value": null
+        }
+      }
+    },
+    "visible-condition": true
   }
 ]
