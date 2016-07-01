@@ -2064,6 +2064,16 @@
     "visible-condition": true,
     "editable-condition": {
       "isFromAutoupload": false
-    }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "email": {
+            "$regexp": ".+@.+\\..+"
+          }
+        },
+        "errorMessage": "Введите корректный Email-адрес"
+      }
+    ]
   }
 ]

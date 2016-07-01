@@ -709,7 +709,7 @@
     ],
     "comment": "Идентификатор дома из ФИАС"
   },
-    {
+  {
     "title": "Фото",
     "type": "HEADER",
     "icon": "photo"
@@ -730,7 +730,7 @@
       "isFromAutoupload": false
     }
   },
-    {
+  {
     "title": "Планировка",
     "type": "HEADER",
     "icon": "planning"
@@ -751,7 +751,7 @@
       "isFromAutoupload": false
     }
   },
-    {
+  {
     "title": "Описание",
     "type": "HEADER",
     "icon": "description"
@@ -3448,6 +3448,16 @@
     "visible-condition": true,
     "editable-condition": {
       "isFromAutoupload": false
-    }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "email": {
+            "$regexp": ".+@.+\\..+"
+          }
+        },
+        "errorMessage": "Введите корректный Email-адрес"
+      }
+    ]
   }
 ]
