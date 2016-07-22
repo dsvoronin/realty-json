@@ -2211,6 +2211,23 @@
           "$and": [
             {
               "totalSpace": {
+                "$gt": 0
+              }
+            },
+            {
+              "totalSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение не может быть 0"
+      },
+      {
+        "condition": {
+          "$and": [
+            {
+              "totalSpace": {
                 "$type": "decimal"
               }
             },
@@ -2222,23 +2239,6 @@
           ]
         },
         "errorMessage": "Значение не может быть больше 9 999"
-      },
-      {
-        "condition": {
-          "$and": [
-            {
-              "totalSpace": {
-                "$lte": 0
-              }
-            },
-            {
-              "totalSpace": {
-                "$type": "decimal"
-              }
-            }
-          ]
-        },
-        "errorMessage": "Значение не может быть 0"
       },
       {
         "condition": {
