@@ -1697,21 +1697,9 @@
           "$and": [
             {
               "price": {
-                "$gte": 1
+                "$gte": 0
               }
             },
-            {
-              "price": {
-                "$type": "integer"
-              }
-            }
-          ]
-        },
-        "errorMessage": "Значение должно быть больше нуля"
-      },
-      {
-        "condition": {
-          "$and": [
             {
               "price": {
                 "$lte": 9999999999
