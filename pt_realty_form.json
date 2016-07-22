@@ -2211,11 +2211,6 @@
           "$and": [
             {
               "totalSpace": {
-                "$gt": 0
-              }
-            },
-            {
-              "totalSpace": {
                 "$type": "decimal"
               }
             },
@@ -2243,7 +2238,7 @@
             }
           ]
         },
-        "errorMessage": "Значение не может быть больше 0"
+        "errorMessage": "Значение не может быть 0"
       },
       {
         "condition": {
