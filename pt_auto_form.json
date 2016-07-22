@@ -107,9 +107,21 @@
           "$and": [
             {
               "mileage": {
-                "$gt": 0
+                "$gte": 1
               }
             },
+            {
+              "mileage": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение должно быть больше нуля"
+      },
+      {
+        "condition": {
+          "$and": [
             {
               "mileage": {
                 "$lt": 100000000
@@ -122,7 +134,7 @@
             }
           ]
         },
-        "errorMessage": "Введите корректное значение"
+        "errorMessage": "Значение не может быть больше 99 999 999"
       }
     ],
     "clear-triggers": [
@@ -1610,6 +1622,18 @@
               },
               {
                 "discs": {
+                  "$type": "integer"
+                }
+              }
+            ]
+          },
+          "errorMessage": "Значение не может быть меньше 7"
+        },
+        {
+          "condition": {
+            "$and": [
+              {
+                "discs": {
                   "$lte": 30
                 }
               },
@@ -1620,7 +1644,7 @@
               }
             ]
           },
-          "errorMessage": "Введите корректное значение"
+          "errorMessage": "Значение не может быть больше 30"
         }
       ],
       "editable-condition": {
