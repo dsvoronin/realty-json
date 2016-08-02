@@ -68,11 +68,7 @@
             "title": "Аренда",
             "value": false
           }
-        ],
-        "default-value": {
-            "title": "Продажа",
-            "value": true
-        }
+        ]
       }
     },
     "visible-condition": true
@@ -200,43 +196,31 @@
   },
   {
     "title": "Локация",
-    "type": "LOCATION",
+    "type": "LOCATION_LIST",
     "alias": "location",
     "data": {
-      "extraParam":"locationType",
-      "param": "locationId",
-      "city": {
-        "extraValue":"city",
-        "value": "location.city.id"
-      },
-      "district": {
-        "extraValue":"district",
-        "value": "location.district.id"
-      },
-      "metro": {
-        "extraValue":"metro",
-        "value": "location.metro.id"
-      },
-      "dataSource": {
+      "singleOf": {
+        "param": "locationId",
+        "xpath": "location.value.id",
         "api": "/rest/realtyOffer/getFilters/"
+      },
+      "locationType": {
+        "param": "locationType",
+        "xpath": "location.value.type"
       }
     },
     "visible-condition": true
   },
   {
     "title": "Ответственный сотрудник",
-    "type": "STRING",
+    "type": "GROUPED_LIST",
     "alias": "responsibleMember",
     "data": {
-    	"singleOf": {
-      		"param": "memberId",
-      		"default-value": {
-        		"title": "Любой"
-    		}
-      	},
-    	"dataSource": {
-        	"api": "api/mobile/employee/list/1/"
-    	}
+      "singleOf": {
+        "param": "memberId",
+        "xpath": "responsibleMember.id",
+        "api": "api/mobile/employee/list/1/"
+      }
     },
     "visible-condition": {
       "isCompany": true
@@ -281,30 +265,89 @@
     "type": "RANGE",
     "alias": "priceRange",
     "data": {
-      "price": {
-        "param": "price",
-        "xpath": "priceRange"
-      },
       "limit_min": {
-          "title": "Цена от",
-          "param": "min"
+        "title": "Цена от",
+        "param": "price.min",
+        "xpath": "priceRange.min"
       },
       "limit_max": {
-          "title": "Цена до",
-          "param": "max"
+        "title": "Цена до",
+        "param": "price.max",
+        "xpath": "priceRange.max"
       }
     },
     "visible-condition": true
   },
   {
-    "title": "Статус публикации",
-    "type": "PUBLICATION_STATUS",
-    "alias": "publicationStatus",
-    "visible-condition": true,
+    "title": "СТАТУС",
+    "type": "HEADER"
+  },
+  {
+    "title": "Avito",
+    "type": "LIST",
+    "alias": "adState",
     "data": {
       "singleOf": {
-        "param": "adState"
+        "param": "adState",
+        "xpath": "adState.value",
+        "source": [
+          {
+            "title": "Любой",
+            "value": null
+          },
+          {
+            "title": "Опубликовано",
+            "value": "active"
+          },
+          {
+            "title": "Не опубликовано",
+            "value": "inactive"
+          },
+          {
+            "title": "Ошибки публикации",
+            "value": "faulty"
+          }
+        ],
+        "default-value": {
+          "title": "Любой",
+          "value": null
+        }
       }
-    }
+    },
+    "visible-condition": true
+  },
+  {
+    "title": "Domofond",
+    "type": "LIST",
+    "alias": "adState_dom",
+    "data": {
+      "singleOf": {
+        "param": "adState_dom",
+        "xpath": "adState_dom.value",
+        "source": [
+          {
+            "title": "Любой",
+            "value": null
+          },
+          {
+            "title": "Опубликовано",
+            "value": "active"
+          },
+          {
+            "title": "Не опубликовано",
+            "value": "inactive"
+          },
+          {
+            "title": "Ошибки публикации",
+            "value": "faulty"
+          }
+        ],
+        "default-value": {
+          "title": "Любой",
+          "value": null
+        }
+      }
+    },
+    "visible-condition": true
   }
 ]
