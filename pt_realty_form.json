@@ -1814,7 +1814,17 @@
     "title": "Квартира",
     "type": "HEADER",
     "icon": "params",
-    "visible-condition": true
+    "visible-condition": {
+      "objectType.group.value": "living"
+    }
+  },
+  {
+    "title": "Характеристики объекта недвижимости",
+    "type": "HEADER",
+    "icon": "params",
+    "visible-condition": {
+      "objectType.group.value": "garage_and_parking_place"
+    }
   },
   {
     "title": "Число собст-ков",
