@@ -192,11 +192,11 @@
           }
         ],
         "xpath": "garage_type.value"
-      },
-      "required-condition": true,
-      "visible-condition": {
-        "objectType.value": "garage"
       }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.value": "garage"
     }
   },
   {
