@@ -621,6 +621,9 @@
               }
             }
           ]
+        },
+        {
+          "objectType.group.value": "garage_and_parking_place"
         }
       ]
     },
