@@ -233,6 +233,28 @@
     }
   },
   {
+    "title": "Охрана",
+    "type": "BOOLEAN",
+    "alias": "security",
+    "data": {
+      "singleOf": {
+        "param": "security",
+        "xpath": "security.value"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$or": [
+        {
+          "objectType.value": "parking_place"
+        },
+        {
+          "objectType.value": "garage"
+        }
+      ]
+    }
+  },
+  {
     "title": "Тип дома",
     "type": "LIST",
     "alias": "isNew",
