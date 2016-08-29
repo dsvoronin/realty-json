@@ -93,6 +93,22 @@
             }
           },
           {
+            "title": "Гараж",
+            "value": "garage",
+            "group": {
+              "title": "Гаражи и машиноместа",
+              "value": "garage_and_parking_place"
+            }
+          },
+          {
+            "title": "Машиноместо",
+            "value": "parking_place",
+            "group": {
+              "title": "Гаражи и машиноместа",
+              "value": "garage_and_parking_place"
+            }
+          },
+          {
             "title": "Магазин",
             "value": "shop",
             "group": {
