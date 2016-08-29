@@ -2325,7 +2325,8 @@
       "objectType.group.value": {
         "$in": [
           "living",
-          "commercial"
+          "commercial",
+          "garage_and_parking_place"
         ]
       }
     },
