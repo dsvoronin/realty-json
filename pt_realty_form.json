@@ -1814,9 +1814,7 @@
     "title": "Квартира",
     "type": "HEADER",
     "icon": "params",
-    "visible-condition": {
-      "objectType.group.value": "living"
-    }
+    "visible-condition": true
   },
   {
     "title": "Число собст-ков",
@@ -2304,18 +2302,6 @@
     ],
     "editable-condition": {
       "isFromAutoupload": false
-    }
-  },
-  {
-    "title": "Характеристики объекта недвижимости",
-    "type": "HEADER",
-    "icon": "params",
-    "visible-condition": {
-      "objectType.group.value": {
-        "$in": [
-          "garage_and_parking_place"
-        ]
-      }
     }
   },
   {
