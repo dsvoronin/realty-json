@@ -1819,6 +1819,14 @@
     }
   },
   {
+    "title": "Характеристики объекта недвижимости",
+    "type": "HEADER",
+    "icon": "params",
+    "visible-condition": {
+      "objectType.group.value": "garage_and_parking_place"
+    }
+  },
+  {
     "title": "Число собст-ков",
     "type": "INTEGER",
     "alias": "ownersTotal",
