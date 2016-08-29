@@ -234,7 +234,7 @@
   },
   {
     "title": "Охрана",
-    "type": "BOOLEAN",
+    "type": "LIST",
     "alias": "security",
     "data": {
       "singleOf": {
