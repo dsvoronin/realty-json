@@ -318,7 +318,7 @@
     "data": {
       "singleOf": {
         "param": "cityId",
-        "api": "fias/city?regionId=${region.id}&type=city",
+        "api": "fias/city?regionId=${region.id}&type=city&name={filter}",
         "xpath": "city.id"
       }
     },
@@ -997,7 +997,14 @@
           },
           {
             "title": "за сутки",
-            "value": "daily"
+            "value": "daily",
+            "visible-condition": 
+            {
+              "$not": 
+              {
+                "objectType.group.value": "garage_and_parking_place"
+              }
+            }
           }
         ],
         "xpath": "priceUnit.value",
@@ -1017,7 +1024,8 @@
           "objectType.group.value": {
             "$in": [
               "living",
-              "suburban"
+              "suburban",
+              "garage_and_parking_place"
             ]
           }
         }
