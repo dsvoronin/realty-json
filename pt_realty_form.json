@@ -195,7 +195,11 @@
       },
       "required-condition": true,
       "visible-condition": {
-        "objectType.value": "garage"
+        "$and": [
+          {
+            "objectType.value": "garage"
+          }
+        ]
       }
     }
   },
