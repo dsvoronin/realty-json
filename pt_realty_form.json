@@ -776,7 +776,11 @@
       "$and": [
         {
           "$not": {
-            "objectType.group.value": "garage_and_parking_place"
+            "objectType.group.value": {
+                "$in": [
+                  "garage_and_parking_place"
+                ]
+              }
           }
         },
         {
