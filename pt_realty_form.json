@@ -200,6 +200,39 @@
     }
   },
   {
+    "title": "Тип машиноместа",
+    "type": "LIST",
+    "alias": "parking_place_type",
+    "data": {
+      "singleOf": {
+        "param": "parking_place_type",
+        "source": [
+          {
+            "title": "Многоуровневый паркинг",
+            "value": "multi_story_parking"
+          },
+          {
+            "title": "Подземный паркинг",
+            "value": "underground_parking"
+          },
+          {
+            "title": "Крытая стоянка",
+            "value": "covered_parking"
+          },
+          {
+            "title": "Открытая стоянка",
+            "value": "open_parking"
+          }
+        ],
+        "xpath": "garage_type.value"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.value": "parking_place"
+    }
+  },
+  {
     "title": "Тип дома",
     "type": "LIST",
     "alias": "isNew",
