@@ -97,15 +97,15 @@
             "value": "garage",
             "group": {
               "title": "Гаражи и машиноместа",
-              "value": "garage_and_parking_slot"
+              "value": "garage_and_parking_place"
             }
           },
           {
             "title": "Машиноместо",
-            "value": "parking_slot",
+            "value": "parking_place",
             "group": {
               "title": "Гаражи и машиноместа",
-              "value": "garage_and_parking_slot"
+              "value": "garage_and_parking_place"
             }
           },
           {
@@ -169,6 +169,39 @@
       }
     },
     "editable-condition": false
+  },
+  {
+    "title": "Тип гаража",
+    "type": "LIST",
+    "alias": "garage_type",
+    "data": {
+      "singleOf": {
+        "param": "garage_type",
+        "source": [
+          {
+            "title": "Железобетонный",
+            "value": "concrete"
+          },
+          {
+            "title": "Кирпичный",
+            "value": "brick"
+          },
+          {
+            "title": "Металлический",
+            "value": "metal"
+          }
+        ],
+        "xpath": "garage_type.value",
+        "default-value": {
+          "title": "Вторичка",
+          "value": false
+        }
+      },
+      "required-condition": true,
+      "visible-condition": {
+        "objectType.value": "garage"
+      }
+    }
   },
   {
     "title": "Тип дома",
