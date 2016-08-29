@@ -171,6 +171,39 @@
     "editable-condition": false
   },
   {
+    "title": "Тип гаража",
+    "type": "LIST",
+    "alias": "garage_type",
+    "data": {
+      "singleOf": {
+        "param": "garage_type",
+        "source": [
+          {
+            "title": "Железобетонный",
+            "value": "concrete"
+          },
+          {
+            "title": "Кирпичный",
+            "value": "brick"
+          },
+          {
+            "title": "Металлический",
+            "value": "metal"
+          }
+        ],
+        "xpath": "garage_type.value",
+        "default-value": {
+          "title": "Вторичка",
+          "value": false
+        }
+      },
+      "required-condition": true,
+      "visible-condition": {
+        "objectType.value": "garage"
+      }
+    }
+  },
+  {
     "title": "Тип дома",
     "type": "LIST",
     "alias": "isNew",
