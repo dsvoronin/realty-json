@@ -883,8 +883,10 @@
         "xpath": "ownersTotal.value"
       }
     },
-    "visible-condition": true,
-    "required-condition": false,
+    "visible-condition": {
+      "vehicleType.value": "usedcar"
+    },
+    "required-condition": true,
     "editable-condition": {
       "isFromAutoupload": false
     }
