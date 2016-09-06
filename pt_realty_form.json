@@ -526,7 +526,11 @@
     },
     "editable-condition": {
       "isFromAutoupload": false
-    }
+    },
+    "clear-triggers": [
+      "region",
+      "city"
+    ]
   },
   {
     "title": "Указать точку на карте",
@@ -705,8 +709,8 @@
     ],
     "comment": "Идентификатор дома из ФИАС"
   },
-    {
-    "title": "Фотографии и описание",
+  {
+    "title": "Фото",
     "type": "HEADER",
     "icon": "photo"
   },
@@ -728,6 +732,11 @@
   },
   {
     "title": "Планировка",
+    "type": "HEADER",
+    "icon": "planning"
+  },
+  {
+    "title": "Планировка",
     "type": "IMAGES",
     "alias": "planningImages",
     "data": {
@@ -741,6 +750,11 @@
     "editable-condition": {
       "isFromAutoupload": false
     }
+  },
+  {
+    "title": "Описание",
+    "type": "HEADER",
+    "icon": "description"
   },
   {
     "title": "Описание",
@@ -821,10 +835,10 @@
               "price": {
                 "$lt": 1000000000000
               }
-            }            
+            }
           ]
         },
-        "errorMessage": "Введите корректное значение"
+        "errorMessage": "Значение не может быть больше 999 999 999 999"
       }
     ],
     "editable-condition": {
@@ -1606,7 +1620,7 @@
             }
           ]
         },
-        "errorMessage": "Введите целое положительное число"
+        "errorMessage": "Значение не может быть больше 99"
       }
     ],
     "editable-condition": {
@@ -1657,12 +1671,12 @@
             }
           ]
         },
-        "errorMessage": "Введите целое положительное число"
+        "errorMessage": "Значение не может быть больше 99"
       },
       {
         "condition": {
           "objectFloor": {
-            "$lte": "floorsTotal"
+            "$lte": "@floorsTotal"
           }
         },
         "errorMessage": "Этаж объекта недвижимости должен быть не больше этажности здания"
@@ -1675,7 +1689,7 @@
   {
     "title": "Квартира",
     "type": "HEADER",
-    "icon": "house",
+    "icon": "params",
     "visible-condition": {
       "objectType.group.value": "living"
     }
@@ -1744,12 +1758,12 @@
             },
             {
               "ownersTotal": {
-                "$lt": 100
+                "$lt": 10
               }
-            }            
+            }
           ]
         },
-        "errorMessage": "Введите целое положительное число"
+        "errorMessage": "Значение не может быть больше 9"
       }
     ],
     "editable-condition": {
@@ -2111,10 +2125,10 @@
               "livingSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
-        "errorMessage": "Введите число"
+        "errorMessage": "Значение не может быть больше 9 999"
       }
     ],
     "editable-condition": {
@@ -2158,10 +2172,10 @@
               "kitchenSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
-        "errorMessage": "Введите число"
+        "errorMessage": "Значение не может быть больше 9 999"
       }
     ],
     "editable-condition": {
@@ -2209,18 +2223,18 @@
               "totalSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
-        "errorMessage": "Введите число"
+        "errorMessage": "Значение не может быть больше 9 999"
       },
       {
         "condition": {
           "totalSpace": {
             "$gte": {
               "$sum": [
-                "kitchenSpace",
-                "livingSpace"
+                "@kitchenSpace",
+                "@livingSpace"
               ]
             }
           }
@@ -2264,18 +2278,18 @@
               "totalHouseSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
-        "errorMessage": "Введите число"
+        "errorMessage": "Значение не может быть больше 9 999"
       },
       {
         "condition": {
           "totalHouseSpace": {
             "$gte": {
               "$sum": [
-                "kitchenSpace",
-                "livingSpace"
+                "@kitchenSpace",
+                "@livingSpace"
               ]
             }
           }
@@ -2326,15 +2340,15 @@
               "offeredSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
-        "errorMessage": "Введите число"
+        "errorMessage": "Значение не может быть больше 9 999"
       },
       {
         "condition": {
           "offeredSpace": {
-            "$lte": "totalSpace"
+            "$lte": "@totalSpace"
           }
         },
         "errorMessage": "Площадь на продажу не должна быть больше общей площади"
@@ -2383,15 +2397,15 @@
               "offeredLeaseSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
-        "errorMessage": "Введите число"
+        "errorMessage": "Значение не может быть больше 9 999"
       },
       {
         "condition": {
           "offeredLeaseSpace": {
-            "$lte": "totalSpace"
+            "$lte": "@totalSpace"
           }
         },
         "errorMessage": "Площадь в аренду не должна быть больше общей площади"
@@ -2438,10 +2452,10 @@
               "landSpace": {
                 "$lt": 10000
               }
-            }            
+            }
           ]
         },
-        "errorMessage": "Введите число"
+        "errorMessage": "Значение не может быть больше 9 999"
       }
     ],
     "editable-condition": {
@@ -3344,14 +3358,14 @@
       }
     ],
     "editable-condition": {
-        "$and": [
-          {
-            "isFromAutoupload": false
-          },
-          {
-            "isCompany": true
-          }
-        ]
+      "$and": [
+        {
+          "isFromAutoupload": false
+        },
+        {
+          "isCompany": true
+        }
+      ]
     }
   },
   {
@@ -3380,7 +3394,8 @@
     "data": {
       "singleOf": {
         "param": "contactName",
-        "xpath": "contactName"
+        "xpath": "contactName",
+        "bind": "@responsibleMember.contacts.contactName"
       }
     },
     "required-condition": false,
@@ -3408,7 +3423,8 @@
     "data": {
       "singleOf": {
         "param": "phone",
-        "xpath": "phone"
+        "xpath": "phone",
+        "bind": "@responsibleMember.contacts.phone"
       }
     },
     "required-condition": true,
@@ -3424,13 +3440,24 @@
     "data": {
       "singleOf": {
         "param": "email",
-        "xpath": "email"
+        "xpath": "email",
+        "bind": "@responsibleMember.contacts.email"
       }
     },
     "required-condition": true,
     "visible-condition": true,
     "editable-condition": {
       "isFromAutoupload": false
-    }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "email": {
+            "$regexp": ".+@.+\\..+"
+          }
+        },
+        "errorMessage": "Введите корректный Email-адрес"
+      }
+    ]
   }
 ]

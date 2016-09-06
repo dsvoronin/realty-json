@@ -172,6 +172,9 @@
     "paramElementSource": {
       "type": "object",
       "properties": {
+        "title": {
+          "type": "string"
+        },
         "param": {
           "type": "string"
         },
@@ -187,6 +190,9 @@
         },
         "xpath": {
           "type": "string"
+        },
+        "bind": {
+          "$ref": "#/definitions/aliasPath"
         }
       },
       "required": [
@@ -370,7 +376,7 @@
     },
     "aliasPath": {
       "type": "string",
-      "pattern": "^[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$"
+      "pattern": "^@[a-zA-Z_]+(\\.{1}[a-zA-Z_]+)*$"
     },
     "alias": {
       "type": "string",

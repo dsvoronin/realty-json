@@ -34,7 +34,7 @@
   },
   {
     "title": "Марка",
-    "type": "STRING",
+    "type": "BRAND_SUGGEST",
     "alias": "brand",
     "data": {
       "singleOf": {
@@ -49,7 +49,7 @@
   },
   {
     "title": "Модель",
-    "type": "STRING",
+    "type": "MODEL_SUGGEST",
     "alias": "model",
     "data": {
       "singleOf": {
@@ -69,7 +69,7 @@
   },
   {
     "title": "Год выпуска",
-    "type": "STRING",
+    "type": "YEAR_SUGGEST",
     "alias": "year",
     "data": {
       "singleOf": {
@@ -924,7 +924,7 @@
   {
     "title": "Дополнительные параметры",
     "type": "HEADER",
-    "icon": "params"
+    "icon": "complectation"
   },
   {
     "title": "Комплектация",
@@ -1686,7 +1686,7 @@
             }
           ]
         },
-        "errorMessage": "Введите корректное значение"
+        "errorMessage": "Значение не может быть больше 999 999 999 999"
       }
     ],
     "editable-condition": {
@@ -1802,22 +1802,6 @@
     "icon": "params"
   },
   {
-    "title": "Лист приемки",
-    "type": "IMAGES",
-    "alias": "checklist",
-    "data": {
-      "singleOf": {
-        "param": "checklist",
-        "xpath": "checklist"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": false,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
     "title": "Внутренняя оценка, руб",
     "type": "INTEGER",
     "alias": "suggestedPrice",
@@ -1928,7 +1912,7 @@
       "singleOf": {
         "param": "memberId",
         "xpath": "responsibleMember.id",
-        "api": "api/mobile/employee/list/1/"
+        "api": "api/mobile/offer/responsible/1/"
       }
     },
     "required-condition": {
@@ -1937,7 +1921,16 @@
     "visible-condition": {
       "isCompany": true
     },
-    "editable-condition": true
+    "editable-condition": {
+      "$and": [
+        {
+          "isFromAutoupload": false
+        },
+        {
+          "isCompany": true
+        }
+      ]
+    }
   },
   {
     "title": "Регион",
@@ -1973,7 +1966,8 @@
         }
       }
     },
-    "editable-condition": false
+    "editable-condition": false,
+    "clear-triggers": ["region"]
   },
   {
     "title": "Метро",
@@ -1989,7 +1983,8 @@
     "required-condition": true,
     "visible-condition": {
       "city.hasMetro": true
-    }
+    },
+    "clear-triggers": ["region", "city"]
   },
   {
     "title": "Район",
@@ -2012,7 +2007,8 @@
           "city.hasDistrict": true
         }
       ]
-    }
+    },
+    "clear-triggers": ["region", "city"]
   },
   {
     "title": "Контактное лицо",
@@ -2021,7 +2017,8 @@
     "data": {
       "singleOf": {
         "param": "contactName",
-        "xpath": "contactName"
+        "xpath": "contactName",
+        "bind": "@responsibleMember.contacts.contactName"
       }
     },
     "required-condition": false,
@@ -2049,7 +2046,8 @@
     "data": {
       "singleOf": {
         "param": "phone",
-        "xpath": "phone"
+        "xpath": "phone",
+        "bind": "@responsibleMember.contacts.phone"
       }
     },
     "required-condition": true,
@@ -2065,13 +2063,24 @@
     "data": {
       "singleOf": {
         "param": "email",
-        "xpath": "email"
+        "xpath": "email",
+        "bind": "@responsibleMember.contacts.email"
       }
     },
     "required-condition": true,
     "visible-condition": true,
     "editable-condition": {
       "isFromAutoupload": false
-    }
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "email": {
+            "$regexp": ".+@.+\\..+"
+          }
+        },
+        "errorMessage": "Введите корректный Email-адрес"
+      }
+    ]
   }
 ]
