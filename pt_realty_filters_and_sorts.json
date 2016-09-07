@@ -288,7 +288,7 @@
     "alias": "adState",
     "data": {
       "singleOf": {
-        "param": "adState",
+        "param": "adState.avito",
         "xpath": "adState.value",
         "source": [
           {
@@ -322,7 +322,7 @@
     "alias": "adState_dom",
     "data": {
       "singleOf": {
-        "param": "adState_dom",
+        "param": "adState.domofond",
         "xpath": "adState_dom.value",
         "source": [
           {
