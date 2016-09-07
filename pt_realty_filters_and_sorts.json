@@ -288,7 +288,6 @@
     "alias": "adState",
     "data": {
       "singleOf": {
-
         "param": "adState.avito",
         "xpath": "adState.value",
         "source": [
@@ -344,7 +343,6 @@
           }
         ],
         "default-value": {
-
           "title": "Любой",
           "value": null
         }
