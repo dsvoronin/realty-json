@@ -1462,6 +1462,14 @@
             }
           },
           {
+            "title": "Панели",
+            "value": "reinforcedConcretePanel",
+            "visible-condition": {
+              "objectType.group.value": "garage"
+            }
+          }
+          ,
+          {
             "title": "Экспериментальные материалы",
             "value": "experimentalMaterial",
             "visible-condition": {
@@ -1477,7 +1485,8 @@
       "objectType.group.value": {
         "$in": [
           "living",
-          "suburban"
+          "suburban",
+          "garage"
         ]
       }
     },
