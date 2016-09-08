@@ -97,7 +97,7 @@
             "value": "garage",
             "group": {
               "title": "Гаражи и машиноместа",
-              "value": "garage_and_parking"
+              "value": "garageAndParking"
             }
           },
           {
@@ -105,7 +105,7 @@
             "value": "parking",
             "group": {
               "title": "Гаражи и машиноместа",
-              "value": "garage_and_parking"
+              "value": "garageAndParking"
             }
           },
           {
@@ -375,7 +375,7 @@
                 "$in": [
                   "living",
                   "commercial",
-                  "garage_and_parking"
+                  "garageAndParking"
                 ]
               }
             }
@@ -396,7 +396,7 @@
                 "$in": [
                   "suburban",
                   "land",
-                  "garage_and_parking"
+                  "garageAndParking"
                 ]
               }
             }
@@ -626,7 +626,7 @@
         {
           "objectType.group.value": {
             "$in": [
-              "garage_and_parking"
+              "garageAndParking"
             ]
           }
         }
@@ -779,7 +779,7 @@
           "$not": {
             "objectType.group.value": {
               "$in": [
-                "garage_and_parking"
+                "garageAndParking"
               ]
             }
           }
@@ -1017,7 +1017,7 @@
             "value": "daily",
             "visible-condition": {
               "$not": {
-                "objectType.group.value": "garage_and_parking"
+                "objectType.group.value": "garageAndParking"
               }
             }
           }
@@ -1040,7 +1040,7 @@
             "$in": [
               "living",
               "suburban",
-              "garage_and_parking"
+              "garageAndParking"
             ]
           }
         }
@@ -1067,7 +1067,7 @@
             "value": "perMeter",
             "visible-condition": {
               "$not": {
-                "objectType.group.value": "garage_and_parking"
+                "objectType.group.value": "garageAndParking"
               }
             }
           }
@@ -1089,7 +1089,7 @@
           "objectType.group.value": {
             "$in": [
               "commercial",
-              "garage_and_parking"
+              "garageAndParking"
             ]
           }
         }
@@ -1868,7 +1868,7 @@
     "type": "HEADER",
     "icon": "params",
     "visible-condition": {
-      "objectType.group.value": "garage_and_parking"
+      "objectType.group.value": "garageAndParking"
     }
   },
   {
@@ -2420,7 +2420,7 @@
         "$in": [
           "living",
           "commercial",
-          "garage_and_parking"
+          "garageAndParking"
         ]
       }
     },
