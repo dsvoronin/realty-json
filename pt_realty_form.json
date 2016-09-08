@@ -87,6 +87,25 @@
             "group": {
               "title": "Загородная",
               "value": "land"
+            },
+            "visible-condition": {
+              "isSell.value": true
+            }
+          },
+          {
+            "title": "Гараж",
+            "value": "garage",
+            "group": {
+              "title": "Гаражи и машиноместа",
+              "value": "garageAndParking"
+            }
+          },
+          {
+            "title": "Машиноместо",
+            "value": "parking",
+            "group": {
+              "title": "Гаражи и машиноместа",
+              "value": "garageAndParking"
             }
           },
           {
@@ -280,7 +299,8 @@
               "objectType.group.value": {
                 "$in": [
                   "living",
-                  "commercial"
+                  "commercial",
+                  "garageAndParking"
                 ]
               }
             }
@@ -300,7 +320,8 @@
               "objectType.group.value": {
                 "$in": [
                   "suburban",
-                  "land"
+                  "land",
+                  "garageAndParking"
                 ]
               }
             }
@@ -526,6 +547,13 @@
               }
             }
           ]
+        },
+        {
+          "objectType.group.value": {
+                "$in": [
+                  "garageAndParking"
+                ]
+              }
         }
       ]
     },
@@ -668,6 +696,16 @@
     },
     "visible-condition": {
       "$and": [
+        {
+          "$not": {
+
+            "objectType.group.value": {
+                "$in": [
+                  "garageAndParking"
+                ]
+              }
+          }
+        },
         {
           "$not": {
             "objectType.group.value": "land"
@@ -888,7 +926,14 @@
           },
           {
             "title": "за сутки",
-            "value": "daily"
+            "value": "daily",
+            "visible-condition": 
+            {
+              "$not": 
+              {
+                "objectType.group.value": "garageAndParking"
+              }
+            }
           }
         ],
         "xpath": "priceUnit.value",
@@ -908,7 +953,8 @@
           "objectType.group.value": {
             "$in": [
               "living",
-              "suburban"
+              "suburban",
+              "garageAndParking"
             ]
           }
         }
@@ -932,7 +978,14 @@
           },
           {
             "title": "за м²",
-            "value": "perMeter"
+            "value": "perMeter",
+            "visible-condition":
+            {
+              "$not":
+              {
+                "objectType.group.value": "garageAndParking"
+              }
+            }
           }
         ],
         "xpath": "priceUnitCSale.value",
@@ -949,7 +1002,12 @@
           "isSell.value": true
         },
         {
-          "objectType.group.value": "commercial"
+          "objectType.group.value": {
+            "$in": [
+              "commercial",
+              "garageAndParking"
+            ]
+          }
         }
       ]
     },
@@ -1686,6 +1744,14 @@
     }
   },
   {
+    "title": "Характеристики объекта недвижимости",
+    "type": "HEADER",
+    "icon": "params",
+    "visible-condition": {
+      "objectType.group.value": "garageAndParking"
+    }
+  },
+  {
     "title": "Число собст-ков",
     "type": "INTEGER",
     "alias": "ownersTotal",
@@ -2192,7 +2258,8 @@
       "objectType.group.value": {
         "$in": [
           "living",
-          "commercial"
+          "commercial",
+          "garageAndParking"
         ]
       }
     },
