@@ -93,6 +93,22 @@
             }
           },
           {
+            "title": "Гараж",
+            "value": "garage",
+            "group": {
+              "title": "Гаражи и машиноместа",
+              "value": "garage_and_parking"
+            }
+          },
+          {
+            "title": "Машиноместо",
+            "value": "parking",
+            "group": {
+              "title": "Гаражи и машиноместа",
+              "value": "garage_and_parking"
+            }
+          },
+          {
             "title": "Магазин",
             "value": "shop",
             "group": {
@@ -153,6 +169,89 @@
       }
     },
     "editable-condition": false
+  },
+  {
+    "title": "Тип гаража",
+    "type": "LIST",
+    "alias": "garageType",
+    "data": {
+      "singleOf": {
+        "param": "buildingMaterial",
+        "source": [
+          {
+            "title": "Железобетонный",
+            "value": "reinforcedConcretePanel"
+          },
+          {
+            "title": "Кирпичный",
+            "value": "brick"
+          },
+          {
+            "title": "Металлический",
+            "value": "metal"
+          }
+        ],
+        "xpath": "garageType.value"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.value": "garage"
+    },
+    "editable-condition": true
+  },
+  {
+    "title": "Тип машиноместа",
+    "type": "LIST",
+    "alias": "parkingType",
+    "data": {
+      "singleOf": {
+        "param": "parkingType",
+        "source": [
+          {
+            "title": "Многоуровневый паркинг",
+            "value": "multilevel"
+          },
+          {
+            "title": "Подземный паркинг",
+            "value": "underground"
+          },
+          {
+            "title": "Крытая стоянка",
+            "value": "covered"
+          },
+          {
+            "title": "Открытая стоянка",
+            "value": "uncovered"
+          }
+        ],
+        "xpath": "parkingType.value"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.value": "parking"
+    }
+  },
+  {
+    "title": "Охрана",
+    "type": "BOOLEAN",
+    "alias": "security",
+    "data": {
+      "singleOf": {
+        "param": "isSecure",
+        "xpath": "security"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "objectType.value": {
+        "$in": [
+          "parking",
+          "garage"
+        ]
+      }
+    }
   },
   {
     "title": "Тип дома",
@@ -218,7 +317,7 @@
     "data": {
       "singleOf": {
         "param": "cityId",
-        "api": "fias/city?regionId=${region.id}&type=city",
+        "api": "fias/city?regionId=${region.id}&type=city&name={filter}",
         "xpath": "city.id"
       }
     },
@@ -275,7 +374,8 @@
               "objectType.group.value": {
                 "$in": [
                   "living",
-                  "commercial"
+                  "commercial",
+                  "garage_and_parking"
                 ]
               }
             }
@@ -295,7 +395,8 @@
               "objectType.group.value": {
                 "$in": [
                   "suburban",
-                  "land"
+                  "land",
+                  "garage_and_parking"
                 ]
               }
             }
@@ -521,6 +622,13 @@
               }
             }
           ]
+        },
+        {
+          "objectType.group.value": {
+                "$in": [
+                  "garage_and_parking"
+                ]
+              }
         }
       ]
     },
@@ -667,6 +775,15 @@
     },
     "visible-condition": {
       "$and": [
+        {
+          "$not": {
+            "objectType.group.value": {
+                "$in": [
+                  "garage_and_parking"
+                ]
+              }
+          }
+        },
         {
           "$not": {
             "objectType.group.value": "land"
@@ -897,7 +1014,14 @@
           },
           {
             "title": "за сутки",
-            "value": "daily"
+            "value": "daily",
+            "visible-condition": 
+            {
+              "$not": 
+              {
+                "objectType.group.value": "garage_and_parking"
+              }
+            }
           }
         ],
         "xpath": "priceUnit.value",
@@ -917,7 +1041,8 @@
           "objectType.group.value": {
             "$in": [
               "living",
-              "suburban"
+              "suburban",
+              "garage_and_parking"
             ]
           }
         }
@@ -941,7 +1066,14 @@
           },
           {
             "title": "за м²",
-            "value": "perMeter"
+            "value": "perMeter",
+            "visible-condition":
+            {
+              "$not":
+              {
+                "objectType.group.value": "garage_and_parking"
+              }
+            }
           }
         ],
         "xpath": "priceUnitCSale.value",
@@ -958,7 +1090,12 @@
           "isSell.value": true
         },
         {
-          "objectType.group.value": "commercial"
+          "objectType.group.value": {
+            "$in": [
+              "commercial",
+              "garage_and_parking"
+            ]
+          }
         }
       ]
     },
@@ -1695,6 +1832,14 @@
     }
   },
   {
+    "title": "Характеристики объекта недвижимости",
+    "type": "HEADER",
+    "icon": "params",
+    "visible-condition": {
+      "objectType.group.value": "garage_and_parking"
+    }
+  },
+  {
     "title": "Число собст-ков",
     "type": "INTEGER",
     "alias": "ownersTotal",
@@ -2201,7 +2346,8 @@
       "objectType.group.value": {
         "$in": [
           "living",
-          "commercial"
+          "commercial",
+          "garage_and_parking"
         ]
       }
     },
@@ -3369,7 +3515,7 @@
     }
   },
   {
-    "title": "Ответственный сотрудник",
+    "title": "Ответственный",
     "type": "STRING",
     "alias": "responsibleMember",
     "data": {
@@ -3388,7 +3534,7 @@
     "editable-condition": true
   },
   {
-    "title": "Контакт",
+    "title": "Контактное лицо",
     "type": "STRING",
     "alias": "contactName",
     "data": {
