@@ -96,7 +96,7 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "vehicleType.value": "usedcar" 
+      "vehicleType.value": "usedcar"
     },
     "editable-condition": {
       "isFromAutoupload": false
@@ -140,7 +140,7 @@
     "clear-triggers": [
       "vehicleType"
     ]
-  }, 
+  },
   {
     "title": "Состояние",
     "type": "LIST",
@@ -163,7 +163,7 @@
     },
     "required-condition": false,
     "visible-condition": {
-      "vehicleType.value": "usedcar" 
+      "vehicleType.value": "usedcar"
     },
     "editable-condition": {
       "isFromAutoupload": false
@@ -1829,8 +1829,8 @@
     "alias": "suggestedPrice",
     "data": {
       "singleOf": {
-        "param": "price",
-        "xpath": "price"
+        "param": "suggestedPrice",
+        "xpath": "suggestedPrice"
       }
     },
     "required-condition": false,
@@ -2005,7 +2005,7 @@
     "clear-triggers": ["region", "city"]
   },
   {
-    "title": "Ответственный сотрудник",
+    "title": "Ответственный",
     "type": "STRING",
     "alias": "responsibleMember",
     "data": {
