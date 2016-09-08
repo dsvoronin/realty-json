@@ -97,15 +97,15 @@
             "value": "garage",
             "group": {
               "title": "Гаражи и машиноместа",
-              "value": "garage_and_parking_place"
+              "value": "garage_and_parking"
             }
           },
           {
             "title": "Машиноместо",
-            "value": "parking_place",
+            "value": "parking",
             "group": {
               "title": "Гаражи и машиноместа",
-              "value": "garage_and_parking_place"
+              "value": "garage_and_parking"
             }
           },
           {
@@ -173,14 +173,14 @@
   {
     "title": "Тип гаража",
     "type": "LIST",
-    "alias": "garage_type",
+    "alias": "garageType",
     "data": {
       "singleOf": {
-        "param": "garage_type",
+        "param": "buildingMaterial",
         "source": [
           {
             "title": "Железобетонный",
-            "value": "concrete"
+            "value": "reinforcedConcretePanel"
           },
           {
             "title": "Кирпичный",
@@ -191,45 +191,46 @@
             "value": "metal"
           }
         ],
-        "xpath": "garage_type.value"
+        "xpath": "garageType.value"
       }
     },
     "required-condition": true,
     "visible-condition": {
       "objectType.value": "garage"
-    }
+    },
+    "editable-condition": true
   },
   {
     "title": "Тип машиноместа",
     "type": "LIST",
-    "alias": "parking_place_type",
+    "alias": "parkingType",
     "data": {
       "singleOf": {
-        "param": "parking_place_type",
+        "param": "parkingType",
         "source": [
           {
             "title": "Многоуровневый паркинг",
-            "value": "multi_story_parking"
+            "value": "multilevel"
           },
           {
             "title": "Подземный паркинг",
-            "value": "underground_parking"
+            "value": "underground"
           },
           {
             "title": "Крытая стоянка",
-            "value": "covered_parking"
+            "value": "covered"
           },
           {
             "title": "Открытая стоянка",
-            "value": "open_parking"
+            "value": "uncovered"
           }
         ],
-        "xpath": "garage_type.value"
+        "xpath": "parkingType.value"
       }
     },
     "required-condition": true,
     "visible-condition": {
-      "objectType.value": "parking_place"
+      "objectType.value": "parking"
     }
   },
   {
@@ -238,20 +239,18 @@
     "alias": "security",
     "data": {
       "singleOf": {
-        "param": "security",
-        "xpath": "security.value"
+        "param": "isSecure",
+        "xpath": "security"
       }
     },
     "required-condition": false,
     "visible-condition": {
-      "$or": [ 
-        {
-          "objectType.value": "parking_place"
-        },
-        {
-          "objectType.value": "garage"
-        }
-      ]
+      "objectType.value": {
+        "$in": [
+          "parking",
+          "garage"
+        ]
+      }
     }
   },
   {
@@ -375,7 +374,8 @@
               "objectType.group.value": {
                 "$in": [
                   "living",
-                  "commercial"
+                  "commercial",
+                  "garage_and_parking"
                 ]
               }
             }
@@ -395,7 +395,8 @@
               "objectType.group.value": {
                 "$in": [
                   "suburban",
-                  "land"
+                  "land",
+                  "garage_and_parking"
                 ]
               }
             }
@@ -625,7 +626,7 @@
         {
           "objectType.group.value": {
                 "$in": [
-                  "garage_and_parking_place"
+                  "garage_and_parking"
                 ]
               }
         }
@@ -778,7 +779,7 @@
           "$not": {
             "objectType.group.value": {
                 "$in": [
-                  "garage_and_parking_place"
+                  "garage_and_parking"
                 ]
               }
           }
@@ -1018,7 +1019,7 @@
             {
               "$not": 
               {
-                "objectType.group.value": "garage_and_parking_place"
+                "objectType.group.value": "garage_and_parking"
               }
             }
           }
@@ -1041,7 +1042,7 @@
             "$in": [
               "living",
               "suburban",
-              "garage_and_parking_place"
+              "garage_and_parking"
             ]
           }
         }
@@ -1065,7 +1066,14 @@
           },
           {
             "title": "за м²",
-            "value": "perMeter"
+            "value": "perMeter",
+            "visible-condition":
+            {
+              "$not":
+              {
+                "objectType.group.value": "garage_and_parking"
+              }
+            }
           }
         ],
         "xpath": "priceUnitCSale.value",
@@ -1082,7 +1090,12 @@
           "isSell.value": true
         },
         {
-          "objectType.group.value": "commercial"
+          "objectType.group.value": {
+            "$in": [
+              "commercial",
+              "garage_and_parking"
+            ]
+          }
         }
       ]
     },
@@ -1462,14 +1475,6 @@
             }
           },
           {
-            "title": "Панели",
-            "value": "reinforcedConcretePanel",
-            "visible-condition": {
-              "objectType.group.value": "garage"
-            }
-          }
-          ,
-          {
             "title": "Экспериментальные материалы",
             "value": "experimentalMaterial",
             "visible-condition": {
@@ -1485,8 +1490,7 @@
       "objectType.group.value": {
         "$in": [
           "living",
-          "suburban",
-          "garage"
+          "suburban"
         ]
       }
     },
@@ -1832,7 +1836,7 @@
     "type": "HEADER",
     "icon": "params",
     "visible-condition": {
-      "objectType.group.value": "garage_and_parking_place"
+      "objectType.group.value": "garage_and_parking"
     }
   },
   {
@@ -2343,7 +2347,7 @@
         "$in": [
           "living",
           "commercial",
-          "garage_and_parking_place"
+          "garage_and_parking"
         ]
       }
     },
