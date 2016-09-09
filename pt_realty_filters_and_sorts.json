@@ -188,6 +188,22 @@
               "title": "Коммерческая",
               "value": "commercial"
             }
+          },
+          {
+            "title": "Гараж",
+            "value": "garage",
+            "group": {
+              "title": "Гаражи и машиноместа",
+              "value": "garageAndParking"
+            }
+          },
+          {
+            "title": "Машиноместо",
+            "value": "parking",
+            "group": {
+              "title": "Гаражи и машиноместа",
+              "value": "garageAndParking"
+            }
           }
         ]
       }
