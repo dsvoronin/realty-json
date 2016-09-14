@@ -1831,8 +1831,8 @@
     "alias": "suggestedPrice",
     "data": {
       "singleOf": {
-        "param": "price",
-        "xpath": "price"
+        "param": "suggestedPrice",
+        "xpath": "suggestedPrice"
       }
     },
     "required-condition": false,
