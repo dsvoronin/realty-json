@@ -155,6 +155,14 @@
               "title": "Коммерческая",
               "value": "commercial"
             }
+          },
+          {
+            "title": "Помещение общественного питания",
+            "value": "catering",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
           }
         ],
         "xpath": "objectType.value",
