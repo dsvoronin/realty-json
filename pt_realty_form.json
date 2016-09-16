@@ -87,9 +87,6 @@
             "group": {
               "title": "Загородная",
               "value": "land"
-            },
-            "visible-condition": {
-              "isSell.value": true
             }
           },
           {
