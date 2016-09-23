@@ -140,9 +140,6 @@
             "group": {
               "title": "Загородная",
               "value": "land"
-            },
-            "visible-condition": {
-              "isSell.value": true
             }
           },
           {
@@ -188,6 +185,14 @@
           {
             "title": "Свободного назначения",
             "value": "free",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Помещение общественного питания",
+            "value": "catering",
             "group": {
               "title": "Коммерческая",
               "value": "commercial"
