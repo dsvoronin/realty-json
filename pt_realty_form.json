@@ -1048,7 +1048,7 @@
     }
   },
   {
-    "title": "Размерность цены 111",
+    "title": "Размерность цены",
     "type": "LIST",
     "alias": "priceUnitCSale",
     "data": {
@@ -1056,7 +1056,7 @@
         "param": "priceUnit",
         "source": [
           {
-            "title": "за все 5",
+            "title": "за все",
             "value": "total"
           },
           {
@@ -1073,7 +1073,7 @@
         ],
         "xpath": "priceUnitCSale.value",
         "default-value": {
-          "title": "за все 8",
+          "title": "за все",
           "value": "total"
         }
       }
