@@ -1009,10 +1009,20 @@
             "value": "daily",
             "visible-condition": 
             {
-              "$not": 
-              {
-                "objectType.group.value": "garageAndParking"
-              }
+              "$or": [
+                {
+                  "$not": 
+                  {
+                    "objectType.group.value": "land"
+                  }
+                },
+                {
+                  "$not": 
+                  {
+                    "objectType.group.value": "garageAndParking"
+                  }
+                }
+              ]
             }
           }
         ],
