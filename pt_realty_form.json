@@ -1048,7 +1048,7 @@
     }
   },
   {
-    "title": "Размерность цены",
+    "title": "Размерность цены 111",
     "type": "LIST",
     "alias": "priceUnitCSale",
     "data": {
