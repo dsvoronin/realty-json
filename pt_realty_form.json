@@ -1009,7 +1009,7 @@
             "value": "daily",
             "visible-condition": 
             {
-              "$or": [
+              "$and": [
                 {
                   "$not": 
                   {
