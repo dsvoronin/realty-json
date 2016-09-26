@@ -179,6 +179,89 @@
     "editable-condition": false
   },
   {
+    "title": "Тип гаража",
+    "type": "LIST",
+    "alias": "garageType",
+    "data": {
+      "singleOf": {
+        "param": "buildingMaterial",
+        "source": [
+          {
+            "title": "Железобетонный",
+            "value": "reinforcedConcretePanel"
+          },
+          {
+            "title": "Кирпичный",
+            "value": "brick"
+          },
+          {
+            "title": "Металлический",
+            "value": "metal"
+          }
+        ],
+        "xpath": "garageType.value"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.value": "garage"
+    },
+    "editable-condition": true
+  },
+  {
+    "title": "Тип машиноместа",
+    "type": "LIST",
+    "alias": "parkingType",
+    "data": {
+      "singleOf": {
+        "param": "parkingType",
+        "source": [
+          {
+            "title": "Многоуровневый паркинг",
+            "value": "multilevel"
+          },
+          {
+            "title": "Подземный паркинг",
+            "value": "underground"
+          },
+          {
+            "title": "Крытая стоянка",
+            "value": "covered"
+          },
+          {
+            "title": "Открытая стоянка",
+            "value": "uncovered"
+          }
+        ],
+        "xpath": "parkingType.value"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.value": "parking"
+    }
+  },
+  {
+    "title": "Охрана",
+    "type": "BOOLEAN",
+    "alias": "security",
+    "data": {
+      "singleOf": {
+        "param": "isSecure",
+        "xpath": "security"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "objectType.value": {
+        "$in": [
+          "parking",
+          "garage"
+        ]
+      }
+    }
+  },
+  {
     "title": "Тип дома",
     "type": "LIST",
     "alias": "isNew",
