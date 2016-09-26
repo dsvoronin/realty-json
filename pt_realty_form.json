@@ -1073,7 +1073,7 @@
         ],
         "xpath": "priceUnitCSale.value",
         "default-value": {
-          "title": "за все",
+          "title": "за все 8",
           "value": "total"
         }
       }
