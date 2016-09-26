@@ -1034,7 +1034,8 @@
             "$in": [
               "living",
               "suburban",
-              "garageAndParking"
+              "garageAndParking",
+              "land"
             ]
           }
         }
