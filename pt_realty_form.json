@@ -1020,9 +1020,16 @@
           {
             "title": "за сутки",
             "value": "daily",
-            "visible-condition": {
-              "$not": {
-                "objectType.group.value": "garageAndParking"
+            "visible-condition":
+            {
+              "$not":
+              {
+                "objectType.group.value": {
+                  "$in": [
+                    "garageAndParking",
+                    "land"
+                  ]
+                }
               }
             }
           }
@@ -1044,6 +1051,7 @@
           "objectType.group.value": {
             "$in": [
               "living",
+              "land",
               "suburban",
               "garageAndParking"
             ]
@@ -1070,8 +1078,10 @@
           {
             "title": "за м²",
             "value": "perMeter",
-            "visible-condition": {
-              "$not": {
+            "visible-condition":
+            {
+              "$not":
+              {
                 "objectType.group.value": "garageAndParking"
               }
             }

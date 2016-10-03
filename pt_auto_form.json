@@ -895,8 +895,10 @@
         "xpath": "ownersTotal.value"
       }
     },
-    "visible-condition": true,
-    "required-condition": false,
+    "visible-condition": {
+       "vehicleType.value": "usedcar"
+    },
+    "required-condition": true,
     "editable-condition": {
       "isFromAutoupload": false
     }
@@ -1418,7 +1420,7 @@
           "param": "multimedia",
           "source": [
             {
-              "title":"CD/DVD/Blue-ray",
+              "title":"CD/DVD/Blu-ray",
               "value":"cd"
             },
             {
@@ -1915,6 +1917,34 @@
         "errorMessage": "Не более 60 символов"
       }
     ],
+    "editable-condition": {
+        "$and": [
+	        {
+	          "isFromAutoupload": false
+	        },
+	        {
+	          "isCompany": true
+	        }
+		]
+    }
+  },
+  {
+    "title": "Ответственный",
+    "type": "STRING",
+    "alias": "responsibleMember",
+    "data": {
+      "singleOf": {
+        "param": "memberId",
+        "xpath": "responsibleMember.id",
+        "api": "api/mobile/offer/responsible/1/"
+      }
+    },
+    "required-condition": {
+      "isCompany": true
+    },
+    "visible-condition": {
+      "isCompany": true
+    },
     "editable-condition": {
       "$and": [
         {
