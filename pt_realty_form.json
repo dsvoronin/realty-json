@@ -897,7 +897,19 @@
           },
           {
             "title": "за сутки",
-            "value": "daily"
+            "value": "daily",
+            "visible-condition": 
+            {
+              "$not": 
+              {
+                "objectType.group.value": {
+                  "$in": [
+                    "garageAndParking",
+                    "land"
+                  ]
+                }
+              }
+            }
           }
         ],
         "xpath": "priceUnit.value",
@@ -917,7 +929,9 @@
           "objectType.group.value": {
             "$in": [
               "living",
-              "suburban"
+              "land",
+              "suburban",
+              "garageAndParking"
             ]
           }
         }
