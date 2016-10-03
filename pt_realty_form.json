@@ -1022,7 +1022,12 @@
             "value": "daily",
             "visible-condition": {
               "$not": {
-                "objectType.group.value": "garageAndParking"
+                "objectType.group.value": {
+                  "$in": [
+                    "garageAndParking",
+                    "land"
+                  ]
+                }
               }
             }
           }
@@ -1044,6 +1049,7 @@
           "objectType.group.value": {
             "$in": [
               "living",
+              "land",
               "suburban",
               "garageAndParking"
             ]
