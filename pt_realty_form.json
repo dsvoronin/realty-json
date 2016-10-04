@@ -907,6 +907,32 @@
     }
   },
   {
+    "title": "Заметки",
+    "type": "STRING",
+    "alias": "comment",
+    "data": {
+      "singleOf": {
+        "param": "comment",
+        "xpath": "comment"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": true,
+    "valid-conditions": [
+      {
+        "condition": {
+          "comment": {
+            "$length": {
+              "$lte": 3000
+            }
+          }
+        },
+        "errorMessage": "Заметка не может быть длиннее 3000 символов"
+      }
+    ],
+    "editable-condition": true
+  },
+  {
     "title": "Видео",
     "type": "STRING",
     "alias": "video",
