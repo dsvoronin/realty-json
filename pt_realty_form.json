@@ -630,10 +630,10 @@
         },
         {
           "objectType.group.value": {
-                "$in": [
-                  "garageAndParking"
-                ]
-              }
+            "$in": [
+              "garageAndParking"
+            ]
+          }
         }
       ]
     },
@@ -783,10 +783,10 @@
         {
           "$not": {
             "objectType.group.value": {
-                "$in": [
-                  "garageAndParking"
-                ]
-              }
+              "$in": [
+                "garageAndParking"
+              ]
+            }
           }
         },
         {
@@ -1020,9 +1020,9 @@
           {
             "title": "за сутки",
             "value": "daily",
-            "visible-condition": 
+            "visible-condition":
             {
-              "$not": 
+              "$not":
               {
                 "objectType.group.value": {
                   "$in": [
@@ -1072,7 +1072,7 @@
         "param": "priceUnit",
         "source": [
           {
-            "title": "за все",
+            "title": "За всё",
             "value": "total"
           },
           {
@@ -1089,7 +1089,7 @@
         ],
         "xpath": "priceUnitCSale.value",
         "default-value": {
-          "title": "за все",
+          "title": "За всё",
           "value": "total"
         }
       }
@@ -1201,6 +1201,18 @@
             },
             {
               "commission": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение должно быть не меньше нуля"
+      },
+      {
+        "condition": {
+          "$and": [
+            {
+              "commission": {
                 "$lte": 200
               }
             },
@@ -1211,7 +1223,7 @@
             }
           ]
         },
-        "errorMessage": "Введите корректное значение"
+        "errorMessage": "Значение не может больше 200"
       }
     ],
     "editable-condition": {
@@ -1753,9 +1765,21 @@
           "$and": [
             {
               "floorsTotal": {
-                "$gt": 0
+                "$gte": 1
               }
             },
+            {
+              "floorsTotal": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение должно быть больше нуля"
+      },
+      {
+        "condition": {
+          "$and": [
             {
               "floorsTotal": {
                 "$type": "integer"
@@ -1804,9 +1828,21 @@
           "$and": [
             {
               "objectFloor": {
-                "$gt": 0
+                "$gte": 1
               }
             },
+            {
+              "objectFloor": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение должно быть больше нуля"
+      },
+      {
+        "condition": {
+          "$and": [
             {
               "objectFloor": {
                 "$type": "integer"
@@ -1904,9 +1940,21 @@
           "$and": [
             {
               "ownersTotal": {
-                "$gt": 0
+                "$gte": 1
               }
             },
+            {
+              "ownersTotal": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение должно быть больше нуля"
+      },
+      {
+        "condition": {
+          "$and": [
             {
               "ownersTotal": {
                 "$type": "integer"
@@ -2269,9 +2317,21 @@
           "$and": [
             {
               "livingSpace": {
-                "$gt": 0
+                "$gte": 1
               }
             },
+            {
+              "livingSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение должно быть больше нуля"
+      },
+      {
+        "condition": {
+          "$and": [
             {
               "livingSpace": {
                 "$type": "decimal"
@@ -2311,6 +2371,23 @@
       }
     },
     "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "kitchenSpace": {
+                "$gte": 1
+              }
+            },
+            {
+              "kitchenSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение должно быть больше нуля"
+      },
       {
         "condition": {
           "$and": [
@@ -2368,9 +2445,21 @@
           "$and": [
             {
               "totalSpace": {
-                "$gt": 0
+                "$gte": 1
               }
             },
+            {
+              "totalSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение должно быть больше нуля"
+      },
+      {
+        "condition": {
+          "$and": [
             {
               "totalSpace": {
                 "$type": "decimal"
@@ -2423,9 +2512,21 @@
           "$and": [
             {
               "totalHouseSpace": {
-                "$gt": 0
+                "$gte": 1
               }
             },
+            {
+              "totalHouseSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение должно быть больше нуля"
+      },
+      {
+        "condition": {
+          "$and": [
             {
               "totalHouseSpace": {
                 "$type": "decimal"
@@ -2485,9 +2586,21 @@
           "$and": [
             {
               "offeredSpace": {
-                "$gt": 0
+                "$gte": 1
               }
             },
+            {
+              "offeredSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение должно быть больше нуля"
+      },
+      {
+        "condition": {
+          "$and": [
             {
               "offeredSpace": {
                 "$type": "decimal"
@@ -2542,9 +2655,21 @@
           "$and": [
             {
               "offeredLeaseSpace": {
-                "$gt": 0
+                "$gte": 1
               }
             },
+            {
+              "offeredLeaseSpace": {
+                "$type": "decimal"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение должно быть больше нуля"
+      },
+      {
+        "condition": {
+          "$and": [
             {
               "offeredLeaseSpace": {
                 "$type": "decimal"
@@ -2597,9 +2722,26 @@
           "$and": [
             {
               "landSpace": {
-                "$gt": 0
+                "$gte": 1
               }
             },
+            {
+              "landSpace": {
+                "$type": "decimal"
+              }
+            },
+            {
+              "landSpace": {
+                "$lt": 10000
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение должно быть больше нуля"
+      },
+      {
+        "condition": {
+          "$and": [
             {
               "landSpace": {
                 "$type": "decimal"
