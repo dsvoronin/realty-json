@@ -96,7 +96,7 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "vehicleType.value": "usedcar" 
+      "vehicleType.value": "usedcar"
     },
     "editable-condition": {
       "isFromAutoupload": false
@@ -140,7 +140,7 @@
     "clear-triggers": [
       "vehicleType"
     ]
-  }, 
+  },
   {
     "title": "Состояние",
     "type": "LIST",
@@ -163,7 +163,7 @@
     },
     "required-condition": false,
     "visible-condition": {
-      "vehicleType.value": "usedcar" 
+      "vehicleType.value": "usedcar"
     },
     "editable-condition": {
       "isFromAutoupload": false
@@ -1918,6 +1918,34 @@
       }
     ],
     "editable-condition": {
+        "$and": [
+	        {
+	          "isFromAutoupload": false
+	        },
+	        {
+	          "isCompany": true
+	        }
+		]
+    }
+  },
+  {
+    "title": "Ответственный",
+    "type": "STRING",
+    "alias": "responsibleMember",
+    "data": {
+      "singleOf": {
+        "param": "memberId",
+        "xpath": "responsibleMember.id",
+        "api": "api/mobile/offer/responsible/1/"
+      }
+    },
+    "required-condition": {
+      "isCompany": true
+    },
+    "visible-condition": {
+      "isCompany": true
+    },
+    "editable-condition": {
       "$and": [
         {
           "isFromAutoupload": false
@@ -2007,7 +2035,7 @@
     "clear-triggers": ["region", "city"]
   },
   {
-    "title": "Ответственный сотрудник",
+    "title": "Ответственный",
     "type": "STRING",
     "alias": "responsibleMember",
     "data": {

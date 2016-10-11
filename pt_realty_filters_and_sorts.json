@@ -136,9 +136,6 @@
             "group": {
               "title": "Загородная",
               "value": "land"
-            },
-            "visible-condition": {
-              "isSell.value": true
             }
           },
           {
@@ -187,6 +184,30 @@
             "group": {
               "title": "Коммерческая",
               "value": "commercial"
+            }
+          },
+          {
+            "title": "Помещение общественного питания",
+            "value": "catering",
+            "group": {
+              "title": "Коммерческая",
+              "value": "commercial"
+            }
+          },
+          {
+            "title": "Гараж",
+            "value": "garage",
+            "group": {
+              "title": "Гаражи и машиноместа",
+              "value": "garageAndParking"
+            }
+          },
+          {
+            "title": "Машиноместо",
+            "value": "parking",
+            "group": {
+              "title": "Гаражи и машиноместа",
+              "value": "garageAndParking"
             }
           }
         ]
