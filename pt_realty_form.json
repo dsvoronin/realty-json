@@ -3666,7 +3666,7 @@
       "singleOf": {
         "param": "districtId",
         "api": "fias/district?cityId=${city_contacts.id}",
-        "xpath": "district.id"
+        "xpath": "district_contacts.id"
       }
     },
     "required-condition": false,
@@ -3721,7 +3721,7 @@
       "singleOf": {
         "param": "streetId",
         "api": "fias/address?parent=${city_contacts.id}&type=street",
-        "xpath": "street.id"
+        "xpath": "street_contacts.id"
       }
     },
     "visible-condition": {
@@ -3758,11 +3758,11 @@
       "fiasBuilding": {
         "param": "buildingId",
         "api": "fias/house?parent=${street_contacts.id|city_contacts.id}",
-        "xpath": "building.id"
+        "xpath": "building_contacts.id"
       },
       "customBuilding": {
         "param": "buildingLabel",
-        "xpath": "building.title"
+        "xpath": "building_contacts.title"
       }
     },
     "visible-condition": {
