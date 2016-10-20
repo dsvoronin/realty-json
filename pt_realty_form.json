@@ -3790,7 +3790,7 @@
               ]
             },
             {
-              "city.hasStreetlessBuilding": true
+              "city_contacts.hasStreetlessBuilding": true
             }
           ]
         }
