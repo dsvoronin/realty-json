@@ -3564,7 +3564,7 @@
   {
     "title": "Регион",
     "type": "FIAS_REGION",
-    "alias": "region",
+    "alias": "region_contacts",
     "data": {
       "singleOf": {
         "param": "regionId",
@@ -3581,7 +3581,7 @@
   {
     "title": "Город",
     "type": "FIAS_CITY",
-    "alias": "city",
+    "alias": "city_contacts",
     "data": {
       "singleOf": {
         "param": "cityId",
@@ -3612,7 +3612,7 @@
   {
     "title": "Метро",
     "type": "FIAS_METRO",
-    "alias": "metro",
+    "alias": "metro_contacts",
     "data": {
       "singleOf": {
         "param": "metroId",
@@ -3661,7 +3661,7 @@
   {
     "title": "Район",
     "type": "FIAS_DISTRICT",
-    "alias": "district",
+    "alias": "district_contacts",
     "data": {
       "singleOf": {
         "param": "districtId",
@@ -3716,7 +3716,7 @@
   {
     "title": "Улица",
     "type": "FIAS_STREET",
-    "alias": "street",
+    "alias": "street_contacts",
     "data": {
       "singleOf": {
         "param": "streetId",
@@ -3753,7 +3753,7 @@
   {
     "title": "Дом",
     "type": "FIAS_HOUSE",
-    "alias": "building",
+    "alias": "building_contacts",
     "data": {
       "fiasBuilding": {
         "param": "buildingId",
