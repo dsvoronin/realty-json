@@ -3593,7 +3593,7 @@
     "visible-condition": {
       "$and": [
         {
-          "region.id": {
+          "region_contacts.id": {
             "$length": {
               "$gt": 0
             }
@@ -3626,7 +3626,7 @@
         {
           "$and": [
             {
-              "city.hasMetro": true
+              "city_contacts.hasMetro": true
             },
             {
               "objectType.group.value": "realEstateAbroad"
@@ -3636,7 +3636,7 @@
         {
           "$and": [
             {
-              "city.hasMetro": true
+              "city_contacts.hasMetro": true
             },
             {
               "cityDistance": {
@@ -3675,10 +3675,10 @@
         {
           "$and": [
             {
-              "city.hasMetro": false
+              "city_contacts.hasMetro": false
             },
             {
-              "city.hasDistrict": true
+              "city_contacts.hasDistrict": true
             },
             {
               "objectType.group.value": "realEstateAbroad"
@@ -3688,10 +3688,10 @@
         {
           "$and": [
             {
-              "city.hasMetro": false
+              "city_contacts.hasMetro": false
             },
             {
-              "city.hasDistrict": true
+              "city_contacts.hasDistrict": true
             },
             {
               "cityDistance": {
@@ -3730,7 +3730,7 @@
           "hasNoAddress": false
         },
         {
-          "city.id": {
+          "city_contacts.id": {
             "$length": {
               "$gt": 0
             }
@@ -3778,10 +3778,10 @@
             {
               "$and": [
                 {
-                  "city.hasStreetlessBuilding": false
+                  "city_contacts.hasStreetlessBuilding": false
                 },
                 {
-                  "street.id": {
+                  "street_contacts.id": {
                     "$length": {
                       "$gt": 0
                     }
