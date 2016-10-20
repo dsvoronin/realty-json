@@ -3585,7 +3585,7 @@
     "data": {
       "singleOf": {
         "param": "cityId",
-        "api": "fias/city?regionId=${region.id}&type=city&name={filter}",
+        "api": "fias/city?regionId=${region_contacts.id}&type=city&name={filter}",
         "xpath": "city.id"
       }
     },
@@ -3616,7 +3616,7 @@
     "data": {
       "singleOf": {
         "param": "metroId",
-        "api": "fias/metro?cityId=${city.id}",
+        "api": "fias/metro?cityId=${city_contacts.id}",
         "xpath": "metro.id"
       }
     },
@@ -3665,7 +3665,7 @@
     "data": {
       "singleOf": {
         "param": "districtId",
-        "api": "fias/district?cityId=${city.id}",
+        "api": "fias/district?cityId=${city_contacts.id}",
         "xpath": "district.id"
       }
     },
@@ -3720,7 +3720,7 @@
     "data": {
       "singleOf": {
         "param": "streetId",
-        "api": "fias/address?parent=${city.id}&type=street",
+        "api": "fias/address?parent=${city_contacts.id}&type=street",
         "xpath": "street.id"
       }
     },
@@ -3757,7 +3757,7 @@
     "data": {
       "fiasBuilding": {
         "param": "buildingId",
-        "api": "fias/house?parent=${street.id|city.id}",
+        "api": "fias/house?parent=${street_contacts.id|city_contacts.id}",
         "xpath": "building.id"
       },
       "customBuilding": {
