@@ -643,8 +643,9 @@
 			"$length": [{
 				"price": {
 					"$lt": 0
-				}
-			}},
+				}]
+			}
+		},
 		"errorMessage": "Введите корректное значение"
 	}],
 	"editable-condition": true
