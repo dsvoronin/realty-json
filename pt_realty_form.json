@@ -340,6 +340,60 @@
     ]
   },
   {
+    "title": "Название объекта",
+    "type": "FIAS_DEVELOPMENT",
+    "alias": "development",
+    "data": {
+      "singleOf": {
+        "param": "developmentId",
+        "api": "realtyOffer/development?cityId=${city.id}",
+        "xpath": "development.id"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isNew.value": true
+        }
+      ]
+    },
+    "editable-condition": false,
+    "clear-triggers": [
+      "region",
+      "city"
+    ]
+  },
+  {
+    "title": "Корпус",
+    "type": "FIAS_DEVELOPMENT_BUILDING",
+    "alias": "buildings",
+    "data": {
+      "singleOf": {
+        "param": "buildingsId",
+        "api": "realtyOffer/buildings?developmentId=${development.id}",
+        "xpath": "buildings.id"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isNew.value": true
+        },
+        {
+          "development.hasBuildings": true
+        }
+      ]
+    },
+    "editable-condition": false,
+    "clear-triggers": [
+      "region",
+      "city",
+      "development"
+    ]
+  },
+  {
     "title": "В черте города",
     "type": "BOOLEAN",
     "alias": "isWithinCity",
@@ -1046,10 +1100,8 @@
           {
             "title": "за сутки",
             "value": "daily",
-            "visible-condition":
-            {
-              "$not":
-              {
+            "visible-condition": {
+              "$not": {
                 "objectType.group.value": {
                   "$in": [
                     "garageAndParking",
@@ -1104,10 +1156,8 @@
           {
             "title": "за м²",
             "value": "perMeter",
-            "visible-condition":
-            {
-              "$not":
-              {
+            "visible-condition": {
+              "$not": {
                 "objectType.group.value": "garageAndParking"
               }
             }
