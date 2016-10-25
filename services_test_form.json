@@ -641,7 +641,7 @@
 	"valid-conditions": [{
 		"condition": {
 			"$length": [{
-				"price": {
+				"images": {
 					"$lt": 2
 				}
 			}]
