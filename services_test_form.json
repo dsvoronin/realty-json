@@ -1,0 +1,651 @@
+[{
+	"title": "",
+	"type": "HEADER"
+}, {
+	"title": "Вид услуги",
+	"type": "LIST",
+	"alias": "serviceType",
+	"data": {
+		"singleOf": {
+			"param": "params[716]",
+			"source": [{
+				"title": "IT, интернет, телеком",
+				"value": "10195",
+				"hasChildren": true
+			}, {
+				"title": "Бытовые услуги",
+				"value": "10200",
+				"hasChildren": true
+			}, {
+				"title": "Деловые услуги",
+				"value": "10201",
+				"hasChildren": true
+			}, {
+				"title": "Искусство",
+				"value": "10220",
+				"hasChildren": false
+			}, {
+				"title": "Красота, здоровье",
+				"value": "10197",
+				"hasChildren": false
+			}, {
+				"title": "Курьерские поручения",
+				"value": "15731",
+				"hasChildren": false
+			}, {
+				"title": "Мастер на час",
+				"value": "15326",
+				"hasChildren": false
+			}, {
+				"title": "Няни, сиделки",
+				"value": "10196",
+				"hasChildren": false
+			}, {
+				"title": "Оборудование, производство",
+				"value": "10202",
+				"hasChildren": true
+			}, {
+				"title": "Обучение, курсы",
+				"value": "10203",
+				"hasChildren": false
+			}, {
+				"title": "Охрана, безопасность",
+				"value": "10204",
+				"hasChildren": false
+			}, {
+				"title": "Питание, кейтеринг",
+				"value": "10205",
+				"hasChildren": false
+			}, {
+				"title": "Праздники, мероприятия",
+				"value": "10206",
+				"hasChildren": false
+			}, {
+				"title": "Реклама, полиграфия",
+				"value": "10207",
+				"hasChildren": true
+			}, {
+				"title": "Ремонт и обслуживание техники",
+				"value": "15834",
+				"hasChildren": true
+			}, {
+				"title": "Ремонт, строительство",
+				"value": "10208",
+				"hasChildren": true
+			}, {
+				"title": "Сад, благоустройство",
+				"value": "10209",
+				"hasChildren": false
+			}, {
+				"title": "Транспорт, перевозки",
+				"value": "10210",
+				"hasChildren": true
+			}, {
+				"title": "Уборка",
+				"value": "15833",
+				"hasChildren": true
+			}, {
+				"title": "Установка техники",
+				"value": "15725",
+				"hasChildren": false
+			}, {
+				"title": "Уход за животными",
+				"value": "10211",
+				"hasChildren": false
+			}, {
+				"title": "Фото- и видеосъёмка",
+				"value": "10212",
+				"hasChildren": false
+			}, {
+				"title": "Другое",
+				"value": "10213",
+				"hasChildren": false
+			}],
+			"xpath": "serviceType.value"
+		}
+	},
+	"required-condition": true,
+	"visible-condition": true,
+	"editable-condition": {
+		"editableOptions.serviceType": true
+	}
+}, {
+	"title": "Тип услуги",
+	"type": "LIST",
+	"alias": "serviceSubType",
+	"data": {
+		"singleOf": {
+			"param": "@serviceSubType.param",
+			"source": [{
+				"title": "Cоздание и продвижение сайтов",
+				"value": "15328",
+				"param": "params[1371]",
+				"visible-condition": {
+					"serviceType.value": "10195"
+				}
+			}, {
+				"title": "Мастер на все случаи",
+				"value": "15330",
+				"param": "params[1371]",
+				"visible-condition": {
+					"serviceType.value": "10195"
+				}
+			}, {
+				"title": "Настройка интернета и сетей",
+				"value": "15329",
+				"param": "params[1371]",
+				"visible-condition": {
+					"serviceType.value": "10195"
+				}
+			}, {
+				"title": "Установка и настройка ПО",
+				"value": "15331",
+				"param": "params[1371]",
+				"visible-condition": {
+					"serviceType.value": "10195"
+				}
+			}, {
+				"title": "Изготовление ключей",
+				"value": "10225",
+				"param": "params[718]",
+				"visible-condition": {
+					"serviceType.value": "10200"
+				}
+			}, {
+				"title": "Пошив и ремонт одежды",
+				"value": "10227",
+				"param": "params[718]",
+				"visible-condition": {
+					"serviceType.value": "10200"
+				}
+			}, {
+				"title": "Ремонт часов",
+				"value": "10229",
+				"param": "params[718]",
+				"visible-condition": {
+					"serviceType.value": "10200"
+				}
+			}, {
+				"title": "Химчистка, стирка",
+				"value": "10233",
+				"param": "params[718]",
+				"visible-condition": {
+					"serviceType.value": "10200"
+				}
+			}, {
+				"title": "Ювелирные услуги",
+				"value": "10234",
+				"param": "params[718]",
+				"visible-condition": {
+					"serviceType.value": "10200"
+				}
+			}, {
+				"title": "Бухгалтерия, финансы",
+				"value": "10235",
+				"param": "params[719]",
+				"visible-condition": {
+					"serviceType.value": "10201"
+				}
+			}, {
+				"title": "Консультирование",
+				"value": "10236",
+				"param": "params[719]",
+				"visible-condition": {
+					"serviceType.value": "10201"
+				}
+			}, {
+				"title": "Набор и коррекция текста",
+				"value": "10238",
+				"param": "params[719]",
+				"visible-condition": {
+					"serviceType.value": "10201"
+				}
+			}, {
+				"title": "Перевод",
+				"value": "10239",
+				"param": "params[719]",
+				"visible-condition": {
+					"serviceType.value": "10201"
+				}
+			}, {
+				"title": "Юридические услуги",
+				"value": "10241",
+				"param": "params[719]",
+				"visible-condition": {
+					"serviceType.value": "10201"
+				}
+			}, {
+				"title": "Аренда оборудования",
+				"value": "10242",
+				"param": "params[720]",
+				"visible-condition": {
+					"serviceType.value": "10202"
+				}
+			}, {
+				"title": "Монтаж и обслуживание оборудования",
+				"value": "10243",
+				"param": "params[720]",
+				"visible-condition": {
+					"serviceType.value": "10202"
+				}
+			}, {
+				"title": "Производство, обработка",
+				"value": "10244",
+				"param": "params[720]",
+				"visible-condition": {
+					"serviceType.value": "10202"
+				}
+			}, {
+				"title": "Маркетинг, реклама, PR",
+				"value": "10245",
+				"param": "params[721]",
+				"visible-condition": {
+					"serviceType.value": "10207"
+				}
+			}, {
+				"title": "Полиграфия, дизайн",
+				"value": "10246",
+				"param": "params[721]",
+				"visible-condition": {
+					"serviceType.value": "10207"
+				}
+			}, {
+				"title": "Телевизоры",
+				"value": "15853",
+				"param": "params[1391]",
+				"visible-condition": {
+					"serviceType.value": "15834"
+				}
+			}, {
+				"title": "Игровые приставки",
+				"value": "15854",
+				"param": "params[1391]",
+				"visible-condition": {
+					"serviceType.value": "15834"
+				}
+			}, {
+				"title": "Компьютерная техника",
+				"value": "15855",
+				"param": "params[1391]",
+				"visible-condition": {
+					"serviceType.value": "15834"
+				}
+			}, {
+				"title": "Крупная бытовая техника",
+				"value": "15858",
+				"param": "params[1391]",
+				"visible-condition": {
+					"serviceType.value": "15834"
+				}
+			}, {
+				"title": "Мелкая бытовая техника",
+				"value": "15856",
+				"param": "params[1391]",
+				"visible-condition": {
+					"serviceType.value": "15834"
+				}
+			}, {
+				"title": "Мобильные устройства",
+				"value": "15857",
+				"param": "params[1391]",
+				"visible-condition": {
+					"serviceType.value": "15834"
+				}
+			}, {
+				"title": "Фото-, аудио-, видеотехника",
+				"value": "15859",
+				"param": "params[1391]",
+				"visible-condition": {
+					"serviceType.value": "15834"
+				}
+			}, {
+				"title": "Сборка и ремонт мебели",
+				"value": "15702",
+				"param": "params[1378]",
+				"visible-condition": {
+					"serviceType.value": "10208"
+				}
+			}, {
+				"title": "Отделочные работы",
+				"value": "15703",
+				"param": "params[1378]",
+				"visible-condition": {
+					"serviceType.value": "10208"
+				}
+			}, {
+				"title": "Электрика",
+				"value": "15704",
+				"param": "params[1378]",
+				"visible-condition": {
+					"serviceType.value": "10208"
+				}
+			}, {
+				"title": "Сантехника",
+				"value": "15705",
+				"param": "params[1378]",
+				"visible-condition": {
+					"serviceType.value": "10208"
+				}
+			}, {
+				"title": "Ремонт офиса",
+				"value": "15706",
+				"param": "params[1378]",
+				"visible-condition": {
+					"serviceType.value": "10208"
+				}
+			}, {
+				"title": "Остекление балконов",
+				"value": "15707",
+				"param": "params[1378]",
+				"visible-condition": {
+					"serviceType.value": "10208"
+				}
+			}, {
+				"title": "Ремонт ванной",
+				"value": "15708",
+				"param": "params[1378]",
+				"visible-condition": {
+					"serviceType.value": "10208"
+				}
+			}, {
+				"title": "Строительство бань, саун",
+				"value": "15709",
+				"param": "params[1378]",
+				"visible-condition": {
+					"serviceType.value": "10208"
+				}
+			}, {
+				"title": "Ремонт кухни",
+				"value": "15710",
+				"param": "params[1378]",
+				"visible-condition": {
+					"serviceType.value": "10208"
+				}
+			}, {
+				"title": "Строительство домов, коттеджей",
+				"value": "15711",
+				"param": "params[1378]",
+				"visible-condition": {
+					"serviceType.value": "10208"
+				}
+			}, {
+				"title": "Ремонт квартиры",
+				"value": "15712",
+				"param": "params[1378]",
+				"visible-condition": {
+					"serviceType.value": "10208"
+				}
+			}, {
+				"title": "Автосервис",
+				"value": "10221",
+				"param": "params[717]",
+				"visible-condition": {
+					"serviceType.value": "10210"
+				}
+			}, {
+				"title": "Аренда авто",
+				"value": "15871",
+				"param": "params[717]",
+				"visible-condition": {
+					"serviceType.value": "10210"
+				}
+			}, {
+				"title": "Коммерческие перевозки",
+				"value": "15876",
+				"param": "params[717]",
+				"visible-condition": {
+					"serviceType.value": "10210"
+				}
+			}, {
+				"title": "Грузчики",
+				"value": "15877",
+				"param": "params[717]",
+				"visible-condition": {
+					"serviceType.value": "10210"
+				}
+			}, {
+				"title": "Переезды",
+				"value": "15878",
+				"param": "params[717]",
+				"visible-condition": {
+					"serviceType.value": "10210"
+				}
+			}, {
+				"title": "Спецтехника",
+				"value": "10222",
+				"param": "params[717]",
+				"visible-condition": {
+					"serviceType.value": "10210"
+				}
+			}, {
+				"title": "Вывоз мусора",
+				"value": "15837",
+				"param": "params[1389]",
+				"visible-condition": {
+					"serviceType.value": "15833"
+				}
+			}, {
+				"title": "Генеральная уборка",
+				"value": "15838",
+				"param": "params[1389]",
+				"visible-condition": {
+					"serviceType.value": "15833"
+				}
+			}, {
+				"title": "Глажка белья",
+				"value": "15839",
+				"param": "params[1389]",
+				"visible-condition": {
+					"serviceType.value": "15833"
+				}
+			}, {
+				"title": "Мойка окон",
+				"value": "15840",
+				"param": "params[1389]",
+				"visible-condition": {
+					"serviceType.value": "15833"
+				}
+			}, {
+				"title": "Простая уборка",
+				"value": "15841",
+				"param": "params[1389]",
+				"visible-condition": {
+					"serviceType.value": "15833"
+				}
+			}, {
+				"title": "Уборка после ремонта",
+				"value": "15842",
+				"param": "params[1389]",
+				"visible-condition": {
+					"serviceType.value": "15833"
+				}
+			}, {
+				"title": "Чистка ковров",
+				"value": "15843",
+				"param": "params[1389]",
+				"visible-condition": {
+					"serviceType.value": "15833"
+				}
+			}, {
+				"title": "Чистка мягкой мебели",
+				"value": "15844",
+				"param": "params[1389]",
+				"visible-condition": {
+					"serviceType.value": "15833"
+				}
+			}],
+			"xpath": "serviceSubType.value"
+		}
+	},
+	"required-condition": true,
+	"visible-condition": {
+		"serviceType.hasChildren": true
+	},
+	"editable-condition": {
+		"editableOptions.serviceSubType": true
+	},
+	"clear-triggers": ["serviceType"]
+}, {
+	"title": "",
+	"type": "HEADER"
+}, {
+	"title": "Город",
+	"type": "FIAS_CITY",
+	"alias": "city",
+	"data": {
+		"singleOf": {
+			"param": "cityId",
+			"api": "/1/address?type=city",
+			"xpath": "city.id"
+		}
+	},
+	"required-condition": true,
+	"visible-condition": true,
+	"editable-condition": false
+}, {
+	"title": "Метро",
+	"type": "FIAS_METRO",
+	"alias": "metro",
+	"data": {
+		"singleOf": {
+			"param": "metroId",
+			"api": "/1/address?type=metro&parent=${city.id}",
+			"xpath": "metro.id"
+		}
+	},
+	"required-condition": false,
+	"visible-condition": {
+		"city.hasMetro": true
+	},
+	"editable-condition": true,
+	"clear-triggers": ["city"]
+}, {
+	"title": "Район",
+	"type": "FIAS_DISTRICT",
+	"alias": "district",
+	"data": {
+		"singleOf": {
+			"param": "districtId",
+			"api": "/1/address?type=district&parent=${city.id}",
+			"xpath": "district.id"
+		}
+	},
+	"required-condition": false,
+	"visible-condition": {
+		"$and": [{
+			"city.hasMetro": false
+		}, {
+			"city.hasDistrict": true
+		}]
+	},
+	"editable-condition": true,
+	"clear-triggers": ["city"]
+}, {
+	"title": "",
+	"type": "HEADER"
+}, {
+	"title": "Название",
+	"type": "STRING",
+	"alias": "title",
+	"data": {
+		"singleOf": {
+			"param": "title",
+			"xpath": "title"
+		}
+	},
+	"required-condition": true,
+	"visible-condition": true,
+	"valid-conditions": [{
+		"condition": {
+			"title": {
+				"$length": {
+					"$lte": 50
+				}
+			}
+		},
+		"errorMessage": "Название не может быть длиннее 50 символов"
+	}],
+	"editable-condition": true
+}, {
+	"title": "Описание",
+	"type": "STRING",
+	"alias": "description",
+	"data": {
+		"singleOf": {
+			"param": "description",
+			"xpath": "description"
+		}
+	},
+	"required-condition": true,
+	"visible-condition": true,
+	"valid-conditions": [{
+		"condition": {
+			"description": {
+				"$length": {
+					"$lte": 3000
+				}
+			}
+		},
+		"errorMessage": "Описание не может быть длиннее 3000 символов"
+	}],
+	"editable-condition": true
+}, {
+	"title": "",
+	"type": "HEADER"
+}, {
+	"title": "Стоимость в рублях",
+	"type": "INTEGER",
+	"alias": "price",
+	"data": {
+		"singleOf": {
+			"param": "price",
+			"xpath": "price"
+		}
+	},
+	"required-condition": false,
+	"visible-condition": true,
+	"valid-conditions": [{
+		"condition": {
+			"$and": [{
+				"price": {
+					"$gte": 0
+				}
+			}, {
+				"price": {
+					"$type": "integer"
+				}
+			}, {
+				"price": {
+					"$lt": 1000000000000
+				}
+			}]
+		},
+		"errorMessage": "Введите корректное значение"
+	}],
+	"editable-condition": true
+}, {
+	"title": "",
+	"type": "HEADER"
+}, {
+	"title": "Фотографии",
+	"type": "IMAGES",
+	"alias": "images",
+	"data": {
+		"singleOf": {
+			"param": "images",
+			"xpath": "images"
+		}
+	},
+	"required-condition": false,
+	"visible-condition": true,
+  "valid-conditions": [{
+		"condition": {
+			"$length": [{
+				"price": {
+					"$lt": 0
+				}
+			}},
+		"errorMessage": "Введите корректное значение"
+	}],
+	"editable-condition": true
+}]
