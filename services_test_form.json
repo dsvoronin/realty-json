@@ -642,7 +642,7 @@
 		"condition": {
 			"$length": [{
 				"price": {
-					"$lt": 0
+					"$lt": 2
 				}
 			}]
 		},
