@@ -3569,7 +3569,7 @@
       "singleOf": {
         "param": "regionId",
         "api": "fias/region",
-        "xpath": "region.id"
+        "xpath": "region_contacts.id"
       }
     },
     "required-condition": true,
@@ -3586,7 +3586,7 @@
       "singleOf": {
         "param": "cityId",
         "api": "fias/city?regionId=${region_contacts.id}&type=city&name={filter}",
-        "xpath": "city.id"
+        "xpath": "city_contacts.id"
       }
     },
     "required-condition": true,
@@ -3606,7 +3606,7 @@
     },
     "editable-condition": false,
     "clear-triggers": [
-      "region"
+      "region_contacts"
     ]
   },
   {
@@ -3617,7 +3617,7 @@
       "singleOf": {
         "param": "metroId",
         "api": "fias/metro?cityId=${city_contacts.id}",
-        "xpath": "metro.id"
+        "xpath": "metro_contacts.id"
       }
     },
     "required-condition": false,
@@ -3635,8 +3635,8 @@
       "isFromAutoupload": false
     },
     "clear-triggers": [
-      "region",
-      "city"
+      "region_contacts",
+      "city_contacts"
     ]
   },
   {
@@ -3668,8 +3668,8 @@
       "isFromAutoupload": false
     },
     "clear-triggers": [
-      "region",
-      "city"
+      "region_contacts",
+      "city_contacts"
     ]
   },
   {
@@ -3705,8 +3705,8 @@
       "isFromAutoupload": false
     },
     "clear-triggers": [
-      "region",
-      "city"
+      "region_contacts",
+      "city_contacts"
     ]
   },
   {
@@ -3760,9 +3760,9 @@
       "isFromAutoupload": false
     },
     "clear-triggers": [
-      "region",
-      "city",
-      "street"
+      "region_contacts",
+      "city_contacts",
+      "street_contacts"
     ],
     "comment": "Идентификатор дома из ФИАС"
   },
