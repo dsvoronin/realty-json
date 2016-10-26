@@ -96,7 +96,7 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "vehicleType.value": "usedcar" 
+      "vehicleType.value": "usedcar"
     },
     "editable-condition": {
       "isFromAutoupload": false
@@ -107,9 +107,21 @@
           "$and": [
             {
               "mileage": {
-                "$gt": 0
+                "$gte": 1
               }
             },
+            {
+              "mileage": {
+                "$type": "integer"
+              }
+            }
+          ]
+        },
+        "errorMessage": "Значение должно быть больше нуля"
+      },
+      {
+        "condition": {
+          "$and": [
             {
               "mileage": {
                 "$lt": 100000000
@@ -122,13 +134,13 @@
             }
           ]
         },
-        "errorMessage": "Введите корректное значение"
+        "errorMessage": "Значение не может быть больше 99 999 999"
       }
     ],
     "clear-triggers": [
       "vehicleType"
     ]
-  }, 
+  },
   {
     "title": "Состояние",
     "type": "LIST",
@@ -151,7 +163,7 @@
     },
     "required-condition": false,
     "visible-condition": {
-      "vehicleType.value": "usedcar" 
+      "vehicleType.value": "usedcar"
     },
     "editable-condition": {
       "isFromAutoupload": false
@@ -1608,6 +1620,18 @@
               },
               {
                 "discs": {
+                  "$type": "integer"
+                }
+              }
+            ]
+          },
+          "errorMessage": "Значение не может быть меньше 7"
+        },
+        {
+          "condition": {
+            "$and": [
+              {
+                "discs": {
                   "$lte": 30
                 }
               },
@@ -1618,7 +1642,7 @@
               }
             ]
           },
-          "errorMessage": "Введите корректное значение"
+          "errorMessage": "Значение не может быть больше 30"
         }
       ],
       "editable-condition": {
@@ -2009,6 +2033,25 @@
       ]
     },
     "clear-triggers": ["region", "city"]
+  },
+  {
+    "title": "Ответственный",
+    "type": "STRING",
+    "alias": "responsibleMember",
+    "data": {
+      "singleOf": {
+        "param": "memberId",
+        "xpath": "responsibleMember.id",
+        "api": "api/mobile/offer/responsible/1/"
+      }
+    },
+    "required-condition": {
+      "isCompany": true
+    },
+    "visible-condition": {
+      "isCompany": true
+    },
+    "editable-condition": true
   },
   {
     "title": "Контактное лицо",
