@@ -367,12 +367,12 @@
   {
     "title": "Корпус",
     "type": "FIAS_DEVELOPMENT_BUILDING",
-    "alias": "buildings",
+    "alias": "developmentBuilding",
     "data": {
       "singleOf": {
-        "param": "buildingsId",
+        "param": "developmentBuildingId",
         "api": "realtyOffer/buildings?developmentId=${development.id}",
-        "xpath": "buildings.id"
+        "xpath": "developmentBuilding.id"
       }
     },
     "required-condition": false,
