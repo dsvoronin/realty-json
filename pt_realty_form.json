@@ -400,7 +400,7 @@
     "data": {
       "singleOf": {
         "param": "developmentDocumentation",
-        "xpath": "developmentDocumentation"
+        "xpath": "documentation"
       }
     },
     "required-condition": true,
