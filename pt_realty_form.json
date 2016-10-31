@@ -849,6 +849,15 @@
           }
         },
         {
+          "$not": {
+            "development.id": {
+                    "$length": {
+                      "$gt": 0
+                    }
+                  }
+          }
+        },
+        {
           "hasNoAddress": false
         },
         {
