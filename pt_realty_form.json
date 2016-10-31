@@ -394,6 +394,29 @@
     ]
   },
   {
+    "title": "Документация",
+    "type": "STRING",
+    "alias": "documentation",
+    "data": {
+      "singleOf": {
+        "param": "developmentDocumentation",
+        "xpath": "developmentDocumentation"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "isNew.value": true
+        },
+        {
+          "development.hasBuildings": false
+        }
+      ]
+    },
+    "editable-condition": false
+  },
+  {
     "title": "В черте города",
     "type": "BOOLEAN",
     "alias": "isWithinCity",
