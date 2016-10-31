@@ -849,13 +849,7 @@
           }
         },
         {
-          "$not": {
-            "development.id": {
-                    "$length": {
-                      "$gt": 0
-                    }
-                  }
-          }
+         "isNew.value": false
         },
         {
           "hasNoAddress": false
