@@ -340,16 +340,20 @@
     ]
   },
   {
-    "title": "Название объекта",
-    "type": "FIAS_DEVELOPMENT",
-    "alias": "development",
-    "data": {
-      "singleOf": {
-        "param": "developmentId",
-        "api": "realtyOffer/development?cityId=${city.id}",
-        "xpath": "development.id"
-      }
-    },
+ "title": "Название объекта",
+ "type": "FIAS_DEVELOPMENT",
+ "alias": "development",
+ "data": {
+ "networkObject": {
+ "param": "developmentId",
+ "api": "realtyOffer/development?cityId=${city.id}",
+ "xpath": "development.id"
+ },
+ "customObject": {
+ "param": "developmentLabel",
+ "xpath": "development.title"
+ }
+ },
     "required-condition": false,
     "visible-condition": {
       "$and": [
@@ -358,25 +362,61 @@
         }
       ]
     },
-    "editable-condition": false,
+    "editable-condition": true,
     "clear-triggers": [
       "region",
       "city"
     ]
   },
   {
-    "title": "Корпус",
-    "type": "FIAS_DEVELOPMENT_BUILDING",
-    "alias": "developmentBuilding",
-    "data": {
-      "singleOf": {
-        "param": "developmentBuildingId",
-        "api": "realtyOffer/buildings?developmentId=${development.id}",
-        "xpath": "developmentBuilding.id"
-      }
-    },
-    "required-condition": false,
+ "title": "Корпус",
+ "type": "FIAS_DEVELOPMENT_BUILDING",
+ "alias": "developmentBuilding",
+ "data": {
+ "networkObject": {
+ "param": "developmentBuildingId",
+ "api": "realtyOffer/buildings?developmentId=${development.id}",
+ "xpath": "developmentBuilding.id"
+ },
+ "customObject": {
+ "param": "housing",
+ "xpath": "developmentBuilding.title"
+ }
+ },
+    "required-condition":
+ {
+ 
+ "$or": [
+         
+         {
+         "$and": [
+                  {
+                  "isNew.value": true
+                  },
+                  {
+                  "development.hasBuildings": true
+                  }
+                  ]
+         },
+         {
+         "$and": [
+                  {
+                  "isNew.value": true
+                  },
+                  {
+                  "development.isCustom" : true
+                  }
+                  
+                  ]
+         }
+         
+         ]
+ },
     "visible-condition": {
+ 
+ "$or": [
+ 
+         {
       "$and": [
         {
           "isNew.value": true
@@ -386,7 +426,21 @@
         }
       ]
     },
-    "editable-condition": false,
+         {
+         "$and": [
+                  {
+                  "isNew.value": true
+                  },
+                  {
+                  "development.isCustom" : true
+                  }
+         
+         ]
+         }
+         
+         ]
+ },
+    "editable-condition": true,
     "clear-triggers": [
       "region",
       "city",
@@ -405,17 +459,46 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "$and": [
-        {
-          "isNew.value": true
-        },
-        {
-          "development.hasBuildings": false
-        }
-      ]
+ 
+ "$or": [
+         {
+         "$and": [
+                  {
+                  "isNew.value": true
+                  },
+                  {
+                  "development.hasBuildings": false
+                  }
+         ]
+
     },
-    "editable-condition": false
-  },
+         {
+         
+         "$and": [
+                  {
+                  "isNew.value": true
+                  },
+                  {
+                  "development.isCustom": true
+                  }
+                  ]
+         
+         },
+         {
+         
+         "$and": [
+                  {
+                  "isNew.value": true
+                  },
+                  {
+                  "developmentBuilding.isCustom": true
+                  }
+                  ]
+         
+         }
+         ]
+  }
+ },
   {
     "title": "В черте города",
     "type": "BOOLEAN",
@@ -772,18 +855,30 @@
       }
     },
     "visible-condition": {
-      "$and": [
-        {
-          "hasNoAddress": false
-        },
-        {
-          "city.id": {
-            "$length": {
-              "$gt": 0
-            }
-          }
-        }
-      ]
+ 
+         "$and": [
+                  {
+                  "hasNoAddress": false
+                  },
+                  {
+                  "city.id": {
+                  "$length": {
+                    "$gt": 0
+                    }
+                  }
+                  },
+                  {
+                  
+                  "$not": {
+                     "developmentBuilding.isCustom": false
+                  
+                  }
+                  
+                  }
+                  
+                  ]
+ 
+
     },
     "required-condition": {
       "$or": [
@@ -840,17 +935,58 @@
       "city"
     ]
   },
+
+ {
+ "title": "Улица",
+ "type": "STRING",
+ "alias": "developmentStreet",
+ "data": {
+ "singleOf": {
+ "autofillXpath": "development.street"
+ }
+ },
+ "required-condition": false,
+ "visible-condition": {
+ 
+ "$and" : [
+ 
+ {
+           "development.id": {
+           "$length": {
+           "$gt": 0
+           }
+           }
+
+ },
+           {
+           
+           "developmentBuilding.id": {
+           "$length": {
+           "$gt": 0
+           }
+           }
+           
+           }
+ 
+ 
+ ]
+ 
+ 
+ },
+ "editable-condition": false
+ }
+ ,
   {
     "title": "Дом",
     "type": "FIAS_HOUSE",
     "alias": "building",
     "data": {
-      "fiasBuilding": {
+      "networkObject": {
         "param": "buildingId",
         "api": "fias/house?parent=${street.id|city.id}",
         "xpath": "building.id"
       },
-      "customBuilding": {
+      "customObject": {
         "param": "buildingLabel",
         "xpath": "building.title"
       }
