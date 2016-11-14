@@ -340,21 +340,23 @@
     ]
   },
   {
- "title": "Название объекта",
- "type": "FIAS_DEVELOPMENT",
- "alias": "development",
- "data": {
- "networkObject": {
- "param": "developmentId",
- "api": "realtyOffer/development?cityId=${city.id}",
- "xpath": "development.id"
- },
- "customObject": {
- "param": "developmentLabel",
- "xpath": "development.title"
- }
- },
-    "required-condition": false,
+    "title": "Название объекта",
+    "type": "FIAS_DEVELOPMENT",
+    "alias": "development",
+    "data": {
+      "networkObject": {
+        "param": "developmentId",
+        "api": "realtyOffer/development?cityId=${city.id}",
+        "xpath": "development.id"
+      },
+      "customObject": {
+        "param": "developmentLabel",
+        "xpath": "development.title"
+      }
+    },
+    "required-condition": {
+      "isNew.value": true
+    },
     "visible-condition": {
       "$and": [
         {
@@ -369,77 +371,68 @@
     ]
   },
   {
- "title": "Корпус",
- "type": "FIAS_DEVELOPMENT_BUILDING",
- "alias": "developmentBuilding",
- "data": {
- "networkObject": {
- "param": "developmentBuildingId",
- "api": "realtyOffer/buildings?developmentId=${development.id}",
- "xpath": "developmentBuilding.id"
- },
- "customObject": {
- "param": "housing",
- "xpath": "developmentBuilding.title"
- }
- },
-    "required-condition":
- {
- 
- "$or": [
-         
-         {
-         "$and": [
-                  {
-                  "isNew.value": true
-                  },
-                  {
-                  "development.hasBuildings": true
-                  }
-                  ]
-         },
-         {
-         "$and": [
-                  {
-                  "isNew.value": true
-                  },
-                  {
-                  "development.isCustom" : true
-                  }
-                  
-                  ]
-         }
-         
-         ]
- },
-    "visible-condition": {
- 
- "$or": [
- 
-         {
-      "$and": [
+    "title": "Корпус",
+    "type": "FIAS_DEVELOPMENT_BUILDING",
+    "alias": "developmentBuilding",
+    "data": {
+      "networkObject": {
+        "param": "developmentBuildingId",
+        "api": "realtyOffer/buildings?developmentId=${development.id}",
+        "xpath": "developmentBuilding.id"
+      },
+      "customObject": {
+        "param": "housing",
+        "xpath": "developmentBuilding.title"
+      }
+    },
+    "required-condition": {
+      "$or": [
         {
-          "isNew.value": true
+          "$and": [
+            {
+              "isNew.value": true
+            },
+            {
+              "development.hasBuildings": true
+            }
+          ]
         },
         {
-          "development.hasBuildings": true
+          "$and": [
+            {
+              "isNew.value": true
+            },
+            {
+              "development.isCustom": true
+            }
+          ]
         }
       ]
     },
-         {
-         "$and": [
-                  {
-                  "isNew.value": true
-                  },
-                  {
-                  "development.isCustom" : true
-                  }
-         
-         ]
-         }
-         
-         ]
- },
+    "visible-condition": {
+      "$or": [
+        {
+          "$and": [
+            {
+              "isNew.value": true
+            },
+            {
+              "development.hasBuildings": true
+            }
+          ]
+        },
+        {
+          "$and": [
+            {
+              "isNew.value": true
+            },
+            {
+              "development.isCustom": true
+            }
+          ]
+        }
+      ]
+    },
     "editable-condition": true,
     "clear-triggers": [
       "region",
@@ -447,58 +440,6 @@
       "development"
     ]
   },
-  {
-    "title": "Документация",
-    "type": "STRING",
-    "alias": "documentation",
-    "data": {
-      "singleOf": {
-        "param": "developmentDocumentation",
-        "xpath": "documentation"
-      }
-    },
-    "required-condition": true,
-    "visible-condition": {
- 
- "$or": [
-         {
-         "$and": [
-                  {
-                  "isNew.value": true
-                  },
-                  {
-                  "development.hasBuildings": false
-                  }
-         ]
-
-    },
-         {
-         
-         "$and": [
-                  {
-                  "isNew.value": true
-                  },
-                  {
-                  "development.isCustom": true
-                  }
-                  ]
-         
-         },
-         {
-         
-         "$and": [
-                  {
-                  "isNew.value": true
-                  },
-                  {
-                  "developmentBuilding.isCustom": true
-                  }
-                  ]
-         
-         }
-         ]
-  }
- },
   {
     "title": "В черте города",
     "type": "BOOLEAN",
@@ -753,20 +694,6 @@
         {
           "$and": [
             {
-              "isNew.value": true
-            },
-            {
-              "city.id": {
-                "$length": {
-                  "$gt": 0
-                }
-              }
-            }
-          ]
-        },
-        {
-          "$and": [
-            {
               "objectType.group.value": {
                 "$in": [
                   "suburban",
@@ -855,30 +782,38 @@
       }
     },
     "visible-condition": {
- 
-         "$and": [
-                  {
-                  "hasNoAddress": false
-                  },
-                  {
-                  "city.id": {
+      "$and": [
+        {
+          "hasNoAddress": false
+        },
+        {
+          "city.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        },
+        {
+          "$not": {
+            "$and": [
+              {
+                "development.id": {
                   "$length": {
                     "$gt": 0
-                    }
                   }
-                  },
-                  {
-                  
-                  "$not": {
-                     "developmentBuilding.isCustom": false
-                  
+                }
+              },
+              {
+                "developmentBuilding.id": {
+                  "$length": {
+                    "$gt": 0
                   }
-                  
-                  }
-                  
-                  ]
- 
-
+                }
+              }
+            ]
+          }
+        }
+      ]
     },
     "required-condition": {
       "$or": [
@@ -888,7 +823,38 @@
               "objectType.value": "flat"
             },
             {
-              "isNew.value": false
+              "$or": [
+                {
+                  "isNew.value": false
+                },
+                {
+                  "$and": [
+                    {
+                      "isNew.value": true
+                    },
+                    {
+                      "$not": {
+                        "$and": [
+                          {
+                            "development.id": {
+                              "$length": {
+                                "$gt": 0
+                              }
+                            }
+                          },
+                          {
+                            "developmentBuilding.id": {
+                              "$length": {
+                                "$gt": 0
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
             },
             {
               "city.hasStreetlessBuilding": false
@@ -935,47 +901,37 @@
       "city"
     ]
   },
-
- {
- "title": "Улица",
- "type": "STRING",
- "alias": "developmentStreet",
- "data": {
- "singleOf": {
- "autofillXpath": "development.street"
- }
- },
- "required-condition": false,
- "visible-condition": {
- 
- "$and" : [
- 
- {
-           "development.id": {
-           "$length": {
-           "$gt": 0
-           }
-           }
-
- },
-           {
-           
-           "developmentBuilding.id": {
-           "$length": {
-           "$gt": 0
-           }
-           }
-           
-           }
- 
- 
- ]
- 
- 
- },
- "editable-condition": false
- }
- ,
+  {
+    "title": "Улица",
+    "type": "STRING",
+    "alias": "developmentStreet",
+    "data": {
+      "singleOf": {
+        "xpath": "developmentStreet",
+        "bind": "@development.street"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "development.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        },
+        {
+          "developmentBuilding.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        }
+      ]
+    },
+    "editable-condition": false
+  },
   {
     "title": "Дом",
     "type": "FIAS_HOUSE",
@@ -1008,7 +964,7 @@
           }
         },
         {
-         "isNew.value": false
+          "isNew.value": false
         },
         {
           "hasNoAddress": false
@@ -1921,6 +1877,54 @@
     },
     "editable-condition": {
       "isFromAutoupload": false
+    }
+  },
+  {
+    "title": "Документация",
+    "type": "STRING",
+    "alias": "documentation",
+    "data": {
+      "singleOf": {
+        "param": "developmentDocumentation",
+        "xpath": "documentation"
+      }
+    },
+    "required-condition": {
+      "isReady.value": true
+    },
+    "visible-condition": {
+      "$or": [
+        {
+          "$and": [
+            {
+              "isNew.value": true
+            },
+            {
+              "development.hasBuildings": false
+            }
+          ]
+        },
+        {
+          "$and": [
+            {
+              "isNew.value": true
+            },
+            {
+              "development.isCustom": true
+            }
+          ]
+        },
+        {
+          "$and": [
+            {
+              "isNew.value": true
+            },
+            {
+              "developmentBuilding.isCustom": true
+            }
+          ]
+        }
+      ]
     }
   },
   {
