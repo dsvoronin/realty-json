@@ -368,6 +368,12 @@
     "clear-triggers": [
       "region",
       "city"
+    ],
+    "inputNotFoundHint": [
+      {
+        "text": "По вашему запросу ничего не найдено. Укажите название вручную.",
+        "condition": true
+      }
     ]
   },
   {
@@ -438,6 +444,28 @@
       "region",
       "city",
       "development"
+    ],
+    "inputPromt": [
+      {
+        "text": "Укажите корпус или очередь.",
+        "condition": {
+          "development.isCustom": true
+        }
+      }
+    ],
+    "inputNotFoundHint": [
+      {
+        "text": "По вашему запросу ничего не найдено. Укажите корпус или очередь вручную.",
+        "condition": {
+          "development.isCustom": false
+        }
+      },
+      {
+        "text": "Укажите корпус или очередь.",
+        "condition": {
+          "development.isCustom": true
+        }
+      }
     ]
   },
   {
