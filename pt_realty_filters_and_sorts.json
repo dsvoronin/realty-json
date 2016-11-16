@@ -209,6 +209,46 @@
               "title": "Гаражи и машиноместа",
               "value": "garageAndParking"
             }
+          },
+          {
+            "title": "Квартира, апартаменты",
+            "value": "realEstateAbroadFlat",
+            "group": {
+              "title": "Недвижимость за рубежом",
+              "value": "realEstateAbroad"
+            }
+          },
+          {
+            "title": "Дом, вилла",
+            "value": "realEstateAbroadHouse",
+            "group": {
+              "title": "Недвижимость за рубежом",
+              "value": "realEstateAbroad"
+            }
+          },
+          {
+            "title": "Земельный участок",
+            "value": "realEstateAbroadLand",
+            "group": {
+              "title": "Недвижимость за рубежом",
+              "value": "realEstateAbroad"
+            }
+          },
+          {
+            "title": "Гараж, машиноместо",
+            "value": "realEstateAbroadGarageAndParking",
+            "group": {
+              "title": "Недвижимость за рубежом",
+              "value": "realEstateAbroad"
+            }
+          },
+          {
+            "title": "Коммерческая недвижимость",
+            "value": "realEstateAbroadFlat",
+            "group": {
+              "title": "Недвижимость за рубежом",
+              "value": "realEstateAbroadCommercial"
+            }
           }
         ]
       }

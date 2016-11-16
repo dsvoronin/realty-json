@@ -160,6 +160,46 @@
               "title": "Коммерческая",
               "value": "commercial"
             }
+          },
+          {
+            "title": "Квартира, апартаменты",
+            "value": "realEstateAbroadFlat",
+            "group": {
+              "title": "Недвижимость за рубежом",
+              "value": "realEstateAbroad"
+            }
+          },
+          {
+            "title": "Дом, вилла",
+            "value": "realEstateAbroadHouse",
+            "group": {
+              "title": "Недвижимость за рубежом",
+              "value": "realEstateAbroad"
+            }
+          },
+          {
+            "title": "Земельный участок",
+            "value": "realEstateAbroadLand",
+            "group": {
+              "title": "Недвижимость за рубежом",
+              "value": "realEstateAbroad"
+            }
+          },
+          {
+            "title": "Гараж, машиноместо",
+            "value": "realEstateAbroadGarageAndParking",
+            "group": {
+              "title": "Недвижимость за рубежом",
+              "value": "realEstateAbroad"
+            }
+          },
+          {
+            "title": "Коммерческая недвижимость",
+            "value": "realEstateAbroadCommercial",
+            "group": {
+              "title": "Недвижимость за рубежом",
+              "value": "realEstateAbroad"
+            }
           }
         ],
         "xpath": "objectType.value",
@@ -312,7 +352,11 @@
       }
     },
     "required-condition": true,
-    "visible-condition": true,
+    "visible-condition": {
+      "$not": {
+        "objectType.group.value": "realEstateAbroad"
+      }
+    },
     "editable-condition": false
   },
   {
@@ -328,11 +372,20 @@
     },
     "required-condition": true,
     "visible-condition": {
-      "region.id": {
-        "$length": {
-          "$gt": 0
+      "$and": [
+        {
+          "region.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        },
+        {
+          "$not": {
+            "objectType.group.value": "realEstateAbroad"
+          }
         }
-      }
+      ]
     },
     "editable-condition": false,
     "clear-triggers": [
@@ -823,6 +876,11 @@
         },
         {
           "$not": {
+            "objectType.group.value": "realEstateAbroad"
+          }
+        },
+        {
+          "$not": {
             "$and": [
               {
                 "development.id": {
@@ -981,7 +1039,8 @@
           "$not": {
             "objectType.group.value": {
               "$in": [
-                "garageAndParking"
+                "garageAndParking",
+                "realEstateAbroad"
               ]
             }
           }
@@ -1032,6 +1091,23 @@
     "comment": "Идентификатор дома из ФИАС"
   },
   {
+    "title": "Страна",
+    "type": "FIAS_COUNTRY",
+    "alias": "country",
+    "data": {
+      "singleOf": {
+        "param": "countryId",
+        "api": "fias/countries",
+        "xpath": "country.id"
+      }
+    },
+    "editable-condition": false,
+    "required-condition": true,
+    "visible-condition": {
+      "objectType.group.value": "realEstateAbroad"
+    }
+  },
+  {
     "title": "Фото",
     "type": "HEADER",
     "icon": "photo"
@@ -1044,27 +1120,6 @@
       "singleOf": {
         "param": "photos",
         "xpath": "photos"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": true,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
-    "title": "Планировка",
-    "type": "HEADER",
-    "icon": "planning"
-  },
-  {
-    "title": "Планировка",
-    "type": "IMAGES",
-    "alias": "planningImages",
-    "data": {
-      "singleOf": {
-        "param": "planningImages",
-        "xpath": "planningImages"
       }
     },
     "required-condition": false,
@@ -1277,7 +1332,8 @@
               "living",
               "land",
               "suburban",
-              "garageAndParking"
+              "garageAndParking",
+              "realEstateAbroad"
             ]
           }
         }
@@ -3901,6 +3957,211 @@
     "title": "Контакты",
     "type": "HEADER",
     "icon": "contacts"
+  },
+  {
+    "title": "Регион",
+    "type": "FIAS_REGION",
+    "alias": "region_contacts",
+    "data": {
+      "singleOf": {
+        "param": "regionId",
+        "api": "fias/region",
+        "xpath": "region_contacts.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+        "objectType.group.value": "realEstateAbroad"
+    },
+    "editable-condition": false
+  },
+  {
+    "title": "Город",
+    "type": "FIAS_CITY",
+    "alias": "city_contacts",
+    "data": {
+      "singleOf": {
+        "param": "cityId",
+        "api": "fias/city?regionId=${region_contacts.id}&type=city&name={filter}",
+        "xpath": "city_contacts.id"
+      }
+    },
+    "required-condition": true,
+    "visible-condition": {
+      "$and": [
+        {
+          "region_contacts.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        },
+        {
+            "objectType.group.value": "realEstateAbroad"
+        }
+      ]
+    },
+    "editable-condition": false,
+    "clear-triggers": [
+      "region_contacts"
+    ]
+  },
+  {
+    "title": "Метро",
+    "type": "FIAS_METRO",
+    "alias": "metro_contacts",
+    "data": {
+      "singleOf": {
+        "param": "metroId",
+        "api": "fias/metro?cityId=${city_contacts.id}",
+        "xpath": "metro_contacts.id"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "city_contacts.hasMetro": true
+        },
+        {
+          "objectType.group.value": "realEstateAbroad"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    },
+    "clear-triggers": [
+      "region_contacts",
+      "city_contacts"
+    ]
+  },
+  {
+    "title": "Район",
+    "type": "FIAS_DISTRICT",
+    "alias": "district_contacts",
+    "data": {
+      "singleOf": {
+        "param": "districtId",
+        "api": "fias/district?cityId=${city_contacts.id}",
+        "xpath": "district_contacts.id"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "city_contacts.hasMetro": false
+        },
+        {
+          "city_contacts.hasDistrict": true
+        },
+        {
+          "objectType.group.value": "realEstateAbroad"
+        }
+      ]
+    },
+    "editable-condition": {
+      "isFromAutoupload": false
+    },
+    "clear-triggers": [
+      "region_contacts",
+      "city_contacts"
+    ]
+  },
+  {
+    "title": "Улица",
+    "type": "FIAS_STREET",
+    "alias": "street_contacts",
+    "data": {
+      "singleOf": {
+        "param": "streetId",
+        "api": "fias/address?parent=${city_contacts.id}&type=street",
+        "xpath": "street_contacts.id"
+      }
+    },
+    "visible-condition": {
+      "$and": [
+        {
+          "hasNoAddress": false
+        },
+        {
+          "city_contacts.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        },
+        {
+            "objectType.group.value": "realEstateAbroad"
+        }
+      ]
+    },
+    "required-condition": false,
+    "editable-condition": {
+      "isFromAutoupload": false
+    },
+    "clear-triggers": [
+      "region_contacts",
+      "city_contacts"
+    ]
+  },
+  {
+    "title": "Дом",
+    "type": "FIAS_HOUSE",
+    "alias": "building_contacts",
+    "data": {
+      "fiasBuilding": {
+        "param": "buildingId",
+        "api": "fias/house?parent=${street_contacts.id|city_contacts.id}",
+        "xpath": "building_contacts.id"
+      },
+      "customBuilding": {
+        "param": "buildingLabel",
+        "xpath": "building_contacts.title"
+      }
+    },
+    "visible-condition": {
+      "$and": [
+        {
+          "objectType.group.value": "realEstateAbroad"
+        },
+        {
+          "hasNoAddress": false
+        },
+        {
+          "$or": [
+            {
+              "$and": [
+                {
+                  "city_contacts.hasStreetlessBuilding": false
+                },
+                {
+                  "street_contacts.id": {
+                    "$length": {
+                      "$gt": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "city_contacts.hasStreetlessBuilding": true
+            }
+          ]
+        }
+      ]
+    },
+    "required-condition": false,
+    "editable-condition": {
+      "isFromAutoupload": false
+    },
+    "clear-triggers": [
+      "region_contacts",
+      "city_contacts",
+      "street_contacts"
+    ],
+    "comment": "Идентификатор дома из ФИАС"
   },
   {
     "title": "Компания",
