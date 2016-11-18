@@ -2026,12 +2026,12 @@
                 "$or": [
                   {
                     "documentation": {
-                      "$regexp": "(?:[^a-zA-Z0-9]|^)(?i:vk|vkontakte|facebook|ok|google|dropbox|cloud\\.mail\\.com|\\.ru)"
+                      "$regexp": "(?:[^a-zA-Z0-9]|^)(?i:vk|vkontakte|facebook|ok|google|dropbox|cloud\\.mail\\.com|\\.ru).*"
                     }
                   },
                   {
                     "documentation": {
-                      "$regexp": "(?:[^a-zA-Z0-9\\.]|^|([^a-zA-Z0-9]|^)disk\\.)(?i:yandex\\.ru)"
+                      "$regexp": "(?:[^a-zA-Z0-9\\.]|^|([^a-zA-Z0-9]|^)disk\\.)(?i:yandex\\.ru).*"
                     }
                   }           
                 ]
