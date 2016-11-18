@@ -2014,18 +2014,24 @@
       {
         "condition": {
 
-          "$not": {
+          "$and": [
+            {
+              "$regexp": ".+\\..+"
+            },
+            {
+              "$not": {
 
-              "$or": [
-                {
-                  "$regexp": "(?:[^a-zA-Z0-9]|^)(?i:vk|vkontakte|facebook|ok|google|dropbox|cloud\\.mail\\.com|\\.ru)"
-                },
-                {
-                  "$regexp": "(?:[^a-zA-Z0-9\\.]|^|([^a-zA-Z0-9]|^)disk\\.)(?i:yandex\\.ru)"
-                }           
-              ]
+                "$or": [
+                  {
+                    "$regexp": "(?:[^a-zA-Z0-9]|^)(?i:vk|vkontakte|facebook|ok|google|dropbox|cloud\\.mail\\.com|\\.ru)"
+                  },
+                  {
+                    "$regexp": "(?:[^a-zA-Z0-9\\.]|^|([^a-zA-Z0-9]|^)disk\\.)(?i:yandex\\.ru)"
+                  }           
+                ]
+              }
             }
-          }
+          ]
         },
         "errorMessage": "Недопустимая ссылка"
       }
