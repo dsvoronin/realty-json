@@ -2010,9 +2010,27 @@
         }
       ]
     },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$not": {
+
+            "$or": [
+              {
+                "$regexp": "(?:[^a-zA-Z0-9]|^)(?i:vk|vkontakte|facebook|ok|google|dropbox|cloud\\.mail\\.com|\\.ru)"
+              },
+              {
+                "$regexp": "(?:[^a-zA-Z0-9\\.]|^|([^a-zA-Z0-9]|^)disk\\.)(?i:yandex\\.ru)"
+              }           
+            ]
+          }
+        },
+        "errorMessage": "Недопустимая ссылка"
+      }
+    ],
     "inputPromt": [
       {
-        "text": "Укажите корпус или очередь.",
+        "text": "Укажите ссылку на проектную документацию. Нельзя указывать ссылки на социальные сети, облачные хранилища и архивы.",
         "condition": true
       }
     ]
