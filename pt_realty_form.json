@@ -2026,7 +2026,7 @@
                 "$or": [
                   {
                     "documentation": {
-                      "$regexp": "(?:[^a-zA-Z0-9]|^)(?i:vk|vkontakte|facebook|ok|google|dropbox|cloud\\.mail\\.com|\\.ru).*"
+                      "$regexp": "([:\\/\\.a-z0-9A-Z]){0,}(\\bvk\\b|\\bvkontakte\\b|\\bfacebook\\b|\\bok\\b|\\bgoogle\\b|\\bdropbox\\b|\\bcloud\\.mail\\b)\\.(\\bcom\\b|\\bru\\b)\\/?(.*)"
                     }
                   },
                   {
