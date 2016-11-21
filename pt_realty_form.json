@@ -2031,7 +2031,7 @@
                   },
                   {
                     "documentation": {
-                      "$regexp": "(?:[^a-zA-Z0-9\\.]|^|([^a-zA-Z0-9]|^)disk\\.)(?i:yandex\\.ru).*"
+                      "$regexp": "([:\\/a-z0-9A-Z]|(\\bdisk\\.\\b)){0,}(\\bya\\b|\\byandex\\b)\\.(\\bcom\\b|\\bru\\b)\\/?(.*)"
                     }
                   }           
                 ]
