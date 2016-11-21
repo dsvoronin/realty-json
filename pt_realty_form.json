@@ -4149,12 +4149,12 @@
     "type": "FIAS_HOUSE",
     "alias": "building_contacts",
     "data": {
-      "fiasBuilding": {
+      "networkObject": {
         "param": "buildingId",
         "api": "fias/house?parent=${street_contacts.id|city_contacts.id}",
         "xpath": "building_contacts.id"
       },
-      "customBuilding": {
+      "customObject": {
         "param": "buildingLabel",
         "xpath": "building_contacts.title"
       }
