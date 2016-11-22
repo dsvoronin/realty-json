@@ -1890,7 +1890,7 @@
             "value": 2024
           }
         ],
-        "xpath": "readyDateYear"
+        "xpath": "readyDateYear.value"
       }
     },
     "required-condition": false,
@@ -1939,7 +1939,7 @@
             "value": 4
           }
         ],
-        "xpath": "readyDateQuarter"
+        "xpath": "readyDateQuarter.value"
       }
     },
     "required-condition": false,
