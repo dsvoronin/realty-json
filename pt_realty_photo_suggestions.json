@@ -1,0 +1,114 @@
+[
+    {
+        "title": "Фотографируйте объект в солнечный день",
+        "description": "Фотографии получаются лучше в солнечный день.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/IMG_0675_1.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0675_1_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/IMG_0681_1.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0681_1_thumb.jpg"
+    },
+    {
+        "title": "Сфотографируйте объект снаружи",
+        "description": "Отсутствие фотографий снаружи подаст тревожный сигнал для покупателей.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/outside_ok_2.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/outside_ok_2_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/noPhotoIphone6.png",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/noPhotoIphone6_thumb.png"
+    },
+    {
+        "title": "Проверьте, что фотографии внешнего фида объекта соответствуют сезону",
+        "description": "Летом не должно быть фотографий со снегом.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/outside_ok_2.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/outside_ok_2_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/IMG_0840.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0840_thumb.jpg"
+    },
+    {
+        "title": "Убедитесь, что стоите спиной к солнцу",
+        "description": "Иначе на фотографии могут быть ненужные блики.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/IMG_0664_1.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0664_1_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/IMG_0661_1.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0661_1_thumb.jpg"
+    },
+    {
+        "title": "Позаботьтесь о хорошем освещении",
+        "description": "Используйте дневной свет или приносите с собой энергосберегающие лампы белого света.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/IMG_0556.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0556_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/IMG_0636_1.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0636_1_thumb.jpg"
+    },
+    {
+        "title": "Попробуйте сделать фото из угла комнаты",
+        "description": "Следует встать в угол, чтобы захватить в кадр как можно большую часть комнаты. Вы даже можете встать в другой комнате, если так в кадр попадет комната целиком.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/IMG_0642_1.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0642_1_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/IMG_0617_1.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0617_1_thumb.jpg"
+    },
+    {
+        "title": "Уберите все лишнее из кадра",
+        "description": "Приступая к съемке интерьера, постарайтесь навести порядок в помещении, убрав все лишние вещи из кадра.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/IMG_0608.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0608_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/IMG_0583__1.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0583__1_thumb.jpg"
+    },
+    {
+        "title": "Уберите людей и животных из кадра",
+        "description": "Всегда стоит обращать внимание на такие вещи. Снимайте комнаты с окнами и зеркалами в правильном ракурсе, чтобы избежать отражений.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/IMG_0561_1.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0561_1_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/IMG_0598_1.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0598_1_thumb.jpg"
+    },
+    {
+        "title": "Устраните заваливание относительно горизонтальной оси",
+        "description": "Так фотографии будут выглядеть более профессионально.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/IMG_0594_1.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0594_1_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/IMG_0594__1.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0594__1_thumb.jpg"
+    },
+    {
+        "title": "Делайте несколько кадров",
+        "description": "Всегда делайте по несколько кадров каждой комнаты и каждого объекта, чтобы была возможность отбраковать нечеткие снимки.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/IMG_0617_1.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0617_1_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/IMG_0622_1.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0622_1_thumb.jpg"
+    },
+    {
+        "title": "Обрежьте лишнее",
+        "description": "Посторонние предметы будут отвлекать внимание покупателей.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/IMG_0587.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0587_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/IMG_0587_1.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0587_1_thumb.jpg"
+    },
+    {
+        "title": "Используйте панорамную съемку",
+        "description": "Для небольших комнат хорошо подходит панорама из 9-ти точек.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/IMG_0556.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0556_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/IMG_0556_1.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0556_1_thumb.jpg"
+    },
+    {
+        "title": "Опустите крышку унитаза перед фотографированием ванной комнаты",
+        "description": "Унитаз с закрытой крышкой смотрится гораздо более эстетично.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/IMG_0595_1.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0595_1_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/IMG_0588_1.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0588_1_thumb.jpg"
+    },
+    {
+        "title": "Не забудьте улучшить фото",
+        "description": "Мы постарались подобрать для вас оптимальный набор фильтров для улучшения фотографий.",
+        "beforeImage": "http://www.avito.ru/files/protools/realty/IMG_0641__1.jpg",
+        "beforeThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0641__1_thumb.jpg",
+        "afterImage": "http://www.avito.ru/files/protools/realty/IMG_0641_1.jpg",
+        "afterThumbnailImage": "http://www.avito.ru/files/protools/realty/IMG_0641_1_thumb.jpg"
+    }
+]
