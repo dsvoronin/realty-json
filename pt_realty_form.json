@@ -1974,7 +1974,21 @@
       }
     },
     "required-condition": {
-      "isReady.value": false
+      "$and": [
+        {
+          "isReady.value": false
+        },
+        {
+          "$or": [
+            {
+              "development.isCustom": true
+            },
+            {
+              "developmentBuilding.isCustom": true
+            }
+          ]
+        }
+      ]
     },
     "visible-condition": {
       "$or": [
@@ -2033,7 +2047,7 @@
                     "documentation": {
                       "$regexp": "([:\\/a-z0-9A-Z]|(\\bdisk\\.\\b)){0,}(\\bya\\b|\\byandex\\b)\\.(\\bcom\\b|\\bru\\b)\\/?(.*)"
                     }
-                  }           
+                  }
                 ]
               }
             }
