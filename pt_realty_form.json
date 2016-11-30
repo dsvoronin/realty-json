@@ -853,27 +853,6 @@
     }
   },
   {
-    "title": "Планировка",
-    "type": "HEADER",
-    "icon": "planning"
-  },
-  {
-    "title": "Планировка",
-    "type": "IMAGES",
-    "alias": "planningImages",
-    "data": {
-      "singleOf": {
-        "param": "planningImages",
-        "xpath": "planningImages"
-      }
-    },
-    "required-condition": false,
-    "visible-condition": true,
-    "editable-condition": {
-      "isFromAutoupload": false
-    }
-  },
-  {
     "title": "Описание",
     "type": "HEADER",
     "icon": "description"
