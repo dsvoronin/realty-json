@@ -1991,31 +1991,14 @@
       ]
     },
     "visible-condition": {
-      "$or": [
+      "$and": [
         {
-          "$and": [
-            {
-              "isNew.value": true
-            },
-            {
-              "development.hasBuildings": false
-            }
-          ]
+          "isNew.value": true
         },
         {
-          "$and": [
-            {
-              "isNew.value": true
-            },
+          "$or": [
             {
               "development.isCustom": true
-            }
-          ]
-        },
-        {
-          "$and": [
-            {
-              "isNew.value": true
             },
             {
               "developmentBuilding.isCustom": true
@@ -2027,7 +2010,6 @@
     "valid-conditions": [
       {
         "condition": {
-
           "$and": [
             {
               "documentation": {
