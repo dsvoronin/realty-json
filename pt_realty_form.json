@@ -280,15 +280,25 @@
   },
   {
     "title": "Охрана",
-    "type": "BOOLEAN",
+    "type": "LIST",
     "alias": "security",
     "data": {
       "singleOf": {
         "param": "isSecure",
-        "xpath": "security"
+        "xpath": "security",
+        "source": [
+          {
+            "title": "Да",
+            "value": true
+          },
+          {
+            "title": "Нет",
+            "value": false
+          }
+        ]
       }
     },
-    "required-condition": false,
+    "required-condition": true,
     "visible-condition": {
       "objectType.value": {
         "$in": [
@@ -407,15 +417,9 @@
         "xpath": "development.title"
       }
     },
-    "required-condition": {
-      "isNew.value": true
-    },
+    "required-condition": false,
     "visible-condition": {
-      "$and": [
-        {
-          "isNew.value": true
-        }
-      ]
+      "isNew.value": true
     },
     "editable-condition": true,
     "clear-triggers": [
@@ -453,6 +457,11 @@
             },
             {
               "development.hasBuildings": true
+            },
+            {
+              "development.id": {
+                "$gt": 0
+              }
             }
           ]
         },
@@ -477,6 +486,11 @@
             },
             {
               "development.hasBuildings": true
+            },
+            {
+              "development.id": {
+                "$gt": 0
+              }
             }
           ]
         },
@@ -518,6 +532,100 @@
         "condition": {
           "development.isCustom": true
         }
+      }
+    ]
+  },
+  {
+    "title": "Документация",
+    "type": "STRING",
+    "alias": "documentation",
+    "data": {
+      "singleOf": {
+        "param": "developmentDocumentation",
+        "xpath": "documentation"
+      }
+    },
+    "required-condition": {
+      "$or": [
+        {
+          "development.isCustom": true
+        },
+        {
+          "development.id": {
+            "$lte": 0
+          }
+        },
+        {
+          "developmentBuilding.isCustom": true
+        },
+        {
+          "developmentBuilding.id": {
+            "$lte": 0
+          }
+        }
+      ]
+    },
+    "visible-condition": {
+      "$and": [
+        {
+          "isNew.value": true
+        },
+        {
+          "$or": [
+            {
+              "development.isCustom": true
+            },
+            {
+              "development.id": {
+                "$lte": 0
+              }
+            },
+            {
+              "developmentBuilding.isCustom": true
+            },
+            {
+              "developmentBuilding.id": {
+                "$lte": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "valid-conditions": [
+      {
+        "condition": {
+          "$and": [
+            {
+              "documentation": {
+                "$regexp": ".+\\..+"
+              }
+            },
+            {
+              "$not": {
+                "$or": [
+                  {
+                    "documentation": {
+                      "$regexp": "([:\\/\\.a-z0-9A-Z]){0,}(\\bvk\\b|\\bvkontakte\\b|\\bfacebook\\b|\\bok\\b|\\bgoogle\\b|\\bdropbox\\b|\\bcloud\\.mail\\b)\\.(\\bcom\\b|\\bru\\b)\\/?(.*)"
+                    }
+                  },
+                  {
+                    "documentation": {
+                      "$regexp": "([:\\/a-z0-9A-Z]|(\\bdisk\\.\\b)){0,}(\\bya\\b|\\byandex\\b)\\.(\\bcom\\b|\\bru\\b)\\/?(.*)"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "errorMessage": "Недопустимая ссылка"
+      }
+    ],
+    "inputPromt": [
+      {
+        "text": "Укажите ссылку на проектную документацию. Нельзя указывать ссылки на социальные сети, облачные хранилища и архивы.",
+        "condition": true
       }
     ]
   },
@@ -884,16 +992,12 @@
             "$and": [
               {
                 "development.id": {
-                  "$length": {
-                    "$gt": 0
-                  }
+                  "$gt": 0
                 }
               },
               {
                 "developmentBuilding.id": {
-                  "$length": {
-                    "$gt": 0
-                  }
+                  "$gt": 0
                 }
               }
             ]
@@ -923,16 +1027,12 @@
                         "$and": [
                           {
                             "development.id": {
-                              "$length": {
-                                "$gt": 0
-                              }
+                              "$gt": 0
                             }
                           },
                           {
                             "developmentBuilding.id": {
-                              "$length": {
-                                "$gt": 0
-                              }
+                              "$gt": 0
                             }
                           }
                         ]
@@ -950,7 +1050,13 @@
         {
           "$and": [
             {
-              "objectType.value": "room"
+              "objectType.value": {
+                "$in": [
+                  "room",
+                  "garage",
+                  "parking"
+                ]
+              }
             },
             {
               "city.hasStreetlessBuilding": false
@@ -1002,16 +1108,12 @@
       "$and": [
         {
           "development.id": {
-            "$length": {
-              "$gt": 0
-            }
+            "$gt": 0
           }
         },
         {
           "developmentBuilding.id": {
-            "$length": {
-              "$gt": 0
-            }
+            "$gt": 0
           }
         }
       ]
@@ -1051,7 +1153,27 @@
           }
         },
         {
-          "isNew.value": false
+          "$or": [
+            {
+              "isNew.value": false
+            },
+            {
+              "$and": [
+                {
+                  "isNew.value": true
+                },
+                {
+                  "$not": {
+                    "development.title": {
+                      "$length": {
+                        "$gt": 0
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "hasNoAddress": false
@@ -1962,88 +2084,6 @@
     "editable-condition": {
       "isFromAutoupload": false
     }
-  },
-  {
-    "title": "Документация",
-    "type": "STRING",
-    "alias": "documentation",
-    "data": {
-      "singleOf": {
-        "param": "developmentDocumentation",
-        "xpath": "documentation"
-      }
-    },
-    "required-condition": {
-      "$and": [
-        {
-          "isReady.value": false
-        },
-        {
-          "$or": [
-            {
-              "development.isCustom": true
-            },
-            {
-              "developmentBuilding.isCustom": true
-            }
-          ]
-        }
-      ]
-    },
-    "visible-condition": {
-      "$and": [
-        {
-          "isNew.value": true
-        },
-        {
-          "$or": [
-            {
-              "development.isCustom": true
-            },
-            {
-              "developmentBuilding.isCustom": true
-            }
-          ]
-        }
-      ]
-    },
-    "valid-conditions": [
-      {
-        "condition": {
-          "$and": [
-            {
-              "documentation": {
-                "$regexp": ".+\\..+"
-              }
-            },
-            {
-              "$not": {
-
-                "$or": [
-                  {
-                    "documentation": {
-                      "$regexp": "([:\\/\\.a-z0-9A-Z]){0,}(\\bvk\\b|\\bvkontakte\\b|\\bfacebook\\b|\\bok\\b|\\bgoogle\\b|\\bdropbox\\b|\\bcloud\\.mail\\b)\\.(\\bcom\\b|\\bru\\b)\\/?(.*)"
-                    }
-                  },
-                  {
-                    "documentation": {
-                      "$regexp": "([:\\/a-z0-9A-Z]|(\\bdisk\\.\\b)){0,}(\\bya\\b|\\byandex\\b)\\.(\\bcom\\b|\\bru\\b)\\/?(.*)"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        "errorMessage": "Недопустимая ссылка"
-      }
-    ],
-    "inputPromt": [
-      {
-        "text": "Укажите ссылку на проектную документацию. Нельзя указывать ссылки на социальные сети, облачные хранилища и архивы.",
-        "condition": true
-      }
-    ]
   },
   {
     "title": "Класс здания",
@@ -4005,7 +4045,7 @@
     },
     "required-condition": true,
     "visible-condition": {
-        "objectType.group.value": "realEstateAbroad"
+      "objectType.group.value": "realEstateAbroad"
     },
     "editable-condition": false
   },
@@ -4031,7 +4071,7 @@
           }
         },
         {
-            "objectType.group.value": "realEstateAbroad"
+          "objectType.group.value": "realEstateAbroad"
         }
       ]
     },
@@ -4127,7 +4167,7 @@
           }
         },
         {
-            "objectType.group.value": "realEstateAbroad"
+          "objectType.group.value": "realEstateAbroad"
         }
       ]
     },
