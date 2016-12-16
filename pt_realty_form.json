@@ -878,6 +878,20 @@
         {
           "$and": [
             {
+              "isNew.value": true
+            },
+            {
+              "city.id": {
+                "$length": {
+                  "$gt": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "$and": [
+            {
               "objectType.group.value": {
                 "$in": [
                   "suburban",
