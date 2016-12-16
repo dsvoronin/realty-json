@@ -716,7 +716,21 @@
               "objectType.value": "flat"
             },
             {
-              "isNew.value": false
+              "$or":[
+                {
+                  "isNew.value": false
+                },
+                {
+                  "$and":[
+                    {
+                      "isNew.value": true
+                    },
+                    {
+                      "hasNoAddress": false
+                    }
+                  ]
+                }
+              ]
             },
             {
               "city.hasStreetlessBuilding": false
