@@ -478,26 +478,21 @@
       ]
     },
     "visible-condition": {
-      "$or": [
+      "$and": [
         {
-          "$and": [
+          "isNew.value": true
+        },
+        {
+          "$or": [
             {
-              "isNew.value": true
-            },
-            {
-              "development.hasBuildings": true
+              "$not": {
+                "development.hasBuildings": false
+              }
             },
             {
               "development.id": {
                 "$gt": 0
               }
-            }
-          ]
-        },
-        {
-          "$and": [
-            {
-              "isNew.value": true
             },
             {
               "development.isCustom": true
