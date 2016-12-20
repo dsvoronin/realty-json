@@ -490,11 +490,6 @@
               }
             },
             {
-              "development.id": {
-                "$gt": 0
-              }
-            },
-            {
               "development.isCustom": true
             }
           ]
