@@ -280,15 +280,25 @@
   },
   {
     "title": "Охрана",
-    "type": "BOOLEAN",
+    "type": "LIST",
     "alias": "security",
     "data": {
       "singleOf": {
         "param": "isSecure",
-        "xpath": "security"
+        "xpath": "security.value",
+        "source": [
+          {
+            "title": "Да",
+            "value": true
+          },
+          {
+            "title": "Нет",
+            "value": false
+          }
+        ]
       }
     },
-    "required-condition": false,
+    "required-condition": true,
     "visible-condition": {
       "objectType.value": {
         "$in": [
