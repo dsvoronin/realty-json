@@ -1122,9 +1122,6 @@
     "visible-condition": {
       "$and": [
         {
-          "isNew": true
-        },
-        {
           "development.id": {
             "$gt": 0
           }
