@@ -491,8 +491,8 @@
             },
             {
               "development.id": {
-                "$length":{
-                  "$gt":0
+                "$length": {
+                  "$gt": 0
                 }
               }
             }
@@ -1121,6 +1121,9 @@
     "required-condition": false,
     "visible-condition": {
       "$and": [
+        {
+          "isNew": true
+        },
         {
           "development.id": {
             "$gt": 0
