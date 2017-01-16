@@ -888,9 +888,6 @@
         {
           "$and": [
             {
-              "isNew.value": true
-            },
-            {
               "city.id": {
                 "$length": {
                   "$gt": 0
@@ -898,24 +895,18 @@
               }
             },
             {
+              "isNew.value": true
+            },
+            {
               "$not": {
                 "$or": [
                   {
-                    "development.id": {
+                    "developmentBuilding.id": {
                       "$gt": 0
                     }
                   },
                   {
-                    "$or": [
-                      {
-                        "developmentBuilding.id": {
-                          "$gt": 0
-                        }
-                      },
-                      {
-                        "development.hasBuildings": false
-                      }
-                    ]
+                    "development.hasBuildings": false
                   }
                 ]
               }
