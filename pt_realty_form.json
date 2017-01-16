@@ -1119,27 +1119,7 @@
       }
     },
     "required-condition": false,
-    "visible-condition": {
-      "$and": [
-        {
-          "development.id": {
-            "$gt": 0
-          }
-        },
-        {
-          "$or": [
-            {
-              "developmentBuilding.id": {
-                "$gt": 0
-              }
-            },
-            {
-              "development.hasBuildings": false
-            }
-          ]
-        }
-      ]
-    },
+    "visible-condition": true,
     "editable-condition": false
   },
   {
