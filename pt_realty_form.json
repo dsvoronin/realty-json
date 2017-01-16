@@ -1120,9 +1120,26 @@
     },
     "required-condition": false,
     "visible-condition": {
-      "$or": [
+      "$and": [
         {
-          "development.hasBuildings": false
+          "isNew": true
+        },
+        {
+          "development.id": {
+            "$gt": 0
+          }
+        },
+        {
+          "$or": [
+            {
+              "developmentBuilding.id": {
+                "$gt": 0
+              }
+            },
+            {
+              "development.hasBuildings": false
+            }
+          ]
         }
       ]
     },
