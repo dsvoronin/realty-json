@@ -419,7 +419,18 @@
     },
     "required-condition": false,
     "visible-condition": {
-      "isNew.value": true
+      "$and": [
+        {
+          "isNew.value": true
+        },
+        {
+          "city.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        }
+      ]
     },
     "editable-condition": true,
     "clear-triggers": [
@@ -888,7 +899,7 @@
             },
             {
               "$not": {
-                "$and": [
+                "$or": [
                   {
                     "development.id": {
                       "$gt": 0
