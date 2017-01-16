@@ -885,6 +885,23 @@
                   "$gt": 0
                 }
               }
+            },
+            {
+              "development.id": {
+                "$gt": 0
+              }
+            },
+            {
+              "$or": [
+                {
+                  "developmentBuilding.id": {
+                    "$gt": 0
+                  }
+                },
+                {
+                  "development.hasBuildings": false
+                }
+              ]
             }
           ]
         },
