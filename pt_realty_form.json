@@ -1004,9 +1004,16 @@
                 }
               },
               {
-                "developmentBuilding.id": {
-                  "$gt": 0
-                }
+                "$or": [
+                  {
+                    "developmentBuilding.id": {
+                      "$gt": 0
+                    }
+                  },
+                  {
+                    "development.hasBuildings": false
+                  }
+                ]
               }
             ]
           }
@@ -1120,9 +1127,16 @@
           }
         },
         {
-          "developmentBuilding.id": {
-            "$gt": 0
-          }
+          "$or": [
+            {
+              "developmentBuilding.id": {
+                "$gt": 0
+              }
+            },
+            {
+              "development.hasBuildings": false
+            }
+          ]
         }
       ]
     },
