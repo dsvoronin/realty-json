@@ -887,21 +887,27 @@
               }
             },
             {
-              "development.id": {
-                "$gt": 0
-              }
-            },
-            {
-              "$or": [
-                {
-                  "developmentBuilding.id": {
-                    "$gt": 0
+              "$not": {
+                "$and": [
+                  {
+                    "development.id": {
+                      "$gt": 0
+                    }
+                  },
+                  {
+                    "$or": [
+                      {
+                        "developmentBuilding.id": {
+                          "$gt": 0
+                        }
+                      },
+                      {
+                        "development.hasBuildings": false
+                      }
+                    ]
                   }
-                },
-                {
-                  "development.hasBuildings": false
-                }
-              ]
+                ]
+              }
             }
           ]
         },
