@@ -494,7 +494,7 @@
           "isNew.value": true
         },
         {
-          "development.hasBuildings": false
+          "development.hasBuildings": true
         },
         {
           "development.id": {
