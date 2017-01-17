@@ -492,6 +492,16 @@
       "$and": [
         {
           "isNew.value": true
+        },
+        {
+          "development.hasBuildings": true
+        },
+        {
+          "development.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
         }
       ]
     },
