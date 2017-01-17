@@ -494,7 +494,9 @@
           "isNew.value": true
         },
         {
-          "development.hasBuildings": true
+          "$not": {
+            "development.hasBuildings": true
+          }
         },
         {
           "development.id": {
