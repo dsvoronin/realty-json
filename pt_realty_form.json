@@ -482,7 +482,7 @@
               "isNew.value": true
             },
             {
-              "development.isCustom": true
+              "development.id": 0
             }
           ]
         }
@@ -494,20 +494,16 @@
           "isNew.value": true
         },
         {
-          "$and": [
-            {
-              "$not": {
-                "development.hasBuildings": false
-              }
-            },
-            {
-              "development.id": {
-                "$length": {
-                  "$gt": 0
-                }
-              }
+          "$not": {
+            "development.hasBuildings": false
+          }
+        },
+        {
+          "development.id": {
+            "$length": {
+              "$gt": 0
             }
-          ]
+          }
         }
       ]
     },
