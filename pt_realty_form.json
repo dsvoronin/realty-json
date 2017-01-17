@@ -495,7 +495,7 @@
         },
         {
           "$not": {
-            "development.hasBuildings": true
+            "development.hasBuildings": false
           }
         },
         {
