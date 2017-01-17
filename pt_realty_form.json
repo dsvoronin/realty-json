@@ -494,11 +494,6 @@
           "isNew.value": true
         },
         {
-          "$not": {
-            "development.hasBuildings": false
-          }
-        },
-        {
           "development.id": {
             "$length": {
               "$gt": 0
