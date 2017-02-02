@@ -411,10 +411,6 @@
         "param": "developmentId",
         "api": "realtyOffer/development?cityId=${city.id}",
         "xpath": "development.id"
-      },
-      "customObject": {
-        "param": "developmentLabel",
-        "xpath": "development.title"
       }
     },
     "required-condition": false,
@@ -460,31 +456,28 @@
       }
     },
     "required-condition": {
-      "$or": [
+      "$and": [
         {
-          "$and": [
-            {
-              "isNew.value": true
-            },
+          "isNew.value": true
+        },
+        {
+          "$or":[
             {
               "development.hasBuildings": true
             },
             {
               "development.id": {
-                "$gt": 0
+                "$eq": 0
               }
             }
           ]
         },
         {
-          "$and": [
-            {
-              "isNew.value": true
-            },
-            {
-              "development.id": 0
+          "development.id": {
+            "$length": {
+              "$gt": 0
             }
-          ]
+          }
         }
       ]
     },
@@ -494,7 +487,16 @@
           "isNew.value": true
         },
         {
-          "development.hasBuildings": true
+          "$or":[
+            {
+              "development.hasBuildings": true
+            },
+            {
+              "development.id": {
+                "$eq": 0
+              }
+            }
+          ]
         },
         {
           "development.id": {
@@ -1141,21 +1143,42 @@
     "visible-condition": {
       "$and": [
         {
+          "development.hasBuildings": false
+        },
+        {
+          "development.id": {
+            "$gt": 0
+          }
+        }
+      ]
+    },
+    "editable-condition": false
+  },
+  {
+    "title": "Улица",
+    "type": "STRING",
+    "alias": "developmentBuildingStreet",
+    "data": {
+      "singleOf": {
+        "xpath": "developmentStreet",
+        "bind": "@developmentBuilding.street"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "development.hasBuildings": true
+        },
+        {
           "development.id": {
             "$gt": 0
           }
         },
         {
-          "$or": [
-            {
-              "developmentBuilding.id": {
-                "$gt": 0
-              }
-            },
-            {
-              "development.hasBuildings": false
-            }
-          ]
+          "developmentBuilding.id": {
+            "$gt": 0
+          }
         }
       ]
     },
