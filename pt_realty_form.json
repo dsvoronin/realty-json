@@ -1160,7 +1160,7 @@
     "alias": "developmentBuildingStreet",
     "data": {
       "singleOf": {
-        "xpath": "developmentStreet",
+        "xpath": "developmentBuildingStreet",
         "bind": "@developmentBuilding.street"
       }
     },
