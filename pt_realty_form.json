@@ -999,48 +999,7 @@
         "xpath": "street.id"
       }
     },
-    "visible-condition": {
-      "$and": [
-        {
-          "hasNoAddress": false
-        },
-        {
-          "city.id": {
-            "$length": {
-              "$gt": 0
-            }
-          }
-        },
-        {
-          "$not": {
-            "objectType.group.value": "realEstateAbroad"
-          }
-        },
-        {
-          "$not": {
-            "$and": [
-              {
-                "development.id": {
-                  "$gt": 0
-                }
-              },
-              {
-                "$or": [
-                  {
-                    "developmentBuilding.id": {
-                      "$gt": 0
-                    }
-                  },
-                  {
-                    "development.hasBuildings": false
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
+    "visible-condition": true,
     "required-condition": {
       "$or": [
         {
@@ -1140,20 +1099,7 @@
       }
     },
     "required-condition": false,
-    "visible-condition": {
-      "$and": [
-        {
-          "isNew": true
-        },
-        {
-          "developmentBuilding.street": {
-            "$length":{
-              "$gt": 0
-            }
-          }
-        }
-      ]
-    },
+    "visible-condition": true,
     "editable-condition": false
   },
   {
@@ -1167,20 +1113,7 @@
       }
     },
     "required-condition": false,
-    "visible-condition": {
-      "$and": [
-        {
-          "isNew": true
-        },
-        {
-          "developmentBuilding.street": {
-            "$length":{
-              "$gt": 0
-            }
-          }
-        }
-      ]
-    },
+    "visible-condition": true,
     "editable-condition": false
   },
   {
