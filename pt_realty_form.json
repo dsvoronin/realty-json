@@ -989,7 +989,7 @@
     ]
   },
   {
-    "title": "Улица2",
+    "title": "Улица1",
     "type": "FIAS_STREET",
     "alias": "street",
     "data": {
@@ -1130,7 +1130,7 @@
     ]
   },
   {
-    "title": "Улица",
+    "title": "Улица2",
     "type": "STRING",
     "alias": "developmentStreet",
     "data": {
@@ -1143,11 +1143,13 @@
     "visible-condition": {
       "$and": [
         {
-          "development.hasBuildings": false
+          "isNew": true
         },
         {
-          "development.id": {
-            "$gt": 0
+          "developmentBuilding.street": {
+            "$length":{
+              "$gt": 0
+            }
           }
         }
       ]
@@ -1155,7 +1157,7 @@
     "editable-condition": false
   },
   {
-    "title": "Улица",
+    "title": "Улица3",
     "type": "STRING",
     "alias": "developmentBuildingStreet",
     "data": {
@@ -1168,16 +1170,13 @@
     "visible-condition": {
       "$and": [
         {
-          "development.hasBuildings": true
+          "isNew": true
         },
         {
-          "development.id": {
-            "$gt": 0
-          }
-        },
-        {
-          "developmentBuilding.id": {
-            "$gt": 0
+          "developmentBuilding.street": {
+            "$length":{
+              "$gt": 0
+            }
           }
         }
       ]
