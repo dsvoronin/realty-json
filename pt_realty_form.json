@@ -1102,7 +1102,7 @@
     "visible-condition": {
       "$and": [
         {
-          "isNew": true
+          "isNew.value": true
         },
         {
           "development.id": {
@@ -1148,7 +1148,7 @@
     "visible-condition": {
       "$and": [
         {
-          "isNew": true
+          "isNew.value": true
         },
         {
           "development.id": {
