@@ -1120,13 +1120,6 @@
           "$or": [
             {
               "development.hasBuildings": false
-            },
-            {
-              "developmentBuilding.street": {
-                "$length": {
-                  "$lte": 0
-                }
-              }
             }
           ]
         }
