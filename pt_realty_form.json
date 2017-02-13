@@ -411,15 +411,22 @@
         "param": "developmentId",
         "api": "realtyOffer/development?cityId=${city.id}",
         "xpath": "development.id"
-      },
-      "customObject": {
-        "param": "developmentLabel",
-        "xpath": "development.title"
       }
     },
     "required-condition": false,
     "visible-condition": {
-      "isNew.value": true
+      "$and": [
+        {
+          "isNew.value": true
+        },
+        {
+          "city.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        }
+      ]
     },
     "editable-condition": true,
     "clear-triggers": [
@@ -449,31 +456,28 @@
       }
     },
     "required-condition": {
-      "$or": [
+      "$and": [
         {
-          "$and": [
-            {
-              "isNew.value": true
-            },
+          "isNew.value": true
+        },
+        {
+          "$or": [
             {
               "development.hasBuildings": true
             },
             {
               "development.id": {
-                "$gt": 0
+                "$eq": 0
               }
             }
           ]
         },
         {
-          "$and": [
-            {
-              "isNew.value": true
-            },
-            {
-              "development.isCustom": true
+          "development.id": {
+            "$length": {
+              "$gt": 0
             }
-          ]
+          }
         }
       ]
     },
@@ -483,20 +487,23 @@
           "isNew.value": true
         },
         {
-          "$and": [
+          "$or": [
             {
-              "$not": {
-                "development.hasBuildings": false
-              }
+              "development.hasBuildings": true
             },
             {
               "development.id": {
-                "$length":{
-                  "$gt":0
-                }
+                "$eq": 0
               }
             }
           ]
+        },
+        {
+          "development.id": {
+            "$length": {
+              "$gt": 0
+            }
+          }
         }
       ]
     },
@@ -877,13 +884,27 @@
         {
           "$and": [
             {
-              "isNew.value": true
-            },
-            {
               "city.id": {
                 "$length": {
                   "$gt": 0
                 }
+              }
+            },
+            {
+              "isNew.value": true
+            },
+            {
+              "$not": {
+                "$or": [
+                  {
+                    "developmentBuilding.id": {
+                      "$gt": 0
+                    }
+                  },
+                  {
+                    "development.hasBuildings": false
+                  }
+                ]
               }
             }
           ]
@@ -968,7 +989,7 @@
     ]
   },
   {
-    "title": "Улица",
+    "title": "Улица1",
     "type": "FIAS_STREET",
     "alias": "street",
     "data": {
@@ -978,41 +999,7 @@
         "xpath": "street.id"
       }
     },
-    "visible-condition": {
-      "$and": [
-        {
-          "hasNoAddress": false
-        },
-        {
-          "city.id": {
-            "$length": {
-              "$gt": 0
-            }
-          }
-        },
-        {
-          "$not": {
-            "objectType.group.value": "realEstateAbroad"
-          }
-        },
-        {
-          "$not": {
-            "$and": [
-              {
-                "development.id": {
-                  "$gt": 0
-                }
-              },
-              {
-                "developmentBuilding.id": {
-                  "$gt": 0
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
+    "visible-condition": true,
     "required-condition": {
       "$or": [
         {
@@ -1102,7 +1089,7 @@
     ]
   },
   {
-    "title": "Улица",
+    "title": "Улица2",
     "type": "STRING",
     "alias": "developmentStreet",
     "data": {
@@ -1115,13 +1102,57 @@
     "visible-condition": {
       "$and": [
         {
+          "isNew.value": true
+        },
+        {
           "development.id": {
             "$gt": 0
           }
         },
         {
-          "developmentBuilding.id": {
+          "development.street": {
+            "$length": {
+              "$gt": 0
+            }
+          }
+        },
+        {
+          "$or": [
+            {
+              "development.hasBuildings": false
+            }
+          ]
+        }
+      ]
+    },
+    "editable-condition": false
+  },
+  {
+    "title": "Улица3",
+    "type": "STRING",
+    "alias": "developmentBuildingStreet",
+    "data": {
+      "singleOf": {
+        "xpath": "developmentBuildingStreet",
+        "bind": "@developmentBuilding.street"
+      }
+    },
+    "required-condition": false,
+    "visible-condition": {
+      "$and": [
+        {
+          "isNew.value": true
+        },
+        {
+          "development.id": {
             "$gt": 0
+          }
+        },
+        {
+          "developmentBuilding.street": {
+            "$length": {
+              "$gt": 0
+            }
           }
         }
       ]
